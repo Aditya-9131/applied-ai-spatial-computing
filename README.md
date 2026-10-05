@@ -117,9 +117,65 @@ Runs 7 comprehensive test suites validating 3D RANSAC plane fitting, opening det
 
 ---
 
+---
+
 ## 🎯 Defense & Walk-In Protocol
 At the defense, evaluators can capture any unseen room with any iPhone 15 or newer using the 1-page protocol in [`CAPTURE_PROTOCOL.md`](file:///c:/Users/HP/OneDrive/Desktop/Applied_AI_Case_Study/CAPTURE_PROTOCOL.md). Run:
 ```bash
 python run_pipeline.py --input <path_to_cold_capture> --tier <tier> --output ./output/cold_defense_run
 ```
 The cold capture executes in $< 1\text{ second}$, with instant laser measurement verification against the generated `report.html` and `floor_plan.svg`.
+
+---
+
+## ⚠️ Data Disclosure: Simulated Benchmark Profiles
+
+> **The `depth_profile_m` arrays in `benchmark_data/tier3_lidar/multi_room_lidar.json` are
+> SIMULATED from a parametric dToF sensor model, not captured from a real device.**
+
+**Physical model parameters** (see [`scripts/generate_lidar_sim.py`](scripts/generate_lidar_sim.py)):
+
+| Parameter | Value | Source |
+|---|---|---|
+| Wall return depth | 0.05 m | Typical Apple LiDAR dToF |
+| Void return depth | 3.80 m | Far-field, no surface behind |
+| Wall noise sigma | 0.004 m (4 mm) | Apple LiDAR spec |
+| Void noise sigma | 0.050 m (50 mm) | Range-dependent noise model |
+| Boundary placement | Random sub-pixel offset [0,1) | Simulates incommensurate sampling |
+| Profile length | 200 samples per opening | Chosen for 0.5-1 cm pixel resolution |
+
+Ground-truth boundary positions (continuous) are stored **only** in
+`benchmark_data/ground_truth/depth_profile_ground_truth.json`.
+Pipeline code (`pipeline/`) must never read this file.
+
+To regenerate the profiles with a fresh seed:
+```bash
+python scripts/generate_lidar_sim.py
+```
+
+---
+
+## 🔧 Part 4: Fix Loop — Root Cause & Algorithm
+
+The before/after runs use live pipeline code. The `before-fix` git tag captures the
+pre-fix state; `run_fix_loop_before.py` checks it out via `git worktree` and runs it.
+
+```bash
+# BEFORE: integer gradient-peak indexing (has +1 px systematic bias)
+python scripts/run_fix_loop_before.py   # Gate 1: 55.6% FAIL
+
+# AFTER: gradient-peak fencepost correction (proven by r=1.0 correlation)
+python scripts/run_fix_loop_after.py    # Gate 1: 88.9-100% PASS
+```
+
+**Root cause** (see [`fix_declaration.md`](fix_declaration.md) and [`fix_evidence.txt`](fix_evidence.txt)):
+
+In `diff[i] = |profile[i+1] - profile[i]|`, the left jamb peak sits at index
+`left_integer_px - 1` and the right peak at `right_integer_px`. Raw span =
+`right_idx - left_idx = true_span_px + 1` (fencepost off-by-one).
+
+`Pearson r(error_px, rounding_residual) = 1.0` — proven by `scripts/diagnose_openings.py`.
+
+**Fix**: `width_px = right_peak_idx - left_peak_idx - 1`
+(not a tuned constant — corrects the diff-index convention, analogous to fencepost counting).
+

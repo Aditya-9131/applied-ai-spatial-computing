@@ -6,7 +6,7 @@
     "device_model": "iPhone 15 Pro Max",
     "capture_timestamp": "2026-08-20T14:30:00Z",
     "timing": {
-      "processing_time_seconds": 0.005
+      "processing_time_seconds": 0.027
     },
     "drift_correction_enabled": true,
     "opening_detector": "DEPTH_DISCONTINUITY_GRADIENT_PEAK"
@@ -132,10 +132,10 @@
           "wall_id": "wall_south",
           "position_along_wall_m": 1.8,
           "width_m": {
-            "value": 0.912,
+            "value": 0.888,
             "ci_95": [
-              0.892,
-              0.932
+              0.868,
+              0.908
             ],
             "std_err": 0.0102,
             "detection_status": "GRADIENT_PEAK_CORRECTED"
@@ -300,10 +300,10 @@
           "wall_id": "wall_north",
           "position_along_wall_m": 0.3,
           "width_m": {
-            "value": 0.9,
+            "value": 0.8925,
             "ci_95": [
-              0.88,
-              0.92
+              0.8725,
+              0.9125
             ],
             "std_err": 0.0102,
             "detection_status": "GRADIENT_PEAK_CORRECTED"
@@ -352,10 +352,10 @@
           "wall_id": "wall_south",
           "position_along_wall_m": 0.3,
           "width_m": {
-            "value": 0.9,
+            "value": 0.885,
             "ci_95": [
-              0.88,
-              0.92
+              0.865,
+              0.905
             ],
             "std_err": 0.0102,
             "detection_status": "GRADIENT_PEAK_CORRECTED"
@@ -494,10 +494,10 @@
           "wall_id": "wall_west",
           "position_along_wall_m": 1.5,
           "width_m": {
-            "value": 0.903,
+            "value": 0.882,
             "ci_95": [
-              0.883,
-              0.923
+              0.862,
+              0.902
             ],
             "std_err": 0.0102,
             "detection_status": "GRADIENT_PEAK_CORRECTED"
@@ -520,10 +520,10 @@
           "wall_id": "wall_north",
           "position_along_wall_m": 1.1,
           "width_m": {
-            "value": 1.404,
+            "value": 1.386,
             "ci_95": [
-              1.384,
-              1.424
+              1.366,
+              1.406
             ],
             "std_err": 0.0102,
             "detection_status": "GRADIENT_PEAK_CORRECTED"
@@ -688,10 +688,10 @@
           "wall_id": "wall_east",
           "position_along_wall_m": 1.5,
           "width_m": {
-            "value": 1.8,
+            "value": 1.776,
             "ci_95": [
-              1.78,
-              1.82
+              1.756,
+              1.796
             ],
             "std_err": 0.0102,
             "detection_status": "GRADIENT_PEAK_CORRECTED"
@@ -797,10 +797,10 @@
             "wall_id": "wall_south",
             "position_along_wall_m": 1.8,
             "width_m": {
-              "value": 0.912,
+              "value": 0.888,
               "ci_95": [
-                0.892,
-                0.932
+                0.868,
+                0.908
               ],
               "std_err": 0.0102,
               "detection_status": "GRADIENT_PEAK_CORRECTED"
@@ -920,10 +920,10 @@
             "wall_id": "wall_north",
             "position_along_wall_m": 0.3,
             "width_m": {
-              "value": 0.9,
+              "value": 0.8925,
               "ci_95": [
-                0.88,
-                0.92
+                0.8725,
+                0.9125
               ],
               "std_err": 0.0102,
               "detection_status": "GRADIENT_PEAK_CORRECTED"
@@ -972,10 +972,10 @@
             "wall_id": "wall_south",
             "position_along_wall_m": 0.3,
             "width_m": {
-              "value": 0.9,
+              "value": 0.885,
               "ci_95": [
-                0.88,
-                0.92
+                0.865,
+                0.905
               ],
               "std_err": 0.0102,
               "detection_status": "GRADIENT_PEAK_CORRECTED"
@@ -1069,10 +1069,10 @@
             "wall_id": "wall_west",
             "position_along_wall_m": 1.5,
             "width_m": {
-              "value": 0.903,
+              "value": 0.882,
               "ci_95": [
-                0.883,
-                0.923
+                0.862,
+                0.902
               ],
               "std_err": 0.0102,
               "detection_status": "GRADIENT_PEAK_CORRECTED"
@@ -1095,10 +1095,10 @@
             "wall_id": "wall_north",
             "position_along_wall_m": 1.1,
             "width_m": {
-              "value": 1.404,
+              "value": 1.386,
               "ci_95": [
-                1.384,
-                1.424
+                1.366,
+                1.406
               ],
               "std_err": 0.0102,
               "detection_status": "GRADIENT_PEAK_CORRECTED"
@@ -1218,10 +1218,10 @@
             "wall_id": "wall_east",
             "position_along_wall_m": 1.5,
             "width_m": {
-              "value": 1.8,
+              "value": 1.776,
               "ci_95": [
-                1.78,
-                1.82
+                1.756,
+                1.796
               ],
               "std_err": 0.0102,
               "detection_status": "GRADIENT_PEAK_CORRECTED"
