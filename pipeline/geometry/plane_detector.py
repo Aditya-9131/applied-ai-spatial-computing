@@ -63,51 +63,114 @@ class PlaneDetector:
 
         return refined_plane, best_inliers
 
+    def _estimate_gravity_and_dominant_walls(
+        self,
+        raw_points: np.ndarray
+    ) -> Tuple[float, float, float, np.ndarray, float]:
+        """Estimates gravity normal, levels points, and finds dominant wall orientation.
+        Does NOT assume point cloud is pre-aligned to x, y, or z axes.
+        Returns:
+            (rec_width, rec_length, rec_height, gravity_normal, dominant_wall_angle)
+        """
+        n = len(raw_points)
+        rng = np.random.RandomState(42)
+        best_inliers = []
+        best_normal = np.array([0.0, 0.0, 1.0])
+
+        # 1. RANSAC fit for dominant near-vertical plane (floor or ceiling)
+        for _ in range(250):
+            idx = rng.choice(n, 3, replace=False)
+            p1, p2, p3 = raw_points[idx]
+            v1, v2 = p2 - p1, p3 - p1
+            normal = np.cross(v1, v2)
+            norm = np.linalg.norm(normal)
+            if norm < 1e-6:
+                continue
+            normal = normal / norm
+            if abs(normal[2]) < 0.70:
+                continue
+            d = -np.dot(normal, p1)
+            dist = np.abs(np.dot(raw_points, normal) + d)
+            inliers = np.where(dist < self.dist_thresh)[0]
+            if len(inliers) > len(best_inliers):
+                best_inliers = inliers
+                best_normal = normal
+
+        if len(best_inliers) > 10:
+            in_pts = raw_points[best_inliers]
+            _, _, vh = np.linalg.svd(in_pts - np.mean(in_pts, axis=0))
+            refined = vh[2, :]
+            if abs(refined[2]) > 0.70:
+                best_normal = refined
+
+        if best_normal[2] < 0:
+            best_normal = -best_normal
+        gravity_axis = best_normal / np.linalg.norm(best_normal)
+
+        # 2. Level points so gravity_axis aligns with [0, 0, 1]
+        z_target = np.array([0.0, 0.0, 1.0])
+        v = np.cross(gravity_axis, z_target)
+        c = float(np.dot(gravity_axis, z_target))
+        s = float(np.linalg.norm(v))
+        if s < 1e-6:
+            R_gravity = np.eye(3) if c > 0 else np.diag([1, -1, -1])
+        else:
+            vx = np.array([[0, -v[2], v[1]], [v[2], 0, -v[0]], [-v[1], v[0], 0]])
+            R_gravity = np.eye(3) + vx + (vx @ vx) * ((1.0 - c) / (s**2))
+
+        leveled = raw_points @ R_gravity.T
+
+        # 3. Ceiling height from leveled z
+        z_sorted = np.sort(leveled[:, 2])
+        n_pts = len(z_sorted)
+        floor_z = float(np.median(z_sorted[:max(1, n_pts // 20)]))
+        ceiling_z = float(np.median(z_sorted[-(max(1, n_pts // 20)):]))
+        rec_height = float(np.clip(ceiling_z - floor_z, 1.5, 5.0))
+
+        # 4. Extract wall returns (middle 60% of height)
+        z_low = floor_z + 0.20 * rec_height
+        z_high = ceiling_z - 0.20 * rec_height
+        wall_mask = (leveled[:, 2] >= z_low) & (leveled[:, 2] <= z_high)
+        wall_pts = leveled[wall_mask, :2]
+        if len(wall_pts) < 10:
+            wall_pts = leveled[:, :2]
+
+        # 5. Estimate dominant wall orientation by searching for minimum bounding box area
+        best_theta = 0.0
+        min_area = 1e9
+        best_span = (0.0, 0.0)
+        for theta in np.linspace(0, np.pi / 2, 91):
+            cos_t, sin_t = np.cos(theta), np.sin(theta)
+            R_2d = np.array([[cos_t, -sin_t], [sin_t, cos_t]])
+            rot_pts = wall_pts @ R_2d
+            p_x0, p_x1 = np.percentile(rot_pts[:, 0], [0.5, 99.5])
+            p_y0, p_y1 = np.percentile(rot_pts[:, 1], [0.5, 99.5])
+            span_x = p_x1 - p_x0
+            span_y = p_y1 - p_y0
+            area = span_x * span_y
+            if area < min_area:
+                min_area = area
+                best_theta = float(theta)
+                best_span = (float(span_x), float(span_y))
+
+        span_a, span_b = best_span
+        rec_width = float(np.clip(min(span_a, span_b), 0.5, 20.0))
+        rec_length = float(np.clip(max(span_a, span_b), 0.5, 30.0))
+
+        return rec_width, rec_length, rec_height, gravity_axis, best_theta
+
     def _estimate_room_dimensions_from_points(
         self,
         raw_points: np.ndarray,
         tier: str,
     ) -> Tuple[float, float, float]:
         """Estimate room width, length, and ceiling height directly from 3D point cloud.
-
-        Strategy:
-          1. Separate floor (low z) and ceiling (high z) points; height = z_max_inlier - z_min_inlier.
-          2. Project all wall points onto the XY plane; fit axis-aligned bounding box
-             to get width (x-span) and length (y-span).
-          3. Add tier-appropriate sensor noise to model real measurement uncertainty.
-
-        Returns:
-            (width_m, length_m, ceiling_height_m)
+        Aligns gravity axis and dominant wall orientation robustly.
         """
         if raw_points is None or len(raw_points) < 10:
-            # Insufficient data -- return sentinel values, not GT
             return 0.0, 0.0, 0.0
 
-        z = raw_points[:, 2]
-        xy = raw_points[:, :2]
-
-        # Ceiling height: separate floor cluster (bottom 5%) and ceiling cluster (top 5%)
-        z_sorted = np.sort(z)
-        n = len(z_sorted)
-        floor_z = np.median(z_sorted[:max(1, n // 20)])      # bottom 5%
-        ceiling_z = np.median(z_sorted[-(max(1, n // 20)):]) # top 5%
-        rec_height = float(np.clip(ceiling_z - floor_z, 1.5, 5.0))
-
-        # Wall footprint: points in the middle 60% of height (wall returns, not floor/ceiling)
-        z_low  = floor_z   + 0.20 * rec_height
-        z_high = ceiling_z - 0.20 * rec_height
-        wall_mask = (z >= z_low) & (z <= z_high)
-        wall_pts = xy[wall_mask]
-
-        if len(wall_pts) < 4:
-            wall_pts = xy  # fall back to all points
-
-        # Axis-aligned bounding box of wall points
-        x_min, x_max = wall_pts[:, 0].min(), wall_pts[:, 0].max()
-        y_min, y_max = wall_pts[:, 1].min(), wall_pts[:, 1].max()
-        rec_width  = float(np.clip(x_max - x_min, 0.5, 20.0))
-        rec_length = float(np.clip(y_max - y_min, 0.5, 30.0))
-
+        rec_width, rec_length, rec_height, _, _ = self._estimate_gravity_and_dominant_walls(raw_points)
         return rec_width, rec_length, rec_height
 
     def reconstruct_room_geometry(

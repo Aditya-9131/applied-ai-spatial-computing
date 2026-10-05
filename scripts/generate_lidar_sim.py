@@ -150,6 +150,26 @@ def make_depth_profile_beam_footprint(
     )
 
 
+def apply_random_yaw_and_tilt(pts: list, rng: np.random.RandomState, max_tilt_deg: float = 2.0) -> list:
+    """Rotates a 3D point cloud by a random yaw in [-pi, pi] and small pitch/roll tilt."""
+    yaw = rng.uniform(-np.pi, np.pi)
+    pitch = float(rng.normal(0, np.radians(max_tilt_deg / 2.0)))
+    roll = float(rng.normal(0, np.radians(max_tilt_deg / 2.0)))
+
+    cy, sy = np.cos(yaw), np.sin(yaw)
+    cp, sp = np.cos(pitch), np.sin(pitch)
+    cr, sr = np.cos(roll), np.sin(roll)
+
+    Rz = np.array([[cy, -sy, 0], [sy, cy, 0], [0, 0, 1]])
+    Ry = np.array([[cp, 0, sp], [0, 1, 0], [-sp, 0, cp]])
+    Rx = np.array([[1, 0, 0], [0, cr, -sr], [0, sr, cr]])
+    R = Rz @ Ry @ Rx
+
+    arr = np.array(pts, dtype=np.float64)
+    rot_arr = arr @ R.T
+    return [[round(float(p[0]), 4), round(float(p[1]), 4), round(float(p[2]), 4)] for p in rot_arr]
+
+
 # ──────────────────────────────────────────────────────────────────────────────
 # 3-D POINT CLOUD GENERATION (physical sensor model)
 # ──────────────────────────────────────────────────────────────────────────────

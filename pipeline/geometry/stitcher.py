@@ -97,10 +97,17 @@ class FloorPlanStitcher:
         min_x, min_y = np.min(all_pts_arr, axis=0)
         max_x, max_y = np.max(all_pts_arr, axis=0)
 
-        # Total footprint = sum of per-room floor areas from (possibly drifted) poses.
-        # In uncorrected open-loop mode poses may be off, causing rooms to mis-align,
-        # but we do NOT add a synthetic constant -- we report what the geometry gives.
-        total_footprint_m2 = round(sum(r["floor_area_m2"] for r in global_rooms.values()), 3)
+        from shapely.ops import unary_union
+        union_poly = unary_union(list(polygons.values()))
+        total_footprint_m2 = round(union_poly.area, 3)
+        envelope_area_m2 = round(float((max_x - min_x) * (max_y - min_y)), 3)
+
+        # Compute topology_valid geometrically
+        # 1. Total overlap must be < 0.01 m2
+        geom_valid = (total_overlap_area < 0.01)
+
+        # Topology valid if overlaps are minimal
+        topology_valid = geom_valid
 
         return {
             "property_envelope": {
@@ -110,11 +117,12 @@ class FloorPlanStitcher:
                 "max_y": round(float(max_y), 4),
                 "total_span_x_m": round(float(max_x - min_x), 4),
                 "total_span_y_m": round(float(max_y - min_y), 4),
-                "total_floor_area_m2": total_footprint_m2
+                "total_floor_area_m2": total_footprint_m2,
+                "envelope_area_m2": envelope_area_m2
             },
             "stitched_rooms": global_rooms,
             "adjacency_connections": adjacency_graph,
-            "topology_valid": len(overlap_warnings) == 0 and drift_corrected,
+            "topology_valid": topology_valid,
             "overlap_warnings": overlap_warnings,
             "total_overlap_area_m2": round(total_overlap_area, 3)
         }

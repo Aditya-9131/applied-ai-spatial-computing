@@ -149,16 +149,26 @@ def run_reproduction_suite():
     gt_total_footprint = gt["whole_property_footprint_m2"]
     drift_on_res = lidar_out["stitched_plan"]["drift_analysis"]["residual_error_cm"]
     drift_off_res = lidar_drift_raw["stitched_plan"]["drift_analysis"]["residual_error_cm"]
+    
+    env_on = lidar_out["stitched_plan"]["property_envelope"].get("envelope_area_m2", 0.0)
+    env_off = lidar_drift_raw["stitched_plan"]["property_envelope"].get("envelope_area_m2", 0.0)
+    
     footprint_on = lidar_out["stitched_plan"]["property_envelope"]["total_floor_area_m2"]
     footprint_off = lidar_drift_raw["stitched_plan"]["property_envelope"]["total_floor_area_m2"]
+    
     overlap_on = lidar_out["stitched_plan"]["total_overlap_area_m2"]
     overlap_off = lidar_drift_raw["stitched_plan"]["total_overlap_area_m2"]
+    
     adj_on = "VALID" if lidar_out["stitched_plan"]["topology_valid"] else "INVALID"
     adj_off = "VALID" if lidar_drift_raw["stitched_plan"]["topology_valid"] else "INVALID"
+    
+    # Overlap area pass/fail criterion
+    ov_on_status = f"{overlap_on:.3f} m2 (FAIL)" if overlap_on > 0.01 else f"{overlap_on:.3f} m2 (PASS)"
+    ov_off_status = f"{overlap_off:.3f} m2 (FAIL)" if overlap_off > 0.01 else f"{overlap_off:.3f} m2 (PASS)"
 
     drift_table = [
-        ["Pose Graph SLAM (Shipped)", "ENABLED", f"{drift_on_res:.2f} cm", f"{footprint_on:.2f} m2", f"{gt_total_footprint:.2f} m2", f"{overlap_on:.3f} m2", adj_on, "PASS (Global loop closed)"],
-        ["Raw Odometry (Open-Loop)", "DISABLED", f"{drift_off_res:.2f} cm", f"{footprint_off:.2f} m2", f"{gt_total_footprint:.2f} m2", f"{overlap_off:.3f} m2", adj_off, "FAIL (Open loop drift shear)"]
+        ["Pose Graph SLAM (Shipped)", "ENABLED", f"{drift_on_res:.2f} cm", f"{footprint_on:.2f} m2", f"{env_on:.2f} m2", f"{gt_total_footprint:.2f} m2", ov_on_status, adj_on, "PASS (Global loop closed)"],
+        ["Raw Odometry (Open-Loop)", "DISABLED", f"{drift_off_res:.2f} cm", f"{footprint_off:.2f} m2", f"{env_off:.2f} m2", f"{gt_total_footprint:.2f} m2", ov_off_status, adj_off, "FAIL (Open loop drift shear)"]
     ]
 
     # =========================================================================
@@ -262,9 +272,9 @@ def run_reproduction_suite():
         lidar_cov_str = f"{lidar_cov}% ({num_lidar_evals} meas)"
 
     calibration_table = [
-        ["Tier 3: LiDAR (Pro Class)", lidar_bounds_str, lidar_cov_str, "0.98", "PASS (Calibrated)"],
-        ["Tier 2: Handheld Video", "± 3.0% Wall / ± 5.5 cm Ceil / ± 6.5 cm Open", "NOT IMPLEMENTED: simulated", "N/A", "EXCLUDED (Simulated)"],
-        ["Tier 1: Multi-view Photos", "± 8.0% Wall / ± 14.0 cm Ceil / ± 15.0 cm Open", "NOT IMPLEMENTED: simulated", "N/A", "EXCLUDED (Simulated)"]
+        ["Tier 3: LiDAR (Pro Class)", lidar_bounds_str, lidar_cov_str, "PASS (Calibrated)"],
+        ["Tier 2: Handheld Video", "± 3.0% Wall / ± 5.5 cm Ceil / ± 6.5 cm Open", "NOT IMPLEMENTED: simulated", "EXCLUDED (Simulated)"],
+        ["Tier 1: Multi-view Photos", "± 8.0% Wall / ± 14.0 cm Ceil / ± 15.0 cm Open", "NOT IMPLEMENTED: simulated", "EXCLUDED (Simulated)"]
     ]
 
     # =========================================================================
@@ -333,7 +343,7 @@ def run_reproduction_suite():
     print("\n" + "=" * 80)
     print("GATE 4: DRIFT ACCOUNTABILITY ABLATION (Pose Graph SLAM ON vs OFF)")
     print("=" * 80)
-    print(tabulate(drift_table, headers=["Configuration", "Loop Closure", "Residual Drift", "Stitched Area", "GT Area", "Inter-Room Overlap", "Adjacency", "Status"], tablefmt="grid"))
+    print(tabulate(drift_table, headers=["Configuration", "Loop Closure", "Residual Drift", "Union Area", "Envelope Area", "GT Area", "Inter-Room Overlap", "Adjacency", "Status"], tablefmt="grid"))
     print("\nDrift & SLAM Accountability Audit:")
     print("  1. Root cause of previous 192.09 cm figure:")
     print("     Linear accumulation over [living_room->hallway, hallway->kitchen, hallway->master_bedroom].")
@@ -364,7 +374,7 @@ def run_reproduction_suite():
     print("\n" + "=" * 80)
     print("UNCERTAINTY CALIBRATION: EMPIRICAL 95% CONFIDENCE INTERVAL COVERAGE")
     print("=" * 80)
-    print(tabulate(calibration_table, headers=["Tier", "Calibrated 95% Bound", "Empirical CI Coverage", "Calibration Score", "Status"], tablefmt="grid"))
+    print(tabulate(calibration_table, headers=["Tier", "Calibrated 95% Bound", "Empirical CI Coverage", "Status"], tablefmt="grid"))
 
     print("\n" + "=" * 80)
     print("PART 3: HEAD-TO-HEAD BENCHMARK VS POLYCAM v4.2.1 (FREE LIDAR EXPORT)")
