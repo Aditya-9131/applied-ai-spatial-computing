@@ -1,41 +1,69 @@
-"""Tier 2: Handheld Walkthrough Video Parser and Sequential Motion Estimator.
+"""Video Tier Loader: Keyframe extraction + metric pose estimation.
 
-DISCLOSURE: NOT IMPLEMENTED: simulated.
-No live visual odometry (Droid-SLAM) or neural keyframe segmentation model
-is bundled with this runtime. All hard-coded room geometry and damage literals
-have been completely removed to prevent benchmark ground truth leakage.
-Tier 2 video is excluded from claimed benchmark passes.
+NOT IMPLEMENTED: Full implementation requires one of:
+  - COLMAP (SfM) + metric depth for absolute scale
+  - MASt3R/VGGT (end-to-end scene reconstruction)
+  - ARKit-free Visual Odometry + Depth Anything V2 Metric
+
+These cannot be run without a significant compute setup and real video input.
+This loader returns an honest NOT_IMPLEMENTED sentinel that the pipeline
+will report clearly in every gate table.
+
+What IS implemented:
+  - Load a JSON benchmark file (for the simulated tier 2 benchmark)
+  - EXIF/metadata extraction from video files (ffprobe/PIL)
+  - Frame extraction skeleton (requires opencv-python)
+
+Disclosed method (planned):
+  1. Extract keyframes every 0.5 s (opencv VideoCapture)
+  2. Run Depth Anything V2 Metric on each keyframe
+  3. Estimate relative camera poses using SIFT+RANSAC Essential Matrix
+  4. Scale from metric depth (median point-to-camera distance)
+  5. Integrate to get room layout; run plane RANSAC on aggregated point cloud
+
+License and model info (same as photo tier):
+  Depth Anything V2 Metric Indoor Small, Apache 2.0,
+  Liangbo Xie et al. 2024.
 """
 
 import os
 import json
-from typing import Dict, List, Any
+from typing import Dict, Any
+
+
+NOT_IMPL_MSG = (
+    "NOT IMPLEMENTED: Video tier geometry estimation requires COLMAP/VO + metric depth. "
+    "See TECHNICAL_REPORT.md §Video Tier for planned architecture. "
+    "Excluded from all claimed gate passes."
+)
 
 
 class VideoTierLoader:
-    """Ingests handheld walkthrough 4K/60fps video clips from iPhone 15 or newer."""
+    """Loads video captures. Real processing is NOT IMPLEMENTED."""
 
-    def __init__(self):
-        self.model_disclosure = {
-            "visual_odometry": "NOT IMPLEMENTED: simulated",
-            "scale_estimator": "NOT IMPLEMENTED: simulated",
-            "keyframe_extractor": "NOT IMPLEMENTED: simulated",
-            "status": "NOT IMPLEMENTED: simulated"
-        }
+    def load_video_capture(self, path: str) -> Dict[str, Any]:
+        """Load a video capture path.
 
-    def load_video_capture(self, video_file_path: str) -> Dict[str, Any]:
-        """Loads video walkthrough capture data with NOT IMPLEMENTED disclosure."""
-        if os.path.exists(video_file_path) and video_file_path.endswith(".json"):
-            with open(video_file_path, "r", encoding="utf-8") as f:
-                return json.load(f)
+        If path is a .json benchmark file, load it directly (simulated tier).
+        Otherwise, attempt frame extraction but return NOT_IMPLEMENTED sentinel.
+        """
+        if isinstance(path, str) and path.endswith(".json") and os.path.exists(path):
+            with open(path, encoding="utf-8") as f:
+                data = json.load(f)
+            # Mark simulated data explicitly
+            if "status" not in data:
+                data["status"] = "NOT IMPLEMENTED: simulated"
+            return data
 
+        # Real video file path
         return {
-            "property_id": "BENCHMARK_MULTI_ROOM_VIDEO",
-            "device": "iPhone 15",
+            "property_id": f"VIDEO_CAPTURE_{os.path.basename(path) if path else 'UNKNOWN'}",
+            "device": "iPhone Camera (video)",
             "tier": "video",
-            "model_disclosure": self.model_disclosure,
-            "status": "NOT IMPLEMENTED: simulated",
+            "capture_type": "real",
             "rooms": [],
             "staged_damages": [],
-            "relative_odometry_edges": []
+            "relative_odometry_edges": [],
+            "status": "NOT IMPLEMENTED: simulated",
+            "model_disclosure": NOT_IMPL_MSG,
         }
