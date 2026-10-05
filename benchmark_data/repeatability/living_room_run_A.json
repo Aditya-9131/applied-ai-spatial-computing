@@ -1,0 +1,93 @@
+{
+  "property_id": "LIVING_ROOM_RUN_A",
+  "device": "iPhone 15 Pro Max",
+  "tier": "lidar",
+  "rooms": [
+    {
+      "room_id": "living_room",
+      "name": "Living Room (Furnished)",
+      "width": 4.8,
+      "length": 5.4,
+      "height": 2.7,
+      "width_m": 4.8,
+      "length_m": 5.4,
+      "ceiling_height_m": 2.7,
+      "floor_area_m2": 25.92,
+      "walls": [
+        {
+          "wall_id": "wall_north",
+          "length_m": 4.8
+        },
+        {
+          "wall_id": "wall_east",
+          "length_m": 5.4
+        },
+        {
+          "wall_id": "wall_south",
+          "length_m": 4.8
+        },
+        {
+          "wall_id": "wall_west",
+          "length_m": 5.4
+        }
+      ],
+      "openings": [
+        {
+          "opening_id": "door_hallway",
+          "wall_id": "wall_south",
+          "type": "door",
+          "width": 0.9,
+          "height": 2.05,
+          "width_m": 0.9,
+          "height_m": 2.05,
+          "connects_to_room": "hallway"
+        },
+        {
+          "opening_id": "window_north",
+          "wall_id": "wall_north",
+          "type": "window",
+          "width": 1.6,
+          "height": 1.4,
+          "width_m": 1.6,
+          "height_m": 1.4
+        }
+      ],
+      "staged_damages": [
+        {
+          "damage_id": "DMG_001",
+          "surface_id": "wall_north",
+          "class": "water_damage",
+          "extent_m2": 2.4
+        },
+        {
+          "damage_id": "DMG_002",
+          "surface_id": "wall_east",
+          "class": "wall_crack",
+          "extent_m2": 0.45,
+          "linear_m": 1.65
+        }
+      ]
+    }
+  ],
+  "staged_damages": [
+    {
+      "room_id": "living_room",
+      "surface_id": "wall_north",
+      "class": "water_damage",
+      "nominal_extent_m2": 2.4,
+      "severity": 0.85,
+      "surface_type": "drywall_wall",
+      "moisture_wme": 34.2
+    },
+    {
+      "room_id": "living_room",
+      "surface_id": "wall_east",
+      "class": "wall_crack",
+      "nominal_extent_m2": 0.45,
+      "nominal_linear_m": 1.65,
+      "severity": 0.7,
+      "surface_type": "plaster_wall"
+    }
+  ],
+  "relative_odometry_edges": []
+}

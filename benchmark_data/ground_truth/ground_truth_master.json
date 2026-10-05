@@ -1,0 +1,253 @@
+{
+  "survey_metadata": {
+    "instrument": "Leica DISTO D2 Laser Measurer (ISO 16331-1 certified, \u00b11.0 mm accuracy)",
+    "tape": "Stanley FatMax 8m Class II Steel Tape",
+    "operator": "Senior Survey Engineer",
+    "date": "2026-08-18"
+  },
+  "rooms": {
+    "living_room": {
+      "room_id": "living_room",
+      "name": "Living Room (Furnished)",
+      "width": 4.8,
+      "length": 5.4,
+      "height": 2.7,
+      "width_m": 4.8,
+      "length_m": 5.4,
+      "ceiling_height_m": 2.7,
+      "floor_area_m2": 25.92,
+      "walls": [
+        {
+          "wall_id": "wall_north",
+          "length_m": 4.8
+        },
+        {
+          "wall_id": "wall_east",
+          "length_m": 5.4
+        },
+        {
+          "wall_id": "wall_south",
+          "length_m": 4.8
+        },
+        {
+          "wall_id": "wall_west",
+          "length_m": 5.4
+        }
+      ],
+      "openings": [
+        {
+          "opening_id": "door_hallway",
+          "wall_id": "wall_south",
+          "type": "door",
+          "width": 0.9,
+          "height": 2.05,
+          "width_m": 0.9,
+          "height_m": 2.05,
+          "connects_to_room": "hallway"
+        },
+        {
+          "opening_id": "window_north",
+          "wall_id": "wall_north",
+          "type": "window",
+          "width": 1.6,
+          "height": 1.4,
+          "width_m": 1.6,
+          "height_m": 1.4
+        }
+      ],
+      "staged_damages": [
+        {
+          "damage_id": "DMG_001",
+          "surface_id": "wall_north",
+          "class": "water_damage",
+          "extent_m2": 2.4
+        },
+        {
+          "damage_id": "DMG_002",
+          "surface_id": "wall_east",
+          "class": "wall_crack",
+          "extent_m2": 0.45,
+          "linear_m": 1.65
+        }
+      ]
+    },
+    "hallway": {
+      "room_id": "hallway",
+      "name": "Connector Hallway",
+      "width": 1.5,
+      "length": 5.4,
+      "height": 2.7,
+      "width_m": 1.5,
+      "length_m": 5.4,
+      "ceiling_height_m": 2.7,
+      "floor_area_m2": 8.1,
+      "walls": [
+        {
+          "wall_id": "wall_north",
+          "length_m": 1.5
+        },
+        {
+          "wall_id": "wall_east",
+          "length_m": 5.4
+        },
+        {
+          "wall_id": "wall_south",
+          "length_m": 1.5
+        },
+        {
+          "wall_id": "wall_west",
+          "length_m": 5.4
+        }
+      ],
+      "openings": [
+        {
+          "opening_id": "door_living",
+          "wall_id": "wall_north",
+          "type": "door",
+          "width": 0.9,
+          "height": 2.05,
+          "width_m": 0.9,
+          "height_m": 2.05,
+          "connects_to_room": "living_room"
+        },
+        {
+          "opening_id": "door_kitchen",
+          "wall_id": "wall_east",
+          "type": "door",
+          "width": 0.9,
+          "height": 2.05,
+          "width_m": 0.9,
+          "height_m": 2.05,
+          "connects_to_room": "kitchen"
+        },
+        {
+          "opening_id": "door_master",
+          "wall_id": "wall_south",
+          "type": "door",
+          "width": 0.9,
+          "height": 2.05,
+          "width_m": 0.9,
+          "height_m": 2.05,
+          "connects_to_room": "master_bedroom"
+        }
+      ]
+    },
+    "kitchen": {
+      "room_id": "kitchen",
+      "name": "Kitchen",
+      "width": 3.6,
+      "length": 4.2,
+      "height": 2.7,
+      "width_m": 3.6,
+      "length_m": 4.2,
+      "ceiling_height_m": 2.7,
+      "floor_area_m2": 15.12,
+      "walls": [
+        {
+          "wall_id": "wall_north",
+          "length_m": 3.6
+        },
+        {
+          "wall_id": "wall_east",
+          "length_m": 4.2
+        },
+        {
+          "wall_id": "wall_south",
+          "length_m": 3.6
+        },
+        {
+          "wall_id": "wall_west",
+          "length_m": 4.2
+        }
+      ],
+      "openings": [
+        {
+          "opening_id": "door_hallway_k",
+          "wall_id": "wall_west",
+          "type": "door",
+          "width": 0.9,
+          "height": 2.05,
+          "width_m": 0.9,
+          "height_m": 2.05,
+          "connects_to_room": "hallway"
+        },
+        {
+          "opening_id": "window_kitchen",
+          "wall_id": "wall_north",
+          "type": "window",
+          "width": 1.4,
+          "height": 1.2,
+          "width_m": 1.4,
+          "height_m": 1.2
+        }
+      ],
+      "staged_damages": [
+        {
+          "damage_id": "DMG_003",
+          "surface_id": "ceiling",
+          "class": "water_damage",
+          "extent_m2": 1.2
+        }
+      ]
+    },
+    "master_bedroom": {
+      "room_id": "master_bedroom",
+      "name": "Master Bedroom",
+      "width": 4.2,
+      "length": 4.8,
+      "height": 2.7,
+      "width_m": 4.2,
+      "length_m": 4.8,
+      "ceiling_height_m": 2.7,
+      "floor_area_m2": 20.16,
+      "walls": [
+        {
+          "wall_id": "wall_north",
+          "length_m": 4.2
+        },
+        {
+          "wall_id": "wall_east",
+          "length_m": 4.8
+        },
+        {
+          "wall_id": "wall_south",
+          "length_m": 4.2
+        },
+        {
+          "wall_id": "wall_west",
+          "length_m": 4.8
+        }
+      ],
+      "openings": [
+        {
+          "opening_id": "door_hallway_m",
+          "wall_id": "wall_north",
+          "type": "door",
+          "width": 0.9,
+          "height": 2.05,
+          "width_m": 0.9,
+          "height_m": 2.05,
+          "connects_to_room": "hallway"
+        },
+        {
+          "opening_id": "window_bedroom",
+          "wall_id": "wall_east",
+          "type": "window",
+          "width": 1.8,
+          "height": 1.4,
+          "width_m": 1.8,
+          "height_m": 1.4
+        }
+      ],
+      "staged_damages": [
+        {
+          "damage_id": "DMG_004",
+          "surface_id": "wall_east",
+          "class": "mold_growth",
+          "extent_m2": 0.65
+        }
+      ]
+    }
+  },
+  "whole_property_footprint_m2": 69.3
+}

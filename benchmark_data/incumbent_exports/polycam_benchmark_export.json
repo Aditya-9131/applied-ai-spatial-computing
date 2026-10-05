@@ -1,0 +1,101 @@
+{
+  "app": "Polycam",
+  "version": "4.2.1 (Free LiDAR Mode)",
+  "device": "iPhone 15 Pro Max",
+  "rooms": {
+    "living_room": {
+      "walls": [
+        {
+          "wall_id": "wall_north",
+          "measured_m": 4.832,
+          "gt_m": 4.8,
+          "error_cm": 3.2
+        },
+        {
+          "wall_id": "wall_east",
+          "measured_m": 5.371,
+          "gt_m": 5.4,
+          "error_cm": 2.9
+        },
+        {
+          "wall_id": "wall_south",
+          "measured_m": 4.768,
+          "gt_m": 4.8,
+          "error_cm": 3.2
+        },
+        {
+          "wall_id": "wall_west",
+          "measured_m": 5.428,
+          "gt_m": 5.4,
+          "error_cm": 2.8
+        }
+      ],
+      "ceiling_height_m": {
+        "measured_m": 2.724,
+        "gt_m": 2.7,
+        "error_cm": 2.4
+      },
+      "openings": [
+        {
+          "opening_id": "door_hallway",
+          "measured_width_m": 0.865,
+          "gt_width_m": 0.9,
+          "error_cm": 3.5
+        },
+        {
+          "opening_id": "window_north",
+          "measured_width_m": 1.562,
+          "gt_width_m": 1.6,
+          "error_cm": 3.8
+        }
+      ]
+    },
+    "kitchen": {
+      "walls": [
+        {
+          "wall_id": "wall_north",
+          "measured_m": 3.626,
+          "gt_m": 3.6,
+          "error_cm": 2.6
+        },
+        {
+          "wall_id": "wall_east",
+          "measured_m": 4.172,
+          "gt_m": 4.2,
+          "error_cm": 2.8
+        },
+        {
+          "wall_id": "wall_south",
+          "measured_m": 3.578,
+          "gt_m": 3.6,
+          "error_cm": 2.2
+        },
+        {
+          "wall_id": "wall_west",
+          "measured_m": 4.231,
+          "gt_m": 4.2,
+          "error_cm": 3.1
+        }
+      ],
+      "ceiling_height_m": {
+        "measured_m": 2.681,
+        "gt_m": 2.7,
+        "error_cm": 1.9
+      },
+      "openings": [
+        {
+          "opening_id": "door_hallway_k",
+          "measured_width_m": 0.871,
+          "gt_width_m": 0.9,
+          "error_cm": 2.9
+        },
+        {
+          "opening_id": "window_kitchen",
+          "measured_width_m": 1.369,
+          "gt_width_m": 1.4,
+          "error_cm": 3.1
+        }
+      ]
+    }
+  }
+}
