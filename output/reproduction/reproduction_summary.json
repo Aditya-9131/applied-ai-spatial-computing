@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-10-06T01:47:47Z",
+  "timestamp": "2026-10-06T02:12:09Z",
   "gates": {
     "opening_widths": {
       "pass_rate_pct": 100.0,
@@ -8,10 +8,10 @@
       "status": "PASS"
     },
     "ceiling_height": {
-      "mean_bias_cm": 0.86,
+      "mean_bias_cm": 6.24,
       "spread_cm": 0.01,
-      "diagnosis": "UNBIASED & REPEATABLE (Optimal State: Low Bias, High Repeatability)",
-      "status": "PASS"
+      "diagnosis": "REPEATABLE-BUT-BIASED (Systematic offset present, tight spread across runs)",
+      "status": "FAIL"
     },
     "repeatability": {
       "status": "PASS"
@@ -29,18 +29,18 @@
     }
   },
   "calibration_ci_coverage": {
-    "lidar_tier_95_cov_pct": 79.3,
+    "lidar_tier_95_cov_pct": 72.4,
     "video_tier_95_cov_pct": 0.0,
     "photo_tier_95_cov_pct": 0.0
   },
   "head_to_head_polycam": {
-    "win_or_tie_rate_pct": 90.0,
+    "win_or_tie_rate_pct": 100.0,
     "gate_req": ">= 70%",
     "status": "PASS"
   },
   "timings_s": {
-    "lidar": 0.142,
-    "video": 0.002,
-    "photos": 0.005
+    "lidar": 9.539,
+    "video": 0.004,
+    "photos": 0.007
   }
 }

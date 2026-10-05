@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 1256" width="100%" height="100%" style="background-color: #0b0f19; font-family: Inter, system-ui, -apple-system, sans-serif;">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 1259" width="100%" height="100%" style="background-color: #0b0f19; font-family: Inter, system-ui, -apple-system, sans-serif;">
 <defs>
   <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
     <feGaussianBlur stdDeviation="3" result="blur" />
@@ -8,72 +8,72 @@
     <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1e293b" stroke-width="0.75"/>
   </pattern>
 </defs>
-<rect width="1100" height="1256" fill="url(#grid)" />
+<rect width="1100" height="1259" fill="url(#grid)" />
 <text x="40" y="45" fill="#f8fafc" font-size="20" font-weight="700" letter-spacing="0.5">WHOLE-PROPERTY AS-BUILT &amp; DAMAGE REPORT</text>
 <text x="40" y="68" fill="#94a3b8" font-size="13">Tier: <tspan fill="#38bdf8" font-weight="600">LIDAR</tspan> | Device: iPhone 15 Pro Max | Schema: 2026.08.1</text>
 <rect x="860" y="25" width="200" height="42" rx="8" fill="#1e293b" stroke="#334155"/>
 <text x="960" y="44" fill="#94a3b8" font-size="11" text-anchor="middle">TOTAL USABLE AREA</text>
-<text x="960" y="61" fill="#38bdf8" font-size="14" font-weight="700" text-anchor="middle">70.06 m²</text>
-<polygon points="141.99670339784296,273.8814729285375 537.5897989407364,273.8814729285375 537.5897989407364,718.4266003999431 141.99670339784296,718.4266003999431" fill="#1e293b" fill-opacity="0.7" stroke="#475569" stroke-width="1.5" stroke-dasharray="4,4"/>
-<text x="339.7932511692897" y="486.15403666424027" fill="#f1f5f9" font-size="15" font-weight="600" text-anchor="middle">Living Room (Furnished)</text>
-<text x="339.7932511692897" y="506.15403666424027" fill="#38bdf8" font-size="12" text-anchor="middle">26.16 m² | H: 2.71m</text>
-<line x1="141.99670339784296" y1="273.8814729285375" x2="537.5897989407364" y2="273.8814729285375" stroke="#94a3b8" stroke-width="4" stroke-linecap="round"/>
-<rect x="315.79325116928965" y="264.8814729285375" width="48" height="18" rx="4" fill="#0f172a" stroke="#475569" stroke-width="1"/>
-<text x="339.79325116928965" y="277.8814729285375" fill="#f8fafc" font-size="10" font-weight="600" text-anchor="middle">4.82m</text>
-<line x1="537.5897989407364" y1="273.8814729285375" x2="537.5897989407364" y2="718.4266003999431" stroke="#94a3b8" stroke-width="4" stroke-linecap="round"/>
-<rect x="513.5897989407364" y="487.1540366642403" width="48" height="18" rx="4" fill="#0f172a" stroke="#475569" stroke-width="1"/>
-<text x="537.5897989407364" y="500.1540366642403" fill="#f8fafc" font-size="10" font-weight="600" text-anchor="middle">5.42m</text>
-<line x1="537.5897989407364" y1="718.4266003999431" x2="141.99670339784296" y2="718.4266003999431" stroke="#94a3b8" stroke-width="4" stroke-linecap="round"/>
-<rect x="315.79325116928965" y="709.4266003999431" width="48" height="18" rx="4" fill="#0f172a" stroke="#475569" stroke-width="1"/>
-<text x="339.79325116928965" y="722.4266003999431" fill="#f8fafc" font-size="10" font-weight="600" text-anchor="middle">4.82m</text>
-<line x1="141.99670339784296" y1="718.4266003999431" x2="141.99670339784296" y2="273.8814729285375" stroke="#94a3b8" stroke-width="4" stroke-linecap="round"/>
-<rect x="117.99670339784296" y="487.1540366642403" width="48" height="18" rx="4" fill="#0f172a" stroke="#475569" stroke-width="1"/>
-<text x="141.99670339784296" y="500.1540366642403" fill="#f8fafc" font-size="10" font-weight="600" text-anchor="middle">5.42m</text>
-<polygon points="537.3356091602031,271.26577809014634 662.175590083419,271.0771856723311 662.8397633809416,715.2123296267478 537.9997824577256,715.4009220445628" fill="#0f172a" fill-opacity="0.7" stroke="#475569" stroke-width="1.5" stroke-dasharray="4,4"/>
-<text x="600.0876862705724" y="483.23905385844705" fill="#f1f5f9" font-size="15" font-weight="600" text-anchor="middle">Connector Hallway</text>
-<text x="600.0876862705724" y="503.23905385844705" fill="#38bdf8" font-size="12" text-anchor="middle">8.25 m² | H: 2.71m</text>
-<line x1="537.3356091602031" y1="271.26577809014634" x2="662.175590083419" y2="271.0771856723311" stroke="#94a3b8" stroke-width="4" stroke-linecap="round"/>
-<rect x="575.7555996218111" y="262.1714818812387" width="48" height="18" rx="4" fill="#0f172a" stroke="#475569" stroke-width="1"/>
-<text x="599.7555996218111" y="275.1714818812387" fill="#f8fafc" font-size="10" font-weight="600" text-anchor="middle">1.52m</text>
-<line x1="662.175590083419" y1="271.0771856723311" x2="662.8397633809416" y2="715.2123296267478" stroke="#94a3b8" stroke-width="4" stroke-linecap="round"/>
-<rect x="638.5076767321802" y="484.14475764953943" width="48" height="18" rx="4" fill="#0f172a" stroke="#475569" stroke-width="1"/>
-<text x="662.5076767321802" y="497.14475764953943" fill="#f8fafc" font-size="10" font-weight="600" text-anchor="middle">5.42m</text>
-<line x1="662.8397633809416" y1="715.2123296267478" x2="537.9997824577256" y2="715.4009220445628" stroke="#94a3b8" stroke-width="4" stroke-linecap="round"/>
-<rect x="576.4197729193336" y="706.3066258356553" width="48" height="18" rx="4" fill="#0f172a" stroke="#475569" stroke-width="1"/>
-<text x="600.4197729193336" y="719.3066258356553" fill="#f8fafc" font-size="10" font-weight="600" text-anchor="middle">1.52m</text>
-<line x1="537.9997824577256" y1="715.4009220445628" x2="537.3356091602031" y2="271.26577809014634" stroke="#94a3b8" stroke-width="4" stroke-linecap="round"/>
-<rect x="513.6676958089644" y="484.33335006735456" width="48" height="18" rx="4" fill="#0f172a" stroke="#475569" stroke-width="1"/>
-<text x="537.6676958089644" y="497.33335006735456" fill="#f8fafc" font-size="10" font-weight="600" text-anchor="middle">5.42m</text>
-<polygon points="657.4689793083829,268.72388028481316 954.5102370374088,265.7228009404521 958.003296602157,611.9292820268247 660.962038873131,614.9303613711858" fill="#1e1b4b" fill-opacity="0.7" stroke="#475569" stroke-width="1.5" stroke-dasharray="4,4"/>
-<text x="807.7361379552699" y="430.326581155819" fill="#f1f5f9" font-size="15" font-weight="600" text-anchor="middle">Kitchen</text>
-<text x="807.7361379552699" y="450.326581155819" fill="#38bdf8" font-size="12" text-anchor="middle">15.30 m² | H: 2.71m</text>
-<line x1="657.4689793083829" y1="268.72388028481316" x2="954.5102370374088" y2="265.7228009404521" stroke="#94a3b8" stroke-width="4" stroke-linecap="round"/>
-<rect x="781.9896081728959" y="258.2233406126326" width="48" height="18" rx="4" fill="#0f172a" stroke="#475569" stroke-width="1"/>
-<text x="805.9896081728959" y="271.2233406126326" fill="#f8fafc" font-size="10" font-weight="600" text-anchor="middle">3.62m</text>
-<line x1="954.5102370374088" y1="265.7228009404521" x2="958.003296602157" y2="611.9292820268247" stroke="#94a3b8" stroke-width="4" stroke-linecap="round"/>
-<rect x="932.2567668197829" y="429.8260414836384" width="48" height="18" rx="4" fill="#0f172a" stroke="#475569" stroke-width="1"/>
-<text x="956.2567668197829" y="442.8260414836384" fill="#f8fafc" font-size="10" font-weight="600" text-anchor="middle">4.22m</text>
-<line x1="958.003296602157" y1="611.9292820268247" x2="660.962038873131" y2="614.9303613711858" stroke="#94a3b8" stroke-width="4" stroke-linecap="round"/>
-<rect x="785.482667737644" y="604.4298216990053" width="48" height="18" rx="4" fill="#0f172a" stroke="#475569" stroke-width="1"/>
-<text x="809.482667737644" y="617.4298216990053" fill="#f8fafc" font-size="10" font-weight="600" text-anchor="middle">3.62m</text>
-<line x1="660.962038873131" y1="614.9303613711858" x2="657.4689793083829" y2="268.72388028481316" stroke="#94a3b8" stroke-width="4" stroke-linecap="round"/>
-<rect x="635.215509090757" y="432.82712082799947" width="48" height="18" rx="4" fill="#0f172a" stroke="#475569" stroke-width="1"/>
-<text x="659.215509090757" y="445.82712082799947" fill="#f8fafc" font-size="10" font-weight="600" text-anchor="middle">4.22m</text>
-<polygon points="542.9523833429553,717.6968297397024 889.0604683852506,718.5331961143603 888.1093066258355,1114.003296602157 542.0012215835404,1113.1751298978388" fill="#172554" fill-opacity="0.7" stroke="#475569" stroke-width="1.5" stroke-dasharray="4,4"/>
-<text x="715.5308449843955" y="905.8521130885147" fill="#f1f5f9" font-size="15" font-weight="600" text-anchor="middle">Master Bedroom</text>
-<text x="715.5308449843955" y="925.8521130885147" fill="#38bdf8" font-size="12" text-anchor="middle">20.36 m² | H: 2.71m</text>
-<line x1="542.9523833429553" y1="717.6968297397024" x2="889.0604683852506" y2="718.5331961143603" stroke="#94a3b8" stroke-width="4" stroke-linecap="round"/>
-<rect x="692.006425864103" y="709.1150129270313" width="48" height="18" rx="4" fill="#0f172a" stroke="#475569" stroke-width="1"/>
-<text x="716.006425864103" y="722.1150129270313" fill="#f8fafc" font-size="10" font-weight="600" text-anchor="middle">4.22m</text>
-<line x1="889.0604683852506" y1="718.5331961143603" x2="888.1093066258355" y2="1114.003296602157" stroke="#94a3b8" stroke-width="4" stroke-linecap="round"/>
-<rect x="864.5848875055431" y="907.2682463582587" width="48" height="18" rx="4" fill="#0f172a" stroke="#475569" stroke-width="1"/>
-<text x="888.5848875055431" y="920.2682463582587" fill="#f8fafc" font-size="10" font-weight="600" text-anchor="middle">4.82m</text>
-<line x1="888.1093066258355" y1="1114.003296602157" x2="542.0012215835404" y2="1113.1751298978388" stroke="#94a3b8" stroke-width="4" stroke-linecap="round"/>
-<rect x="691.0552641046879" y="1104.589213249998" width="48" height="18" rx="4" fill="#0f172a" stroke="#475569" stroke-width="1"/>
-<text x="715.0552641046879" y="1117.589213249998" fill="#f8fafc" font-size="10" font-weight="600" text-anchor="middle">4.22m</text>
-<line x1="542.0012215835404" y1="1113.1751298978388" x2="542.9523833429553" y2="717.6968297397024" stroke="#94a3b8" stroke-width="4" stroke-linecap="round"/>
-<rect x="518.4768024632479" y="906.4359798187706" width="48" height="18" rx="4" fill="#0f172a" stroke="#475569" stroke-width="1"/>
-<text x="542.4768024632479" y="919.4359798187706" fill="#f8fafc" font-size="10" font-weight="600" text-anchor="middle">4.82m</text>
-<rect x="40" y="1211" width="1020" height="32" rx="6" fill="#1e293b" stroke="#334155"/>
-<text x="60" y="1231" fill="#cbd5e1" font-size="11"><tspan fill="#38bdf8">■</tspan> Reconstructed Boundary  <tspan fill="#ef4444" dx="15">●</tspan> Water Damage  <tspan fill="#f59e0b" dx="15">●</tspan> Crack  <tspan fill="#a855f7" dx="15">●</tspan> Mold  <tspan dx="25" fill="#facc15">⚠ Concealed Flags Active: 2</tspan></text>
+<text x="960" y="61" fill="#38bdf8" font-size="14" font-weight="700" text-anchor="middle">69.80 m²</text>
+<polygon points="142.05987021142977,276.9999162654384 537.1124973832949,276.9999162654384 537.1124973832949,721.0586979275696 142.05987021142977,721.0586979275696" fill="#1e293b" fill-opacity="0.7" stroke="#475569" stroke-width="1.5" stroke-dasharray="4,4"/>
+<text x="339.58618379736237" y="489.029307096504" fill="#f1f5f9" font-size="15" font-weight="600" text-anchor="middle">Living Room (Furnished)</text>
+<text x="339.58618379736237" y="509.029307096504" fill="#38bdf8" font-size="12" text-anchor="middle">26.05 m² | H: 2.71m</text>
+<line x1="142.05987021142977" y1="276.9999162654384" x2="537.1124973832949" y2="276.9999162654384" stroke="#94a3b8" stroke-width="4" stroke-linecap="round"/>
+<rect x="315.5861837973623" y="267.9999162654384" width="48" height="18" rx="4" fill="#0f172a" stroke="#475569" stroke-width="1"/>
+<text x="339.5861837973623" y="280.9999162654384" fill="#f8fafc" font-size="10" font-weight="600" text-anchor="middle">4.81m</text>
+<line x1="537.1124973832949" y1="276.9999162654384" x2="537.1124973832949" y2="721.0586979275696" stroke="#94a3b8" stroke-width="4" stroke-linecap="round"/>
+<rect x="513.1124973832949" y="490.029307096504" width="48" height="18" rx="4" fill="#0f172a" stroke="#475569" stroke-width="1"/>
+<text x="537.1124973832949" y="503.029307096504" fill="#f8fafc" font-size="10" font-weight="600" text-anchor="middle">5.41m</text>
+<line x1="537.1124973832949" y1="721.0586979275696" x2="142.05987021142977" y2="721.0586979275696" stroke="#94a3b8" stroke-width="4" stroke-linecap="round"/>
+<rect x="315.5861837973623" y="712.0586979275696" width="48" height="18" rx="4" fill="#0f172a" stroke="#475569" stroke-width="1"/>
+<text x="339.5861837973623" y="725.0586979275696" fill="#f8fafc" font-size="10" font-weight="600" text-anchor="middle">4.81m</text>
+<line x1="142.05987021142977" y1="721.0586979275696" x2="142.05987021142977" y2="276.9999162654384" stroke="#94a3b8" stroke-width="4" stroke-linecap="round"/>
+<rect x="118.05987021142977" y="490.029307096504" width="48" height="18" rx="4" fill="#0f172a" stroke="#475569" stroke-width="1"/>
+<text x="142.05987021142977" y="503.029307096504" fill="#f8fafc" font-size="10" font-weight="600" text-anchor="middle">5.41m</text>
+<polygon points="537.686916474775,266.45522294326986 665.3392505756751,266.26648524178347 666.0121415114088,717.8419510152816 538.3680133975299,718.0306887167678" fill="#0f172a" fill-opacity="0.7" stroke="#475569" stroke-width="1.5" stroke-dasharray="4,4"/>
+<text x="601.8515804898472" y="482.1485869792757" fill="#f1f5f9" font-size="15" font-weight="600" text-anchor="middle">Connector Hallway</text>
+<text x="601.8515804898472" y="502.1485869792757" fill="#38bdf8" font-size="12" text-anchor="middle">8.56 m² | H: 2.92m</text>
+<line x1="537.686916474775" y1="266.45522294326986" x2="665.3392505756751" y2="266.26648524178347" stroke="#94a3b8" stroke-width="4" stroke-linecap="round"/>
+<rect x="577.513083525225" y="257.36085409252667" width="48" height="18" rx="4" fill="#0f172a" stroke="#475569" stroke-width="1"/>
+<text x="601.513083525225" y="270.36085409252667" fill="#f8fafc" font-size="10" font-weight="600" text-anchor="middle">1.56m</text>
+<line x1="665.3392505756751" y1="266.26648524178347" x2="666.0121415114088" y2="717.8419510152816" stroke="#94a3b8" stroke-width="4" stroke-linecap="round"/>
+<rect x="641.675696043542" y="483.0542181285325" width="48" height="18" rx="4" fill="#0f172a" stroke="#475569" stroke-width="1"/>
+<text x="665.675696043542" y="496.0542181285325" fill="#f8fafc" font-size="10" font-weight="600" text-anchor="middle">5.50m</text>
+<line x1="666.0121415114088" y1="717.8419510152816" x2="538.3680133975299" y2="718.0306887167678" stroke="#94a3b8" stroke-width="4" stroke-linecap="round"/>
+<rect x="578.1900774544694" y="708.9363198660246" width="48" height="18" rx="4" fill="#0f172a" stroke="#475569" stroke-width="1"/>
+<text x="602.1900774544694" y="721.9363198660246" fill="#f8fafc" font-size="10" font-weight="600" text-anchor="middle">1.56m</text>
+<line x1="538.3680133975299" y1="718.0306887167678" x2="537.686916474775" y2="266.45522294326986" stroke="#94a3b8" stroke-width="4" stroke-linecap="round"/>
+<rect x="514.0274649361525" y="483.24295583001884" width="48" height="18" rx="4" fill="#0f172a" stroke="#475569" stroke-width="1"/>
+<text x="538.0274649361525" y="496.24295583001884" fill="#f8fafc" font-size="10" font-weight="600" text-anchor="middle">5.50m</text>
+<polygon points="657.9374502826041,271.8957923382876 954.4525853045845,268.9006070755704 957.9401297885703,614.4875444839857 661.42499476659,617.482729746703" fill="#1e1b4b" fill-opacity="0.7" stroke="#475569" stroke-width="1.5" stroke-dasharray="4,4"/>
+<text x="807.9387900355873" y="433.1916684111367" fill="#f1f5f9" font-size="15" font-weight="600" text-anchor="middle">Kitchen</text>
+<text x="807.9387900355873" y="453.1916684111367" fill="#38bdf8" font-size="12" text-anchor="middle">15.22 m² | H: 2.71m</text>
+<line x1="657.9374502826041" y1="271.8957923382876" x2="954.4525853045845" y2="268.9006070755704" stroke="#94a3b8" stroke-width="4" stroke-linecap="round"/>
+<rect x="782.1950177935944" y="261.398199706929" width="48" height="18" rx="4" fill="#0f172a" stroke="#475569" stroke-width="1"/>
+<text x="806.1950177935944" y="274.398199706929" fill="#f8fafc" font-size="10" font-weight="600" text-anchor="middle">3.61m</text>
+<line x1="954.4525853045845" y1="268.9006070755704" x2="957.9401297885703" y2="614.4875444839857" stroke="#94a3b8" stroke-width="4" stroke-linecap="round"/>
+<rect x="932.1963575465775" y="432.6940757797781" width="48" height="18" rx="4" fill="#0f172a" stroke="#475569" stroke-width="1"/>
+<text x="956.1963575465775" y="445.6940757797781" fill="#f8fafc" font-size="10" font-weight="600" text-anchor="middle">4.21m</text>
+<line x1="957.9401297885703" y1="614.4875444839857" x2="661.42499476659" y2="617.482729746703" stroke="#94a3b8" stroke-width="4" stroke-linecap="round"/>
+<rect x="785.6825622775801" y="606.9851371153443" width="48" height="18" rx="4" fill="#0f172a" stroke="#475569" stroke-width="1"/>
+<text x="809.6825622775801" y="619.9851371153443" fill="#f8fafc" font-size="10" font-weight="600" text-anchor="middle">3.61m</text>
+<line x1="661.42499476659" y1="617.482729746703" x2="657.9374502826041" y2="271.8957923382876" stroke="#94a3b8" stroke-width="4" stroke-linecap="round"/>
+<rect x="635.681222524597" y="435.6892610424953" width="48" height="18" rx="4" fill="#0f172a" stroke="#475569" stroke-width="1"/>
+<text x="659.681222524597" y="448.6892610424953" fill="#f8fafc" font-size="10" font-weight="600" text-anchor="middle">4.21m</text>
+<polygon points="543.3162235712791,721.2966715511827 889.1247226292652,722.1254762403182 888.1810341218337,1116.9401297885702 542.3725350638476,1116.1113250994347" fill="#172554" fill-opacity="0.7" stroke="#475569" stroke-width="1.5" stroke-dasharray="4,4"/>
+<text x="715.7486288465565" y="909.1184006698765" fill="#f1f5f9" font-size="15" font-weight="600" text-anchor="middle">Master Bedroom</text>
+<text x="715.7486288465565" y="929.1184006698765" fill="#38bdf8" font-size="12" text-anchor="middle">20.27 m² | H: 2.71m</text>
+<line x1="543.3162235712791" y1="721.2966715511827" x2="889.1247226292652" y2="722.1254762403182" stroke="#94a3b8" stroke-width="4" stroke-linecap="round"/>
+<rect x="692.2204731002721" y="712.7110738957505" width="48" height="18" rx="4" fill="#0f172a" stroke="#475569" stroke-width="1"/>
+<text x="716.2204731002721" y="725.7110738957505" fill="#f8fafc" font-size="10" font-weight="600" text-anchor="middle">4.21m</text>
+<line x1="889.1247226292652" y1="722.1254762403182" x2="888.1810341218337" y2="1116.9401297885702" stroke="#94a3b8" stroke-width="4" stroke-linecap="round"/>
+<rect x="864.6528783755494" y="910.5328030144442" width="48" height="18" rx="4" fill="#0f172a" stroke="#475569" stroke-width="1"/>
+<text x="888.6528783755494" y="923.5328030144442" fill="#f8fafc" font-size="10" font-weight="600" text-anchor="middle">4.81m</text>
+<line x1="888.1810341218337" y1="1116.9401297885702" x2="542.3725350638476" y2="1116.1113250994347" stroke="#94a3b8" stroke-width="4" stroke-linecap="round"/>
+<rect x="691.2767845928406" y="1107.5257274440023" width="48" height="18" rx="4" fill="#0f172a" stroke="#475569" stroke-width="1"/>
+<text x="715.2767845928406" y="1120.5257274440023" fill="#f8fafc" font-size="10" font-weight="600" text-anchor="middle">4.21m</text>
+<line x1="542.3725350638476" y1="1116.1113250994347" x2="543.3162235712791" y2="721.2966715511827" stroke="#94a3b8" stroke-width="4" stroke-linecap="round"/>
+<rect x="518.8443793175634" y="909.7039983253087" width="48" height="18" rx="4" fill="#0f172a" stroke="#475569" stroke-width="1"/>
+<text x="542.8443793175634" y="922.7039983253087" fill="#f8fafc" font-size="10" font-weight="600" text-anchor="middle">4.81m</text>
+<rect x="40" y="1214" width="1020" height="32" rx="6" fill="#1e293b" stroke="#334155"/>
+<text x="60" y="1234" fill="#cbd5e1" font-size="11"><tspan fill="#38bdf8">■</tspan> Reconstructed Boundary  <tspan fill="#ef4444" dx="15">●</tspan> Water Damage  <tspan fill="#f59e0b" dx="15">●</tspan> Crack  <tspan fill="#a855f7" dx="15">●</tspan> Mold  <tspan dx="25" fill="#facc15">⚠ Concealed Flags Active: 2</tspan></text>
 </svg>

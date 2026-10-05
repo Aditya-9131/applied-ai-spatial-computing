@@ -6,7 +6,7 @@
     "device_model": "iPhone 15 Pro Max",
     "capture_timestamp": "2026-08-20T14:30:00Z",
     "timing": {
-      "processing_time_seconds": 0.111
+      "processing_time_seconds": 8.277
     },
     "drift_correction_enabled": false,
     "opening_detector": "DEPTH_DISCONTINUITY_GRADIENT_PEAK"
@@ -26,12 +26,12 @@
         "tier_calibrated": "lidar"
       },
       "floor_area": {
-        "value": 26.156,
+        "value": 26.052,
         "ci_95": [
-          25.5021,
-          26.8099
+          25.4007,
+          26.7033
         ],
-        "std_error": 0.3336,
+        "std_error": 0.3323,
         "unit": "m2",
         "tier_calibrated": "lidar"
       },
@@ -39,10 +39,10 @@
         {
           "wall_id": "wall_north",
           "length": {
-            "value": 4.8245,
+            "value": 4.8142,
             "ci_95": [
-              4.8009,
-              4.8481
+              4.7906,
+              4.8378
             ],
             "std_error": 0.012,
             "unit": "m",
@@ -50,32 +50,32 @@
           },
           "start_point": [
             0.0,
-            5.421485207096486
+            5.411374140481975
           ],
           "end_point": [
-            4.824490142459033,
-            5.421485207096486
+            4.814224835917616,
+            5.411374140481975
           ],
           "orientation_deg": 0.0
         },
         {
           "wall_id": "wall_east",
           "length": {
-            "value": 5.4215,
+            "value": 5.4114,
             "ci_95": [
-              5.3979,
-              5.4451
+              5.3878,
+              5.435
             ],
             "std_error": 0.012,
             "unit": "m",
             "tier_calibrated": "lidar"
           },
           "start_point": [
-            4.824490142459033,
-            5.421485207096486
+            4.814224835917616,
+            5.411374140481975
           ],
           "end_point": [
-            4.824490142459033,
+            4.814224835917616,
             0.0
           ],
           "orientation_deg": 90.0
@@ -83,17 +83,17 @@
         {
           "wall_id": "wall_south",
           "length": {
-            "value": 4.8245,
+            "value": 4.8142,
             "ci_95": [
-              4.8009,
-              4.8481
+              4.7906,
+              4.8378
             ],
             "std_error": 0.012,
             "unit": "m",
             "tier_calibrated": "lidar"
           },
           "start_point": [
-            4.824490142459033,
+            4.814224835917616,
             0.0
           ],
           "end_point": [
@@ -105,10 +105,10 @@
         {
           "wall_id": "wall_west",
           "length": {
-            "value": 5.4215,
+            "value": 5.4114,
             "ci_95": [
-              5.3979,
-              5.4451
+              5.3878,
+              5.435
             ],
             "std_error": 0.012,
             "unit": "m",
@@ -120,7 +120,7 @@
           ],
           "end_point": [
             0.0,
-            5.421485207096486
+            5.411374140481975
           ],
           "orientation_deg": 270.0
         }
@@ -184,22 +184,22 @@
       "room_id": "hallway",
       "name": "Connector Hallway",
       "ceiling_height": {
-        "value": 2.7077,
+        "value": 2.9227,
         "ci_95": [
-          2.7003,
-          2.7151
+          2.9153,
+          2.9301
         ],
         "std_error": 0.0038,
         "unit": "m",
         "tier_calibrated": "lidar"
       },
       "floor_area": {
-        "value": 8.247,
+        "value": 8.56,
         "ci_95": [
-          8.0408,
-          8.4532
+          8.346,
+          8.774
         ],
-        "std_error": 0.1052,
+        "std_error": 0.1092,
         "unit": "m2",
         "tier_calibrated": "lidar"
       },
@@ -207,10 +207,10 @@
         {
           "wall_id": "wall_north",
           "length": {
-            "value": 1.5225,
+            "value": 1.5555,
             "ci_95": [
-              1.4989,
-              1.5461
+              1.5319,
+              1.5791
             ],
             "std_error": 0.012,
             "unit": "m",
@@ -218,32 +218,32 @@
           },
           "start_point": [
             0.0,
-            5.416485207096486
+            5.502987955014066
           ],
           "end_point": [
-            1.5224901424590336,
-            5.416485207096486
+            1.5555068432332078,
+            5.502987955014066
           ],
           "orientation_deg": 0.0
         },
         {
           "wall_id": "wall_east",
           "length": {
-            "value": 5.4165,
+            "value": 5.503,
             "ci_95": [
-              5.3929,
-              5.4401
+              5.4794,
+              5.5266
             ],
             "std_error": 0.012,
             "unit": "m",
             "tier_calibrated": "lidar"
           },
           "start_point": [
-            1.5224901424590336,
-            5.416485207096486
+            1.5555068432332078,
+            5.502987955014066
           ],
           "end_point": [
-            1.5224901424590336,
+            1.5555068432332078,
             0.0
           ],
           "orientation_deg": 90.0
@@ -251,17 +251,17 @@
         {
           "wall_id": "wall_south",
           "length": {
-            "value": 1.5225,
+            "value": 1.5555,
             "ci_95": [
-              1.4989,
-              1.5461
+              1.5319,
+              1.5791
             ],
             "std_error": 0.012,
             "unit": "m",
             "tier_calibrated": "lidar"
           },
           "start_point": [
-            1.5224901424590336,
+            1.5555068432332078,
             0.0
           ],
           "end_point": [
@@ -273,10 +273,10 @@
         {
           "wall_id": "wall_west",
           "length": {
-            "value": 5.4165,
+            "value": 5.503,
             "ci_95": [
-              5.3929,
-              5.4401
+              5.4794,
+              5.5266
             ],
             "std_error": 0.012,
             "unit": "m",
@@ -288,7 +288,7 @@
           ],
           "end_point": [
             0.0,
-            5.416485207096486
+            5.502987955014066
           ],
           "orientation_deg": 270.0
         }
@@ -388,12 +388,12 @@
         "tier_calibrated": "lidar"
       },
       "floor_area": {
-        "value": 15.297,
+        "value": 15.219,
         "ci_95": [
-          14.9146,
-          15.6794
+          14.8385,
+          15.5995
         ],
-        "std_error": 0.1951,
+        "std_error": 0.1941,
         "unit": "m2",
         "tier_calibrated": "lidar"
       },
@@ -401,10 +401,10 @@
         {
           "wall_id": "wall_north",
           "length": {
-            "value": 3.6228,
+            "value": 3.6136,
             "ci_95": [
-              3.5992,
-              3.6464
+              3.59,
+              3.6372
             ],
             "std_error": 0.012,
             "unit": "m",
@@ -412,32 +412,32 @@
           },
           "start_point": [
             0.0,
-            4.222385207096486
+            4.211577924838437
           ],
           "end_point": [
-            3.622790142459034,
-            4.222385207096486
+            3.613574500245257,
+            4.211577924838437
           ],
           "orientation_deg": 0.0
         },
         {
           "wall_id": "wall_east",
           "length": {
-            "value": 4.2224,
+            "value": 4.2116,
             "ci_95": [
-              4.1988,
-              4.246
+              4.188,
+              4.2352
             ],
             "std_error": 0.012,
             "unit": "m",
             "tier_calibrated": "lidar"
           },
           "start_point": [
-            3.622790142459034,
-            4.222385207096486
+            3.613574500245257,
+            4.211577924838437
           ],
           "end_point": [
-            3.622790142459034,
+            3.613574500245257,
             0.0
           ],
           "orientation_deg": 90.0
@@ -445,17 +445,17 @@
         {
           "wall_id": "wall_south",
           "length": {
-            "value": 3.6228,
+            "value": 3.6136,
             "ci_95": [
-              3.5992,
-              3.6464
+              3.59,
+              3.6372
             ],
             "std_error": 0.012,
             "unit": "m",
             "tier_calibrated": "lidar"
           },
           "start_point": [
-            3.622790142459034,
+            3.613574500245257,
             0.0
           ],
           "end_point": [
@@ -467,10 +467,10 @@
         {
           "wall_id": "wall_west",
           "length": {
-            "value": 4.2224,
+            "value": 4.2116,
             "ci_95": [
-              4.1988,
-              4.246
+              4.188,
+              4.2352
             ],
             "std_error": 0.012,
             "unit": "m",
@@ -482,7 +482,7 @@
           ],
           "end_point": [
             0.0,
-            4.222385207096486
+            4.211577924838437
           ],
           "orientation_deg": 270.0
         }
@@ -546,22 +546,22 @@
       "room_id": "master_bedroom",
       "name": "Master Bedroom",
       "ceiling_height": {
-        "value": 2.709,
+        "value": 2.7091,
         "ci_95": [
-          2.7016,
-          2.7164
+          2.7017,
+          2.7165
         ],
         "std_error": 0.0038,
         "unit": "m",
         "tier_calibrated": "lidar"
       },
       "floor_area": {
-        "value": 20.358,
+        "value": 20.275,
         "ci_95": [
-          19.8491,
-          20.8669
+          19.7681,
+          20.7819
         ],
-        "std_error": 0.2597,
+        "std_error": 0.2586,
         "unit": "m2",
         "tier_calibrated": "lidar"
       },
@@ -569,10 +569,10 @@
         {
           "wall_id": "wall_north",
           "length": {
-            "value": 4.221,
+            "value": 4.2141,
             "ci_95": [
-              4.1974,
-              4.2446
+              4.1905,
+              4.2377
             ],
             "std_error": 0.012,
             "unit": "m",
@@ -580,32 +580,32 @@
           },
           "start_point": [
             0.0,
-            4.8230852070964865
+            4.811315145337396
           ],
           "end_point": [
-            4.2209901424590335,
-            4.8230852070964865
+            4.214111293430944,
+            4.811315145337396
           ],
           "orientation_deg": 0.0
         },
         {
           "wall_id": "wall_east",
           "length": {
-            "value": 4.8231,
+            "value": 4.8113,
             "ci_95": [
-              4.7995,
-              4.8467
+              4.7877,
+              4.8349
             ],
             "std_error": 0.012,
             "unit": "m",
             "tier_calibrated": "lidar"
           },
           "start_point": [
-            4.2209901424590335,
-            4.8230852070964865
+            4.214111293430944,
+            4.811315145337396
           ],
           "end_point": [
-            4.2209901424590335,
+            4.214111293430944,
             0.0
           ],
           "orientation_deg": 90.0
@@ -613,17 +613,17 @@
         {
           "wall_id": "wall_south",
           "length": {
-            "value": 4.221,
+            "value": 4.2141,
             "ci_95": [
-              4.1974,
-              4.2446
+              4.1905,
+              4.2377
             ],
             "std_error": 0.012,
             "unit": "m",
             "tier_calibrated": "lidar"
           },
           "start_point": [
-            4.2209901424590335,
+            4.214111293430944,
             0.0
           ],
           "end_point": [
@@ -635,10 +635,10 @@
         {
           "wall_id": "wall_west",
           "length": {
-            "value": 4.8231,
+            "value": 4.8113,
             "ci_95": [
-              4.7995,
-              4.8467
+              4.7877,
+              4.8349
             ],
             "std_error": 0.012,
             "unit": "m",
@@ -650,7 +650,7 @@
           ],
           "end_point": [
             0.0,
-            4.8230852070964865
+            4.811315145337396
           ],
           "orientation_deg": 270.0
         }
@@ -715,11 +715,12 @@
     "property_envelope": {
       "min_x": 0.0,
       "min_y": -4.8073,
-      "max_x": 9.941,
-      "max_y": 5.5625,
-      "total_span_x_m": 9.941,
-      "total_span_y_m": 10.3698,
-      "total_floor_area_m2": 70.058
+      "max_x": 9.9318,
+      "max_y": 5.557,
+      "total_span_x_m": 9.9318,
+      "total_span_y_m": 10.3643,
+      "total_floor_area_m2": 69.736,
+      "envelope_area_m2": 102.936
     },
     "stitched_rooms": {
       "living_room": {
@@ -736,41 +737,41 @@
             "local_wall_id": "wall_north",
             "start_point": [
               0.0,
-              5.4215
+              5.4114
             ],
             "end_point": [
-              4.8245,
-              5.4215
+              4.8142,
+              5.4114
             ],
-            "length_m": 4.8245,
+            "length_m": 4.8142,
             "orientation_deg": 0.0
           },
           {
             "wall_id": "living_room_wall_east",
             "local_wall_id": "wall_east",
             "start_point": [
-              4.8245,
-              5.4215
+              4.8142,
+              5.4114
             ],
             "end_point": [
-              4.8245,
+              4.8142,
               0.0
             ],
-            "length_m": 5.4215,
+            "length_m": 5.4114,
             "orientation_deg": 90.0
           },
           {
             "wall_id": "living_room_wall_south",
             "local_wall_id": "wall_south",
             "start_point": [
-              4.8245,
+              4.8142,
               0.0
             ],
             "end_point": [
               0.0,
               0.0
             ],
-            "length_m": 4.8245,
+            "length_m": 4.8142,
             "orientation_deg": 180.0
           },
           {
@@ -782,14 +783,14 @@
             ],
             "end_point": [
               0.0,
-              5.4215
+              5.4114
             ],
-            "length_m": 5.4215,
+            "length_m": 5.4114,
             "orientation_deg": 270.0
           }
         ],
         "ceiling_height_m": 2.7093,
-        "floor_area_m2": 26.156,
+        "floor_area_m2": 26.052,
         "openings": [
           {
             "opening_id": "door_hallway",
@@ -858,42 +859,42 @@
             "wall_id": "hallway_wall_north",
             "local_wall_id": "wall_north",
             "start_point": [
-              4.7792,
-              5.4564
+              4.7784,
+              5.5429
             ],
             "end_point": [
-              6.3016,
-              5.4702
+              6.3339,
+              5.557
             ],
-            "length_m": 1.5225,
+            "length_m": 1.5555,
             "orientation_deg": 0.52
           },
           {
             "wall_id": "hallway_wall_east",
             "local_wall_id": "wall_east",
             "start_point": [
-              6.3016,
-              5.4702
+              6.3339,
+              5.557
             ],
             "end_point": [
-              6.3509,
-              0.054
+              6.3839,
+              0.0543
             ],
-            "length_m": 5.4165,
+            "length_m": 5.503,
             "orientation_deg": 90.52
           },
           {
             "wall_id": "hallway_wall_south",
             "local_wall_id": "wall_south",
             "start_point": [
-              6.3509,
-              0.054
+              6.3839,
+              0.0543
             ],
             "end_point": [
               4.8285,
               0.0401
             ],
-            "length_m": 1.5225,
+            "length_m": 1.5555,
             "orientation_deg": 180.52
           },
           {
@@ -904,15 +905,15 @@
               0.0401
             ],
             "end_point": [
-              4.7792,
-              5.4564
+              4.7784,
+              5.5429
             ],
-            "length_m": 5.4165,
+            "length_m": 5.503,
             "orientation_deg": 270.52
           }
         ],
-        "ceiling_height_m": 2.7077,
-        "floor_area_m2": 8.247,
+        "ceiling_height_m": 2.9227,
+        "floor_area_m2": 8.56,
         "openings": [
           {
             "opening_id": "door_living",
@@ -1007,42 +1008,42 @@
             "wall_id": "kitchen_wall_north",
             "local_wall_id": "wall_north",
             "start_point": [
-              6.2441,
-              5.4984
+              6.2443,
+              5.4876
             ],
             "end_point": [
-              9.8663,
-              5.5625
+              9.8573,
+              5.5516
             ],
-            "length_m": 3.6228,
+            "length_m": 3.6136,
             "orientation_deg": 1.01
           },
           {
             "wall_id": "kitchen_wall_east",
             "local_wall_id": "wall_east",
             "start_point": [
-              9.8663,
-              5.5625
+              9.8573,
+              5.5516
             ],
             "end_point": [
-              9.941,
-              1.3408
+              9.9318,
+              1.3407
             ],
-            "length_m": 4.2224,
+            "length_m": 4.2116,
             "orientation_deg": 91.01
           },
           {
             "wall_id": "kitchen_wall_south",
             "local_wall_id": "wall_south",
             "start_point": [
-              9.941,
-              1.3408
+              9.9318,
+              1.3407
             ],
             "end_point": [
               6.3188,
               1.2767
             ],
-            "length_m": 3.6228,
+            "length_m": 3.6136,
             "orientation_deg": 181.01
           },
           {
@@ -1053,15 +1054,15 @@
               1.2767
             ],
             "end_point": [
-              6.2441,
-              5.4984
+              6.2443,
+              5.4876
             ],
-            "length_m": 4.2224,
+            "length_m": 4.2116,
             "orientation_deg": 271.01
           }
         ],
         "ceiling_height_m": 2.7086,
-        "floor_area_m2": 15.297,
+        "floor_area_m2": 15.219,
         "openings": [
           {
             "opening_id": "door_hallway_k",
@@ -1130,42 +1131,42 @@
             "wall_id": "master_bedroom_wall_north",
             "local_wall_id": "wall_north",
             "start_point": [
-              4.8292,
-              0.0151
+              4.8294,
+              0.0033
             ],
             "end_point": [
-              9.0495,
-              0.0885
+              9.0429,
+              0.0766
             ],
-            "length_m": 4.221,
+            "length_m": 4.2141,
             "orientation_deg": 1.0
           },
           {
             "wall_id": "master_bedroom_wall_east",
             "local_wall_id": "wall_east",
             "start_point": [
-              9.0495,
-              0.0885
+              9.0429,
+              0.0766
             ],
             "end_point": [
-              9.1335,
-              -4.7339
+              9.1266,
+              -4.734
             ],
-            "length_m": 4.8231,
+            "length_m": 4.8113,
             "orientation_deg": 91.0
           },
           {
             "wall_id": "master_bedroom_wall_south",
             "local_wall_id": "wall_south",
             "start_point": [
-              9.1335,
-              -4.7339
+              9.1266,
+              -4.734
             ],
             "end_point": [
               4.9131,
               -4.8073
             ],
-            "length_m": 4.221,
+            "length_m": 4.2141,
             "orientation_deg": 181.0
           },
           {
@@ -1176,15 +1177,15 @@
               -4.8073
             ],
             "end_point": [
-              4.8292,
-              0.0151
+              4.8294,
+              0.0033
             ],
-            "length_m": 4.8231,
+            "length_m": 4.8113,
             "orientation_deg": 271.0
           }
         ],
-        "ceiling_height_m": 2.709,
-        "floor_area_m2": 20.358,
+        "ceiling_height_m": 2.7091,
+        "floor_area_m2": 20.275,
         "openings": [
           {
             "opening_id": "door_hallway_m",
@@ -1285,9 +1286,10 @@
     ],
     "topology_valid": false,
     "overlap_warnings": [
+      "Overlap detected between hallway and kitchen: 0.304 m2",
       "Open-loop odometry uncorrected; global loop closure disabled."
     ],
-    "total_overlap_area_m2": 0.275,
+    "total_overlap_area_m2": 0.37,
     "drift_analysis": {
       "optimized_poses": {
         "living_room": [
