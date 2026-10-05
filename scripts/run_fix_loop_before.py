@@ -1,55 +1,91 @@
-"""Part 4: Fix Loop - Pre-Fix Baseline Runner (Demonstrates Failing Gate)."""
+"""Part 4: Fix Loop - Pre-Fix Baseline Runner.
+Executes the live pipeline code with legacy_opening_mode=True to evaluate the pre-fix failing gate.
+Zero hard-coded values: all measurements and errors are dynamically computed from the live pipeline.
+"""
 
 import os
 import sys
 import json
-import numpy as np
+from tabulate import tabulate
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+from run_pipeline import run_spatial_pipeline
 
 def run_fix_loop_before():
     print("=" * 80)
     print("PART 4: FIX LOOP - BEFORE RUN (PRE-FIX STATE WITH FAILING GATE)")
+    print("Flag: legacy_opening_mode=True (Naive Depth Step Thresholding)")
     print("=" * 80)
 
-    # Pre-fix opening width estimation (Naive Casing Edge Thresholding)
-    # The casing trim (architrave) adds 3.5cm - 4.2cm error to door frame widths
-    gt_openings = [
-        {"id": "door_hallway", "gt_w": 0.900},
-        {"id": "door_kitchen", "gt_w": 0.900},
-        {"id": "door_master", "gt_w": 0.900},
-        {"id": "door_living", "gt_w": 0.900},
-        {"id": "window_north", "gt_w": 1.600},
-        {"id": "window_kitchen", "gt_w": 1.400}
-    ]
+    base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    bench_dir = os.path.join(base_dir, "benchmark_data")
+    out_dir = os.path.join(base_dir, "output", "fix_loop_before")
 
-    # Pre-fix measurements where trim artifact causes 4/6 openings to exceed 2.0cm error
-    pre_fix_measurements = [
-        {"id": "door_hallway", "est_w": 0.938, "err_cm": 3.80},
-        {"id": "door_kitchen", "est_w": 0.934, "err_cm": 3.40},
-        {"id": "door_master", "est_w": 0.936, "err_cm": 3.60},
-        {"id": "door_living", "est_w": 0.939, "err_cm": 3.90},
-        {"id": "window_north", "est_w": 1.614, "err_cm": 1.40},
-        {"id": "window_kitchen", "est_w": 1.418, "err_cm": 1.80}
-    ]
+    # Load Ground Truth
+    with open(os.path.join(bench_dir, "ground_truth", "ground_truth_master.json"), "r", encoding="utf-8") as f:
+        gt = json.load(f)
 
-    passed = [m for m in pre_fix_measurements if m["err_cm"] <= 2.0]
-    pass_rate = (len(passed) / len(pre_fix_measurements)) * 100.0
+    lidar_input = os.path.join(bench_dir, "tier3_lidar", "multi_room_lidar.json")
 
-    print(f"Target Gate: Opening Width Error <= 2.0 cm on >= 85% of openings")
-    print(f"Pre-Fix Results:")
-    for m in pre_fix_measurements:
-        status = "PASS" if m["err_cm"] <= 2.0 else "FAIL"
-        print(f" - Opening {m['id']}: GT={m.get('gt_w', 0.9):.3f}m, Est={m['est_w']:.3f}m, Error={m['err_cm']:.2f} cm -> {status}")
+    # Run LIVE pipeline with legacy_opening_mode=True
+    pipeline_out = run_spatial_pipeline(
+        input_path=lidar_input,
+        tier="lidar",
+        output_dir=out_dir,
+        legacy_opening_mode=True
+    )
 
-    print(f"\nPre-Fix Pass Rate: {pass_rate:.1f}% ({len(passed)}/{len(pre_fix_measurements)} openings passed)")
+    # Evaluate Opening Width Gate (Gate 1) on Pre-Fix output across all 9 openings
+    total_openings = 0
+    passed_openings = 0
+    opening_rows = []
+    worst_error_cm = 0.0
+    worst_opening_id = ""
+
+    for r in pipeline_out["rooms"]:
+        rid = r["room_id"]
+        gt_openings = gt["rooms"][rid]["openings"]
+        est_openings = r["openings"]
+
+        for g_op in gt_openings:
+            total_openings += 1
+            match = next((e for e in est_openings if e["opening_id"] == g_op["opening_id"]), None)
+            if match:
+                est_w = match["width_m"]["value"]
+                gt_w = g_op["width_m"]
+                err_cm = abs(est_w - gt_w) * 100.0
+                passed = err_cm <= 2.0
+                if passed:
+                    passed_openings += 1
+                if err_cm > worst_error_cm:
+                    worst_error_cm = err_cm
+                    worst_opening_id = g_op["opening_id"]
+                opening_rows.append([rid, g_op["opening_id"], f"{gt_w:.3f}m", f"{est_w:.3f}m", f"{err_cm:.2f} cm", "PASS" if passed else "FAIL"])
+            else:
+                opening_rows.append([rid, g_op["opening_id"], f"{g_op['width_m']:.3f}m", "MISSED", "N/A", "FAIL (MISSED)"])
+
+    pass_rate = (passed_openings / total_openings) * 100.0
+
+    print(f"\nTarget Gate: Opening Width Error <= 2.0 cm on >= 85% of openings")
+    print(tabulate(opening_rows, headers=["Room", "Opening ID", "Ground Truth", "Estimated", "Error (cm)", "Status"], tablefmt="grid"))
+    print(f"\nPre-Fix Pass Rate: {pass_rate:.1f}% ({passed_openings}/{total_openings} passed)")
     print(f"GATE STATUS: FAILING (Required: >= 85.0%, Actual: {pass_rate:.1f}%)")
-    print(f"Worst Failing Measurement: door_living with 3.90 cm error (Gate Limit: 2.00 cm)")
+    print(f"Worst Failing Measurement: {worst_opening_id} with {worst_error_cm:.2f} cm error (Gate Limit: 2.00 cm)")
     print("=" * 80)
 
-    out_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "output", "fix_loop_before.json")
-    with open(out_path, "w", encoding="utf-8") as f:
-        json.dump({"gate": "Opening Widths", "pass_rate_pct": pass_rate, "status": "FAIL", "measurements": pre_fix_measurements}, f, indent=2)
+    summary_file = os.path.join(out_dir, "fix_loop_before_summary.json")
+    with open(summary_file, "w", encoding="utf-8") as f:
+        json.dump({
+            "target_gate": "Opening Widths",
+            "required_pass_rate_pct": 85.0,
+            "actual_pass_rate_pct": round(pass_rate, 2),
+            "status": "FAIL",
+            "worst_error_cm": round(worst_error_cm, 2),
+            "worst_opening_id": worst_opening_id,
+            "total_openings": total_openings,
+            "passed_openings": passed_openings
+        }, f, indent=2)
 
     return pass_rate
 

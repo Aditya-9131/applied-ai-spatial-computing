@@ -1,0 +1,48 @@
+{
+  "timestamp": "2026-10-05T23:13:39Z",
+  "gates": {
+    "opening_widths": {
+      "pass_rate_pct": 100.0,
+      "precision_pct": 100.0,
+      "recall_pct": 100.0,
+      "status": "PASS"
+    },
+    "ceiling_height": {
+      "mean_bias_cm": 0.19,
+      "spread_cm": 0.0,
+      "diagnosis": "UNBIASED & REPEATABLE (Optimal State: Low Bias, High Repeatability)",
+      "status": "PASS"
+    },
+    "repeatability": {
+      "status": "PASS"
+    },
+    "drift_accountability": {
+      "drift_on_residual_cm": 0.42,
+      "drift_off_residual_cm": 38.5,
+      "status": "PASS"
+    },
+    "photo_tier_stitch": {
+      "footprint_err_pct": 0.96,
+      "status": "FAIL"
+    },
+    "video_tier": {
+      "footprint_err_pct": 0.27,
+      "status": "PASS"
+    }
+  },
+  "calibration_ci_coverage": {
+    "lidar_tier_95_cov_pct": 100.0,
+    "video_tier_95_cov_pct": 100.0,
+    "photo_tier_95_cov_pct": 100.0
+  },
+  "head_to_head_polycam": {
+    "win_or_tie_rate_pct": 100.0,
+    "gate_req": ">= 70%",
+    "status": "PASS"
+  },
+  "timings_s": {
+    "lidar": 0.033,
+    "video": 0.011,
+    "photos": 0.019
+  }
+}

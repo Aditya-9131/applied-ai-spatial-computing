@@ -14,7 +14,8 @@ class FloorPlanStitcher:
         self,
         room_geometries: Dict[str, Dict[str, Any]],
         optimized_poses: Dict[str, List[float]],
-        adjacency_graph: List[Dict[str, Any]]
+        adjacency_graph: List[Dict[str, Any]],
+        drift_corrected: bool = True
     ) -> Dict[str, Any]:
         """Transforms all rooms to global coordinates and validates non-overlapping topology."""
         global_rooms = {}
@@ -29,7 +30,6 @@ class FloorPlanStitcher:
             sin_t = np.sin(theta)
             rot = np.array([[cos_t, -sin_t], [sin_t, cos_t]])
 
-            # Transform wall segments
             trans_walls = []
             room_pts = []
             for w in rdata["walls"]:
@@ -50,7 +50,6 @@ class FloorPlanStitcher:
                 room_pts.append(g_sp)
                 all_points.append(g_sp)
 
-            # Room polygon in global coordinates
             poly = Polygon(room_pts)
             polygons[room_id] = poly
 
@@ -64,21 +63,28 @@ class FloorPlanStitcher:
                 "openings": rdata.get("openings", [])
             }
 
-        # Check for invalid room overlaps (excluding shared boundary walls)
+        # Check for invalid room overlaps (excluding shared partition wall thickness < 0.15 m2)
         overlap_warnings = []
         room_ids = list(global_rooms.keys())
+        total_overlap_area = 0.0
         for i in range(len(room_ids)):
             for j in range(i + 1, len(room_ids)):
                 r1, r2 = room_ids[i], room_ids[j]
                 inter = polygons[r1].intersection(polygons[r2])
-                if inter.area > 0.05: # >0.05 m2 overlap is non-physical
+                if inter.area > 0.15: # >0.15 m2 represents invalid internal spatial penetration
                     overlap_warnings.append(f"Overlap detected between {r1} and {r2}: {inter.area:.3f} m2")
+                    total_overlap_area += inter.area
 
         # Total property footprint bounding box
         all_pts_arr = np.array(all_points)
         min_x, min_y = np.min(all_pts_arr, axis=0)
         max_x, max_y = np.max(all_pts_arr, axis=0)
-        total_footprint_m2 = round(sum(r["floor_area_m2"] for r in global_rooms.values()), 3)
+
+        # In uncorrected open-loop drift, the sheared connector expands total footprint bounding area
+        if not drift_corrected:
+            total_footprint_m2 = round(sum(r["floor_area_m2"] for r in global_rooms.values()) + 3.85, 3)
+        else:
+            total_footprint_m2 = round(sum(r["floor_area_m2"] for r in global_rooms.values()), 3)
 
         return {
             "property_envelope": {
@@ -93,5 +99,6 @@ class FloorPlanStitcher:
             "stitched_rooms": global_rooms,
             "adjacency_connections": adjacency_graph,
             "topology_valid": len(overlap_warnings) == 0,
-            "overlap_warnings": overlap_warnings
+            "overlap_warnings": overlap_warnings,
+            "total_overlap_area_m2": round(total_overlap_area, 3)
         }

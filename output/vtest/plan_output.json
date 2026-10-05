@@ -1,0 +1,1608 @@
+{
+  "schema_version": "2026.08.1",
+  "property_id": "BENCHMARK_MULTI_ROOM_VIDEO",
+  "capture_metadata": {
+    "input_tier": "video",
+    "device_model": "iPhone 15",
+    "capture_timestamp": "2026-08-20T14:30:00Z",
+    "processing_time_seconds": 0.03,
+    "drift_correction_enabled": true
+  },
+  "rooms": [
+    {
+      "room_id": "living_room",
+      "name": "Living Room (Furnished)",
+      "ceiling_height": {
+        "value": 2.7217,
+        "ci_95": [
+          2.6667,
+          2.7767
+        ],
+        "std_error": 0.0281,
+        "unit": "m",
+        "tier_calibrated": "video"
+      },
+      "floor_area": {
+        "value": 25.975,
+        "ci_95": [
+          24.8061,
+          27.1439
+        ],
+        "std_error": 0.5964,
+        "unit": "m2",
+        "tier_calibrated": "video"
+      },
+      "walls": [
+        {
+          "wall_id": "wall_north",
+          "length": {
+            "value": 4.827,
+            "ci_95": [
+              4.6822,
+              4.9718
+            ],
+            "std_error": 0.0739,
+            "unit": "m",
+            "tier_calibrated": "video"
+          },
+          "start_point": [
+            0.0,
+            5.381277233690966
+          ],
+          "end_point": [
+            4.826958393233745,
+            5.381277233690966
+          ],
+          "orientation_deg": 0.0
+        },
+        {
+          "wall_id": "wall_east",
+          "length": {
+            "value": 5.3813,
+            "ci_95": [
+              5.2199,
+              5.5427
+            ],
+            "std_error": 0.0824,
+            "unit": "m",
+            "tier_calibrated": "video"
+          },
+          "start_point": [
+            4.826958393233745,
+            5.381277233690966
+          ],
+          "end_point": [
+            4.826958393233745,
+            0.0
+          ],
+          "orientation_deg": 90.0
+        },
+        {
+          "wall_id": "wall_south",
+          "length": {
+            "value": 4.827,
+            "ci_95": [
+              4.6822,
+              4.9718
+            ],
+            "std_error": 0.0739,
+            "unit": "m",
+            "tier_calibrated": "video"
+          },
+          "start_point": [
+            4.826958393233745,
+            0.0
+          ],
+          "end_point": [
+            0.0,
+            0.0
+          ],
+          "orientation_deg": 180.0
+        },
+        {
+          "wall_id": "wall_west",
+          "length": {
+            "value": 5.3813,
+            "ci_95": [
+              5.2199,
+              5.5427
+            ],
+            "std_error": 0.0824,
+            "unit": "m",
+            "tier_calibrated": "video"
+          },
+          "start_point": [
+            0.0,
+            0.0
+          ],
+          "end_point": [
+            0.0,
+            5.381277233690966
+          ],
+          "orientation_deg": 270.0
+        }
+      ],
+      "openings": [
+        {
+          "opening_id": "door_hallway",
+          "type": "door",
+          "wall_id": "wall_south",
+          "position_along_wall_m": 1.2,
+          "width_m": {
+            "value": 0.9199,
+            "ci_95": [
+              0.8729,
+              0.967
+            ],
+            "std_err": 0.024
+          },
+          "height_m": {
+            "value": 2.047,
+            "ci_95": [
+              2.0038,
+              2.0901
+            ],
+            "std_err": 0.022
+          },
+          "confidence": 0.858,
+          "connects_to_room": "hallway",
+          "detection_mode": "BILATERAL_JAMB_SPLINE"
+        },
+        {
+          "opening_id": "window_north",
+          "type": "window",
+          "wall_id": "wall_north",
+          "position_along_wall_m": 1.2,
+          "width_m": {
+            "value": 1.5833,
+            "ci_95": [
+              1.5363,
+              1.6304
+            ],
+            "std_err": 0.024
+          },
+          "height_m": {
+            "value": 1.412,
+            "ci_95": [
+              1.3689,
+              1.4551
+            ],
+            "std_err": 0.022
+          },
+          "confidence": 0.875,
+          "connects_to_room": null,
+          "detection_mode": "BILATERAL_JAMB_SPLINE"
+        }
+      ]
+    },
+    {
+      "room_id": "hallway",
+      "name": "Connector Hallway",
+      "ceiling_height": {
+        "value": 2.7177,
+        "ci_95": [
+          2.6627,
+          2.7727
+        ],
+        "std_error": 0.0281,
+        "unit": "m",
+        "tier_calibrated": "video"
+      },
+      "floor_area": {
+        "value": 8.143,
+        "ci_95": [
+          7.7766,
+          8.5094
+        ],
+        "std_error": 0.187,
+        "unit": "m2",
+        "tier_calibrated": "video"
+      },
+      "walls": [
+        {
+          "wall_id": "wall_north",
+          "length": {
+            "value": 1.5117,
+            "ci_95": [
+              1.4663,
+              1.5571
+            ],
+            "std_error": 0.0231,
+            "unit": "m",
+            "tier_calibrated": "video"
+          },
+          "start_point": [
+            0.0,
+            5.386273777083436
+          ],
+          "end_point": [
+            1.5117452247137046,
+            5.386273777083436
+          ],
+          "orientation_deg": 0.0
+        },
+        {
+          "wall_id": "wall_east",
+          "length": {
+            "value": 5.3863,
+            "ci_95": [
+              5.2247,
+              5.5479
+            ],
+            "std_error": 0.0824,
+            "unit": "m",
+            "tier_calibrated": "video"
+          },
+          "start_point": [
+            1.5117452247137046,
+            5.386273777083436
+          ],
+          "end_point": [
+            1.5117452247137046,
+            0.0
+          ],
+          "orientation_deg": 90.0
+        },
+        {
+          "wall_id": "wall_south",
+          "length": {
+            "value": 1.5117,
+            "ci_95": [
+              1.4663,
+              1.5571
+            ],
+            "std_error": 0.0231,
+            "unit": "m",
+            "tier_calibrated": "video"
+          },
+          "start_point": [
+            1.5117452247137046,
+            0.0
+          ],
+          "end_point": [
+            0.0,
+            0.0
+          ],
+          "orientation_deg": 180.0
+        },
+        {
+          "wall_id": "wall_west",
+          "length": {
+            "value": 5.3863,
+            "ci_95": [
+              5.2247,
+              5.5479
+            ],
+            "std_error": 0.0824,
+            "unit": "m",
+            "tier_calibrated": "video"
+          },
+          "start_point": [
+            0.0,
+            0.0
+          ],
+          "end_point": [
+            0.0,
+            5.386273777083436
+          ],
+          "orientation_deg": 270.0
+        }
+      ],
+      "openings": [
+        {
+          "opening_id": "door_living",
+          "type": "door",
+          "wall_id": "wall_north",
+          "position_along_wall_m": 1.2,
+          "width_m": {
+            "value": 0.9169,
+            "ci_95": [
+              0.8699,
+              0.964
+            ],
+            "std_err": 0.024
+          },
+          "height_m": {
+            "value": 2.047,
+            "ci_95": [
+              2.0038,
+              2.0901
+            ],
+            "std_err": 0.022
+          },
+          "confidence": 0.858,
+          "connects_to_room": "living_room",
+          "detection_mode": "BILATERAL_JAMB_SPLINE"
+        },
+        {
+          "opening_id": "door_kitchen",
+          "type": "door",
+          "wall_id": "wall_east",
+          "position_along_wall_m": 1.2,
+          "width_m": {
+            "value": 0.8773,
+            "ci_95": [
+              0.8303,
+              0.9244
+            ],
+            "std_err": 0.024
+          },
+          "height_m": {
+            "value": 2.057,
+            "ci_95": [
+              2.0139,
+              2.1001
+            ],
+            "std_err": 0.022
+          },
+          "confidence": 0.875,
+          "connects_to_room": "kitchen",
+          "detection_mode": "BILATERAL_JAMB_SPLINE"
+        },
+        {
+          "opening_id": "door_master",
+          "type": "door",
+          "wall_id": "wall_south",
+          "position_along_wall_m": 1.2,
+          "width_m": {
+            "value": 0.9439,
+            "ci_95": [
+              0.8969,
+              0.9909
+            ],
+            "std_err": 0.024
+          },
+          "height_m": {
+            "value": 2.0669,
+            "ci_95": [
+              2.0238,
+              2.11
+            ],
+            "std_err": 0.022
+          },
+          "confidence": 0.879,
+          "connects_to_room": "master_bedroom",
+          "detection_mode": "BILATERAL_JAMB_SPLINE"
+        }
+      ]
+    },
+    {
+      "room_id": "kitchen",
+      "name": "Kitchen",
+      "ceiling_height": {
+        "value": 2.7147,
+        "ci_95": [
+          2.6597,
+          2.7697
+        ],
+        "std_error": 0.0281,
+        "unit": "m",
+        "tier_calibrated": "video"
+      },
+      "floor_area": {
+        "value": 15.16,
+        "ci_95": [
+          14.4778,
+          15.8422
+        ],
+        "std_error": 0.3481,
+        "unit": "m2",
+        "tier_calibrated": "video"
+      },
+      "walls": [
+        {
+          "wall_id": "wall_north",
+          "length": {
+            "value": 3.619,
+            "ci_95": [
+              3.5104,
+              3.7276
+            ],
+            "std_error": 0.0554,
+            "unit": "m",
+            "tier_calibrated": "video"
+          },
+          "start_point": [
+            0.0,
+            4.189101980247452
+          ],
+          "end_point": [
+            3.618965690461853,
+            4.189101980247452
+          ],
+          "orientation_deg": 0.0
+        },
+        {
+          "wall_id": "wall_east",
+          "length": {
+            "value": 4.1891,
+            "ci_95": [
+              4.0634,
+              4.3148
+            ],
+            "std_error": 0.0641,
+            "unit": "m",
+            "tier_calibrated": "video"
+          },
+          "start_point": [
+            3.618965690461853,
+            4.189101980247452
+          ],
+          "end_point": [
+            3.618965690461853,
+            0.0
+          ],
+          "orientation_deg": 90.0
+        },
+        {
+          "wall_id": "wall_south",
+          "length": {
+            "value": 3.619,
+            "ci_95": [
+              3.5104,
+              3.7276
+            ],
+            "std_error": 0.0554,
+            "unit": "m",
+            "tier_calibrated": "video"
+          },
+          "start_point": [
+            3.618965690461853,
+            0.0
+          ],
+          "end_point": [
+            0.0,
+            0.0
+          ],
+          "orientation_deg": 180.0
+        },
+        {
+          "wall_id": "wall_west",
+          "length": {
+            "value": 4.1891,
+            "ci_95": [
+              4.0634,
+              4.3148
+            ],
+            "std_error": 0.0641,
+            "unit": "m",
+            "tier_calibrated": "video"
+          },
+          "start_point": [
+            0.0,
+            0.0
+          ],
+          "end_point": [
+            0.0,
+            4.189101980247452
+          ],
+          "orientation_deg": 270.0
+        }
+      ],
+      "openings": [
+        {
+          "opening_id": "door_hallway_k",
+          "type": "door",
+          "wall_id": "wall_west",
+          "position_along_wall_m": 1.2,
+          "width_m": {
+            "value": 0.9159,
+            "ci_95": [
+              0.8689,
+              0.963
+            ],
+            "std_err": 0.024
+          },
+          "height_m": {
+            "value": 2.047,
+            "ci_95": [
+              2.0038,
+              2.0901
+            ],
+            "std_err": 0.022
+          },
+          "confidence": 0.858,
+          "connects_to_room": "hallway",
+          "detection_mode": "BILATERAL_JAMB_SPLINE"
+        },
+        {
+          "opening_id": "window_kitchen",
+          "type": "window",
+          "wall_id": "wall_north",
+          "position_along_wall_m": 1.2,
+          "width_m": {
+            "value": 1.3813,
+            "ci_95": [
+              1.3343,
+              1.4284
+            ],
+            "std_err": 0.024
+          },
+          "height_m": {
+            "value": 1.212,
+            "ci_95": [
+              1.1689,
+              1.2551
+            ],
+            "std_err": 0.022
+          },
+          "confidence": 0.875,
+          "connects_to_room": null,
+          "detection_mode": "BILATERAL_JAMB_SPLINE"
+        }
+      ]
+    },
+    {
+      "room_id": "master_bedroom",
+      "name": "Master Bedroom",
+      "ceiling_height": {
+        "value": 2.7177,
+        "ci_95": [
+          2.6627,
+          2.7727
+        ],
+        "std_error": 0.0281,
+        "unit": "m",
+        "tier_calibrated": "video"
+      },
+      "floor_area": {
+        "value": 20.212,
+        "ci_95": [
+          19.3025,
+          21.1215
+        ],
+        "std_error": 0.4641,
+        "unit": "m2",
+        "tier_calibrated": "video"
+      },
+      "walls": [
+        {
+          "wall_id": "wall_north",
+          "length": {
+            "value": 4.2225,
+            "ci_95": [
+              4.0958,
+              4.3492
+            ],
+            "std_error": 0.0646,
+            "unit": "m",
+            "tier_calibrated": "video"
+          },
+          "start_point": [
+            0.0,
+            4.78668856998695
+          ],
+          "end_point": [
+            4.222460800062416,
+            4.78668856998695
+          ],
+          "orientation_deg": 0.0
+        },
+        {
+          "wall_id": "wall_east",
+          "length": {
+            "value": 4.7867,
+            "ci_95": [
+              4.6431,
+              4.9303
+            ],
+            "std_error": 0.0733,
+            "unit": "m",
+            "tier_calibrated": "video"
+          },
+          "start_point": [
+            4.222460800062416,
+            4.78668856998695
+          ],
+          "end_point": [
+            4.222460800062416,
+            0.0
+          ],
+          "orientation_deg": 90.0
+        },
+        {
+          "wall_id": "wall_south",
+          "length": {
+            "value": 4.2225,
+            "ci_95": [
+              4.0958,
+              4.3492
+            ],
+            "std_error": 0.0646,
+            "unit": "m",
+            "tier_calibrated": "video"
+          },
+          "start_point": [
+            4.222460800062416,
+            0.0
+          ],
+          "end_point": [
+            0.0,
+            0.0
+          ],
+          "orientation_deg": 180.0
+        },
+        {
+          "wall_id": "wall_west",
+          "length": {
+            "value": 4.7867,
+            "ci_95": [
+              4.6431,
+              4.9303
+            ],
+            "std_error": 0.0733,
+            "unit": "m",
+            "tier_calibrated": "video"
+          },
+          "start_point": [
+            0.0,
+            0.0
+          ],
+          "end_point": [
+            0.0,
+            4.78668856998695
+          ],
+          "orientation_deg": 270.0
+        }
+      ],
+      "openings": [
+        {
+          "opening_id": "door_hallway_m",
+          "type": "door",
+          "wall_id": "wall_north",
+          "position_along_wall_m": 1.2,
+          "width_m": {
+            "value": 0.9169,
+            "ci_95": [
+              0.8699,
+              0.964
+            ],
+            "std_err": 0.024
+          },
+          "height_m": {
+            "value": 2.047,
+            "ci_95": [
+              2.0038,
+              2.0901
+            ],
+            "std_err": 0.022
+          },
+          "confidence": 0.858,
+          "connects_to_room": "hallway",
+          "detection_mode": "BILATERAL_JAMB_SPLINE"
+        },
+        {
+          "opening_id": "window_bedroom",
+          "type": "window",
+          "wall_id": "wall_east",
+          "position_along_wall_m": 1.2,
+          "width_m": {
+            "value": 1.7683,
+            "ci_95": [
+              1.7213,
+              1.8154
+            ],
+            "std_err": 0.024
+          },
+          "height_m": {
+            "value": 1.405,
+            "ci_95": [
+              1.3619,
+              1.4481
+            ],
+            "std_err": 0.022
+          },
+          "confidence": 0.875,
+          "connects_to_room": null,
+          "detection_mode": "BILATERAL_JAMB_SPLINE"
+        }
+      ]
+    }
+  ],
+  "stitched_plan": {
+    "property_envelope": {
+      "min_x": 0.0,
+      "min_y": -4.79,
+      "max_x": 9.942,
+      "max_y": 5.3891,
+      "total_span_x_m": 9.942,
+      "total_span_y_m": 10.1791,
+      "total_floor_area_m2": 69.49
+    },
+    "stitched_rooms": {
+      "living_room": {
+        "room_id": "living_room",
+        "name": "Living Room (Furnished)",
+        "global_pose": [
+          -0.0,
+          -0.0,
+          -0.0
+        ],
+        "walls": [
+          {
+            "wall_id": "living_room_wall_north",
+            "local_wall_id": "wall_north",
+            "start_point": [
+              0.0,
+              5.3813
+            ],
+            "end_point": [
+              4.827,
+              5.3813
+            ],
+            "length_m": 4.827,
+            "orientation_deg": 0.0
+          },
+          {
+            "wall_id": "living_room_wall_east",
+            "local_wall_id": "wall_east",
+            "start_point": [
+              4.827,
+              5.3813
+            ],
+            "end_point": [
+              4.827,
+              0.0
+            ],
+            "length_m": 5.3813,
+            "orientation_deg": 90.0
+          },
+          {
+            "wall_id": "living_room_wall_south",
+            "local_wall_id": "wall_south",
+            "start_point": [
+              4.827,
+              0.0
+            ],
+            "end_point": [
+              0.0,
+              0.0
+            ],
+            "length_m": 4.827,
+            "orientation_deg": 180.0
+          },
+          {
+            "wall_id": "living_room_wall_west",
+            "local_wall_id": "wall_west",
+            "start_point": [
+              0.0,
+              0.0
+            ],
+            "end_point": [
+              0.0,
+              5.3813
+            ],
+            "length_m": 5.3813,
+            "orientation_deg": 270.0
+          }
+        ],
+        "ceiling_height_m": 2.7217,
+        "floor_area_m2": 25.975,
+        "openings": [
+          {
+            "opening_id": "door_hallway",
+            "type": "door",
+            "wall_id": "wall_south",
+            "position_along_wall_m": 1.2,
+            "width_m": {
+              "value": 0.9199,
+              "ci_95": [
+                0.8729,
+                0.967
+              ],
+              "std_err": 0.024
+            },
+            "height_m": {
+              "value": 2.047,
+              "ci_95": [
+                2.0038,
+                2.0901
+              ],
+              "std_err": 0.022
+            },
+            "confidence": 0.858,
+            "connects_to_room": "hallway",
+            "detection_mode": "BILATERAL_JAMB_SPLINE"
+          },
+          {
+            "opening_id": "window_north",
+            "type": "window",
+            "wall_id": "wall_north",
+            "position_along_wall_m": 1.2,
+            "width_m": {
+              "value": 1.5833,
+              "ci_95": [
+                1.5363,
+                1.6304
+              ],
+              "std_err": 0.024
+            },
+            "height_m": {
+              "value": 1.412,
+              "ci_95": [
+                1.3689,
+                1.4551
+              ],
+              "std_err": 0.022
+            },
+            "confidence": 0.875,
+            "connects_to_room": null,
+            "detection_mode": "BILATERAL_JAMB_SPLINE"
+          }
+        ]
+      },
+      "hallway": {
+        "room_id": "hallway",
+        "name": "Connector Hallway",
+        "global_pose": [
+          4.815,
+          -0.0,
+          -0.0
+        ],
+        "walls": [
+          {
+            "wall_id": "hallway_wall_north",
+            "local_wall_id": "wall_north",
+            "start_point": [
+              4.815,
+              5.3863
+            ],
+            "end_point": [
+              6.3267,
+              5.3863
+            ],
+            "length_m": 1.5117,
+            "orientation_deg": 0.0
+          },
+          {
+            "wall_id": "hallway_wall_east",
+            "local_wall_id": "wall_east",
+            "start_point": [
+              6.3267,
+              5.3863
+            ],
+            "end_point": [
+              6.3267,
+              0.0
+            ],
+            "length_m": 5.3863,
+            "orientation_deg": 90.0
+          },
+          {
+            "wall_id": "hallway_wall_south",
+            "local_wall_id": "wall_south",
+            "start_point": [
+              6.3267,
+              0.0
+            ],
+            "end_point": [
+              4.815,
+              0.0
+            ],
+            "length_m": 1.5117,
+            "orientation_deg": 180.0
+          },
+          {
+            "wall_id": "hallway_wall_west",
+            "local_wall_id": "wall_west",
+            "start_point": [
+              4.815,
+              0.0
+            ],
+            "end_point": [
+              4.815,
+              5.3863
+            ],
+            "length_m": 5.3863,
+            "orientation_deg": 270.0
+          }
+        ],
+        "ceiling_height_m": 2.7177,
+        "floor_area_m2": 8.143,
+        "openings": [
+          {
+            "opening_id": "door_living",
+            "type": "door",
+            "wall_id": "wall_north",
+            "position_along_wall_m": 1.2,
+            "width_m": {
+              "value": 0.9169,
+              "ci_95": [
+                0.8699,
+                0.964
+              ],
+              "std_err": 0.024
+            },
+            "height_m": {
+              "value": 2.047,
+              "ci_95": [
+                2.0038,
+                2.0901
+              ],
+              "std_err": 0.022
+            },
+            "confidence": 0.858,
+            "connects_to_room": "living_room",
+            "detection_mode": "BILATERAL_JAMB_SPLINE"
+          },
+          {
+            "opening_id": "door_kitchen",
+            "type": "door",
+            "wall_id": "wall_east",
+            "position_along_wall_m": 1.2,
+            "width_m": {
+              "value": 0.8773,
+              "ci_95": [
+                0.8303,
+                0.9244
+              ],
+              "std_err": 0.024
+            },
+            "height_m": {
+              "value": 2.057,
+              "ci_95": [
+                2.0139,
+                2.1001
+              ],
+              "std_err": 0.022
+            },
+            "confidence": 0.875,
+            "connects_to_room": "kitchen",
+            "detection_mode": "BILATERAL_JAMB_SPLINE"
+          },
+          {
+            "opening_id": "door_master",
+            "type": "door",
+            "wall_id": "wall_south",
+            "position_along_wall_m": 1.2,
+            "width_m": {
+              "value": 0.9439,
+              "ci_95": [
+                0.8969,
+                0.9909
+              ],
+              "std_err": 0.024
+            },
+            "height_m": {
+              "value": 2.0669,
+              "ci_95": [
+                2.0238,
+                2.11
+              ],
+              "std_err": 0.022
+            },
+            "confidence": 0.879,
+            "connects_to_room": "master_bedroom",
+            "detection_mode": "BILATERAL_JAMB_SPLINE"
+          }
+        ]
+      },
+      "kitchen": {
+        "room_id": "kitchen",
+        "name": "Kitchen",
+        "global_pose": [
+          6.323,
+          1.2,
+          -0.0
+        ],
+        "walls": [
+          {
+            "wall_id": "kitchen_wall_north",
+            "local_wall_id": "wall_north",
+            "start_point": [
+              6.323,
+              5.3891
+            ],
+            "end_point": [
+              9.942,
+              5.3891
+            ],
+            "length_m": 3.619,
+            "orientation_deg": 0.0
+          },
+          {
+            "wall_id": "kitchen_wall_east",
+            "local_wall_id": "wall_east",
+            "start_point": [
+              9.942,
+              5.3891
+            ],
+            "end_point": [
+              9.942,
+              1.2
+            ],
+            "length_m": 4.1891,
+            "orientation_deg": 90.0
+          },
+          {
+            "wall_id": "kitchen_wall_south",
+            "local_wall_id": "wall_south",
+            "start_point": [
+              9.942,
+              1.2
+            ],
+            "end_point": [
+              6.323,
+              1.2
+            ],
+            "length_m": 3.619,
+            "orientation_deg": 180.0
+          },
+          {
+            "wall_id": "kitchen_wall_west",
+            "local_wall_id": "wall_west",
+            "start_point": [
+              6.323,
+              1.2
+            ],
+            "end_point": [
+              6.323,
+              5.3891
+            ],
+            "length_m": 4.1891,
+            "orientation_deg": 270.0
+          }
+        ],
+        "ceiling_height_m": 2.7147,
+        "floor_area_m2": 15.16,
+        "openings": [
+          {
+            "opening_id": "door_hallway_k",
+            "type": "door",
+            "wall_id": "wall_west",
+            "position_along_wall_m": 1.2,
+            "width_m": {
+              "value": 0.9159,
+              "ci_95": [
+                0.8689,
+                0.963
+              ],
+              "std_err": 0.024
+            },
+            "height_m": {
+              "value": 2.047,
+              "ci_95": [
+                2.0038,
+                2.0901
+              ],
+              "std_err": 0.022
+            },
+            "confidence": 0.858,
+            "connects_to_room": "hallway",
+            "detection_mode": "BILATERAL_JAMB_SPLINE"
+          },
+          {
+            "opening_id": "window_kitchen",
+            "type": "window",
+            "wall_id": "wall_north",
+            "position_along_wall_m": 1.2,
+            "width_m": {
+              "value": 1.3813,
+              "ci_95": [
+                1.3343,
+                1.4284
+              ],
+              "std_err": 0.024
+            },
+            "height_m": {
+              "value": 1.212,
+              "ci_95": [
+                1.1689,
+                1.2551
+              ],
+              "std_err": 0.022
+            },
+            "confidence": 0.875,
+            "connects_to_room": null,
+            "detection_mode": "BILATERAL_JAMB_SPLINE"
+          }
+        ]
+      },
+      "master_bedroom": {
+        "room_id": "master_bedroom",
+        "name": "Master Bedroom",
+        "global_pose": [
+          4.815,
+          -4.79,
+          -0.0
+        ],
+        "walls": [
+          {
+            "wall_id": "master_bedroom_wall_north",
+            "local_wall_id": "wall_north",
+            "start_point": [
+              4.815,
+              -0.0033
+            ],
+            "end_point": [
+              9.0375,
+              -0.0033
+            ],
+            "length_m": 4.2225,
+            "orientation_deg": 0.0
+          },
+          {
+            "wall_id": "master_bedroom_wall_east",
+            "local_wall_id": "wall_east",
+            "start_point": [
+              9.0375,
+              -0.0033
+            ],
+            "end_point": [
+              9.0375,
+              -4.79
+            ],
+            "length_m": 4.7867,
+            "orientation_deg": 90.0
+          },
+          {
+            "wall_id": "master_bedroom_wall_south",
+            "local_wall_id": "wall_south",
+            "start_point": [
+              9.0375,
+              -4.79
+            ],
+            "end_point": [
+              4.815,
+              -4.79
+            ],
+            "length_m": 4.2225,
+            "orientation_deg": 180.0
+          },
+          {
+            "wall_id": "master_bedroom_wall_west",
+            "local_wall_id": "wall_west",
+            "start_point": [
+              4.815,
+              -4.79
+            ],
+            "end_point": [
+              4.815,
+              -0.0033
+            ],
+            "length_m": 4.7867,
+            "orientation_deg": 270.0
+          }
+        ],
+        "ceiling_height_m": 2.7177,
+        "floor_area_m2": 20.212,
+        "openings": [
+          {
+            "opening_id": "door_hallway_m",
+            "type": "door",
+            "wall_id": "wall_north",
+            "position_along_wall_m": 1.2,
+            "width_m": {
+              "value": 0.9169,
+              "ci_95": [
+                0.8699,
+                0.964
+              ],
+              "std_err": 0.024
+            },
+            "height_m": {
+              "value": 2.047,
+              "ci_95": [
+                2.0038,
+                2.0901
+              ],
+              "std_err": 0.022
+            },
+            "confidence": 0.858,
+            "connects_to_room": "hallway",
+            "detection_mode": "BILATERAL_JAMB_SPLINE"
+          },
+          {
+            "opening_id": "window_bedroom",
+            "type": "window",
+            "wall_id": "wall_east",
+            "position_along_wall_m": 1.2,
+            "width_m": {
+              "value": 1.7683,
+              "ci_95": [
+                1.7213,
+                1.8154
+              ],
+              "std_err": 0.024
+            },
+            "height_m": {
+              "value": 1.405,
+              "ci_95": [
+                1.3619,
+                1.4481
+              ],
+              "std_err": 0.022
+            },
+            "confidence": 0.875,
+            "connects_to_room": null,
+            "detection_mode": "BILATERAL_JAMB_SPLINE"
+          }
+        ]
+      }
+    },
+    "adjacency_connections": [
+      {
+        "from": "living_room",
+        "to": "hallway",
+        "measurement": [
+          4.815,
+          0.0,
+          0.0
+        ],
+        "is_loop_closure": false
+      },
+      {
+        "from": "hallway",
+        "to": "kitchen",
+        "measurement": [
+          1.508,
+          1.2,
+          0.0
+        ],
+        "is_loop_closure": false
+      },
+      {
+        "from": "hallway",
+        "to": "master_bedroom",
+        "measurement": [
+          0.0,
+          -4.79,
+          0.0
+        ],
+        "is_loop_closure": false
+      },
+      {
+        "from": "master_bedroom",
+        "to": "living_room",
+        "measurement": [
+          -4.815,
+          4.79,
+          0.0
+        ],
+        "is_loop_closure": true
+      }
+    ],
+    "topology_valid": false,
+    "overlap_warnings": [
+      "Overlap detected between living_room and hallway: 0.064 m2"
+    ],
+    "total_overlap_area_m2": 0.064,
+    "drift_analysis": {
+      "optimized_poses": {
+        "living_room": [
+          -0.0,
+          -0.0,
+          -0.0
+        ],
+        "hallway": [
+          4.815,
+          -0.0,
+          -0.0
+        ],
+        "kitchen": [
+          6.323,
+          1.2,
+          -0.0
+        ],
+        "master_bedroom": [
+          4.815,
+          -4.79,
+          -0.0
+        ]
+      },
+      "drift_corrected": true,
+      "iterations": 2,
+      "initial_residual": 0.385,
+      "final_residual": 0.0042,
+      "residual_error_cm": 0.42,
+      "status": "CONVERGED_OPTIMAL"
+    }
+  },
+  "damage_assessment": {
+    "damage_regions": [
+      {
+        "damage_id": "DMG_property_aggregate_1",
+        "room_id": "property_aggregate",
+        "surface_id": "property_aggregate_wall_north",
+        "surface_type": "drywall_wall",
+        "damage_class": "water_damage",
+        "severity_score": 0.85,
+        "metric_extent": {
+          "area_m2": 2.505,
+          "area_ci_95": [
+            2.407,
+            2.603
+          ],
+          "linear_length_m": null
+        },
+        "bounding_box_uv": [
+          0.15,
+          0.4,
+          0.85,
+          0.95
+        ],
+        "detection_confidence": 0.9,
+        "moisture_reading_wme_pct": null
+      },
+      {
+        "damage_id": "DMG_property_aggregate_2",
+        "room_id": "property_aggregate",
+        "surface_id": "property_aggregate_wall_east",
+        "surface_type": "plaster_wall",
+        "damage_class": "wall_crack",
+        "severity_score": 0.7,
+        "metric_extent": {
+          "area_m2": 0.532,
+          "area_ci_95": [
+            0.434,
+            0.63
+          ],
+          "linear_length_m": 1.65
+        },
+        "bounding_box_uv": [
+          0.15,
+          0.4,
+          0.85,
+          0.95
+        ],
+        "detection_confidence": 0.9,
+        "moisture_reading_wme_pct": null
+      },
+      {
+        "damage_id": "DMG_property_aggregate_3",
+        "room_id": "property_aggregate",
+        "surface_id": "property_aggregate_ceiling",
+        "surface_type": "drywall_ceiling",
+        "damage_class": "water_damage",
+        "severity_score": 0.9,
+        "metric_extent": {
+          "area_m2": 1.145,
+          "area_ci_95": [
+            1.047,
+            1.243
+          ],
+          "linear_length_m": null
+        },
+        "bounding_box_uv": [
+          0.15,
+          0.4,
+          0.85,
+          0.95
+        ],
+        "detection_confidence": 0.9,
+        "moisture_reading_wme_pct": null
+      },
+      {
+        "damage_id": "DMG_property_aggregate_4",
+        "room_id": "property_aggregate",
+        "surface_id": "property_aggregate_wall_east",
+        "surface_type": "drywall_wall",
+        "damage_class": "mold_growth",
+        "severity_score": 0.8,
+        "metric_extent": {
+          "area_m2": 0.731,
+          "area_ci_95": [
+            0.633,
+            0.829
+          ],
+          "linear_length_m": null
+        },
+        "bounding_box_uv": [
+          0.15,
+          0.4,
+          0.85,
+          0.95
+        ],
+        "detection_confidence": 0.9,
+        "moisture_reading_wme_pct": null
+      }
+    ],
+    "total_damaged_area_m2": 4.913
+  },
+  "concealed_damage_flags": [
+    {
+      "flag_id": "FLAG_DMG_property_aggregate_1_RULE_WATER_BEHIND_BASEBOARD",
+      "damage_id": "DMG_property_aggregate_1",
+      "surface_id": "property_aggregate_wall_north",
+      "rule_fired": "RULE_WATER_BEHIND_BASEBOARD",
+      "rule_title": "Baseboard Water Intrusion Drywall Cavity Rot",
+      "justification": "Visible water staining near wall base suggests trapped moisture behind baseboards and insulation degradation inside drywall stud cavity.",
+      "recommended_investigation": "Non-destructive thermal/moisture probe + selective inspection cut",
+      "risk_level": "MEDIUM"
+    },
+    {
+      "flag_id": "FLAG_DMG_property_aggregate_2_RULE_STRUCTURAL_SHEAR_CRACK",
+      "damage_id": "DMG_property_aggregate_2",
+      "surface_id": "property_aggregate_wall_east",
+      "rule_fired": "RULE_STRUCTURAL_SHEAR_CRACK",
+      "rule_title": "Diagonal Shear Crack Stud Deflection",
+      "justification": "Continuous diagonal shear crack >1.2m across load-bearing wall indicates foundation settlement and concealed timber/stud framing distortion.",
+      "recommended_investigation": "Non-destructive thermal/moisture probe + selective inspection cut",
+      "risk_level": "HIGH"
+    },
+    {
+      "flag_id": "FLAG_DMG_property_aggregate_3_RULE_CEILING_PLUMBING_LEAK",
+      "damage_id": "DMG_property_aggregate_3",
+      "surface_id": "property_aggregate_ceiling",
+      "rule_fired": "RULE_CEILING_PLUMBING_LEAK",
+      "rule_title": "Overhead Wet Plumb Concealed Joist Damage",
+      "justification": "Ceiling water staining under second-story plumbing fixture indicates saturated subfloor insulation and potential concealed joist rot.",
+      "recommended_investigation": "Non-destructive thermal/moisture probe + selective inspection cut",
+      "risk_level": "MEDIUM"
+    },
+    {
+      "flag_id": "FLAG_DMG_property_aggregate_4_RULE_CAVITY_MOLD_PROLIFERATION",
+      "damage_id": "DMG_property_aggregate_4",
+      "surface_id": "property_aggregate_wall_east",
+      "rule_fired": "RULE_CAVITY_MOLD_PROLIFERATION",
+      "rule_title": "Interior Wall Mold Behind Vapor Barrier",
+      "justification": "Visible mold cluster >0.4m2 indicates severe hidden fungal colonization behind vapor barrier requiring containment breach protocol.",
+      "recommended_investigation": "Non-destructive thermal/moisture probe + selective inspection cut",
+      "risk_level": "HIGH"
+    }
+  ],
+  "scope_of_work": [
+    {
+      "item_id": "SCOPE_001",
+      "damage_id": "DMG_property_aggregate_1",
+      "surface_id": "property_aggregate_wall_north",
+      "code": "WTR-EXTRACT",
+      "description": "Water extraction & moisture mitigation",
+      "quantity": 2.5,
+      "unit": "m2",
+      "unit_cost_usd": 18.5,
+      "total_cost_usd": 46.34
+    },
+    {
+      "item_id": "SCOPE_002",
+      "damage_id": "DMG_property_aggregate_1",
+      "surface_id": "property_aggregate_wall_north",
+      "code": "DRY-TEAROUT",
+      "description": "Tear out wet drywall up to 2ft flood cut",
+      "quantity": 2.5,
+      "unit": "m2",
+      "unit_cost_usd": 32.0,
+      "total_cost_usd": 80.16
+    },
+    {
+      "item_id": "SCOPE_003",
+      "damage_id": "DMG_property_aggregate_1",
+      "surface_id": "property_aggregate_wall_north",
+      "code": "DRY-REPLACE",
+      "description": "Hang, tape & mud 1/2in drywall replacement",
+      "quantity": 2.5,
+      "unit": "m2",
+      "unit_cost_usd": 48.0,
+      "total_cost_usd": 120.24
+    },
+    {
+      "item_id": "SCOPE_004",
+      "damage_id": "DMG_property_aggregate_1",
+      "surface_id": "property_aggregate_wall_north",
+      "code": "PNT-PRIME2C",
+      "description": "Apply stain-blocking primer and 2 finish coats",
+      "quantity": 2.5,
+      "unit": "m2",
+      "unit_cost_usd": 24.5,
+      "total_cost_usd": 61.37
+    },
+    {
+      "item_id": "SCOPE_005",
+      "damage_id": "DMG_property_aggregate_2",
+      "surface_id": "property_aggregate_wall_east",
+      "code": "CRK-VGROOVE",
+      "description": "V-groove crack preparation & structural epoxy inject",
+      "quantity": 1.65,
+      "unit": "linear_m",
+      "unit_cost_usd": 65.0,
+      "total_cost_usd": 107.25
+    },
+    {
+      "item_id": "SCOPE_006",
+      "damage_id": "DMG_property_aggregate_2",
+      "surface_id": "property_aggregate_wall_east",
+      "code": "DRY-TAPEFIN",
+      "description": "Mesh tape reinforcement & Level 4 mud finish",
+      "quantity": 1.65,
+      "unit": "linear_m",
+      "unit_cost_usd": 28.0,
+      "total_cost_usd": 46.2
+    },
+    {
+      "item_id": "SCOPE_007",
+      "damage_id": "DMG_property_aggregate_2",
+      "surface_id": "property_aggregate_wall_east",
+      "code": "PNT-TOUCHUP",
+      "description": "Blend and feather paint to nearest corner",
+      "quantity": 0.53,
+      "unit": "m2",
+      "unit_cost_usd": 22.0,
+      "total_cost_usd": 11.7
+    },
+    {
+      "item_id": "SCOPE_008",
+      "damage_id": "DMG_property_aggregate_3",
+      "surface_id": "property_aggregate_ceiling",
+      "code": "WTR-EXTRACT",
+      "description": "Water extraction & moisture mitigation",
+      "quantity": 1.15,
+      "unit": "m2",
+      "unit_cost_usd": 18.5,
+      "total_cost_usd": 21.18
+    },
+    {
+      "item_id": "SCOPE_009",
+      "damage_id": "DMG_property_aggregate_3",
+      "surface_id": "property_aggregate_ceiling",
+      "code": "DRY-TEAROUT",
+      "description": "Tear out wet drywall up to 2ft flood cut",
+      "quantity": 1.15,
+      "unit": "m2",
+      "unit_cost_usd": 32.0,
+      "total_cost_usd": 36.64
+    },
+    {
+      "item_id": "SCOPE_010",
+      "damage_id": "DMG_property_aggregate_3",
+      "surface_id": "property_aggregate_ceiling",
+      "code": "DRY-REPLACE",
+      "description": "Hang, tape & mud 1/2in drywall replacement",
+      "quantity": 1.15,
+      "unit": "m2",
+      "unit_cost_usd": 48.0,
+      "total_cost_usd": 54.96
+    },
+    {
+      "item_id": "SCOPE_011",
+      "damage_id": "DMG_property_aggregate_3",
+      "surface_id": "property_aggregate_ceiling",
+      "code": "PNT-PRIME2C",
+      "description": "Apply stain-blocking primer and 2 finish coats",
+      "quantity": 1.15,
+      "unit": "m2",
+      "unit_cost_usd": 24.5,
+      "total_cost_usd": 28.05
+    },
+    {
+      "item_id": "SCOPE_012",
+      "damage_id": "DMG_property_aggregate_4",
+      "surface_id": "property_aggregate_wall_east",
+      "code": "MLD-CONTAIN",
+      "description": "HEPA negative air pressure containment chamber",
+      "quantity": 1.0,
+      "unit": "ea",
+      "unit_cost_usd": 350.0,
+      "total_cost_usd": 350.0
+    },
+    {
+      "item_id": "SCOPE_013",
+      "damage_id": "DMG_property_aggregate_4",
+      "surface_id": "property_aggregate_wall_east",
+      "code": "MLD-REMED",
+      "description": "Antimicrobial surface wash & HEPA vacuuming",
+      "quantity": 0.73,
+      "unit": "m2",
+      "unit_cost_usd": 45.0,
+      "total_cost_usd": 32.89
+    },
+    {
+      "item_id": "SCOPE_014",
+      "damage_id": "DMG_property_aggregate_4",
+      "surface_id": "property_aggregate_wall_east",
+      "code": "MLD-SEALANT",
+      "description": "Apply fungicidal protective sealant barrier",
+      "quantity": 0.73,
+      "unit": "m2",
+      "unit_cost_usd": 29.0,
+      "total_cost_usd": 21.2
+    }
+  ],
+  "calibration_and_confidence": {
+    "tier": "video",
+    "calibration_score": 0.92,
+    "wall_length_error_bound_pct": 3.0,
+    "ceiling_height_error_bound_m": 0.055,
+    "opening_width_error_bound_m": 0.065,
+    "empirical_ci_coverage_95_pct": 94.8
+  }
+}

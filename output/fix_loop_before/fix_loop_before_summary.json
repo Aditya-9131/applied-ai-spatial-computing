@@ -1,0 +1,10 @@
+{
+  "target_gate": "Opening Widths",
+  "required_pass_rate_pct": 85.0,
+  "actual_pass_rate_pct": 33.33,
+  "status": "FAIL",
+  "worst_error_cm": 3.39,
+  "worst_opening_id": "door_kitchen",
+  "total_openings": 9,
+  "passed_openings": 3
+}

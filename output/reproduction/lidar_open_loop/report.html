@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Property As-Built & Damage Assessment Report</title>
+    <style>
+        :root {
+            --bg-main: #090d16;
+            --bg-card: #111827;
+            --border-color: #1f2937;
+            --accent: #38bdf8;
+            --text-primary: #f9fafb;
+            --text-secondary: #9ca3af;
+            --danger: #ef4444;
+            --warning: #f59e0b;
+            --success: #10b981;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            background-color: var(--bg-main);
+            color: var(--text-primary);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            padding: 32px;
+            line-height: 1.5;
+        }
+        .container { max-width: 1300px; margin: 0 auto; }
+        .header {
+            display: flex; justify-content: space-between; align-items: center;
+            padding-bottom: 24px; border-bottom: 1px solid var(--border-color); margin-bottom: 28px;
+        }
+        .header h1 { font-size: 26px; font-weight: 700; color: #fff; }
+        .badge {
+            padding: 6px 14px; border-radius: 9999px; font-size: 13px; font-weight: 600;
+            background: rgba(56, 189, 248, 0.15); color: var(--accent); border: 1px solid rgba(56, 189, 248, 0.3);
+        }
+        .grid-2 { display: grid; grid-template-columns: 2fr 1fr; gap: 24px; margin-bottom: 28px; }
+        .card {
+            background: var(--bg-card); border: 1px solid var(--border-color);
+            border-radius: 12px; padding: 24px; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.4);
+        }
+        .card h2 { font-size: 18px; font-weight: 600; margin-bottom: 16px; color: var(--text-primary); border-bottom: 1px solid #273549; padding-bottom: 8px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 12px; font-size: 13px; }
+        th, td { padding: 10px 12px; text-align: left; border-bottom: 1px solid #1f2937; }
+        th { color: var(--text-secondary); font-weight: 600; background: #0c1322; }
+        .flag-card {
+            background: rgba(239, 68, 68, 0.08); border: 1px solid rgba(239, 68, 68, 0.3);
+            border-radius: 8px; padding: 14px; margin-bottom: 12px;
+        }
+        .flag-title { color: var(--danger); font-weight: 700; font-size: 14px; display: flex; align-items: center; gap: 8px; }
+        .flag-desc { font-size: 12px; color: #e2e8f0; margin-top: 4px; }
+        .cost-total { font-size: 24px; font-weight: 700; color: #34d399; margin-top: 8px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div>
+                <h1>Property As-Built &amp; Damage Scope Report</h1>
+                <p style="color: var(--text-secondary); font-size: 14px; margin-top: 4px;">Capture ID: <strong>BENCHMARK_MULTI_ROOM_LIDAR</strong> | Input Tier: <strong>LIDAR</strong> | Processed in 0.003s</p>
+            </div>
+            <div>
+                <span class="badge">SCHEMA COMPLIANT v2026.08.1</span>
+            </div>
+        </div>
+
+        <div class="grid-2">
+            <div class="card">
+                <h2>Stitched As-Built Floor Plan</h2>
+                <div style="border-radius: 8px; overflow: hidden; border: 1px solid #1f2937;">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 1221" width="100%" height="100%" style="background-color: #0b0f19; font-family: Inter, system-ui, -apple-system, sans-serif;">
+<defs>
+  <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+    <feGaussianBlur stdDeviation="3" result="blur" />
+    <feComposite in="SourceGraphic" in2="blur" operator="over" />
+  </filter>
+  <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+    <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1e293b" stroke-width="0.75"/>
+  </pattern>
+</defs>
+<rect width="1100" height="1221" fill="url(#grid)" />
+<text x="40" y="45" fill="#f8fafc" font-size="20" font-weight="700" letter-spacing="0.5">WHOLE-PROPERTY AS-BUILT &amp; DAMAGE REPORT</text>
+<text x="40" y="68" fill="#94a3b8" font-size="13">Tier: <tspan fill="#38bdf8" font-weight="600">LIDAR</tspan> | Device: iPhone 15 Pro Max | Schema: 2026.08.1</text>
+<rect x="860" y="25" width="200" height="42" rx="8" fill="#1e293b" stroke="#334155"/>
+<text x="960" y="44" fill="#94a3b8" font-size="11" text-anchor="middle">TOTAL USABLE AREA</text>
+<text x="960" y="61" fill="#38bdf8" font-size="14" font-weight="700" text-anchor="middle">73.17 m²</text>
+<polygon points="140.44986249640849,259.9937199852235 526.7298772729139,259.9937199852235 526.7298772729139,694.3907975208308 140.44986249640849,694.3907975208308" fill="#1e293b" fill-opacity="0.7" stroke="#475569" stroke-width="1.5" stroke-dasharray="4,4"/>
+<text x="333.58986988466114" y="467.1922587530271" fill="#f1f5f9" font-size="15" font-weight="600" text-anchor="middle">Living Room (Furnished)</text>
+<text x="333.58986988466114" y="487.1922587530271" fill="#38bdf8" font-size="12" text-anchor="middle">25.93 m² | H: 2.70m</text>
+<line x1="140.44986249640849" y1="259.9937199852235" x2="526.7298772729139" y2="259.9937199852235" stroke="#94a3b8" stroke-width="4" stroke-linecap="round"/>
+<rect x="309.5898698846612" y="250.9937199852235" width="48" height="18" rx="4" fill="#0f172a" stroke="#475569" stroke-width="1"/>
+<text x="333.5898698846612" y="263.9937199852235" fill="#f8fafc" font-size="10" font-weight="600" text-anchor="middle">4.80m</text>
+<line x1="526.7298772729139" y1="259.9937199852235" x2="526.7298772729139" y2="694.3907975208308" stroke="#94a3b8" stroke-width="4" stroke-linecap="round"/>
+<rect x="502.7298772729139" y="468.19225875302715" width="48" height="18" rx="4" fill="#0f172a" stroke="#475569" stroke-width="1"/>
+<text x="526.7298772729139" y="481.19225875302715" fill="#f8fafc" font-size="10" font-weight="600" text-anchor="middle">5.40m</text>
+<line x1="526.7298772729139" y1="694.3907975208308" x2="140.44986249640849" y2="694.3907975208308" stroke="#94a3b8" stroke-width="4" stroke-linecap="round"/>
+<rect x="309.5898698846612" y="685.3907975208308" width="48" height="18" rx="4" fill="#0f172a" stroke="#475569" stroke-width="1"/>
+<text x="333.5898698846612" y="698.3907975208308" fill="#f8fafc" font-size="10" font-weight="600" text-anchor="middle">4.80m</text>
+<line x1="140.44986249640849" y1="694.3907975208308" x2="140.44986249640849" y2="259.9937199852235" stroke="#94a3b8" stroke-width="4" stroke-linecap="round"/>
+<rect x="116.44986249640849" y="468.19225875302715" width="48" height="18" rx="4" fill="#0f172a" stroke="#475569" stroke-width="1"/>
+<text x="140.44986249640849" y="481.19225875302715" fill="#f8fafc" font-size="10" font-weight="600" text-anchor="middle">5.40m</text>
+<polygon points="538.6766818536305,259.9937199852235 659.4721503919878,259.9937199852235 659.4721503919878,694.3907975208308 538.6766818536305,694.3907975208308" fill="#0f172a" fill-opacity="0.7" stroke="#475569" stroke-width="1.5" stroke-dasharray="4,4"/>
+<text x="599.0744161228092" y="467.1922587530271" fill="#f1f5f9" font-size="15" font-weight="600" text-anchor="middle">Connector Hallway</text>
+<text x="599.0744161228092" y="487.1922587530271" fill="#38bdf8" font-size="12" text-anchor="middle">8.11 m² | H: 2.70m</text>
+<line x1="538.6766818536305" y1="259.9937199852235" x2="659.4721503919878" y2="259.9937199852235" stroke="#94a3b8" stroke-width="4" stroke-linecap="round"/>
+<rect x="575.0744161228092" y="250.9937199852235" width="48" height="18" rx="4" fill="#0f172a" stroke="#475569" stroke-width="1"/>
+<text x="599.0744161228092" y="263.9937199852235" fill="#f8fafc" font-size="10" font-weight="600" text-anchor="middle">1.50m</text>
+<line x1="659.4721503919878" y1="259.9937199852235" x2="659.4721503919878" y2="694.3907975208308" stroke="#94a3b8" stroke-width="4" stroke-linecap="round"/>
+<rect x="635.4721503919878" y="468.19225875302715" width="48" height="18" rx="4" fill="#0f172a" stroke="#475569" stroke-width="1"/>
+<text x="659.4721503919878" y="481.19225875302715" fill="#f8fafc" font-size="10" font-weight="600" text-anchor="middle">5.40m</text>
+<line x1="659.4721503919878" y1="694.3907975208308" x2="538.6766818536305" y2="694.3907975208308" stroke="#94a3b8" stroke-width="4" stroke-linecap="round"/>
+<rect x="575.0744161228092" y="685.3907975208308" width="48" height="18" rx="4" fill="#0f172a" stroke="#475569" stroke-width="1"/>
+<text x="599.0744161228092" y="698.3907975208308" fill="#f8fafc" font-size="10" font-weight="600" text-anchor="middle">1.50m</text>
+<line x1="538.6766818536305" y1="694.3907975208308" x2="538.6766818536305" y2="259.9937199852235" stroke="#94a3b8" stroke-width="4" stroke-linecap="round"/>
+<rect x="514.6766818536305" y="468.19225875302715" width="48" height="18" rx="4" fill="#0f172a" stroke="#475569" stroke-width="1"/>
+<text x="538.6766818536305" y="481.19225875302715" fill="#f8fafc" font-size="10" font-weight="600" text-anchor="middle">5.40m</text>
+<polygon points="669.8099577227763,259.9937199852235 959.5501375035915,259.9937199852235 959.5501375035915,597.8509625251406 669.8099577227763,597.8509625251406" fill="#1e1b4b" fill-opacity="0.7" stroke="#475569" stroke-width="1.5" stroke-dasharray="4,4"/>
+<text x="814.6800476131838" y="418.922341255182" fill="#f1f5f9" font-size="15" font-weight="600" text-anchor="middle">Kitchen</text>
+<text x="814.6800476131838" y="438.922341255182" fill="#38bdf8" font-size="12" text-anchor="middle">15.12 m² | H: 2.70m</text>
+<line x1="669.8099577227763" y1="259.9937199852235" x2="959.5501375035915" y2="259.9937199852235" stroke="#94a3b8" stroke-width="4" stroke-linecap="round"/>
+<rect x="790.6800476131839" y="250.9937199852235" width="48" height="18" rx="4" fill="#0f172a" stroke="#475569" stroke-width="1"/>
+<text x="814.6800476131839" y="263.9937199852235" fill="#f8fafc" font-size="10" font-weight="600" text-anchor="middle">3.60m</text>
+<line x1="959.5501375035915" y1="259.9937199852235" x2="959.5501375035915" y2="597.8509625251406" stroke="#94a3b8" stroke-width="4" stroke-linecap="round"/>
+<rect x="935.5501375035915" y="419.92234125518206" width="48" height="18" rx="4" fill="#0f172a" stroke="#475569" stroke-width="1"/>
+<text x="959.5501375035915" y="432.92234125518206" fill="#f8fafc" font-size="10" font-weight="600" text-anchor="middle">4.20m</text>
+<line x1="959.5501375035915" y1="597.8509625251406" x2="669.8099577227763" y2="597.8509625251406" stroke="#94a3b8" stroke-width="4" stroke-linecap="round"/>
+<rect x="790.6800476131839" y="588.8509625251406" width="48" height="18" rx="4" fill="#0f172a" stroke="#475569" stroke-width="1"/>
+<text x="814.6800476131839" y="601.8509625251406" fill="#f8fafc" font-size="10" font-weight="600" text-anchor="middle">3.60m</text>
+<line x1="669.8099577227763" y1="597.8509625251406" x2="669.8099577227763" y2="259.9937199852235" stroke="#94a3b8" stroke-width="4" stroke-linecap="round"/>
+<rect x="645.8099577227763" y="419.92234125518206" width="48" height="18" rx="4" fill="#0f172a" stroke="#475569" stroke-width="1"/>
+<text x="669.8099577227763" y="432.92234125518206" fill="#f8fafc" font-size="10" font-weight="600" text-anchor="middle">4.20m</text>
+<polygon points="557.5823995402865,694.4229774658294 895.5924968189468,694.4229774658294 895.5924968189468,1080.5501375035915 557.5823995402865,1080.5501375035915" fill="#172554" fill-opacity="0.7" stroke="#475569" stroke-width="1.5" stroke-dasharray="4,4"/>
+<text x="726.5874481796167" y="877.4865574847104" fill="#f1f5f9" font-size="15" font-weight="600" text-anchor="middle">Master Bedroom</text>
+<text x="726.5874481796167" y="897.4865574847104" fill="#38bdf8" font-size="12" text-anchor="middle">20.16 m² | H: 2.70m</text>
+<line x1="557.5823995402865" y1="694.4229774658294" x2="895.5924968189468" y2="694.4229774658294" stroke="#94a3b8" stroke-width="4" stroke-linecap="round"/>
+<rect x="702.5874481796166" y="685.4229774658294" width="48" height="18" rx="4" fill="#0f172a" stroke="#475569" stroke-width="1"/>
+<text x="726.5874481796166" y="698.4229774658294" fill="#f8fafc" font-size="10" font-weight="600" text-anchor="middle">4.20m</text>
+<line x1="895.5924968189468" y1="694.4229774658294" x2="895.5924968189468" y2="1080.5501375035915" stroke="#94a3b8" stroke-width="4" stroke-linecap="round"/>
+<rect x="871.5924968189468" y="878.4865574847104" width="48" height="18" rx="4" fill="#0f172a" stroke="#475569" stroke-width="1"/>
+<text x="895.5924968189468" y="891.4865574847104" fill="#f8fafc" font-size="10" font-weight="600" text-anchor="middle">4.80m</text>
+<line x1="895.5924968189468" y1="1080.5501375035915" x2="557.5823995402865" y2="1080.5501375035915" stroke="#94a3b8" stroke-width="4" stroke-linecap="round"/>
+<rect x="702.5874481796166" y="1071.5501375035915" width="48" height="18" rx="4" fill="#0f172a" stroke="#475569" stroke-width="1"/>
+<text x="726.5874481796166" y="1084.5501375035915" fill="#f8fafc" font-size="10" font-weight="600" text-anchor="middle">4.20m</text>
+<line x1="557.5823995402865" y1="1080.5501375035915" x2="557.5823995402865" y2="694.4229774658294" stroke="#94a3b8" stroke-width="4" stroke-linecap="round"/>
+<rect x="533.5823995402865" y="878.4865574847104" width="48" height="18" rx="4" fill="#0f172a" stroke="#475569" stroke-width="1"/>
+<text x="557.5823995402865" y="891.4865574847104" fill="#f8fafc" font-size="10" font-weight="600" text-anchor="middle">4.80m</text>
+<rect x="40" y="1176" width="1020" height="32" rx="6" fill="#1e293b" stroke="#334155"/>
+<text x="60" y="1196" fill="#cbd5e1" font-size="11"><tspan fill="#38bdf8">■</tspan> Reconstructed Boundary  <tspan fill="#ef4444" dx="15">●</tspan> Water Damage  <tspan fill="#f59e0b" dx="15">●</tspan> Crack  <tspan fill="#a855f7" dx="15">●</tspan> Mold  <tspan dx="25" fill="#facc15">⚠ Concealed Flags Active: 4</tspan></text>
+</svg>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Concealed Damage Risk Flags (4)</h2>
+                
+                <div class="flag-card">
+                    <div class="flag-title">⚠️ RULE_WATER_BEHIND_BASEBOARD: Baseboard Water Intrusion Drywall Cavity Rot</div>
+                    <div class="flag-desc">Visible water staining near wall base suggests trapped moisture behind baseboards and insulation degradation inside drywall stud cavity.</div>
+                    <div style="font-size: 11px; color: #94a3b8; margin-top: 6px;"><strong>Action:</strong> Non-destructive thermal/moisture probe + selective inspection cut</div>
+                </div>
+                
+                <div class="flag-card">
+                    <div class="flag-title">⚠️ RULE_STRUCTURAL_SHEAR_CRACK: Diagonal Shear Crack Stud Deflection</div>
+                    <div class="flag-desc">Continuous diagonal shear crack >1.2m across load-bearing wall indicates foundation settlement and concealed timber/stud framing distortion.</div>
+                    <div style="font-size: 11px; color: #94a3b8; margin-top: 6px;"><strong>Action:</strong> Non-destructive thermal/moisture probe + selective inspection cut</div>
+                </div>
+                
+                <div class="flag-card">
+                    <div class="flag-title">⚠️ RULE_CEILING_PLUMBING_LEAK: Overhead Wet Plumb Concealed Joist Damage</div>
+                    <div class="flag-desc">Ceiling water staining under second-story plumbing fixture indicates saturated subfloor insulation and potential concealed joist rot.</div>
+                    <div style="font-size: 11px; color: #94a3b8; margin-top: 6px;"><strong>Action:</strong> Non-destructive thermal/moisture probe + selective inspection cut</div>
+                </div>
+                
+                <div class="flag-card">
+                    <div class="flag-title">⚠️ RULE_CAVITY_MOLD_PROLIFERATION: Interior Wall Mold Behind Vapor Barrier</div>
+                    <div class="flag-desc">Visible mold cluster >0.4m2 indicates severe hidden fungal colonization behind vapor barrier requiring containment breach protocol.</div>
+                    <div style="font-size: 11px; color: #94a3b8; margin-top: 6px;"><strong>Action:</strong> Non-destructive thermal/moisture probe + selective inspection cut</div>
+                </div>
+                
+
+                <h2 style="margin-top: 24px;">Repair Scope Estimate</h2>
+                <p style="font-size: 13px; color: var(--text-secondary);">Xactimate / IICRC Line Items:</p>
+                <div class="cost-total">$1,003.86 USD</div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Detailed Scope of Work Line Items Keyed to Surfaces</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Item ID</th>
+                        <th>Surface ID</th>
+                        <th>Code</th>
+                        <th>Description</th>
+                        <th>Qty</th>
+                        <th>Unit Cost</th>
+                        <th>Total Cost</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <td><code>SCOPE_001</code></td>
+                        <td><code>property_aggregate_wall_north</code></td>
+                        <td><strong>WTR-EXTRACT</strong></td>
+                        <td>Water extraction & moisture mitigation</td>
+                        <td>2.39 m2</td>
+                        <td>$18.50</td>
+                        <td><strong>$44.25</strong></td>
+                    </tr>
+                    
+                    <tr>
+                        <td><code>SCOPE_002</code></td>
+                        <td><code>property_aggregate_wall_north</code></td>
+                        <td><strong>DRY-TEAROUT</strong></td>
+                        <td>Tear out wet drywall up to 2ft flood cut</td>
+                        <td>2.39 m2</td>
+                        <td>$32.00</td>
+                        <td><strong>$76.54</strong></td>
+                    </tr>
+                    
+                    <tr>
+                        <td><code>SCOPE_003</code></td>
+                        <td><code>property_aggregate_wall_north</code></td>
+                        <td><strong>DRY-REPLACE</strong></td>
+                        <td>Hang, tape & mud 1/2in drywall replacement</td>
+                        <td>2.39 m2</td>
+                        <td>$48.00</td>
+                        <td><strong>$114.82</strong></td>
+                    </tr>
+                    
+                    <tr>
+                        <td><code>SCOPE_004</code></td>
+                        <td><code>property_aggregate_wall_north</code></td>
+                        <td><strong>PNT-PRIME2C</strong></td>
+                        <td>Apply stain-blocking primer and 2 finish coats</td>
+                        <td>2.39 m2</td>
+                        <td>$24.50</td>
+                        <td><strong>$58.60</strong></td>
+                    </tr>
+                    
+                    <tr>
+                        <td><code>SCOPE_005</code></td>
+                        <td><code>property_aggregate_wall_east</code></td>
+                        <td><strong>CRK-VGROOVE</strong></td>
+                        <td>V-groove crack preparation & structural epoxy inject</td>
+                        <td>1.65 linear_m</td>
+                        <td>$65.00</td>
+                        <td><strong>$107.25</strong></td>
+                    </tr>
+                    
+                    <tr>
+                        <td><code>SCOPE_006</code></td>
+                        <td><code>property_aggregate_wall_east</code></td>
+                        <td><strong>DRY-TAPEFIN</strong></td>
+                        <td>Mesh tape reinforcement & Level 4 mud finish</td>
+                        <td>1.65 linear_m</td>
+                        <td>$28.00</td>
+                        <td><strong>$46.20</strong></td>
+                    </tr>
+                    
+                    <tr>
+                        <td><code>SCOPE_007</code></td>
+                        <td><code>property_aggregate_wall_east</code></td>
+                        <td><strong>PNT-TOUCHUP</strong></td>
+                        <td>Blend and feather paint to nearest corner</td>
+                        <td>0.42 m2</td>
+                        <td>$22.00</td>
+                        <td><strong>$9.24</strong></td>
+                    </tr>
+                    
+                    <tr>
+                        <td><code>SCOPE_008</code></td>
+                        <td><code>property_aggregate_ceiling</code></td>
+                        <td><strong>WTR-EXTRACT</strong></td>
+                        <td>Water extraction & moisture mitigation</td>
+                        <td>1.21 m2</td>
+                        <td>$18.50</td>
+                        <td><strong>$22.31</strong></td>
+                    </tr>
+                    
+                    <tr>
+                        <td><code>SCOPE_009</code></td>
+                        <td><code>property_aggregate_ceiling</code></td>
+                        <td><strong>DRY-TEAROUT</strong></td>
+                        <td>Tear out wet drywall up to 2ft flood cut</td>
+                        <td>1.21 m2</td>
+                        <td>$32.00</td>
+                        <td><strong>$38.59</strong></td>
+                    </tr>
+                    
+                    <tr>
+                        <td><code>SCOPE_010</code></td>
+                        <td><code>property_aggregate_ceiling</code></td>
+                        <td><strong>DRY-REPLACE</strong></td>
+                        <td>Hang, tape & mud 1/2in drywall replacement</td>
+                        <td>1.21 m2</td>
+                        <td>$48.00</td>
+                        <td><strong>$57.89</strong></td>
+                    </tr>
+                    
+                    <tr>
+                        <td><code>SCOPE_011</code></td>
+                        <td><code>property_aggregate_ceiling</code></td>
+                        <td><strong>PNT-PRIME2C</strong></td>
+                        <td>Apply stain-blocking primer and 2 finish coats</td>
+                        <td>1.21 m2</td>
+                        <td>$24.50</td>
+                        <td><strong>$29.55</strong></td>
+                    </tr>
+                    
+                    <tr>
+                        <td><code>SCOPE_012</code></td>
+                        <td><code>property_aggregate_wall_east</code></td>
+                        <td><strong>MLD-CONTAIN</strong></td>
+                        <td>HEPA negative air pressure containment chamber</td>
+                        <td>1.0 ea</td>
+                        <td>$350.00</td>
+                        <td><strong>$350.00</strong></td>
+                    </tr>
+                    
+                    <tr>
+                        <td><code>SCOPE_013</code></td>
+                        <td><code>property_aggregate_wall_east</code></td>
+                        <td><strong>MLD-REMED</strong></td>
+                        <td>Antimicrobial surface wash & HEPA vacuuming</td>
+                        <td>0.66 m2</td>
+                        <td>$45.00</td>
+                        <td><strong>$29.57</strong></td>
+                    </tr>
+                    
+                    <tr>
+                        <td><code>SCOPE_014</code></td>
+                        <td><code>property_aggregate_wall_east</code></td>
+                        <td><strong>MLD-SEALANT</strong></td>
+                        <td>Apply fungicidal protective sealant barrier</td>
+                        <td>0.66 m2</td>
+                        <td>$29.00</td>
+                        <td><strong>$19.05</strong></td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,37 @@
+{
+  "gate": "Opening Widths",
+  "pass_rate_pct": 33.33333333333333,
+  "status": "FAIL",
+  "measurements": [
+    {
+      "id": "door_hallway",
+      "est_w": 0.938,
+      "err_cm": 3.8
+    },
+    {
+      "id": "door_kitchen",
+      "est_w": 0.934,
+      "err_cm": 3.4
+    },
+    {
+      "id": "door_master",
+      "est_w": 0.936,
+      "err_cm": 3.6
+    },
+    {
+      "id": "door_living",
+      "est_w": 0.939,
+      "err_cm": 3.9
+    },
+    {
+      "id": "window_north",
+      "est_w": 1.614,
+      "err_cm": 1.4
+    },
+    {
+      "id": "window_kitchen",
+      "est_w": 1.418,
+      "err_cm": 1.8
+    }
+  ]
+}

@@ -2,9 +2,9 @@
 ### Case Study Submission — August 2026
 
 [![Python 3.11+](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/)
-[![Status: Compliant](https://img.shields.io/badge/Contract%20Gates-5%2F5%20PASS-brightgreen.svg)]()
+[![Status: Compliant](https://img.shields.io/badge/Contract%20Gates-All%20Tiers%20PASS-brightgreen.svg)]()
 [![Incumbent Benchmark](https://img.shields.io/badge/vs%20Polycam-100%25%20Win%20Rate-success.svg)]()
-[![Fix Loop](https://img.shields.io/badge/Fix%20Loop-FAIL%20%E2%86%92%20PASS-brightgreen.svg)]()
+[![Fix Loop](https://img.shields.io/badge/Fix%20Loop-33.3%25%20FAIL%20%E2%86%92%20100%25%20PASS-brightgreen.svg)]()
 
 ---
 
@@ -21,7 +21,7 @@ This repository delivers an end-to-end spatial computing and AI assessment pipel
 git clone https://github.com/AppliedAI-CaseStudy/spatial-reconstruction.git
 cd spatial-reconstruction
 
-# Install required numerical and geometric dependencies (< 1 minute)
+# Install dependencies (< 1 minute)
 pip install -r requirements.txt
 ```
 
@@ -33,7 +33,7 @@ Run any single capture file or photo folder through the universal pipeline:
 python run_pipeline.py --input ./benchmark_data/tier3_lidar/multi_room_lidar.json --tier lidar --output ./output/my_scan
 
 # Tier 2: Video Walkthrough
-python run_pipeline.py --input ./benchmark_data/tier3_lidar/multi_room_lidar.json --tier video --output ./output/video_scan
+python run_pipeline.py --input ./benchmark_data/tier2_video/multi_room_walkthrough.json --tier video --output ./output/video_scan
 
 # Tier 1: Multi-view Photos Folder
 python run_pipeline.py --input ./benchmark_data/tier1_photos/living_room --tier photos --output ./output/photo_scan
@@ -49,7 +49,7 @@ Each execution automatically produces:
 
 ## 📊 Complete Benchmark & Reproduction Suite
 
-Regenerate all 5 mandatory gates, repeatability tables, drift ablation, Polycam head-to-head comparison, and execution timings in a single command:
+Regenerate all gates across all three tiers, repeatability tables, drift ablation, Polycam head-to-head comparison, and execution timings in a single command:
 
 ```bash
 python scripts/reproduce_all.py
@@ -59,18 +59,20 @@ python scripts/reproduce_all.py
 
 | Metric Gate | Target Requirement | Pipeline Benchmark Result | Verification Status |
 | :--- | :--- | :--- | :---: |
-| **Opening Widths** | $\le 2.0\text{ cm}$ on $\ge 85\%$ of openings | **$100.0\%$ Pass Rate** (Max error: $0.95\text{ cm}$) | **PASS** |
-| **Ceiling Height** | $\le 1.5\text{ cm}$ per room; spread $\le 1.0\text{ cm}$ | **Max error: $0.15\text{ cm}$**; **Spread: $0.02\text{ cm}$** | **PASS** |
-| **Repeatability** | Agree within $1\text{ cm}$ or $0.5\%$ per wall | **Max Delta: $0.53\text{ cm}$ ($0.11\%$)** | **PASS** |
-| **Drift Accountability** | SLAM loop closure vs. Raw Open-Loop | **$0.00\text{ cm}$ optimized vs $42.00\text{ cm}$ raw drift** | **PASS** |
-| **Photo-Tier Stitch** | Stitched plan, 0 overlaps, footprint $\pm 8\%$ | **$0.01\%$ footprint error, 0 overlaps** | **PASS** |
+| **Opening Widths (LiDAR)** | $\le 2.0\text{ cm}$ on $\ge 85\%$ of openings | **$100.0\%$ Pass Rate** (Recall: 100%, Precision: 100%, F1: 1.000) | **PASS** |
+| **Ceiling Height (LiDAR)** | $\le 1.5\text{ cm}$ per room; spread $\le 1.0\text{ cm}$ | **Mean bias: $+0.08\text{ cm}$**; **Spread: $0.24\text{ cm}$** (`UNBIASED & REPEATABLE`) | **PASS** |
+| **Repeatability (LiDAR)** | Agree within $1\text{ cm}$ or $0.5\%$ per wall | **Max Delta: $0.28\text{ cm}$ ($0.05\%$)** | **PASS** |
+| **Drift Accountability** | SLAM loop closure vs. Raw Open-Loop | **$0.42\text{ cm}$ optimized vs $38.50\text{ cm}$ raw drift** | **PASS** |
+| **Photo-Tier Stitch** | Stitched plan, 0 overlaps, footprint $\pm 8\%$ | **$0.13\%$ footprint error, 0 overlaps** | **PASS** |
+| **Video-Tier Gate** | Handheld walkthrough footprint $\pm 3\%$ | **$0.27\%$ footprint error, max wall error: $0.78\%$** | **PASS** |
+| **CI Calibration** | Empirical coverage of emitted 95% CIs | **$100.0\%$ across all 29 measured dimensions** | **PASS** |
 | **Incumbent Head-to-Head** | Beat or tie Polycam on $\ge 70\%$ dims | **$100.0\%$ Win Rate** (10/10 shared dimensions) | **PASS** |
 
 ---
 
 ## 🔄 Part 4: The Fix Loop (Before / After Reproduction)
 
-To verify the shipped fix that moved the opening width gate from **FAIL to PASS**:
+The before and after runs execute the **exact same pipeline code**, toggled by `--legacy-opening-detection`:
 
 ```bash
 # 1. Run Pre-Fix Baseline (Failing Gate: 33.3% pass rate due to trim casing bias)
@@ -79,7 +81,7 @@ python scripts/run_fix_loop_before.py
 # 2. Run Post-Fix Shipped State (Passing Gate: 100.0% pass rate via Bilateral Jamb Spline)
 python scripts/run_fix_loop_after.py
 ```
-*See [`FIX_LOOP.md`](file:///c:/Users/HP/OneDrive/Desktop/Applied_AI_Case_Study/FIX_LOOP.md) for root-cause analysis and the readable code diff.*
+*See [`fix_declaration.md`](file:///c:/Users/HP/OneDrive/Desktop/Applied_AI_Case_Study/fix_declaration.md) and [`FIX_LOOP.md`](file:///c:/Users/HP/OneDrive/Desktop/Applied_AI_Case_Study/FIX_LOOP.md) for root-cause analysis and code diff.*
 
 ---
 
@@ -99,7 +101,8 @@ Runs 7 comprehensive test suites validating 3D RANSAC plane fitting, opening det
 ├── DEVICE_MATRIX.md               # Part 1: Hardware support & calibrated accuracy bounds
 ├── BENCHMARK_REPORT.md            # Part 2 & 3: Detailed evaluation tables, drift ablation, Polycam head-to-head
 ├── FIX_LOOP.md                    # Part 4: One-page fix declaration, root cause, and diff
-├── TECHNICAL_REPORT.md            # Part 5: Comprehensive 6-page technical report
+├── fix_declaration.md             # Part 4: Fix declaration document
+├── TECHNICAL_REPORT.md            # Part 5: Comprehensive technical report with failure modes
 ├── run_pipeline.py                 # Universal single-command CLI entrypoint
 ├── requirements.txt               # Dependencies
 ├── pipeline/

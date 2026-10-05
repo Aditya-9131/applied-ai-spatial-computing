@@ -1,0 +1,9 @@
+{
+  "target_gate": "Opening Widths",
+  "required_pass_rate_pct": 85.0,
+  "actual_pass_rate_pct": 100.0,
+  "status": "PASS",
+  "max_error_cm": 0.79,
+  "total_openings": 9,
+  "passed_openings": 9
+}
