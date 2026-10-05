@@ -6,7 +6,7 @@
     "device_model": "iPhone 15 Pro Max",
     "capture_timestamp": "2026-08-20T14:30:00Z",
     "timing": {
-      "processing_time_seconds": 6.325
+      "processing_time_seconds": 10.524
     },
     "drift_correction_enabled": true,
     "opening_detector": "DEPTH_DISCONTINUITY_GRADIENT_PEAK"
@@ -1323,10 +1323,11 @@
   "damage_assessment": {
     "damage_regions": [
       {
-        "damage_id": "property_aggregate_wall_north_unknown",
+        "damage_id": "property_aggregate_wall_north_water_damage",
         "room_id": "property_aggregate",
-        "damage_class": "unknown",
+        "damage_class": "water_damage",
         "surface_id": "wall_north",
+        "surface_type": "drywall_wall",
         "severity": 0.85,
         "metric_extent": {
           "area_m2": null,
@@ -1339,10 +1340,11 @@
         "concealed_flags": []
       },
       {
-        "damage_id": "property_aggregate_wall_east_unknown",
+        "damage_id": "property_aggregate_wall_east_wall_crack",
         "room_id": "property_aggregate",
-        "damage_class": "unknown",
+        "damage_class": "wall_crack",
         "surface_id": "wall_east",
+        "surface_type": "plaster_wall",
         "severity": 0.7,
         "metric_extent": {
           "area_m2": null,
@@ -1355,10 +1357,11 @@
         "concealed_flags": []
       },
       {
-        "damage_id": "property_aggregate_ceiling_unknown",
+        "damage_id": "property_aggregate_ceiling_water_damage",
         "room_id": "property_aggregate",
-        "damage_class": "unknown",
+        "damage_class": "water_damage",
         "surface_id": "ceiling",
+        "surface_type": "drywall_ceiling",
         "severity": 0.9,
         "metric_extent": {
           "area_m2": null,
@@ -1371,10 +1374,11 @@
         "concealed_flags": []
       },
       {
-        "damage_id": "property_aggregate_wall_east_unknown",
+        "damage_id": "property_aggregate_wall_east_mold_growth",
         "room_id": "property_aggregate",
-        "damage_class": "unknown",
+        "damage_class": "mold_growth",
         "surface_id": "wall_east",
+        "surface_type": "drywall_wall",
         "severity": 0.8,
         "metric_extent": {
           "area_m2": null,
@@ -1389,11 +1393,22 @@
     ],
     "total_damaged_area_m2": null
   },
-  "concealed_damage_flags": [],
+  "concealed_damage_flags": [
+    {
+      "flag_id": "FLAG_property_aggregate_ceiling_water_damage_RULE_CEILING_PLUMBING_LEAK",
+      "damage_id": "property_aggregate_ceiling_water_damage",
+      "surface_id": "ceiling",
+      "rule_fired": "RULE_CEILING_PLUMBING_LEAK",
+      "rule_title": "Overhead Wet Plumb Concealed Joist Damage",
+      "justification": "Ceiling water staining under second-story plumbing fixture indicates saturated subfloor insulation and potential concealed joist rot.",
+      "recommended_investigation": "Non-destructive thermal/moisture probe + selective inspection cut",
+      "risk_level": "MEDIUM"
+    }
+  ],
   "scope_of_work": [
     {
       "item_id": "SCOPE_001",
-      "damage_id": "property_aggregate_wall_north_unknown",
+      "damage_id": "property_aggregate_wall_north_water_damage",
       "surface_id": "wall_north",
       "code": "WTR-EXTRACT",
       "description": "Water extraction & moisture mitigation",
@@ -1404,7 +1419,7 @@
     },
     {
       "item_id": "SCOPE_002",
-      "damage_id": "property_aggregate_wall_north_unknown",
+      "damage_id": "property_aggregate_wall_north_water_damage",
       "surface_id": "wall_north",
       "code": "DRY-TEAROUT",
       "description": "Tear out wet drywall up to 2ft flood cut",
@@ -1415,7 +1430,7 @@
     },
     {
       "item_id": "SCOPE_003",
-      "damage_id": "property_aggregate_wall_north_unknown",
+      "damage_id": "property_aggregate_wall_north_water_damage",
       "surface_id": "wall_north",
       "code": "DRY-REPLACE",
       "description": "Hang, tape & mud 1/2in drywall replacement",
@@ -1426,7 +1441,7 @@
     },
     {
       "item_id": "SCOPE_004",
-      "damage_id": "property_aggregate_wall_north_unknown",
+      "damage_id": "property_aggregate_wall_north_water_damage",
       "surface_id": "wall_north",
       "code": "PNT-PRIME2C",
       "description": "Apply stain-blocking primer and 2 finish coats",
@@ -1437,134 +1452,112 @@
     },
     {
       "item_id": "SCOPE_005",
-      "damage_id": "property_aggregate_wall_east_unknown",
+      "damage_id": "property_aggregate_wall_east_wall_crack",
       "surface_id": "wall_east",
-      "code": "WTR-EXTRACT",
-      "description": "Water extraction & moisture mitigation",
-      "quantity": null,
-      "unit": "m2",
-      "unit_cost_usd": 18.5,
-      "total_cost_usd": null
+      "code": "CRK-VGROOVE",
+      "description": "V-groove crack preparation & structural epoxy inject",
+      "quantity": 1.0,
+      "unit": "linear_m",
+      "unit_cost_usd": 65.0,
+      "total_cost_usd": 65.0
     },
     {
       "item_id": "SCOPE_006",
-      "damage_id": "property_aggregate_wall_east_unknown",
+      "damage_id": "property_aggregate_wall_east_wall_crack",
       "surface_id": "wall_east",
-      "code": "DRY-TEAROUT",
-      "description": "Tear out wet drywall up to 2ft flood cut",
-      "quantity": null,
-      "unit": "m2",
-      "unit_cost_usd": 32.0,
-      "total_cost_usd": null
+      "code": "DRY-TAPEFIN",
+      "description": "Mesh tape reinforcement & Level 4 mud finish",
+      "quantity": 1.0,
+      "unit": "linear_m",
+      "unit_cost_usd": 28.0,
+      "total_cost_usd": 28.0
     },
     {
       "item_id": "SCOPE_007",
-      "damage_id": "property_aggregate_wall_east_unknown",
+      "damage_id": "property_aggregate_wall_east_wall_crack",
       "surface_id": "wall_east",
-      "code": "DRY-REPLACE",
-      "description": "Hang, tape & mud 1/2in drywall replacement",
+      "code": "PNT-TOUCHUP",
+      "description": "Blend and feather paint to nearest corner",
       "quantity": null,
       "unit": "m2",
-      "unit_cost_usd": 48.0,
+      "unit_cost_usd": 22.0,
       "total_cost_usd": null
     },
     {
       "item_id": "SCOPE_008",
-      "damage_id": "property_aggregate_wall_east_unknown",
-      "surface_id": "wall_east",
-      "code": "PNT-PRIME2C",
-      "description": "Apply stain-blocking primer and 2 finish coats",
+      "damage_id": "property_aggregate_ceiling_water_damage",
+      "surface_id": "ceiling",
+      "code": "WTR-EXTRACT",
+      "description": "Water extraction & moisture mitigation",
       "quantity": null,
       "unit": "m2",
-      "unit_cost_usd": 24.5,
+      "unit_cost_usd": 18.5,
       "total_cost_usd": null
     },
     {
       "item_id": "SCOPE_009",
-      "damage_id": "property_aggregate_ceiling_unknown",
+      "damage_id": "property_aggregate_ceiling_water_damage",
       "surface_id": "ceiling",
-      "code": "WTR-EXTRACT",
-      "description": "Water extraction & moisture mitigation",
+      "code": "DRY-TEAROUT",
+      "description": "Tear out wet drywall up to 2ft flood cut",
       "quantity": null,
       "unit": "m2",
-      "unit_cost_usd": 18.5,
+      "unit_cost_usd": 32.0,
       "total_cost_usd": null
     },
     {
       "item_id": "SCOPE_010",
-      "damage_id": "property_aggregate_ceiling_unknown",
+      "damage_id": "property_aggregate_ceiling_water_damage",
       "surface_id": "ceiling",
-      "code": "DRY-TEAROUT",
-      "description": "Tear out wet drywall up to 2ft flood cut",
+      "code": "DRY-REPLACE",
+      "description": "Hang, tape & mud 1/2in drywall replacement",
       "quantity": null,
       "unit": "m2",
-      "unit_cost_usd": 32.0,
+      "unit_cost_usd": 48.0,
       "total_cost_usd": null
     },
     {
       "item_id": "SCOPE_011",
-      "damage_id": "property_aggregate_ceiling_unknown",
+      "damage_id": "property_aggregate_ceiling_water_damage",
       "surface_id": "ceiling",
-      "code": "DRY-REPLACE",
-      "description": "Hang, tape & mud 1/2in drywall replacement",
+      "code": "PNT-PRIME2C",
+      "description": "Apply stain-blocking primer and 2 finish coats",
       "quantity": null,
       "unit": "m2",
-      "unit_cost_usd": 48.0,
+      "unit_cost_usd": 24.5,
       "total_cost_usd": null
     },
     {
       "item_id": "SCOPE_012",
-      "damage_id": "property_aggregate_ceiling_unknown",
-      "surface_id": "ceiling",
-      "code": "PNT-PRIME2C",
-      "description": "Apply stain-blocking primer and 2 finish coats",
-      "quantity": null,
-      "unit": "m2",
-      "unit_cost_usd": 24.5,
-      "total_cost_usd": null
+      "damage_id": "property_aggregate_wall_east_mold_growth",
+      "surface_id": "wall_east",
+      "code": "MLD-CONTAIN",
+      "description": "HEPA negative air pressure containment chamber",
+      "quantity": 1.0,
+      "unit": "ea",
+      "unit_cost_usd": 350.0,
+      "total_cost_usd": 350.0
     },
     {
       "item_id": "SCOPE_013",
-      "damage_id": "property_aggregate_wall_east_unknown",
+      "damage_id": "property_aggregate_wall_east_mold_growth",
       "surface_id": "wall_east",
-      "code": "WTR-EXTRACT",
-      "description": "Water extraction & moisture mitigation",
+      "code": "MLD-REMED",
+      "description": "Antimicrobial surface wash & HEPA vacuuming",
       "quantity": null,
       "unit": "m2",
-      "unit_cost_usd": 18.5,
+      "unit_cost_usd": 45.0,
       "total_cost_usd": null
     },
     {
       "item_id": "SCOPE_014",
-      "damage_id": "property_aggregate_wall_east_unknown",
+      "damage_id": "property_aggregate_wall_east_mold_growth",
       "surface_id": "wall_east",
-      "code": "DRY-TEAROUT",
-      "description": "Tear out wet drywall up to 2ft flood cut",
+      "code": "MLD-SEALANT",
+      "description": "Apply fungicidal protective sealant barrier",
       "quantity": null,
       "unit": "m2",
-      "unit_cost_usd": 32.0,
-      "total_cost_usd": null
-    },
-    {
-      "item_id": "SCOPE_015",
-      "damage_id": "property_aggregate_wall_east_unknown",
-      "surface_id": "wall_east",
-      "code": "DRY-REPLACE",
-      "description": "Hang, tape & mud 1/2in drywall replacement",
-      "quantity": null,
-      "unit": "m2",
-      "unit_cost_usd": 48.0,
-      "total_cost_usd": null
-    },
-    {
-      "item_id": "SCOPE_016",
-      "damage_id": "property_aggregate_wall_east_unknown",
-      "surface_id": "wall_east",
-      "code": "PNT-PRIME2C",
-      "description": "Apply stain-blocking primer and 2 finish coats",
-      "quantity": null,
-      "unit": "m2",
-      "unit_cost_usd": 24.5,
+      "unit_cost_usd": 29.0,
       "total_cost_usd": null
     }
   ],

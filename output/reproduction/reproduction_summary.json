@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-10-06T03:18:48Z",
+  "timestamp": "2026-10-06T03:25:09Z",
   "gates": {
     "opening_widths": {
       "pass_rate_pct": 44.44444444444444,
@@ -39,8 +39,8 @@
     "status": "PASS"
   },
   "timings_s": {
-    "lidar": 6.338,
-    "video": 0.004,
-    "photos": 0.276
+    "lidar": 10.542,
+    "video": 0.003,
+    "photos": 0.1
   }
 }

@@ -75,5 +75,5 @@
 <rect x="518.9535670614248" y="905.8622254979146" width="48" height="18" rx="4" fill="#0f172a" stroke="#475569" stroke-width="1"/>
 <text x="542.9535670614248" y="918.8622254979146" fill="#f8fafc" font-size="10" font-weight="600" text-anchor="middle">4.81m</text>
 <rect x="40" y="1210" width="1020" height="32" rx="6" fill="#1e293b" stroke="#334155"/>
-<text x="60" y="1230" fill="#cbd5e1" font-size="11"><tspan fill="#38bdf8">■</tspan> Reconstructed Boundary  <tspan fill="#ef4444" dx="15">●</tspan> Water Damage  <tspan fill="#f59e0b" dx="15">●</tspan> Crack  <tspan fill="#a855f7" dx="15">●</tspan> Mold  <tspan dx="25" fill="#facc15">⚠ Concealed Flags Active: 0</tspan></text>
+<text x="60" y="1230" fill="#cbd5e1" font-size="11"><tspan fill="#38bdf8">■</tspan> Reconstructed Boundary  <tspan fill="#ef4444" dx="15">●</tspan> Water Damage  <tspan fill="#f59e0b" dx="15">●</tspan> Crack  <tspan fill="#a855f7" dx="15">●</tspan> Mold  <tspan dx="25" fill="#facc15">⚠ Concealed Flags Active: 1</tspan></text>
 </svg>
