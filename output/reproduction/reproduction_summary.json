@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-10-06T01:03:18Z",
+  "timestamp": "2026-10-06T01:08:24Z",
   "gates": {
     "opening_widths": {
       "pass_rate_pct": 100.0,
@@ -22,12 +22,10 @@
       "status": "PASS"
     },
     "photo_tier_stitch": {
-      "footprint_err_pct": 98.55,
-      "status": "FAIL"
+      "status": "NOT IMPLEMENTED: simulated (EXCLUDED FROM CLAIMED PASSES)"
     },
     "video_tier": {
-      "footprint_err_pct": 98.55,
-      "status": "FAIL"
+      "status": "NOT IMPLEMENTED: simulated (EXCLUDED FROM CLAIMED PASSES)"
     }
   },
   "calibration_ci_coverage": {
@@ -41,8 +39,8 @@
     "status": "FAIL"
   },
   "timings_s": {
-    "lidar": 0.017,
-    "video": 0.006,
-    "photos": 0.01
+    "lidar": 0.015,
+    "video": 0.002,
+    "photos": 0.005
   }
 }

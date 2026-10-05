@@ -17,7 +17,20 @@ class FloorPlanStitcher:
         adjacency_graph: List[Dict[str, Any]],
         drift_corrected: bool = True
     ) -> Dict[str, Any]:
-        """Transforms all rooms to global coordinates and validates non-overlapping topology."""
+        if not room_geometries:
+            return {
+                "property_envelope": {
+                    "min_x": 0.0, "min_y": 0.0, "max_x": 0.0, "max_y": 0.0,
+                    "total_span_x_m": 0.0, "total_span_y_m": 0.0,
+                    "total_floor_area_m2": 0.0
+                },
+                "stitched_rooms": {},
+                "adjacency_connections": [],
+                "topology_valid": False,
+                "overlap_warnings": ["No room geometries to stitch"],
+                "total_overlap_area_m2": 0.0
+            }
+
         global_rooms = {}
         polygons = {}
         all_points = []

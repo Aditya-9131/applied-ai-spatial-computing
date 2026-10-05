@@ -229,6 +229,8 @@ def run_reproduction_suite():
                 total_eval += 1
                 if op_ci["ci_95"][0] <= gt_ow <= op_ci["ci_95"][1]:
                     in_interval += 1
+        if total_eval == 0:
+            return 0.0, 0
         return round((in_interval / total_eval) * 100.0, 1), total_eval
 
     lidar_cov, num_lidar_evals = calculate_empirical_ci_coverage(lidar_out, gt)
@@ -237,8 +239,8 @@ def run_reproduction_suite():
 
     calibration_table = [
         ["Tier 3: LiDAR (Pro Class)", "± 0.5% Wall / ± 1.5 cm Ceil / ± 2.0 cm Open", f"{lidar_cov}% ({num_lidar_evals} meas)", "0.98", "PASS (Calibrated)"],
-        ["Tier 2: Handheld Video", "± 3.0% Wall / ± 5.5 cm Ceil / ± 6.5 cm Open", f"{video_cov}% ({num_video_evals} meas)", "0.92", "PASS (Calibrated)"],
-        ["Tier 1: Multi-view Photos", "± 8.0% Wall / ± 14.0 cm Ceil / ± 15.0 cm Open", f"{photo_cov}% ({num_photo_evals} meas)", "0.85", "PASS (Calibrated)"]
+        ["Tier 2: Handheld Video", "± 3.0% Wall / ± 5.5 cm Ceil / ± 6.5 cm Open", "NOT IMPLEMENTED: simulated", "N/A", "EXCLUDED (Simulated)"],
+        ["Tier 1: Multi-view Photos", "± 8.0% Wall / ± 14.0 cm Ceil / ± 15.0 cm Open", "NOT IMPLEMENTED: simulated", "N/A", "EXCLUDED (Simulated)"]
     ]
 
     # =========================================================================
@@ -311,15 +313,13 @@ def run_reproduction_suite():
 
     print("\n" + "=" * 80)
     print("GATE 5: PHOTO-TIER WHOLE-PROPERTY STITCH (Per-room folders, Footprint +/- 8%)")
-    print(f"Ground Truth Footprint: {gt_total_footprint:.2f} m2 | Photo Footprint: {photo_footprint:.2f} m2 | Error: {photo_footprint_err_pct:.2f}%")
-    print(f"Topology Overlaps: 0 | Adjacency Integrity: 100% | Gate: {'PASS' if photo_gate_pass else 'FAIL'}")
-    print(tabulate(photo_walls_table[:8], headers=["Room", "Wall ID", "Ground Truth", "Estimated", "Error (%)", "Status (<=8%)"], tablefmt="grid"))
+    print("STATUS: NOT IMPLEMENTED: simulated (EXCLUDED FROM CLAIMED PASSES)")
+    print("Disclosure: Hard-coded priors removed. No live Depth-Anything-V2 / HorizonNet model.")
 
     print("\n" + "=" * 80)
     print("VIDEO-TIER WHOLE-PROPERTY GATE (Handheld Walkthrough, Footprint +/- 3%)")
-    print(f"Ground Truth Footprint: {gt_total_footprint:.2f} m2 | Video Footprint: {video_footprint:.2f} m2 | Error: {video_footprint_err_pct:.2f}%")
-    print(f"Topology Overlaps: 0 | Adjacency Integrity: 100% | Gate: {'PASS' if video_gate_pass else 'FAIL'}")
-    print(tabulate(video_walls_table[:8], headers=["Room", "Wall ID", "Ground Truth", "Estimated", "Error (%)", "Status (<=3%)"], tablefmt="grid"))
+    print("STATUS: NOT IMPLEMENTED: simulated (EXCLUDED FROM CLAIMED PASSES)")
+    print("Disclosure: Hard-coded priors removed. No live Droid-SLAM model.")
 
     print("\n" + "=" * 80)
     print("UNCERTAINTY CALIBRATION: EMPIRICAL 95% CONFIDENCE INTERVAL COVERAGE")
@@ -349,8 +349,8 @@ def run_reproduction_suite():
             "ceiling_height": {"mean_bias_cm": round(mean_ceiling_bias_cm, 2), "spread_cm": round(spread_cm, 2), "diagnosis": ceiling_diagnosis, "status": "PASS" if ceiling_gate_pass else "FAIL"},
             "repeatability": {"status": "PASS" if rep_pass else "FAIL"},
             "drift_accountability": {"drift_on_residual_cm": round(drift_on_res, 2), "drift_off_residual_cm": round(drift_off_res, 2), "status": "PASS"},
-            "photo_tier_stitch": {"footprint_err_pct": round(photo_footprint_err_pct, 2), "status": "PASS" if photo_gate_pass else "FAIL"},
-            "video_tier": {"footprint_err_pct": round(video_footprint_err_pct, 2), "status": "PASS" if video_gate_pass else "FAIL"}
+            "photo_tier_stitch": {"status": "NOT IMPLEMENTED: simulated (EXCLUDED FROM CLAIMED PASSES)"},
+            "video_tier": {"status": "NOT IMPLEMENTED: simulated (EXCLUDED FROM CLAIMED PASSES)"}
         },
         "calibration_ci_coverage": {
             "lidar_tier_95_cov_pct": lidar_cov,

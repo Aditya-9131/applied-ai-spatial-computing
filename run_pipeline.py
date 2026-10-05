@@ -224,7 +224,10 @@ def run_spatial_pipeline(
     html_path = os.path.join(output_dir, "report.html")
     viz.render_html_report(contract, html_path, svg_content)
 
-    print(f"[PIPELINE SUCCESS] Input Tier: {tier.upper()} | Time: {elapsed}s | Detector: DEPTH_DISCONTINUITY_GRADIENT_PEAK")
+    if capture_data.get("status") == "NOT IMPLEMENTED: simulated":
+        print(f"[PIPELINE NOTICE] Input Tier: {tier.upper()} | NOT IMPLEMENTED: simulated (excluded from claimed passes)")
+    else:
+        print(f"[PIPELINE SUCCESS] Input Tier: {tier.upper()} | Time: {elapsed}s | Detector: DEPTH_DISCONTINUITY_GRADIENT_PEAK")
     print(f" -> Output Contract JSON: {json_path}")
     print(f" -> Vector Floor Plan SVG: {svg_path}")
     print(f" -> Interactive Report:    {html_path}")
