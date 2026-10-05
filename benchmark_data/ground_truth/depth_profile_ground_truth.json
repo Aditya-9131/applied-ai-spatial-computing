@@ -1,7 +1,8 @@
 {
-  "description": "Ground-truth continuous boundary positions for simulated depth profiles. MUST NOT be read by pipeline/ code. Only scripts/scoring code may use this.",
+  "description": "Ground-truth continuous boundary positions. MUST NOT be read by pipeline/ code. Only scripts/ scoring code may use this.",
   "global_seed": 42,
-  "num_samples_per_profile": 200,
+  "model": "beam_footprint_blend",
+  "num_samples": 200,
   "d_wall_m": 0.05,
   "d_void_m": 3.8,
   "noise_wall_sigma_m": 0.004,
@@ -13,10 +14,10 @@
       "gt_width_m": 0.9,
       "gt_offset_m": 1.8,
       "wall_length_m": 4.8,
-      "left_boundary_px_continuous": 75.45470105222138,
-      "right_boundary_px_continuous": 113.33263203231498,
-      "sub_pixel_offset_left": 0.45470105222137214,
-      "sub_pixel_offset_right": 0.8326320323149597,
+      "left_boundary_px_continuous": 75.46376084177712,
+      "right_boundary_px_continuous": 113.26610562585198,
+      "sub_pixel_offset_left": 0.46376084177709775,
+      "sub_pixel_offset_right": 0.7661056258519678,
       "seed": 1608637542
     },
     "living_room/window_north": {
@@ -25,10 +26,10 @@
       "gt_width_m": 1.6,
       "gt_offset_m": 1.6,
       "wall_length_m": 4.8,
-      "left_boundary_px_continuous": 67.07677062551998,
-      "right_boundary_px_continuous": 134.06105907651067,
-      "sub_pixel_offset_left": 0.41010395885331374,
-      "sub_pixel_offset_right": 0.727725743177325,
+      "left_boundary_px_continuous": 67.09474983374932,
+      "right_boundary_px_continuous": 134.0155139278752,
+      "sub_pixel_offset_left": 0.42808316708265104,
+      "sub_pixel_offset_right": 0.68218059454186,
       "seed": 1273642419
     },
     "hallway/door_living": {
@@ -37,10 +38,10 @@
       "gt_width_m": 0.9,
       "gt_offset_m": 0.3,
       "wall_length_m": 1.5,
-      "left_boundary_px_continuous": 40.83738835555329,
-      "right_boundary_px_continuous": 160.88331527738086,
-      "sub_pixel_offset_left": 0.8373883555532842,
-      "sub_pixel_offset_right": 0.883315277380862,
+      "left_boundary_px_continuous": 40.76991068444263,
+      "right_boundary_px_continuous": 160.8066522219047,
+      "sub_pixel_offset_left": 0.7699106844426273,
+      "sub_pixel_offset_right": 0.8066522219046897,
       "seed": 1935803228
     },
     "hallway/door_kitchen": {
@@ -49,10 +50,10 @@
       "gt_width_m": 0.9,
       "gt_offset_m": 2.1,
       "wall_length_m": 5.4,
-      "left_boundary_px_continuous": 78.22261029007893,
-      "right_boundary_px_continuous": 112.0298336327805,
-      "sub_pixel_offset_left": 0.44483251230115173,
-      "sub_pixel_offset_right": 0.9187225216693768,
+      "left_boundary_px_continuous": 78.2336437876187,
+      "right_boundary_px_continuous": 111.94608912844662,
+      "sub_pixel_offset_left": 0.4558660098409214,
+      "sub_pixel_offset_right": 0.8349780173355015,
       "seed": 787846414
     },
     "hallway/door_master": {
@@ -61,10 +62,10 @@
       "gt_width_m": 0.9,
       "gt_offset_m": 0.3,
       "wall_length_m": 1.5,
-      "left_boundary_px_continuous": 40.812395988357366,
-      "right_boundary_px_continuous": 160.17187156139656,
-      "sub_pixel_offset_left": 0.8123959883573632,
-      "sub_pixel_offset_right": 0.17187156139656068,
+      "left_boundary_px_continuous": 40.74991679068589,
+      "right_boundary_px_continuous": 160.23749724911724,
+      "sub_pixel_offset_left": 0.7499167906858906,
+      "sub_pixel_offset_right": 0.23749724911724857,
       "seed": 996406378
     },
     "kitchen/door_hallway_k": {
@@ -73,10 +74,10 @@
       "gt_width_m": 0.9,
       "gt_offset_m": 1.5,
       "wall_length_m": 4.2,
-      "left_boundary_px_continuous": 72.2281248701786,
-      "right_boundary_px_continuous": 114.72374347215522,
-      "sub_pixel_offset_left": 0.7995534416071729,
-      "sub_pixel_offset_right": 0.43802918644092326,
+      "left_boundary_px_continuous": 72.16821418185717,
+      "right_boundary_px_continuous": 114.73613763486703,
+      "sub_pixel_offset_left": 0.7396427532857384,
+      "sub_pixel_offset_right": 0.45042334915273863,
       "seed": 1201263687
     },
     "kitchen/window_kitchen": {
@@ -85,10 +86,10 @@
       "gt_width_m": 1.4,
       "gt_offset_m": 1.1,
       "wall_length_m": 3.6,
-      "left_boundary_px_continuous": 61.84513912909668,
-      "right_boundary_px_continuous": 139.82825862649165,
-      "sub_pixel_offset_left": 0.7340280179855683,
-      "sub_pixel_offset_right": 0.9393697376027715,
+      "left_boundary_px_continuous": 61.79833352549957,
+      "right_boundary_px_continuous": 139.7403846789711,
+      "sub_pixel_offset_left": 0.6872224143884547,
+      "sub_pixel_offset_right": 0.8514957900822172,
       "seed": 423734972
     },
     "master_bedroom/door_hallway_m": {
@@ -97,10 +98,10 @@
       "gt_width_m": 0.9,
       "gt_offset_m": 1.65,
       "wall_length_m": 4.2,
-      "left_boundary_px_continuous": 79.18850792993089,
-      "right_boundary_px_continuous": 122.20393580739932,
-      "sub_pixel_offset_left": 0.6170793585023162,
-      "sub_pixel_offset_right": 0.7753643788278823,
+      "left_boundary_px_continuous": 79.16509205823043,
+      "right_boundary_px_continuous": 122.14886293163373,
+      "sub_pixel_offset_left": 0.593663486801853,
+      "sub_pixel_offset_right": 0.7202915030623059,
       "seed": 415968276
     },
     "master_bedroom/window_bedroom": {
@@ -109,10 +110,10 @@
       "gt_width_m": 1.8,
       "gt_offset_m": 1.5,
       "wall_length_m": 4.8,
-      "left_boundary_px_continuous": 63.04340306769032,
-      "right_boundary_px_continuous": 138.42000922643732,
-      "sub_pixel_offset_left": 0.5434030676903124,
-      "sub_pixel_offset_right": 0.9200092264373162,
+      "left_boundary_px_continuous": 63.03472245415226,
+      "right_boundary_px_continuous": 138.33600738114984,
+      "sub_pixel_offset_left": 0.53472245415225,
+      "sub_pixel_offset_right": 0.836007381149853,
       "seed": 670094950
     }
   }

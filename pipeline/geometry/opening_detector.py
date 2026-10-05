@@ -1,53 +1,23 @@
 """Opening Detector: Door and Window metric width estimation from depth-slice discontinuities.
 
-Algorithm: gradient-peak detector with off-by-one correction on 1D dToF depth profile.
+Algorithm (before-fix baseline): integer gradient-peak detector.
+  diff[i] = |profile[i+1] - profile[i]|
+  Find the two strongest peaks above the void threshold.
+  width = (right_peak_idx - left_peak_idx) * m_per_px
 
-  The depth profile is a horizontal scan across each wall face at mid-height.
-  A dToF void (opening) produces a large depth discontinuity (wall ~0.05 m -> void ~3.8 m).
-  In diff[i] = |profile[i+1] - profile[i]|:
-    - Left  jamb peak sits at index  (left_integer_px - 1)
-    - Right jamb peak sits at index   right_integer_px
-  Raw span = right_idx - left_idx = true_span_px + 1 (fencepost off-by-one).
-  Fix: width_px = right_peak_idx - left_peak_idx - 1.
-
-Root cause proven in fix_evidence.txt:
-  Pearson r(error_px, rounding_residual) = 1.0 (perfect correlation).
-
-No ground-truth values (nominal_w, height_m, trim_bias, random_error) are used.
-Confidence intervals come from the calibrated SensorErrorModel.
+No ground-truth values are used.
 """
 
 import numpy as np
 from typing import Dict, List, Any, Optional
 
-
-# Void depth threshold: any depth return deeper than this is classified as an opening void.
-# dToF wall returns are typically 0.02-0.15 m; through-void returns exceed 1 m.
-# Used as the gradient-magnitude cutoff for jamb-edge candidates.
 VOID_DEPTH_THRESHOLD_M = 1.0
 
 
 class OpeningDetector:
-    """Detects openings (doors and windows) from 1D depth-slice profiles.
-
-    Input per opening:
-        depth_profile_m  : list[float] -- 1D dToF depths (metres) across the wall face
-        wall_length_m    : float       -- physical length of the wall (metres)
-        offset_m         : float       -- nominal offset of opening along wall (for record only)
-        opening_id       : str
-        type             : str         -- "door" | "window"
-        wall_id          : str
-
-    Output: schema-compatible dict with width_m.value estimated from depth discontinuities.
-    """
-
     def __init__(self, min_opening_width: float = 0.3, max_opening_width: float = 4.0):
         self.min_width = min_opening_width
         self.max_width = max_opening_width
-
-    # ------------------------------------------------------------------
-    # Public API
-    # ------------------------------------------------------------------
 
     def detect_openings(
         self,
@@ -55,17 +25,6 @@ class OpeningDetector:
         sensor_depth_slices: Dict[str, Any],
         tier: str = "lidar",
     ) -> List[Dict[str, Any]]:
-        """Estimates opening widths from depth-slice discontinuities for all openings in a room.
-
-        Args:
-            wall_data:           Reconstructed wall planes (used only for schema continuity).
-            sensor_depth_slices: Dict with key "openings", each element containing
-                                 "depth_profile_m", "wall_length_m", and metadata.
-            tier:                Sensor tier for CI lookup ("lidar", "video", "photos").
-
-        Returns:
-            List of opening dicts matching the output contract schema.
-        """
         ci_half = {"lidar": 0.020, "video": 0.065, "photos": 0.150}.get(tier, 0.150)
         confidence_base = {"lidar": 0.97, "video": 0.89, "photos": 0.80}.get(tier, 0.80)
 
@@ -86,7 +45,6 @@ class OpeningDetector:
                 profile_raw, wall_length_m, opening_id
             )
 
-            # Height: use canonical structural height (not read from width_m/height_m GT fields).
             est_height = op.get("canonical_height_m", 2.05 if op_type == "door" else 1.20)
 
             results.append({
@@ -110,14 +68,10 @@ class OpeningDetector:
                 },
                 "confidence": round(confidence_base, 3),
                 "connects_to_room": connects,
-                "detection_mode": "GRADIENT_PEAK_CORRECTED",
+                "detection_mode": "DEPTH_DISCONTINUITY_GRADIENT_PEAK",
             })
 
         return results
-
-    # ------------------------------------------------------------------
-    # Core depth-slice measurement
-    # ------------------------------------------------------------------
 
     def _estimate_width_from_profile(
         self,
@@ -125,24 +79,13 @@ class OpeningDetector:
         wall_length_m: Optional[float],
         opening_id: str,
     ):
-        """Gradient-peak detector with off-by-one (fencepost) correction.
+        """Integer gradient-peak detector (before-fix baseline).
 
-        Root cause (proven in fix_evidence.txt / diagnose_openings.py):
-          In diff[i] = |profile[i+1] - profile[i]|:
-            - Left  jamb peak sits at index (left_integer_px - 1)
-            - Right jamb peak sits at index  right_integer_px
-          Raw span = right_idx - left_idx = true_span_px + 1.
-          Pearson r(error_px, rounding_residual) = 1.0.
+        Finds the two strongest depth-discontinuity gradient peaks and returns
+        their pixel separation multiplied by metres-per-pixel.
 
-        Fix: subtract 1 pixel from the gradient-peak span.
-          width_px = right_peak_idx - left_peak_idx - 1
-
-        This is NOT a tuned constant -- it corrects a known geometric offset in the
-        diff-index convention (analogous to fencepost counting in discrete geometry).
-        No value depends on any known opening width or ground-truth measurement.
-
-        Residual: dToF sensor noise (sigma ~4 mm) + discrete pixel quantisation
-        (~0.5 px RMS = 0.4-0.7 mm for 200-sample profiles on 1.5-5.4 m walls).
+        Known bias: the gradient diff-index convention means raw span =
+        true_span_px + 1 (fencepost off-by-one). This is the UNFIXED version.
 
         Returns:
             (estimated_width_m, status_string)
@@ -154,10 +97,8 @@ class OpeningDetector:
         n = len(profile)
         m_per_px = wall_length_m / n
 
-        # Absolute first-difference: diff[i] = |profile[i+1] - profile[i]|
         diff = np.abs(np.diff(profile))
 
-        # Find all local maxima above the jamb-edge threshold (wall->void jump > 1 m)
         peaks = []
         for i in range(1, len(diff) - 1):
             if diff[i] > VOID_DEPTH_THRESHOLD_M and diff[i] >= diff[i - 1] and diff[i] >= diff[i + 1]:
@@ -170,15 +111,11 @@ class OpeningDetector:
         if len(peaks) < 2:
             return self.min_width, "INSUFFICIENT_GRADIENT_PEAKS"
 
-        # Two strongest peaks -> left and right jamb edges
         peaks.sort(key=lambda x: -x[0])
         left_idx  = min(peaks[0][1], peaks[1][1])
         right_idx = max(peaks[0][1], peaks[1][1])
 
-        # Apply fencepost correction: raw span (right_idx - left_idx) = true_span + 1
-        width_px = right_idx - left_idx - 1
-        if width_px <= 0:
-            return self.min_width, "DEGENERATE_SPAN"
-
+        # NO fencepost correction -- this is the before-fix version
+        width_px  = right_idx - left_idx
         est_width = float(np.clip(width_px * m_per_px, self.min_width, self.max_width))
-        return est_width, "GRADIENT_PEAK_CORRECTED"
+        return est_width, "GRADIENT_PEAK_DETECTED"
