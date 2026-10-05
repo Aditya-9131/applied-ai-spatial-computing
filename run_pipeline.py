@@ -78,9 +78,17 @@ def run_spatial_pipeline(
 
     else: # lidar
         lidar_loader = LiDARTierLoader()
-        if os.path.exists(input_path) and input_path.endswith(".json"):
-            with open(input_path, "r", encoding="utf-8") as f:
-                capture_data = json.load(f)
+        if os.path.exists(input_path):
+            if input_path.endswith(".ply") or input_path.endswith(".obj") or os.path.isdir(input_path):
+                capture_data = lidar_loader.load_real_lidar_capture(input_path)
+            elif input_path.endswith(".json"):
+                with open(input_path, "r", encoding="utf-8") as f:
+                    capture_data = json.load(f)
+            else:
+                base_dir = os.path.dirname(os.path.abspath(__file__))
+                lidar_file = os.path.join(base_dir, "benchmark_data", "tier3_lidar", "multi_room_lidar.json")
+                with open(lidar_file, "r", encoding="utf-8") as f:
+                    capture_data = json.load(f)
         else:
             base_dir = os.path.dirname(os.path.abspath(__file__))
             lidar_file = os.path.join(base_dir, "benchmark_data", "tier3_lidar", "multi_room_lidar.json")
