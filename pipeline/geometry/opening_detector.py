@@ -57,6 +57,10 @@ class OpeningDetector:
 
             profile_raw   = op.get("depth_profile_m")
             wall_length_m = op.get("wall_length_m")
+            if wall_length_m is None and wall_data:
+                matched_wall = next((w for w in wall_data if w.get("wall_id") == wall_id), None)
+                if matched_wall:
+                    wall_length_m = matched_wall.get("length_m")
 
             est_width, detection_status = self._estimate_width_from_profile(
                 profile_raw, wall_length_m, opening_id

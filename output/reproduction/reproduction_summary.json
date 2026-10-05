@@ -1,17 +1,17 @@
 {
-  "timestamp": "2026-10-05T23:34:26Z",
+  "timestamp": "2026-10-06T01:03:18Z",
   "gates": {
     "opening_widths": {
-      "pass_rate_pct": 55.55555555555556,
+      "pass_rate_pct": 100.0,
       "precision_pct": 100.0,
       "recall_pct": 100.0,
-      "status": "FAIL"
+      "status": "PASS"
     },
     "ceiling_height": {
-      "mean_bias_cm": 0.19,
+      "mean_bias_cm": -119.81,
       "spread_cm": 0.0,
-      "diagnosis": "UNBIASED & REPEATABLE (Optimal State: Low Bias, High Repeatability)",
-      "status": "PASS"
+      "diagnosis": "REPEATABLE-BUT-BIASED (Systematic offset present, tight spread across runs)",
+      "status": "FAIL"
     },
     "repeatability": {
       "status": "PASS"
@@ -22,27 +22,27 @@
       "status": "PASS"
     },
     "photo_tier_stitch": {
-      "footprint_err_pct": 0.96,
+      "footprint_err_pct": 98.55,
       "status": "FAIL"
     },
     "video_tier": {
-      "footprint_err_pct": 0.27,
-      "status": "PASS"
+      "footprint_err_pct": 98.55,
+      "status": "FAIL"
     }
   },
   "calibration_ci_coverage": {
-    "lidar_tier_95_cov_pct": 86.2,
-    "video_tier_95_cov_pct": 69.0,
-    "photo_tier_95_cov_pct": 69.0
+    "lidar_tier_95_cov_pct": 31.0,
+    "video_tier_95_cov_pct": 0.0,
+    "photo_tier_95_cov_pct": 0.0
   },
   "head_to_head_polycam": {
-    "win_or_tie_rate_pct": 100.0,
+    "win_or_tie_rate_pct": 0.0,
     "gate_req": ">= 70%",
-    "status": "PASS"
+    "status": "FAIL"
   },
   "timings_s": {
-    "lidar": 0.015,
-    "video": 0.014,
-    "photos": 0.014
+    "lidar": 0.017,
+    "video": 0.006,
+    "photos": 0.01
   }
 }

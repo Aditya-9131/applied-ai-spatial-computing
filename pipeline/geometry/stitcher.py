@@ -80,11 +80,10 @@ class FloorPlanStitcher:
         min_x, min_y = np.min(all_pts_arr, axis=0)
         max_x, max_y = np.max(all_pts_arr, axis=0)
 
-        # In uncorrected open-loop drift, the sheared connector expands total footprint bounding area
-        if not drift_corrected:
-            total_footprint_m2 = round(sum(r["floor_area_m2"] for r in global_rooms.values()) + 3.85, 3)
-        else:
-            total_footprint_m2 = round(sum(r["floor_area_m2"] for r in global_rooms.values()), 3)
+        # Total footprint = sum of per-room floor areas from (possibly drifted) poses.
+        # In uncorrected open-loop mode poses may be off, causing rooms to mis-align,
+        # but we do NOT add a synthetic constant -- we report what the geometry gives.
+        total_footprint_m2 = round(sum(r["floor_area_m2"] for r in global_rooms.values()), 3)
 
         return {
             "property_envelope": {

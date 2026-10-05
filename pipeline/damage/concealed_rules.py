@@ -34,7 +34,8 @@ class ConcealedDamageEngine:
         ]
 
     def _check_water_baseboard(self, region: Dict[str, Any], context: Dict[str, Any]) -> bool:
-        return region.get("damage_class") == "water_damage" and "wall" in region.get("surface_id", "") and region.get("metric_extent", {}).get("area_m2", 0) >= 0.8
+        area = region.get("metric_extent", {}).get("area_m2")
+        return region.get("damage_class") == "water_damage" and "wall" in region.get("surface_id", "") and area is not None and area >= 0.8
 
     def _check_ceiling_leak(self, region: Dict[str, Any], context: Dict[str, Any]) -> bool:
         return region.get("damage_class") == "water_damage" and ("ceiling" in region.get("surface_id", "") or region.get("surface_type") == "ceiling")
@@ -46,7 +47,8 @@ class ConcealedDamageEngine:
         return False
 
     def _check_cavity_mold(self, region: Dict[str, Any], context: Dict[str, Any]) -> bool:
-        return region.get("damage_class") == "mold_growth" and region.get("metric_extent", {}).get("area_m2", 0) >= 0.4
+        area = region.get("metric_extent", {}).get("area_m2")
+        return region.get("damage_class") == "mold_growth" and area is not None and area >= 0.4
 
     def evaluate_flags(
         self,

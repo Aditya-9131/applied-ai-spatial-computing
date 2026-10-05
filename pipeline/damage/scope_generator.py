@@ -53,7 +53,12 @@ class ScopeOfWorkGenerator:
                     qty = 1.0
 
                 unit_cost = tpl["unit_cost"]
-                total_cost = round(qty * unit_cost, 2)
+                if qty is not None:
+                    total_cost = round(qty * unit_cost, 2)
+                    formatted_qty = round(qty, 2)
+                else:
+                    total_cost = None
+                    formatted_qty = None
 
                 line_items.append({
                     "item_id": f"SCOPE_{item_counter:03d}",
@@ -61,7 +66,7 @@ class ScopeOfWorkGenerator:
                     "surface_id": surface_id,
                     "code": tpl["code"],
                     "description": tpl["description"],
-                    "quantity": round(qty, 2),
+                    "quantity": formatted_qty,
                     "unit": unit,
                     "unit_cost_usd": unit_cost,
                     "total_cost_usd": total_cost

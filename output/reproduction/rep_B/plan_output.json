@@ -6,7 +6,7 @@
     "device_model": "iPhone 15 Pro Max",
     "capture_timestamp": "2026-08-20T14:30:00Z",
     "timing": {
-      "processing_time_seconds": 0.002
+      "processing_time_seconds": 0.001
     },
     "drift_correction_enabled": true,
     "opening_detector": "DEPTH_DISCONTINUITY_GRADIENT_PEAK"
@@ -16,22 +16,22 @@
       "room_id": "living_room",
       "name": "Living Room (Furnished)",
       "ceiling_height": {
-        "value": 2.7019,
+        "value": 1.5019,
         "ci_95": [
-          2.6869,
-          2.7169
+          1.4869,
+          1.5169
         ],
         "std_error": 0.0077,
         "unit": "m",
         "tier_calibrated": "lidar"
       },
       "floor_area": {
-        "value": 25.926,
+        "value": 0.251,
         "ci_95": [
-          25.6149,
-          26.2371
+          0.248,
+          0.254
         ],
-        "std_error": 0.1587,
+        "std_error": 0.0015,
         "unit": "m2",
         "tier_calibrated": "lidar"
       },
@@ -39,43 +39,43 @@
         {
           "wall_id": "wall_north",
           "length": {
-            "value": 4.8015,
+            "value": 0.5015,
             "ci_95": [
-              4.7775,
-              4.8255
+              0.499,
+              0.504
             ],
-            "std_error": 0.0122,
+            "std_error": 0.0013,
             "unit": "m",
             "tier_calibrated": "lidar"
           },
           "start_point": [
             0.0,
-            5.399585207096487
+            0.5
           ],
           "end_point": [
-            4.801490142459033,
-            5.399585207096487
+            0.5014901424590337,
+            0.5
           ],
           "orientation_deg": 0.0
         },
         {
           "wall_id": "wall_east",
           "length": {
-            "value": 5.3996,
+            "value": 0.5,
             "ci_95": [
-              5.3726,
-              5.4266
+              0.4975,
+              0.5025
             ],
-            "std_error": 0.0138,
+            "std_error": 0.0013,
             "unit": "m",
             "tier_calibrated": "lidar"
           },
           "start_point": [
-            4.801490142459033,
-            5.399585207096487
+            0.5014901424590337,
+            0.5
           ],
           "end_point": [
-            4.801490142459033,
+            0.5014901424590337,
             0.0
           ],
           "orientation_deg": 90.0
@@ -83,17 +83,17 @@
         {
           "wall_id": "wall_south",
           "length": {
-            "value": 4.8015,
+            "value": 0.5015,
             "ci_95": [
-              4.7775,
-              4.8255
+              0.499,
+              0.504
             ],
-            "std_error": 0.0122,
+            "std_error": 0.0013,
             "unit": "m",
             "tier_calibrated": "lidar"
           },
           "start_point": [
-            4.801490142459033,
+            0.5014901424590337,
             0.0
           ],
           "end_point": [
@@ -105,12 +105,12 @@
         {
           "wall_id": "wall_west",
           "length": {
-            "value": 5.3996,
+            "value": 0.5,
             "ci_95": [
-              5.3726,
-              5.4266
+              0.4975,
+              0.5025
             ],
-            "std_error": 0.0138,
+            "std_error": 0.0013,
             "unit": "m",
             "tier_calibrated": "lidar"
           },
@@ -120,7 +120,7 @@
           ],
           "end_point": [
             0.0,
-            5.399585207096487
+            0.5
           ],
           "orientation_deg": 270.0
         }
@@ -150,7 +150,7 @@
           },
           "confidence": 0.97,
           "connects_to_room": "hallway",
-          "detection_mode": "DEPTH_DISCONTINUITY_GRADIENT_PEAK"
+          "detection_mode": "SUBPIXEL_THRESHOLD_CROSSING"
         },
         {
           "opening_id": "window_north",
@@ -176,7 +176,7 @@
           },
           "confidence": 0.97,
           "connects_to_room": null,
-          "detection_mode": "DEPTH_DISCONTINUITY_GRADIENT_PEAK"
+          "detection_mode": "SUBPIXEL_THRESHOLD_CROSSING"
         }
       ]
     }
@@ -185,11 +185,11 @@
     "property_envelope": {
       "min_x": 0.0,
       "min_y": 0.0,
-      "max_x": 4.8015,
-      "max_y": 5.3996,
-      "total_span_x_m": 4.8015,
-      "total_span_y_m": 5.3996,
-      "total_floor_area_m2": 25.926
+      "max_x": 0.5015,
+      "max_y": 0.5,
+      "total_span_x_m": 0.5015,
+      "total_span_y_m": 0.5,
+      "total_floor_area_m2": 0.251
     },
     "stitched_rooms": {
       "living_room": {
@@ -206,41 +206,41 @@
             "local_wall_id": "wall_north",
             "start_point": [
               0.0,
-              5.3996
+              0.5
             ],
             "end_point": [
-              4.8015,
-              5.3996
+              0.5015,
+              0.5
             ],
-            "length_m": 4.8015,
+            "length_m": 0.5015,
             "orientation_deg": 0.0
           },
           {
             "wall_id": "living_room_wall_east",
             "local_wall_id": "wall_east",
             "start_point": [
-              4.8015,
-              5.3996
+              0.5015,
+              0.5
             ],
             "end_point": [
-              4.8015,
+              0.5015,
               0.0
             ],
-            "length_m": 5.3996,
+            "length_m": 0.5,
             "orientation_deg": 90.0
           },
           {
             "wall_id": "living_room_wall_south",
             "local_wall_id": "wall_south",
             "start_point": [
-              4.8015,
+              0.5015,
               0.0
             ],
             "end_point": [
               0.0,
               0.0
             ],
-            "length_m": 4.8015,
+            "length_m": 0.5015,
             "orientation_deg": 180.0
           },
           {
@@ -252,14 +252,14 @@
             ],
             "end_point": [
               0.0,
-              5.3996
+              0.5
             ],
-            "length_m": 5.3996,
+            "length_m": 0.5,
             "orientation_deg": 270.0
           }
         ],
-        "ceiling_height_m": 2.7019,
-        "floor_area_m2": 25.926,
+        "ceiling_height_m": 1.5019,
+        "floor_area_m2": 0.251,
         "openings": [
           {
             "opening_id": "door_hallway",
@@ -285,7 +285,7 @@
             },
             "confidence": 0.97,
             "connects_to_room": "hallway",
-            "detection_mode": "DEPTH_DISCONTINUITY_GRADIENT_PEAK"
+            "detection_mode": "SUBPIXEL_THRESHOLD_CROSSING"
           },
           {
             "opening_id": "window_north",
@@ -311,7 +311,7 @@
             },
             "confidence": 0.97,
             "connects_to_room": null,
-            "detection_mode": "DEPTH_DISCONTINUITY_GRADIENT_PEAK"
+            "detection_mode": "SUBPIXEL_THRESHOLD_CROSSING"
           }
         ]
       }
@@ -361,20 +361,13 @@
         "damage_class": "water_damage",
         "severity_score": 0.85,
         "metric_extent": {
-          "area_m2": 2.382,
-          "area_ci_95": [
-            2.343,
-            2.421
-          ],
+          "area_m2": null,
+          "area_ci_95": null,
           "linear_length_m": null
         },
-        "bounding_box_uv": [
-          0.15,
-          0.4,
-          0.85,
-          0.95
-        ],
-        "detection_confidence": 0.9,
+        "estimation_source": "NOT_IMPLEMENTED_NO_SEGMENTATION_MODEL",
+        "bounding_box_uv": null,
+        "detection_confidence": null,
         "moisture_reading_wme_pct": 34.2
       },
       {
@@ -385,36 +378,19 @@
         "damage_class": "wall_crack",
         "severity_score": 0.7,
         "metric_extent": {
-          "area_m2": 0.422,
-          "area_ci_95": [
-            0.383,
-            0.461
-          ],
+          "area_m2": null,
+          "area_ci_95": null,
           "linear_length_m": 1.65
         },
-        "bounding_box_uv": [
-          0.15,
-          0.4,
-          0.85,
-          0.95
-        ],
-        "detection_confidence": 0.9,
+        "estimation_source": "NOT_IMPLEMENTED_NO_SEGMENTATION_MODEL",
+        "bounding_box_uv": null,
+        "detection_confidence": null,
         "moisture_reading_wme_pct": null
       }
     ],
-    "total_damaged_area_m2": 2.804
+    "total_damaged_area_m2": null
   },
   "concealed_damage_flags": [
-    {
-      "flag_id": "FLAG_DMG_property_aggregate_1_RULE_WATER_BEHIND_BASEBOARD",
-      "damage_id": "DMG_property_aggregate_1",
-      "surface_id": "property_aggregate_wall_north",
-      "rule_fired": "RULE_WATER_BEHIND_BASEBOARD",
-      "rule_title": "Baseboard Water Intrusion Drywall Cavity Rot",
-      "justification": "Visible water staining near wall base suggests trapped moisture behind baseboards and insulation degradation inside drywall stud cavity.",
-      "recommended_investigation": "Non-destructive thermal/moisture probe + selective inspection cut",
-      "risk_level": "MEDIUM"
-    },
     {
       "flag_id": "FLAG_DMG_property_aggregate_2_RULE_STRUCTURAL_SHEAR_CRACK",
       "damage_id": "DMG_property_aggregate_2",
@@ -433,10 +409,10 @@
       "surface_id": "property_aggregate_wall_north",
       "code": "WTR-EXTRACT",
       "description": "Water extraction & moisture mitigation",
-      "quantity": 2.38,
+      "quantity": null,
       "unit": "m2",
       "unit_cost_usd": 18.5,
-      "total_cost_usd": 44.07
+      "total_cost_usd": null
     },
     {
       "item_id": "SCOPE_002",
@@ -444,10 +420,10 @@
       "surface_id": "property_aggregate_wall_north",
       "code": "DRY-TEAROUT",
       "description": "Tear out wet drywall up to 2ft flood cut",
-      "quantity": 2.38,
+      "quantity": null,
       "unit": "m2",
       "unit_cost_usd": 32.0,
-      "total_cost_usd": 76.22
+      "total_cost_usd": null
     },
     {
       "item_id": "SCOPE_003",
@@ -455,10 +431,10 @@
       "surface_id": "property_aggregate_wall_north",
       "code": "DRY-REPLACE",
       "description": "Hang, tape & mud 1/2in drywall replacement",
-      "quantity": 2.38,
+      "quantity": null,
       "unit": "m2",
       "unit_cost_usd": 48.0,
-      "total_cost_usd": 114.34
+      "total_cost_usd": null
     },
     {
       "item_id": "SCOPE_004",
@@ -466,10 +442,10 @@
       "surface_id": "property_aggregate_wall_north",
       "code": "PNT-PRIME2C",
       "description": "Apply stain-blocking primer and 2 finish coats",
-      "quantity": 2.38,
+      "quantity": null,
       "unit": "m2",
       "unit_cost_usd": 24.5,
-      "total_cost_usd": 58.36
+      "total_cost_usd": null
     },
     {
       "item_id": "SCOPE_005",
@@ -499,10 +475,10 @@
       "surface_id": "property_aggregate_wall_east",
       "code": "PNT-TOUCHUP",
       "description": "Blend and feather paint to nearest corner",
-      "quantity": 0.42,
+      "quantity": null,
       "unit": "m2",
       "unit_cost_usd": 22.0,
-      "total_cost_usd": 9.28
+      "total_cost_usd": null
     }
   ],
   "calibration_and_confidence": {

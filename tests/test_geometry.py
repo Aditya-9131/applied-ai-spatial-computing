@@ -26,7 +26,16 @@ class TestPlaneDetector(unittest.TestCase):
 
     def test_reconstruct_room_geometry(self):
         nominal = {"width": 4.0, "length": 5.0, "height": 2.6}
-        geom = self.detector.reconstruct_room_geometry(np.zeros((10, 3)), nominal, tier="lidar")
+        rng = np.random.RandomState(42)
+        floor = np.column_stack([rng.uniform(0, 4, 100), rng.uniform(0, 5, 100), np.zeros(100)])
+        ceiling = np.column_stack([rng.uniform(0, 4, 100), rng.uniform(0, 5, 100), np.full(100, 2.6)])
+        wall_x0 = np.column_stack([np.zeros(50), rng.uniform(0, 5, 50), rng.uniform(0.5, 2.0, 50)])
+        wall_x1 = np.column_stack([np.full(50, 4.0), rng.uniform(0, 5, 50), rng.uniform(0.5, 2.0, 50)])
+        wall_y0 = np.column_stack([rng.uniform(0, 4, 50), np.zeros(50), rng.uniform(0.5, 2.0, 50)])
+        wall_y1 = np.column_stack([rng.uniform(0, 4, 50), np.full(50, 5.0), rng.uniform(0.5, 2.0, 50)])
+        pts = np.vstack([floor, ceiling, wall_x0, wall_x1, wall_y0, wall_y1])
+
+        geom = self.detector.reconstruct_room_geometry(pts, nominal, tier="lidar")
 
         self.assertIn("walls", geom)
         self.assertEqual(len(geom["walls"]), 4)

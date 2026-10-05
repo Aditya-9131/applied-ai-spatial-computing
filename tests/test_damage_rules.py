@@ -17,8 +17,8 @@ class TestDamageAssessment(unittest.TestCase):
 
     def test_damage_and_concealed_rules(self):
         obs = [
-            {"surface_id": "wall_north", "class": "water_damage", "nominal_extent_m2": 2.4, "surface_type": "drywall_wall"},
-            {"surface_id": "ceiling", "class": "water_damage", "nominal_extent_m2": 1.2, "surface_type": "drywall_ceiling"}
+            {"surface_id": "wall_north", "class": "water_damage", "pixel_area_m2": 2.4, "surface_type": "drywall_wall"},
+            {"surface_id": "ceiling", "class": "water_damage", "pixel_area_m2": 1.2, "surface_type": "drywall_ceiling"}
         ]
         regions = self.seg.segment_damage("living_room", obs, tier="lidar")
         self.assertEqual(len(regions), 2)

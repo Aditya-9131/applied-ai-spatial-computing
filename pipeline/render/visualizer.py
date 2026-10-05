@@ -129,7 +129,13 @@ class FloorPlanVisualizer:
         damages = contract.get("damage_assessment", {}).get("damage_regions", [])
         flags = contract.get("concealed_damage_flags", [])
         scopes = contract.get("scope_of_work", [])
-        total_cost = sum(s.get("total_cost_usd", 0.0) for s in scopes)
+        total_cost = sum((s.get("total_cost_usd") or 0.0) for s in scopes)
+
+        def _format_cost(val):
+            return f"${val:.2f}" if val is not None else "N/A"
+
+        def _format_qty(q, unit):
+            return f"{q} {unit}" if q is not None else "N/A"
 
         html = f"""<!DOCTYPE html>
 <html lang="en">
@@ -241,10 +247,9 @@ class FloorPlanVisualizer:
                         <td><code>{s['item_id']}</code></td>
                         <td><code>{s['surface_id']}</code></td>
                         <td><strong>{s['code']}</strong></td>
-                        <td>{s['description']}</td>
-                        <td>{s['quantity']} {s['unit']}</td>
+                        <td>{_format_qty(s['quantity'], s['unit'])}</td>
                         <td>${s['unit_cost_usd']:.2f}</td>
-                        <td><strong>${s['total_cost_usd']:.2f}</strong></td>
+                        <td><strong>{_format_cost(s['total_cost_usd'])}</strong></td>
                     </tr>
                     ''' for s in scopes])}
                 </tbody>

@@ -193,7 +193,11 @@ def run_spatial_pipeline(
         stitched_plan=stitched_plan,
         damage_assessment={
             "damage_regions": damage_regions,
-            "total_damaged_area_m2": round(sum(d["metric_extent"]["area_m2"] for d in damage_regions), 3)
+            "total_damaged_area_m2": (
+                round(sum(d["metric_extent"]["area_m2"] for d in damage_regions if d.get("metric_extent", {}).get("area_m2") is not None), 3)
+                if any(d.get("metric_extent", {}).get("area_m2") is not None for d in damage_regions)
+                else None
+            )
         },
         concealed_flags=concealed_flags,
         scope_of_work=scope_items,
