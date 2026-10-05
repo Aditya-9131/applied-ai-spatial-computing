@@ -190,7 +190,7 @@ class FloorPlanVisualizer:
         <div class="header">
             <div>
                 <h1>Property As-Built &amp; Damage Scope Report</h1>
-                <p style="color: var(--text-secondary); font-size: 14px; margin-top: 4px;">Capture ID: <strong>{contract["property_id"]}</strong> | Input Tier: <strong>{meta["input_tier"].upper()}</strong> | Processed in {meta["processing_time_seconds"]}s</p>
+                <p style="color: var(--text-secondary); font-size: 14px; margin-top: 4px;">Capture ID: <strong>{contract["property_id"]}</strong> | Input Tier: <strong>{meta["input_tier"].upper()}</strong> | Processed in {meta.get("timing", {}).get("processing_time_seconds", 0.0)}s</p>
             </div>
             <div>
                 <span class="badge">SCHEMA COMPLIANT v{contract["schema_version"]}</span>

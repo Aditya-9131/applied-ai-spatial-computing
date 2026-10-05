@@ -5,7 +5,7 @@
     "input_tier": "lidar",
     "device_model": "iPhone 15 Pro Max",
     "capture_timestamp": "2026-08-20T14:30:00Z",
-    "processing_time_seconds": 0.025,
+    "processing_time_seconds": 0.011,
     "drift_correction_enabled": true
   },
   "rooms": [
@@ -127,51 +127,53 @@
           "opening_id": "door_hallway",
           "type": "door",
           "wall_id": "wall_south",
-          "position_along_wall_m": 1.2,
+          "position_along_wall_m": 1.8,
           "width_m": {
-            "value": 0.9298,
+            "value": 0.936,
             "ci_95": [
-              0.8846,
-              0.975
+              0.916,
+              0.956
             ],
-            "std_err": 0.005
+            "std_err": 0.0102,
+            "detection_status": "GRADIENT_PEAK_DETECTED"
           },
           "height_m": {
-            "value": 2.0516,
+            "value": 2.05,
             "ci_95": [
-              2.0418,
-              2.0614
+              2.03,
+              2.07
             ],
-            "std_err": 0.005
+            "std_err": 0.0102
           },
-          "confidence": 0.955,
+          "confidence": 0.97,
           "connects_to_room": "hallway",
-          "detection_mode": "LEGACY_NAIVE_THRESHOLD"
+          "detection_mode": "DEPTH_DISCONTINUITY_GRADIENT_PEAK"
         },
         {
           "opening_id": "window_north",
           "type": "window",
           "wall_id": "wall_north",
-          "position_along_wall_m": 1.2,
+          "position_along_wall_m": 1.6,
           "width_m": {
-            "value": 1.6138,
+            "value": 1.608,
             "ci_95": [
-              1.5916,
-              1.636
+              1.588,
+              1.628
             ],
-            "std_err": 0.005
+            "std_err": 0.0102,
+            "detection_status": "GRADIENT_PEAK_DETECTED"
           },
           "height_m": {
-            "value": 1.4051,
+            "value": 1.2,
             "ci_95": [
-              1.3953,
-              1.4149
+              1.18,
+              1.22
             ],
-            "std_err": 0.005
+            "std_err": 0.0102
           },
-          "confidence": 0.939,
+          "confidence": 0.97,
           "connects_to_room": null,
-          "detection_mode": "LEGACY_NAIVE_THRESHOLD"
+          "detection_mode": "DEPTH_DISCONTINUITY_GRADIENT_PEAK"
         }
       ]
     },
@@ -293,76 +295,79 @@
           "opening_id": "door_living",
           "type": "door",
           "wall_id": "wall_north",
-          "position_along_wall_m": 1.2,
+          "position_along_wall_m": 0.3,
           "width_m": {
-            "value": 0.9298,
+            "value": 0.9075,
             "ci_95": [
-              0.8846,
-              0.975
+              0.8875,
+              0.9275
             ],
-            "std_err": 0.005
+            "std_err": 0.0102,
+            "detection_status": "GRADIENT_PEAK_DETECTED"
           },
           "height_m": {
-            "value": 2.0516,
+            "value": 2.05,
             "ci_95": [
-              2.0418,
-              2.0614
+              2.03,
+              2.07
             ],
-            "std_err": 0.005
+            "std_err": 0.0102
           },
-          "confidence": 0.955,
+          "confidence": 0.97,
           "connects_to_room": "living_room",
-          "detection_mode": "LEGACY_NAIVE_THRESHOLD"
+          "detection_mode": "DEPTH_DISCONTINUITY_GRADIENT_PEAK"
         },
         {
           "opening_id": "door_kitchen",
           "type": "door",
           "wall_id": "wall_east",
-          "position_along_wall_m": 1.2,
+          "position_along_wall_m": 2.1,
           "width_m": {
-            "value": 0.9339,
+            "value": 0.918,
             "ci_95": [
-              0.8916,
-              0.9762
+              0.898,
+              0.938
             ],
-            "std_err": 0.005
+            "std_err": 0.0102,
+            "detection_status": "GRADIENT_PEAK_DETECTED"
           },
           "height_m": {
-            "value": 2.0551,
+            "value": 2.05,
             "ci_95": [
-              2.0453,
-              2.0649
+              2.03,
+              2.07
             ],
-            "std_err": 0.005
+            "std_err": 0.0102
           },
-          "confidence": 0.939,
+          "confidence": 0.97,
           "connects_to_room": "kitchen",
-          "detection_mode": "LEGACY_NAIVE_THRESHOLD"
+          "detection_mode": "DEPTH_DISCONTINUITY_GRADIENT_PEAK"
         },
         {
           "opening_id": "door_master",
           "type": "door",
           "wall_id": "wall_south",
-          "position_along_wall_m": 1.2,
+          "position_along_wall_m": 0.3,
           "width_m": {
-            "value": 0.9293,
+            "value": 0.9075,
             "ci_95": [
-              0.8873,
-              0.9713
+              0.8875,
+              0.9275
             ],
-            "std_err": 0.005
+            "std_err": 0.0102,
+            "detection_status": "GRADIENT_PEAK_DETECTED"
           },
           "height_m": {
-            "value": 2.0474,
+            "value": 2.05,
             "ci_95": [
-              2.0376,
-              2.0572
+              2.03,
+              2.07
             ],
-            "std_err": 0.005
+            "std_err": 0.0102
           },
-          "confidence": 0.954,
+          "confidence": 0.97,
           "connects_to_room": "master_bedroom",
-          "detection_mode": "LEGACY_NAIVE_THRESHOLD"
+          "detection_mode": "DEPTH_DISCONTINUITY_GRADIENT_PEAK"
         }
       ]
     },
@@ -484,51 +489,53 @@
           "opening_id": "door_hallway_k",
           "type": "door",
           "wall_id": "wall_west",
-          "position_along_wall_m": 1.2,
+          "position_along_wall_m": 1.5,
           "width_m": {
-            "value": 0.9298,
+            "value": 0.924,
             "ci_95": [
-              0.8846,
-              0.975
+              0.904,
+              0.944
             ],
-            "std_err": 0.005
+            "std_err": 0.0102,
+            "detection_status": "GRADIENT_PEAK_DETECTED"
           },
           "height_m": {
-            "value": 2.0516,
+            "value": 2.05,
             "ci_95": [
-              2.0418,
-              2.0614
+              2.03,
+              2.07
             ],
-            "std_err": 0.005
+            "std_err": 0.0102
           },
-          "confidence": 0.955,
+          "confidence": 0.97,
           "connects_to_room": "hallway",
-          "detection_mode": "LEGACY_NAIVE_THRESHOLD"
+          "detection_mode": "DEPTH_DISCONTINUITY_GRADIENT_PEAK"
         },
         {
           "opening_id": "window_kitchen",
           "type": "window",
           "wall_id": "wall_north",
-          "position_along_wall_m": 1.2,
+          "position_along_wall_m": 1.1,
           "width_m": {
-            "value": 1.4138,
+            "value": 1.422,
             "ci_95": [
-              1.3916,
-              1.436
+              1.402,
+              1.442
             ],
-            "std_err": 0.005
+            "std_err": 0.0102,
+            "detection_status": "GRADIENT_PEAK_DETECTED"
           },
           "height_m": {
-            "value": 1.2051,
+            "value": 1.2,
             "ci_95": [
-              1.1953,
-              1.2149
+              1.18,
+              1.22
             ],
-            "std_err": 0.005
+            "std_err": 0.0102
           },
-          "confidence": 0.939,
+          "confidence": 0.97,
           "connects_to_room": null,
-          "detection_mode": "LEGACY_NAIVE_THRESHOLD"
+          "detection_mode": "DEPTH_DISCONTINUITY_GRADIENT_PEAK"
         }
       ]
     },
@@ -650,51 +657,53 @@
           "opening_id": "door_hallway_m",
           "type": "door",
           "wall_id": "wall_north",
-          "position_along_wall_m": 1.2,
+          "position_along_wall_m": 1.65,
           "width_m": {
-            "value": 0.9298,
+            "value": 0.903,
             "ci_95": [
-              0.8846,
-              0.975
+              0.883,
+              0.923
             ],
-            "std_err": 0.005
+            "std_err": 0.0102,
+            "detection_status": "GRADIENT_PEAK_DETECTED"
           },
           "height_m": {
-            "value": 2.0516,
+            "value": 2.05,
             "ci_95": [
-              2.0418,
-              2.0614
+              2.03,
+              2.07
             ],
-            "std_err": 0.005
+            "std_err": 0.0102
           },
-          "confidence": 0.955,
+          "confidence": 0.97,
           "connects_to_room": "hallway",
-          "detection_mode": "LEGACY_NAIVE_THRESHOLD"
+          "detection_mode": "DEPTH_DISCONTINUITY_GRADIENT_PEAK"
         },
         {
           "opening_id": "window_bedroom",
           "type": "window",
           "wall_id": "wall_east",
-          "position_along_wall_m": 1.2,
+          "position_along_wall_m": 1.5,
           "width_m": {
-            "value": 1.8138,
+            "value": 1.824,
             "ci_95": [
-              1.7916,
-              1.836
+              1.804,
+              1.844
             ],
-            "std_err": 0.005
+            "std_err": 0.0102,
+            "detection_status": "GRADIENT_PEAK_DETECTED"
           },
           "height_m": {
-            "value": 1.4051,
+            "value": 1.2,
             "ci_95": [
-              1.3953,
-              1.4149
+              1.18,
+              1.22
             ],
-            "std_err": 0.005
+            "std_err": 0.0102
           },
-          "confidence": 0.939,
+          "confidence": 0.97,
           "connects_to_room": null,
-          "detection_mode": "LEGACY_NAIVE_THRESHOLD"
+          "detection_mode": "DEPTH_DISCONTINUITY_GRADIENT_PEAK"
         }
       ]
     }
@@ -783,51 +792,53 @@
             "opening_id": "door_hallway",
             "type": "door",
             "wall_id": "wall_south",
-            "position_along_wall_m": 1.2,
+            "position_along_wall_m": 1.8,
             "width_m": {
-              "value": 0.9298,
+              "value": 0.936,
               "ci_95": [
-                0.8846,
-                0.975
+                0.916,
+                0.956
               ],
-              "std_err": 0.005
+              "std_err": 0.0102,
+              "detection_status": "GRADIENT_PEAK_DETECTED"
             },
             "height_m": {
-              "value": 2.0516,
+              "value": 2.05,
               "ci_95": [
-                2.0418,
-                2.0614
+                2.03,
+                2.07
               ],
-              "std_err": 0.005
+              "std_err": 0.0102
             },
-            "confidence": 0.955,
+            "confidence": 0.97,
             "connects_to_room": "hallway",
-            "detection_mode": "LEGACY_NAIVE_THRESHOLD"
+            "detection_mode": "DEPTH_DISCONTINUITY_GRADIENT_PEAK"
           },
           {
             "opening_id": "window_north",
             "type": "window",
             "wall_id": "wall_north",
-            "position_along_wall_m": 1.2,
+            "position_along_wall_m": 1.6,
             "width_m": {
-              "value": 1.6138,
+              "value": 1.608,
               "ci_95": [
-                1.5916,
-                1.636
+                1.588,
+                1.628
               ],
-              "std_err": 0.005
+              "std_err": 0.0102,
+              "detection_status": "GRADIENT_PEAK_DETECTED"
             },
             "height_m": {
-              "value": 1.4051,
+              "value": 1.2,
               "ci_95": [
-                1.3953,
-                1.4149
+                1.18,
+                1.22
               ],
-              "std_err": 0.005
+              "std_err": 0.0102
             },
-            "confidence": 0.939,
+            "confidence": 0.97,
             "connects_to_room": null,
-            "detection_mode": "LEGACY_NAIVE_THRESHOLD"
+            "detection_mode": "DEPTH_DISCONTINUITY_GRADIENT_PEAK"
           }
         ]
       },
@@ -904,76 +915,79 @@
             "opening_id": "door_living",
             "type": "door",
             "wall_id": "wall_north",
-            "position_along_wall_m": 1.2,
+            "position_along_wall_m": 0.3,
             "width_m": {
-              "value": 0.9298,
+              "value": 0.9075,
               "ci_95": [
-                0.8846,
-                0.975
+                0.8875,
+                0.9275
               ],
-              "std_err": 0.005
+              "std_err": 0.0102,
+              "detection_status": "GRADIENT_PEAK_DETECTED"
             },
             "height_m": {
-              "value": 2.0516,
+              "value": 2.05,
               "ci_95": [
-                2.0418,
-                2.0614
+                2.03,
+                2.07
               ],
-              "std_err": 0.005
+              "std_err": 0.0102
             },
-            "confidence": 0.955,
+            "confidence": 0.97,
             "connects_to_room": "living_room",
-            "detection_mode": "LEGACY_NAIVE_THRESHOLD"
+            "detection_mode": "DEPTH_DISCONTINUITY_GRADIENT_PEAK"
           },
           {
             "opening_id": "door_kitchen",
             "type": "door",
             "wall_id": "wall_east",
-            "position_along_wall_m": 1.2,
+            "position_along_wall_m": 2.1,
             "width_m": {
-              "value": 0.9339,
+              "value": 0.918,
               "ci_95": [
-                0.8916,
-                0.9762
+                0.898,
+                0.938
               ],
-              "std_err": 0.005
+              "std_err": 0.0102,
+              "detection_status": "GRADIENT_PEAK_DETECTED"
             },
             "height_m": {
-              "value": 2.0551,
+              "value": 2.05,
               "ci_95": [
-                2.0453,
-                2.0649
+                2.03,
+                2.07
               ],
-              "std_err": 0.005
+              "std_err": 0.0102
             },
-            "confidence": 0.939,
+            "confidence": 0.97,
             "connects_to_room": "kitchen",
-            "detection_mode": "LEGACY_NAIVE_THRESHOLD"
+            "detection_mode": "DEPTH_DISCONTINUITY_GRADIENT_PEAK"
           },
           {
             "opening_id": "door_master",
             "type": "door",
             "wall_id": "wall_south",
-            "position_along_wall_m": 1.2,
+            "position_along_wall_m": 0.3,
             "width_m": {
-              "value": 0.9293,
+              "value": 0.9075,
               "ci_95": [
-                0.8873,
-                0.9713
+                0.8875,
+                0.9275
               ],
-              "std_err": 0.005
+              "std_err": 0.0102,
+              "detection_status": "GRADIENT_PEAK_DETECTED"
             },
             "height_m": {
-              "value": 2.0474,
+              "value": 2.05,
               "ci_95": [
-                2.0376,
-                2.0572
+                2.03,
+                2.07
               ],
-              "std_err": 0.005
+              "std_err": 0.0102
             },
-            "confidence": 0.954,
+            "confidence": 0.97,
             "connects_to_room": "master_bedroom",
-            "detection_mode": "LEGACY_NAIVE_THRESHOLD"
+            "detection_mode": "DEPTH_DISCONTINUITY_GRADIENT_PEAK"
           }
         ]
       },
@@ -1050,51 +1064,53 @@
             "opening_id": "door_hallway_k",
             "type": "door",
             "wall_id": "wall_west",
-            "position_along_wall_m": 1.2,
+            "position_along_wall_m": 1.5,
             "width_m": {
-              "value": 0.9298,
+              "value": 0.924,
               "ci_95": [
-                0.8846,
-                0.975
+                0.904,
+                0.944
               ],
-              "std_err": 0.005
+              "std_err": 0.0102,
+              "detection_status": "GRADIENT_PEAK_DETECTED"
             },
             "height_m": {
-              "value": 2.0516,
+              "value": 2.05,
               "ci_95": [
-                2.0418,
-                2.0614
+                2.03,
+                2.07
               ],
-              "std_err": 0.005
+              "std_err": 0.0102
             },
-            "confidence": 0.955,
+            "confidence": 0.97,
             "connects_to_room": "hallway",
-            "detection_mode": "LEGACY_NAIVE_THRESHOLD"
+            "detection_mode": "DEPTH_DISCONTINUITY_GRADIENT_PEAK"
           },
           {
             "opening_id": "window_kitchen",
             "type": "window",
             "wall_id": "wall_north",
-            "position_along_wall_m": 1.2,
+            "position_along_wall_m": 1.1,
             "width_m": {
-              "value": 1.4138,
+              "value": 1.422,
               "ci_95": [
-                1.3916,
-                1.436
+                1.402,
+                1.442
               ],
-              "std_err": 0.005
+              "std_err": 0.0102,
+              "detection_status": "GRADIENT_PEAK_DETECTED"
             },
             "height_m": {
-              "value": 1.2051,
+              "value": 1.2,
               "ci_95": [
-                1.1953,
-                1.2149
+                1.18,
+                1.22
               ],
-              "std_err": 0.005
+              "std_err": 0.0102
             },
-            "confidence": 0.939,
+            "confidence": 0.97,
             "connects_to_room": null,
-            "detection_mode": "LEGACY_NAIVE_THRESHOLD"
+            "detection_mode": "DEPTH_DISCONTINUITY_GRADIENT_PEAK"
           }
         ]
       },
@@ -1171,51 +1187,53 @@
             "opening_id": "door_hallway_m",
             "type": "door",
             "wall_id": "wall_north",
-            "position_along_wall_m": 1.2,
+            "position_along_wall_m": 1.65,
             "width_m": {
-              "value": 0.9298,
+              "value": 0.903,
               "ci_95": [
-                0.8846,
-                0.975
+                0.883,
+                0.923
               ],
-              "std_err": 0.005
+              "std_err": 0.0102,
+              "detection_status": "GRADIENT_PEAK_DETECTED"
             },
             "height_m": {
-              "value": 2.0516,
+              "value": 2.05,
               "ci_95": [
-                2.0418,
-                2.0614
+                2.03,
+                2.07
               ],
-              "std_err": 0.005
+              "std_err": 0.0102
             },
-            "confidence": 0.955,
+            "confidence": 0.97,
             "connects_to_room": "hallway",
-            "detection_mode": "LEGACY_NAIVE_THRESHOLD"
+            "detection_mode": "DEPTH_DISCONTINUITY_GRADIENT_PEAK"
           },
           {
             "opening_id": "window_bedroom",
             "type": "window",
             "wall_id": "wall_east",
-            "position_along_wall_m": 1.2,
+            "position_along_wall_m": 1.5,
             "width_m": {
-              "value": 1.8138,
+              "value": 1.824,
               "ci_95": [
-                1.7916,
-                1.836
+                1.804,
+                1.844
               ],
-              "std_err": 0.005
+              "std_err": 0.0102,
+              "detection_status": "GRADIENT_PEAK_DETECTED"
             },
             "height_m": {
-              "value": 1.4051,
+              "value": 1.2,
               "ci_95": [
-                1.3953,
-                1.4149
+                1.18,
+                1.22
               ],
-              "std_err": 0.005
+              "std_err": 0.0102
             },
-            "confidence": 0.939,
+            "confidence": 0.97,
             "connects_to_room": null,
-            "detection_mode": "LEGACY_NAIVE_THRESHOLD"
+            "detection_mode": "DEPTH_DISCONTINUITY_GRADIENT_PEAK"
           }
         ]
       }
@@ -1306,10 +1324,10 @@
         "damage_class": "water_damage",
         "severity_score": 0.85,
         "metric_extent": {
-          "area_m2": 2.408,
+          "area_m2": 2.41,
           "area_ci_95": [
-            2.369,
-            2.447
+            2.371,
+            2.449
           ],
           "linear_length_m": null
         },
@@ -1330,10 +1348,10 @@
         "damage_class": "wall_crack",
         "severity_score": 0.7,
         "metric_extent": {
-          "area_m2": 0.446,
+          "area_m2": 0.447,
           "area_ci_95": [
-            0.407,
-            0.485
+            0.408,
+            0.486
           ],
           "linear_length_m": 1.65
         },
@@ -1354,10 +1372,10 @@
         "damage_class": "water_damage",
         "severity_score": 0.9,
         "metric_extent": {
-          "area_m2": 1.207,
+          "area_m2": 1.213,
           "area_ci_95": [
-            1.168,
-            1.246
+            1.174,
+            1.252
           ],
           "linear_length_m": null
         },
@@ -1378,10 +1396,10 @@
         "damage_class": "mold_growth",
         "severity_score": 0.8,
         "metric_extent": {
-          "area_m2": 0.623,
+          "area_m2": 0.68,
           "area_ci_95": [
-            0.584,
-            0.662
+            0.641,
+            0.719
           ],
           "linear_length_m": null
         },
@@ -1395,7 +1413,7 @@
         "moisture_reading_wme_pct": null
       }
     ],
-    "total_damaged_area_m2": 4.684
+    "total_damaged_area_m2": 4.75
   },
   "concealed_damage_flags": [
     {
@@ -1449,7 +1467,7 @@
       "quantity": 2.41,
       "unit": "m2",
       "unit_cost_usd": 18.5,
-      "total_cost_usd": 44.55
+      "total_cost_usd": 44.59
     },
     {
       "item_id": "SCOPE_002",
@@ -1460,7 +1478,7 @@
       "quantity": 2.41,
       "unit": "m2",
       "unit_cost_usd": 32.0,
-      "total_cost_usd": 77.06
+      "total_cost_usd": 77.12
     },
     {
       "item_id": "SCOPE_003",
@@ -1471,7 +1489,7 @@
       "quantity": 2.41,
       "unit": "m2",
       "unit_cost_usd": 48.0,
-      "total_cost_usd": 115.58
+      "total_cost_usd": 115.68
     },
     {
       "item_id": "SCOPE_004",
@@ -1482,7 +1500,7 @@
       "quantity": 2.41,
       "unit": "m2",
       "unit_cost_usd": 24.5,
-      "total_cost_usd": 59.0
+      "total_cost_usd": 59.05
     },
     {
       "item_id": "SCOPE_005",
@@ -1515,7 +1533,7 @@
       "quantity": 0.45,
       "unit": "m2",
       "unit_cost_usd": 22.0,
-      "total_cost_usd": 9.81
+      "total_cost_usd": 9.83
     },
     {
       "item_id": "SCOPE_008",
@@ -1526,7 +1544,7 @@
       "quantity": 1.21,
       "unit": "m2",
       "unit_cost_usd": 18.5,
-      "total_cost_usd": 22.33
+      "total_cost_usd": 22.44
     },
     {
       "item_id": "SCOPE_009",
@@ -1537,7 +1555,7 @@
       "quantity": 1.21,
       "unit": "m2",
       "unit_cost_usd": 32.0,
-      "total_cost_usd": 38.62
+      "total_cost_usd": 38.82
     },
     {
       "item_id": "SCOPE_010",
@@ -1548,7 +1566,7 @@
       "quantity": 1.21,
       "unit": "m2",
       "unit_cost_usd": 48.0,
-      "total_cost_usd": 57.94
+      "total_cost_usd": 58.22
     },
     {
       "item_id": "SCOPE_011",
@@ -1559,7 +1577,7 @@
       "quantity": 1.21,
       "unit": "m2",
       "unit_cost_usd": 24.5,
-      "total_cost_usd": 29.57
+      "total_cost_usd": 29.72
     },
     {
       "item_id": "SCOPE_012",
@@ -1578,10 +1596,10 @@
       "surface_id": "property_aggregate_wall_east",
       "code": "MLD-REMED",
       "description": "Antimicrobial surface wash & HEPA vacuuming",
-      "quantity": 0.62,
+      "quantity": 0.68,
       "unit": "m2",
       "unit_cost_usd": 45.0,
-      "total_cost_usd": 28.04
+      "total_cost_usd": 30.6
     },
     {
       "item_id": "SCOPE_014",
@@ -1589,10 +1607,10 @@
       "surface_id": "property_aggregate_wall_east",
       "code": "MLD-SEALANT",
       "description": "Apply fungicidal protective sealant barrier",
-      "quantity": 0.62,
+      "quantity": 0.68,
       "unit": "m2",
       "unit_cost_usd": 29.0,
-      "total_cost_usd": 18.07
+      "total_cost_usd": 19.72
     }
   ],
   "calibration_and_confidence": {

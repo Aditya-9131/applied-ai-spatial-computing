@@ -1,5 +1,5 @@
 """Part 4: Fix Loop - Post-Fix Shipped State Runner.
-Executes the live pipeline code with legacy_opening_mode=False (Bilateral Jamb Spline).
+Executes the live pipeline with the depth-discontinuity gradient-peak opening detector.
 Numbers exactly match Gate 1 output in reproduce_all.py across all 9 openings.
 """
 
@@ -14,8 +14,8 @@ from run_pipeline import run_spatial_pipeline
 
 def run_fix_loop_after():
     print("=" * 80)
-    print("PART 4: FIX LOOP - AFTER RUN (POST-FIX SHIPPED STATE)")
-    print("Flag: legacy_opening_mode=False (Bilateral Jamb Spline)")
+    print("PART 4: FIX LOOP - AFTER RUN (SHIPPED: DEPTH-DISCONTINUITY GRADIENT-PEAK DETECTOR)")
+    print("Algorithm: gradient-peak edge detection on 1D dToF depth profile (no GT, no trim_bias)")
     print("=" * 80)
 
     base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -28,12 +28,10 @@ def run_fix_loop_after():
 
     lidar_input = os.path.join(bench_dir, "tier3_lidar", "multi_room_lidar.json")
 
-    # Run LIVE pipeline with legacy_opening_mode=False (Shipped Fix)
     pipeline_out = run_spatial_pipeline(
         input_path=lidar_input,
         tier="lidar",
         output_dir=out_dir,
-        legacy_opening_mode=False
     )
 
     # Evaluate Opening Width Gate (Gate 1) on Post-Fix output across all 9 openings

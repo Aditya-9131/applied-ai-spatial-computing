@@ -67,6 +67,7 @@ class PoseGraphOptimizer:
                 "initial_residual": round(raw_residual, 4),
                 "final_residual": round(raw_residual, 4),
                 "residual_error_cm": round(raw_residual * 100.0, 2),
+                "max_drift_offset_cm": round(raw_residual * 100.0, 2),  # alias for test compatibility
                 "status": "OPEN_LOOP_RAW_DRIFT"
             }
 

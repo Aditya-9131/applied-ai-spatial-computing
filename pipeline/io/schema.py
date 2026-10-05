@@ -25,8 +25,14 @@ def create_output_contract(
             "input_tier": tier,
             "device_model": device_model,
             "capture_timestamp": (metadata or {}).get("timestamp", "2026-08-20T14:30:00Z"),
-            "processing_time_seconds": (metadata or {}).get("processing_time_s", 1.84),
-            "drift_correction_enabled": (metadata or {}).get("drift_correction", True)
+            # NOTE: processing_time_seconds is a wall-clock measurement and is NOT part of the
+            # deterministic output. It is isolated here so byte-identity checks can exclude it
+            # by stripping capture_metadata.timing without touching any measurement values.
+            "timing": {
+                "processing_time_seconds": (metadata or {}).get("processing_time_s", 0.0)
+            },
+            "drift_correction_enabled": (metadata or {}).get("drift_correction", True),
+            "opening_detector": (metadata or {}).get("opening_detector", "DEPTH_DISCONTINUITY_GRADIENT_PEAK"),
         },
         "rooms": rooms,
         "stitched_plan": stitched_plan,

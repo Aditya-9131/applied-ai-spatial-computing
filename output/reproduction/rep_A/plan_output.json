@@ -5,8 +5,11 @@
     "input_tier": "lidar",
     "device_model": "iPhone 15 Pro Max",
     "capture_timestamp": "2026-08-20T14:30:00Z",
-    "processing_time_seconds": 0.002,
-    "drift_correction_enabled": true
+    "timing": {
+      "processing_time_seconds": 0.002
+    },
+    "drift_correction_enabled": true,
+    "opening_detector": "DEPTH_DISCONTINUITY_GRADIENT_PEAK"
   },
   "rooms": [
     {
@@ -127,51 +130,53 @@
           "opening_id": "door_hallway",
           "type": "door",
           "wall_id": "wall_south",
-          "position_along_wall_m": 1.2,
+          "position_along_wall_m": 0.0,
           "width_m": {
-            "value": 0.9025,
+            "value": 0.3,
             "ci_95": [
-              0.8927,
-              0.9123
+              0.28,
+              0.32
             ],
-            "std_err": 0.005
+            "std_err": 0.0102,
+            "detection_status": "NO_PROFILE_FALLBACK"
           },
           "height_m": {
-            "value": 2.0493,
+            "value": 2.05,
             "ci_95": [
-              2.0395,
-              2.0591
+              2.03,
+              2.07
             ],
-            "std_err": 0.005
+            "std_err": 0.0102
           },
-          "confidence": 0.938,
+          "confidence": 0.97,
           "connects_to_room": "hallway",
-          "detection_mode": "BILATERAL_JAMB_SPLINE"
+          "detection_mode": "DEPTH_DISCONTINUITY_GRADIENT_PEAK"
         },
         {
           "opening_id": "window_north",
           "type": "window",
           "wall_id": "wall_north",
-          "position_along_wall_m": 1.2,
+          "position_along_wall_m": 0.0,
           "width_m": {
-            "value": 1.5944,
+            "value": 0.3,
             "ci_95": [
-              1.5846,
-              1.6042
+              0.28,
+              0.32
             ],
-            "std_err": 0.005
+            "std_err": 0.0102,
+            "detection_status": "NO_PROFILE_FALLBACK"
           },
           "height_m": {
-            "value": 1.4016,
+            "value": 1.2,
             "ci_95": [
-              1.3918,
-              1.4114
+              1.18,
+              1.22
             ],
-            "std_err": 0.005
+            "std_err": 0.0102
           },
-          "confidence": 0.955,
+          "confidence": 0.97,
           "connects_to_room": null,
-          "detection_mode": "BILATERAL_JAMB_SPLINE"
+          "detection_mode": "DEPTH_DISCONTINUITY_GRADIENT_PEAK"
         }
       ]
     }
@@ -260,51 +265,53 @@
             "opening_id": "door_hallway",
             "type": "door",
             "wall_id": "wall_south",
-            "position_along_wall_m": 1.2,
+            "position_along_wall_m": 0.0,
             "width_m": {
-              "value": 0.9025,
+              "value": 0.3,
               "ci_95": [
-                0.8927,
-                0.9123
+                0.28,
+                0.32
               ],
-              "std_err": 0.005
+              "std_err": 0.0102,
+              "detection_status": "NO_PROFILE_FALLBACK"
             },
             "height_m": {
-              "value": 2.0493,
+              "value": 2.05,
               "ci_95": [
-                2.0395,
-                2.0591
+                2.03,
+                2.07
               ],
-              "std_err": 0.005
+              "std_err": 0.0102
             },
-            "confidence": 0.938,
+            "confidence": 0.97,
             "connects_to_room": "hallway",
-            "detection_mode": "BILATERAL_JAMB_SPLINE"
+            "detection_mode": "DEPTH_DISCONTINUITY_GRADIENT_PEAK"
           },
           {
             "opening_id": "window_north",
             "type": "window",
             "wall_id": "wall_north",
-            "position_along_wall_m": 1.2,
+            "position_along_wall_m": 0.0,
             "width_m": {
-              "value": 1.5944,
+              "value": 0.3,
               "ci_95": [
-                1.5846,
-                1.6042
+                0.28,
+                0.32
               ],
-              "std_err": 0.005
+              "std_err": 0.0102,
+              "detection_status": "NO_PROFILE_FALLBACK"
             },
             "height_m": {
-              "value": 1.4016,
+              "value": 1.2,
               "ci_95": [
-                1.3918,
-                1.4114
+                1.18,
+                1.22
               ],
-              "std_err": 0.005
+              "std_err": 0.0102
             },
-            "confidence": 0.955,
+            "confidence": 0.97,
             "connects_to_room": null,
-            "detection_mode": "BILATERAL_JAMB_SPLINE"
+            "detection_mode": "DEPTH_DISCONTINUITY_GRADIENT_PEAK"
           }
         ]
       }
@@ -354,10 +361,10 @@
         "damage_class": "water_damage",
         "severity_score": 0.85,
         "metric_extent": {
-          "area_m2": 2.392,
+          "area_m2": 2.38,
           "area_ci_95": [
-            2.353,
-            2.431
+            2.341,
+            2.419
           ],
           "linear_length_m": null
         },
@@ -378,10 +385,10 @@
         "damage_class": "wall_crack",
         "severity_score": 0.7,
         "metric_extent": {
-          "area_m2": 0.477,
+          "area_m2": 0.456,
           "area_ci_95": [
-            0.438,
-            0.516
+            0.417,
+            0.495
           ],
           "linear_length_m": 1.65
         },
@@ -395,7 +402,7 @@
         "moisture_reading_wme_pct": null
       }
     ],
-    "total_damaged_area_m2": 2.869
+    "total_damaged_area_m2": 2.836
   },
   "concealed_damage_flags": [
     {
@@ -426,10 +433,10 @@
       "surface_id": "property_aggregate_wall_north",
       "code": "WTR-EXTRACT",
       "description": "Water extraction & moisture mitigation",
-      "quantity": 2.39,
+      "quantity": 2.38,
       "unit": "m2",
       "unit_cost_usd": 18.5,
-      "total_cost_usd": 44.25
+      "total_cost_usd": 44.03
     },
     {
       "item_id": "SCOPE_002",
@@ -437,10 +444,10 @@
       "surface_id": "property_aggregate_wall_north",
       "code": "DRY-TEAROUT",
       "description": "Tear out wet drywall up to 2ft flood cut",
-      "quantity": 2.39,
+      "quantity": 2.38,
       "unit": "m2",
       "unit_cost_usd": 32.0,
-      "total_cost_usd": 76.54
+      "total_cost_usd": 76.16
     },
     {
       "item_id": "SCOPE_003",
@@ -448,10 +455,10 @@
       "surface_id": "property_aggregate_wall_north",
       "code": "DRY-REPLACE",
       "description": "Hang, tape & mud 1/2in drywall replacement",
-      "quantity": 2.39,
+      "quantity": 2.38,
       "unit": "m2",
       "unit_cost_usd": 48.0,
-      "total_cost_usd": 114.82
+      "total_cost_usd": 114.24
     },
     {
       "item_id": "SCOPE_004",
@@ -459,10 +466,10 @@
       "surface_id": "property_aggregate_wall_north",
       "code": "PNT-PRIME2C",
       "description": "Apply stain-blocking primer and 2 finish coats",
-      "quantity": 2.39,
+      "quantity": 2.38,
       "unit": "m2",
       "unit_cost_usd": 24.5,
-      "total_cost_usd": 58.6
+      "total_cost_usd": 58.31
     },
     {
       "item_id": "SCOPE_005",
@@ -492,10 +499,10 @@
       "surface_id": "property_aggregate_wall_east",
       "code": "PNT-TOUCHUP",
       "description": "Blend and feather paint to nearest corner",
-      "quantity": 0.48,
+      "quantity": 0.46,
       "unit": "m2",
       "unit_cost_usd": 22.0,
-      "total_cost_usd": 10.49
+      "total_cost_usd": 10.03
     }
   ],
   "calibration_and_confidence": {

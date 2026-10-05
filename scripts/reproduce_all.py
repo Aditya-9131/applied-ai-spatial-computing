@@ -29,11 +29,11 @@ def run_reproduction_suite():
     print("\n[1/5] Executing Tier 3 (LiDAR dToF) - Pose Graph SLAM: ON...")
     lidar_input = os.path.join(bench_dir, "tier3_lidar", "multi_room_lidar.json")
     t0 = time.time()
-    lidar_out = run_spatial_pipeline(lidar_input, tier="lidar", output_dir=os.path.join(out_dir, "lidar_optimized"), enable_drift_correction=True, legacy_opening_mode=False)
+    lidar_out = run_spatial_pipeline(lidar_input, tier="lidar", output_dir=os.path.join(out_dir, "lidar_optimized"), enable_drift_correction=True)
     lidar_time = round(time.time() - t0, 3)
 
     print("\n[2/5] Executing Tier 3 (LiDAR dToF) - Drift Ablation: OFF (Raw Open-Loop Odometry)...")
-    lidar_drift_raw = run_spatial_pipeline(lidar_input, tier="lidar", output_dir=os.path.join(out_dir, "lidar_open_loop"), enable_drift_correction=False, legacy_opening_mode=False)
+    lidar_drift_raw = run_spatial_pipeline(lidar_input, tier="lidar", output_dir=os.path.join(out_dir, "lidar_open_loop"), enable_drift_correction=False)
 
     # 3. Ingest & Process Tier 2: Video Walkthrough Run
     print("\n[3/5] Executing Tier 2 (Handheld 4K Video Walkthrough - Droid-SLAM Ingestion)...")

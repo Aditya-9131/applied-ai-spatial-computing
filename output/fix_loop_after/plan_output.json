@@ -5,7 +5,7 @@
     "input_tier": "lidar",
     "device_model": "iPhone 15 Pro Max",
     "capture_timestamp": "2026-08-20T14:30:00Z",
-    "processing_time_seconds": 0.029,
+    "processing_time_seconds": 0.024,
     "drift_correction_enabled": true
   },
   "rooms": [
@@ -1306,10 +1306,10 @@
         "damage_class": "water_damage",
         "severity_score": 0.85,
         "metric_extent": {
-          "area_m2": 2.399,
+          "area_m2": 2.4,
           "area_ci_95": [
-            2.36,
-            2.438
+            2.361,
+            2.439
           ],
           "linear_length_m": null
         },
@@ -1330,10 +1330,10 @@
         "damage_class": "wall_crack",
         "severity_score": 0.7,
         "metric_extent": {
-          "area_m2": 0.456,
+          "area_m2": 0.43,
           "area_ci_95": [
-            0.417,
-            0.495
+            0.391,
+            0.469
           ],
           "linear_length_m": 1.65
         },
@@ -1354,10 +1354,10 @@
         "damage_class": "water_damage",
         "severity_score": 0.9,
         "metric_extent": {
-          "area_m2": 1.223,
+          "area_m2": 1.206,
           "area_ci_95": [
-            1.184,
-            1.262
+            1.167,
+            1.245
           ],
           "linear_length_m": null
         },
@@ -1378,10 +1378,10 @@
         "damage_class": "mold_growth",
         "severity_score": 0.8,
         "metric_extent": {
-          "area_m2": 0.675,
+          "area_m2": 0.662,
           "area_ci_95": [
-            0.636,
-            0.714
+            0.623,
+            0.701
           ],
           "linear_length_m": null
         },
@@ -1395,7 +1395,7 @@
         "moisture_reading_wme_pct": null
       }
     ],
-    "total_damaged_area_m2": 4.753
+    "total_damaged_area_m2": 4.698
   },
   "concealed_damage_flags": [
     {
@@ -1449,7 +1449,7 @@
       "quantity": 2.4,
       "unit": "m2",
       "unit_cost_usd": 18.5,
-      "total_cost_usd": 44.38
+      "total_cost_usd": 44.4
     },
     {
       "item_id": "SCOPE_002",
@@ -1460,7 +1460,7 @@
       "quantity": 2.4,
       "unit": "m2",
       "unit_cost_usd": 32.0,
-      "total_cost_usd": 76.77
+      "total_cost_usd": 76.8
     },
     {
       "item_id": "SCOPE_003",
@@ -1471,7 +1471,7 @@
       "quantity": 2.4,
       "unit": "m2",
       "unit_cost_usd": 48.0,
-      "total_cost_usd": 115.15
+      "total_cost_usd": 115.2
     },
     {
       "item_id": "SCOPE_004",
@@ -1482,7 +1482,7 @@
       "quantity": 2.4,
       "unit": "m2",
       "unit_cost_usd": 24.5,
-      "total_cost_usd": 58.78
+      "total_cost_usd": 58.8
     },
     {
       "item_id": "SCOPE_005",
@@ -1512,10 +1512,10 @@
       "surface_id": "property_aggregate_wall_east",
       "code": "PNT-TOUCHUP",
       "description": "Blend and feather paint to nearest corner",
-      "quantity": 0.46,
+      "quantity": 0.43,
       "unit": "m2",
       "unit_cost_usd": 22.0,
-      "total_cost_usd": 10.03
+      "total_cost_usd": 9.46
     },
     {
       "item_id": "SCOPE_008",
@@ -1523,10 +1523,10 @@
       "surface_id": "property_aggregate_ceiling",
       "code": "WTR-EXTRACT",
       "description": "Water extraction & moisture mitigation",
-      "quantity": 1.22,
+      "quantity": 1.21,
       "unit": "m2",
       "unit_cost_usd": 18.5,
-      "total_cost_usd": 22.63
+      "total_cost_usd": 22.31
     },
     {
       "item_id": "SCOPE_009",
@@ -1534,10 +1534,10 @@
       "surface_id": "property_aggregate_ceiling",
       "code": "DRY-TEAROUT",
       "description": "Tear out wet drywall up to 2ft flood cut",
-      "quantity": 1.22,
+      "quantity": 1.21,
       "unit": "m2",
       "unit_cost_usd": 32.0,
-      "total_cost_usd": 39.14
+      "total_cost_usd": 38.59
     },
     {
       "item_id": "SCOPE_010",
@@ -1545,10 +1545,10 @@
       "surface_id": "property_aggregate_ceiling",
       "code": "DRY-REPLACE",
       "description": "Hang, tape & mud 1/2in drywall replacement",
-      "quantity": 1.22,
+      "quantity": 1.21,
       "unit": "m2",
       "unit_cost_usd": 48.0,
-      "total_cost_usd": 58.7
+      "total_cost_usd": 57.89
     },
     {
       "item_id": "SCOPE_011",
@@ -1556,10 +1556,10 @@
       "surface_id": "property_aggregate_ceiling",
       "code": "PNT-PRIME2C",
       "description": "Apply stain-blocking primer and 2 finish coats",
-      "quantity": 1.22,
+      "quantity": 1.21,
       "unit": "m2",
       "unit_cost_usd": 24.5,
-      "total_cost_usd": 29.96
+      "total_cost_usd": 29.55
     },
     {
       "item_id": "SCOPE_012",
@@ -1578,10 +1578,10 @@
       "surface_id": "property_aggregate_wall_east",
       "code": "MLD-REMED",
       "description": "Antimicrobial surface wash & HEPA vacuuming",
-      "quantity": 0.68,
+      "quantity": 0.66,
       "unit": "m2",
       "unit_cost_usd": 45.0,
-      "total_cost_usd": 30.38
+      "total_cost_usd": 29.79
     },
     {
       "item_id": "SCOPE_014",
@@ -1589,10 +1589,10 @@
       "surface_id": "property_aggregate_wall_east",
       "code": "MLD-SEALANT",
       "description": "Apply fungicidal protective sealant barrier",
-      "quantity": 0.68,
+      "quantity": 0.66,
       "unit": "m2",
       "unit_cost_usd": 29.0,
-      "total_cost_usd": 19.58
+      "total_cost_usd": 19.2
     }
   ],
   "calibration_and_confidence": {

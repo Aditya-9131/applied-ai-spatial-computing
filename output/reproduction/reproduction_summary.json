@@ -1,11 +1,11 @@
 {
-  "timestamp": "2026-10-05T23:13:39Z",
+  "timestamp": "2026-10-05T23:34:26Z",
   "gates": {
     "opening_widths": {
-      "pass_rate_pct": 100.0,
+      "pass_rate_pct": 55.55555555555556,
       "precision_pct": 100.0,
       "recall_pct": 100.0,
-      "status": "PASS"
+      "status": "FAIL"
     },
     "ceiling_height": {
       "mean_bias_cm": 0.19,
@@ -31,9 +31,9 @@
     }
   },
   "calibration_ci_coverage": {
-    "lidar_tier_95_cov_pct": 100.0,
-    "video_tier_95_cov_pct": 100.0,
-    "photo_tier_95_cov_pct": 100.0
+    "lidar_tier_95_cov_pct": 86.2,
+    "video_tier_95_cov_pct": 69.0,
+    "photo_tier_95_cov_pct": 69.0
   },
   "head_to_head_polycam": {
     "win_or_tie_rate_pct": 100.0,
@@ -41,8 +41,8 @@
     "status": "PASS"
   },
   "timings_s": {
-    "lidar": 0.033,
-    "video": 0.011,
-    "photos": 0.019
+    "lidar": 0.015,
+    "video": 0.014,
+    "photos": 0.014
   }
 }
