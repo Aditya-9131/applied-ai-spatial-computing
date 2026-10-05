@@ -1,17 +1,17 @@
 {
-  "timestamp": "2026-10-06T02:12:09Z",
+  "timestamp": "2026-10-06T02:46:02Z",
   "gates": {
     "opening_widths": {
-      "pass_rate_pct": 100.0,
+      "pass_rate_pct": 44.44444444444444,
       "precision_pct": 100.0,
       "recall_pct": 100.0,
-      "status": "PASS"
+      "status": "FAIL"
     },
     "ceiling_height": {
-      "mean_bias_cm": 6.24,
-      "spread_cm": 0.01,
-      "diagnosis": "REPEATABLE-BUT-BIASED (Systematic offset present, tight spread across runs)",
-      "status": "FAIL"
+      "mean_bias_cm": 1.38,
+      "spread_cm": 0.0,
+      "diagnosis": "UNBIASED & REPEATABLE (Optimal State: Low Bias, High Repeatability)",
+      "status": "PASS"
     },
     "repeatability": {
       "status": "PASS"
@@ -29,7 +29,7 @@
     }
   },
   "calibration_ci_coverage": {
-    "lidar_tier_95_cov_pct": 72.4,
+    "lidar_tier_95_cov_pct": 65.5,
     "video_tier_95_cov_pct": 0.0,
     "photo_tier_95_cov_pct": 0.0
   },
@@ -39,8 +39,8 @@
     "status": "PASS"
   },
   "timings_s": {
-    "lidar": 9.539,
-    "video": 0.004,
-    "photos": 0.007
+    "lidar": 6.128,
+    "video": 0.003,
+    "photos": 0.004
   }
 }

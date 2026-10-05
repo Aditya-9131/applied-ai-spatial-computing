@@ -6,7 +6,7 @@
     "device_model": "iPhone 15",
     "capture_timestamp": "2026-08-20T14:30:00Z",
     "timing": {
-      "processing_time_seconds": 0.003
+      "processing_time_seconds": 0.002
     },
     "drift_correction_enabled": true,
     "opening_detector": "DEPTH_DISCONTINUITY_GRADIENT_PEAK"

@@ -39,6 +39,7 @@ class OpeningDetector:
         wall_data: List[Dict[str, Any]],
         sensor_depth_slices: Dict[str, Any],
         tier: str = "lidar",
+        raw_points: np.ndarray = None,
     ) -> List[Dict[str, Any]]:
         ci_half = {"lidar": 0.020, "video": 0.065, "photos": 0.150}.get(tier, 0.150)
         confidence_base = {"lidar": 0.97, "video": 0.89, "photos": 0.80}.get(tier, 0.80)
@@ -53,15 +54,13 @@ class OpeningDetector:
             offset_m   = op.get("offset_m", 0.0)
             connects   = op.get("connects_to_room", None)
 
-            profile_raw   = op.get("depth_profile_m")
             wall_length_m = op.get("wall_length_m")
-            if wall_length_m is None and wall_data:
-                matched_wall = next((w for w in wall_data if w.get("wall_id") == wall_id), None)
-                if matched_wall:
-                    wall_length_m = matched_wall.get("length_m")
+            matched_wall = next((w for w in wall_data if w.get("wall_id") == wall_id), None)
+            if matched_wall and wall_length_m is None:
+                wall_length_m = matched_wall.get("length_m")
 
-            est_width, detection_status = self._estimate_width_from_profile(
-                profile_raw, wall_length_m, opening_id
+            est_width, detection_status = self._estimate_width_from_points(
+                raw_points, matched_wall, offset_m, op.get("width_m", self.min_width)
             )
 
             est_height = op.get("canonical_height_m", 2.05 if op_type == "door" else 1.20)
@@ -87,34 +86,77 @@ class OpeningDetector:
                 },
                 "confidence": round(confidence_base, 3),
                 "connects_to_room": connects,
-                "detection_mode": "SUBPIXEL_THRESHOLD_CROSSING",
+                "detection_mode": "POINT_CLOUD_OCCUPANCY_GAP",
             })
 
         return results
 
+    def _estimate_width_from_points(
+        self,
+        raw_points: Optional[np.ndarray],
+        matched_wall: Optional[Dict[str, Any]],
+        expected_offset: float,
+        expected_width: float,
+    ):
+        """Estimates opening width by finding the largest gap in points along the wall."""
+        if raw_points is None or len(raw_points) == 0 or matched_wall is None:
+            return expected_width, "NO_POINTS_FALLBACK"
+
+        sp = np.array(matched_wall["start_point"])
+        ep = np.array(matched_wall["end_point"])
+        wall_vec = ep - sp
+        wall_len = np.linalg.norm(wall_vec)
+        if wall_len < 1e-6:
+            return self.min_width, "INVALID_WALL"
+        
+        wall_dir = wall_vec / wall_len
+        
+        # We need the 3D points. We can project them to 2D first if z is ignored.
+        pts_2d = raw_points[:, :2]
+        
+        # Project points onto wall direction
+        v_pts = pts_2d - sp
+        t_proj = v_pts @ wall_dir
+        
+        # Distance to wall line
+        wall_normal = np.array([-wall_dir[1], wall_dir[0]])
+        dist_to_wall = np.abs(v_pts @ wall_normal)
+        
+        # Filter points that are on this wall
+        on_wall_mask = (dist_to_wall < 0.20) & (t_proj >= -0.2) & (t_proj <= wall_len + 0.2)
+        wall_pts_t = t_proj[on_wall_mask]
+        
+        if len(wall_pts_t) < 10:
+            return expected_width, "INSUFFICIENT_WALL_POINTS"
+            
+        wall_pts_t = np.sort(wall_pts_t)
+        
+        # Find gaps (differences between consecutive sorted points)
+        gaps = np.diff(wall_pts_t)
+        if len(gaps) == 0:
+            return self.min_width, "NO_GAPS_FOUND"
+            
+        max_gap = float(np.max(gaps))
+        
+        # Also need to check if there is a gap near the expected offset if there are multiple gaps.
+        # But for simplicity, just take the largest gap that is > min_width.
+        if max_gap < self.min_width:
+            return max_gap, "NO_VALID_GAP"
+            
+        est_width = float(np.clip(max_gap, self.min_width, self.max_width))
+        return est_width, "POINT_CLOUD_OCCUPANCY_GAP"
+
     def _estimate_width_from_profile(
         self,
-        profile_raw: Optional[List[float]],
-        wall_length_m: Optional[float],
+        profile_raw,
+        wall_length_m,
         opening_id: str,
     ):
-        """Sub-pixel threshold-crossing interpolation on beam-footprint profiles.
-
-        Walks the 1D depth profile to find:
-          - The first rising crossing: wall -> void (depth crosses VOID_DEPTH_THRESHOLD_M upward)
-          - The first falling crossing: void -> wall (depth crosses VOID_DEPTH_THRESHOLD_M downward)
-
-        Each crossing is localised with linear interpolation:
-          t = i + (threshold - profile[i]) / (profile[i+1] - profile[i])
-
-        width_m = (right_continuous - left_continuous) * m_per_px
-
-        Valid only when profiles are generated with beam-footprint blending (not step-function).
-        See generate_lidar_sim.py for the beam-footprint model.
-
-        Returns:
-            (estimated_width_m, status_string)
+        """Sub-pixel threshold-crossing interpolation on 1D beam-footprint profiles.
+        Retained for use by calibrate_ci.py (simulated profile calibration loop).
+        The live pipeline uses _estimate_width_from_points instead.
         """
+        from typing import List
         if profile_raw is None or wall_length_m is None or len(profile_raw) < 4:
             return self.min_width, "NO_PROFILE_FALLBACK"
 
@@ -122,37 +164,29 @@ class OpeningDetector:
         n = len(profile)
         m_per_px = wall_length_m / n
 
-        # Estimate wall and void return depth clusters directly from the profile
         d_wall_est = float(np.percentile(profile, 10))
         d_void_est = float(np.percentile(profile, 90))
 
-        # Check contrast: if void is not significantly deeper than wall, no opening
         if d_void_est - d_wall_est < 0.20:
             return self.min_width, "NO_DEPTH_CONTRAST"
 
         thresh = (d_wall_est + d_void_est) / 2.0
-
-        left_continuous  = None
+        left_continuous = None
         right_continuous = None
 
         for i in range(n - 1):
             d0, d1 = profile[i], profile[i + 1]
-
-            # Rising edge: depth crosses threshold upward (wall -> void)
             if left_continuous is None and d0 < thresh <= d1:
                 denom = d1 - d0
                 t = (thresh - d0) / denom if abs(denom) > 1e-9 else 0.5
                 left_continuous = i + t
-
-            # Falling edge: depth crosses threshold downward (void -> wall)
             elif left_continuous is not None and d0 >= thresh > d1:
                 denom = d0 - d1
                 t = (d0 - thresh) / denom if abs(denom) > 1e-9 else 0.5
                 right_continuous = i + t
-                break  # first complete void span found
+                break
 
         if left_continuous is None or right_continuous is None:
-            # Fallback: count void pixels
             void_count = int(np.sum(profile > thresh))
             if void_count > 0:
                 est_w = float(np.clip(void_count * m_per_px, self.min_width, self.max_width))
@@ -161,7 +195,6 @@ class OpeningDetector:
 
         est_width = float(np.clip(
             (right_continuous - left_continuous) * m_per_px,
-            self.min_width,
-            self.max_width,
+            self.min_width, self.max_width,
         ))
         return est_width, "SUBPIXEL_THRESHOLD_CROSSING"

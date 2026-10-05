@@ -112,6 +112,7 @@ def run_spatial_pipeline(
             geom["walls"],
             {"openings": r.get("openings", [])},
             tier=tier,
+            raw_points=raw_points,
         )
         geom["openings"] = openings
         geom["name"] = r.get("name", rid)

@@ -13,22 +13,22 @@
 <text x="40" y="68" fill="#94a3b8" font-size="13">Tier: <tspan fill="#38bdf8" font-weight="600">LIDAR</tspan> | Device: iPhone 15 Pro Max | Schema: 2026.08.1</text>
 <rect x="860" y="25" width="200" height="42" rx="8" fill="#1e293b" stroke="#334155"/>
 <text x="960" y="44" fill="#94a3b8" font-size="11" text-anchor="middle">TOTAL USABLE AREA</text>
-<text x="960" y="61" fill="#38bdf8" font-size="14" font-weight="700" text-anchor="middle">26.05 m²</text>
-<polygon points="203.81943323402945,333.9448496499904 896.1805667659705,333.9448496499904 896.1805667659705,1112.1805667659705 203.81943323402945,1112.1805667659705" fill="#1e293b" fill-opacity="0.7" stroke="#475569" stroke-width="1.5" stroke-dasharray="4,4"/>
-<text x="550.0" y="713.0627082079804" fill="#f1f5f9" font-size="15" font-weight="600" text-anchor="middle">Living Room (Furnished)</text>
-<text x="550.0" y="733.0627082079804" fill="#38bdf8" font-size="12" text-anchor="middle">26.05 m² | H: 2.71m</text>
-<line x1="203.81943323402945" y1="333.9448496499904" x2="896.1805667659705" y2="333.9448496499904" stroke="#94a3b8" stroke-width="4" stroke-linecap="round"/>
-<rect x="526.0" y="324.9448496499904" width="48" height="18" rx="4" fill="#0f172a" stroke="#475569" stroke-width="1"/>
-<text x="550.0" y="337.9448496499904" fill="#f8fafc" font-size="10" font-weight="600" text-anchor="middle">4.81m</text>
-<line x1="896.1805667659705" y1="333.9448496499904" x2="896.1805667659705" y2="1112.1805667659705" stroke="#94a3b8" stroke-width="4" stroke-linecap="round"/>
-<rect x="872.1805667659705" y="714.0627082079804" width="48" height="18" rx="4" fill="#0f172a" stroke="#475569" stroke-width="1"/>
-<text x="896.1805667659705" y="727.0627082079804" fill="#f8fafc" font-size="10" font-weight="600" text-anchor="middle">5.41m</text>
-<line x1="896.1805667659705" y1="1112.1805667659705" x2="203.81943323402945" y2="1112.1805667659705" stroke="#94a3b8" stroke-width="4" stroke-linecap="round"/>
-<rect x="526.0" y="1103.1805667659705" width="48" height="18" rx="4" fill="#0f172a" stroke="#475569" stroke-width="1"/>
-<text x="550.0" y="1116.1805667659705" fill="#f8fafc" font-size="10" font-weight="600" text-anchor="middle">4.81m</text>
-<line x1="203.81943323402945" y1="1112.1805667659705" x2="203.81943323402945" y2="333.9448496499904" stroke="#94a3b8" stroke-width="4" stroke-linecap="round"/>
-<rect x="179.81943323402945" y="714.0627082079804" width="48" height="18" rx="4" fill="#0f172a" stroke="#475569" stroke-width="1"/>
-<text x="203.81943323402945" y="727.0627082079804" fill="#f8fafc" font-size="10" font-weight="600" text-anchor="middle">5.41m</text>
+<text x="960" y="61" fill="#38bdf8" font-size="14" font-weight="700" text-anchor="middle">26.07 m²</text>
+<polygon points="203.7624691937566,334.094413801197 896.2375308062434,334.094413801197 896.2375308062434,1112.2375308062433 203.7624691937566,1112.2375308062433" fill="#1e293b" fill-opacity="0.7" stroke="#475569" stroke-width="1.5" stroke-dasharray="4,4"/>
+<text x="550.0" y="713.1659723037202" fill="#f1f5f9" font-size="15" font-weight="600" text-anchor="middle">Living Room (Furnished)</text>
+<text x="550.0" y="733.1659723037202" fill="#38bdf8" font-size="12" text-anchor="middle">26.07 m² | H: 2.70m</text>
+<line x1="203.7624691937566" y1="334.094413801197" x2="896.2375308062434" y2="334.094413801197" stroke="#94a3b8" stroke-width="4" stroke-linecap="round"/>
+<rect x="526.0" y="325.094413801197" width="48" height="18" rx="4" fill="#0f172a" stroke="#475569" stroke-width="1"/>
+<text x="550.0" y="338.094413801197" fill="#f8fafc" font-size="10" font-weight="600" text-anchor="middle">4.82m</text>
+<line x1="896.2375308062434" y1="334.094413801197" x2="896.2375308062434" y2="1112.2375308062433" stroke="#94a3b8" stroke-width="4" stroke-linecap="round"/>
+<rect x="872.2375308062434" y="714.1659723037201" width="48" height="18" rx="4" fill="#0f172a" stroke="#475569" stroke-width="1"/>
+<text x="896.2375308062434" y="727.1659723037201" fill="#f8fafc" font-size="10" font-weight="600" text-anchor="middle">5.41m</text>
+<line x1="896.2375308062434" y1="1112.2375308062433" x2="203.7624691937566" y2="1112.2375308062433" stroke="#94a3b8" stroke-width="4" stroke-linecap="round"/>
+<rect x="526.0" y="1103.2375308062433" width="48" height="18" rx="4" fill="#0f172a" stroke="#475569" stroke-width="1"/>
+<text x="550.0" y="1116.2375308062433" fill="#f8fafc" font-size="10" font-weight="600" text-anchor="middle">4.82m</text>
+<line x1="203.7624691937566" y1="1112.2375308062433" x2="203.7624691937566" y2="334.094413801197" stroke="#94a3b8" stroke-width="4" stroke-linecap="round"/>
+<rect x="179.7624691937566" y="714.1659723037201" width="48" height="18" rx="4" fill="#0f172a" stroke="#475569" stroke-width="1"/>
+<text x="203.7624691937566" y="727.1659723037201" fill="#f8fafc" font-size="10" font-weight="600" text-anchor="middle">5.41m</text>
 <rect x="40" y="1271" width="1020" height="32" rx="6" fill="#1e293b" stroke="#334155"/>
 <text x="60" y="1291" fill="#cbd5e1" font-size="11"><tspan fill="#38bdf8">■</tspan> Reconstructed Boundary  <tspan fill="#ef4444" dx="15">●</tspan> Water Damage  <tspan fill="#f59e0b" dx="15">●</tspan> Crack  <tspan fill="#a855f7" dx="15">●</tspan> Mold  <tspan dx="25" fill="#facc15">⚠ Concealed Flags Active: 1</tspan></text>
 </svg>

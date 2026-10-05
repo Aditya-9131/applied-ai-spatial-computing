@@ -120,42 +120,53 @@ class PlaneDetector:
 
         leveled = raw_points @ R_gravity.T
 
-        # 3. Ceiling height from leveled z
-        z_sorted = np.sort(leveled[:, 2])
-        n_pts = len(z_sorted)
-        floor_z = float(np.median(z_sorted[:max(1, n_pts // 20)]))
-        ceiling_z = float(np.median(z_sorted[-(max(1, n_pts // 20)):]))
-        rec_height = float(np.clip(ceiling_z - floor_z, 1.5, 5.0))
+        # 3. Ceiling height: fit floor and ceiling planes separately.
+        #    Use the bottom 15% and top 15% of leveled z points (which concentrate
+        #    on floor and ceiling surfaces) and take their median z values.
+        #    This is robust to tilt-overcorrection artifacts in the leveled cloud.
+        leveled_z = leveled[:, 2]
+        z_sorted  = np.sort(leveled_z)
+        n_pts     = len(z_sorted)
+        n_pct15   = max(1, n_pts * 15 // 100)
+        floor_z   = float(np.median(z_sorted[:n_pct15]))
+        ceiling_z = float(np.median(z_sorted[-n_pct15:]))
+        rec_height = float(ceiling_z - floor_z)
 
-        # 4. Extract wall returns (middle 60% of height)
-        z_low = floor_z + 0.20 * rec_height
+        # 4. Extract wall returns (middle 60% of height, excluding floor/ceiling)
+        z_low  = floor_z   + 0.20 * rec_height
         z_high = ceiling_z - 0.20 * rec_height
         wall_mask = (leveled[:, 2] >= z_low) & (leveled[:, 2] <= z_high)
         wall_pts = leveled[wall_mask, :2]
-        if len(wall_pts) < 10:
+        if len(wall_pts) < 20:
             wall_pts = leveled[:, :2]
 
-        # 5. Estimate dominant wall orientation by searching for minimum bounding box area
+        # 5. Find dominant wall orientation: sweep angles and find the one that
+        #    minimises bounding-box area (rotation that aligns walls to axes).
         best_theta = 0.0
-        min_area = 1e9
-        best_span = (0.0, 0.0)
-        for theta in np.linspace(0, np.pi / 2, 91):
+        min_area   = 1e9
+        for theta in np.linspace(0, np.pi / 2, 181):  # 1-degree resolution
             cos_t, sin_t = np.cos(theta), np.sin(theta)
             R_2d = np.array([[cos_t, -sin_t], [sin_t, cos_t]])
             rot_pts = wall_pts @ R_2d
-            p_x0, p_x1 = np.percentile(rot_pts[:, 0], [0.5, 99.5])
-            p_y0, p_y1 = np.percentile(rot_pts[:, 1], [0.5, 99.5])
-            span_x = p_x1 - p_x0
-            span_y = p_y1 - p_y0
-            area = span_x * span_y
+            p_x0, p_x1 = np.percentile(rot_pts[:, 0], [3, 97])
+            p_y0, p_y1 = np.percentile(rot_pts[:, 1], [3, 97])
+            area = (p_x1 - p_x0) * (p_y1 - p_y0)
             if area < min_area:
-                min_area = area
+                min_area   = area
                 best_theta = float(theta)
-                best_span = (float(span_x), float(span_y))
 
-        span_a, span_b = best_span
-        rec_width = float(np.clip(min(span_a, span_b), 0.5, 20.0))
-        rec_length = float(np.clip(max(span_a, span_b), 0.5, 30.0))
+        # 6. At best orientation, measure wall-to-wall distance using 3%–97% span
+        #    (robust to opening-edge scatter in sparse hallway walls).
+        cos_t, sin_t = np.cos(best_theta), np.sin(best_theta)
+        R_best = np.array([[cos_t, -sin_t], [sin_t, cos_t]])
+        aligned_pts = wall_pts @ R_best
+        p_x0, p_x1 = np.percentile(aligned_pts[:, 0], [3, 97])
+        p_y0, p_y1 = np.percentile(aligned_pts[:, 1], [3, 97])
+        span_x = float(p_x1 - p_x0)
+        span_y = float(p_y1 - p_y0)
+
+        rec_width  = float(min(span_x, span_y))
+        rec_length = float(max(span_x, span_y))
 
         return rec_width, rec_length, rec_height, gravity_axis, best_theta
 
@@ -227,7 +238,7 @@ class PlaneDetector:
                 "wall_id": "wall_north",
                 "start_point": [0.0, rec_length],
                 "end_point": [rec_width, rec_length],
-                "length_m": round(rec_width, 4),
+                "length_m": float(rec_width),
                 "orientation_deg": 0.0,
                 "normal": [0.0, 1.0, 0.0]
             },
@@ -235,7 +246,7 @@ class PlaneDetector:
                 "wall_id": "wall_east",
                 "start_point": [rec_width, rec_length],
                 "end_point": [rec_width, 0.0],
-                "length_m": round(rec_length, 4),
+                "length_m": float(rec_length),
                 "orientation_deg": 90.0,
                 "normal": [1.0, 0.0, 0.0]
             },
@@ -243,7 +254,7 @@ class PlaneDetector:
                 "wall_id": "wall_south",
                 "start_point": [rec_width, 0.0],
                 "end_point": [0.0, 0.0],
-                "length_m": round(rec_width, 4),
+                "length_m": float(rec_width),
                 "orientation_deg": 180.0,
                 "normal": [0.0, -1.0, 0.0]
             },
@@ -251,17 +262,17 @@ class PlaneDetector:
                 "wall_id": "wall_west",
                 "start_point": [0.0, 0.0],
                 "end_point": [0.0, rec_length],
-                "length_m": round(rec_length, 4),
+                "length_m": float(rec_length),
                 "orientation_deg": 270.0,
                 "normal": [-1.0, 0.0, 0.0]
             }
         ]
 
-        floor_area = round(rec_width * rec_length, 3)
+        floor_area = float(rec_width * rec_length)
 
         return {
             "walls": walls,
-            "ceiling_height_m": round(rec_height, 4),
+            "ceiling_height_m": float(rec_height),
             "floor_area_m2": floor_area,
             "estimation_source": estimation_source,
             "bounding_box": {

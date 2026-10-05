@@ -416,6 +416,7 @@ def generate_all(lidar_data: dict, rng_master: np.random.RandomState,
 
         op_cfgs = ROOM_OPENINGS_PC.get(rid, [])
         pts = make_room_point_cloud(w_m, l_m, h_m, op_cfgs, pc_rng)
+        pts = apply_random_yaw_and_tilt(pts, pc_rng, max_tilt_deg=2.0)
 
         # Store ONLY the point cloud in the room JSON (no GT dims)
         room["point_cloud_xyz"] = pts
