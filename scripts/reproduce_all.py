@@ -146,15 +146,19 @@ def run_reproduction_suite():
     # =========================================================================
     # GATE 4: DRIFT ACCOUNTABILITY & POSE GRAPH SLAM ABLATION
     # =========================================================================
+    gt_total_footprint = gt["whole_property_footprint_m2"]
     drift_on_res = lidar_out["stitched_plan"]["drift_analysis"]["residual_error_cm"]
     drift_off_res = lidar_drift_raw["stitched_plan"]["drift_analysis"]["residual_error_cm"]
     footprint_on = lidar_out["stitched_plan"]["property_envelope"]["total_floor_area_m2"]
     footprint_off = lidar_drift_raw["stitched_plan"]["property_envelope"]["total_floor_area_m2"]
+    overlap_on = lidar_out["stitched_plan"]["total_overlap_area_m2"]
     overlap_off = lidar_drift_raw["stitched_plan"]["total_overlap_area_m2"]
+    adj_on = "VALID" if lidar_out["stitched_plan"]["topology_valid"] else "INVALID"
+    adj_off = "VALID" if lidar_drift_raw["stitched_plan"]["topology_valid"] else "INVALID"
 
     drift_table = [
-        ["Pose Graph SLAM (Shipped)", "ENABLED", f"{drift_on_res:.2f} cm", f"{footprint_on:.2f} m2", "0.000 m2", "PASS (Global loop closed)"],
-        ["Raw Odometry (Open-Loop)", "DISABLED", f"{drift_off_res:.2f} cm", f"{footprint_off:.2f} m2", f"{overlap_off:.3f} m2", "FAIL (Open loop drift shear)"]
+        ["Pose Graph SLAM (Shipped)", "ENABLED", f"{drift_on_res:.2f} cm", f"{footprint_on:.2f} m2", f"{gt_total_footprint:.2f} m2", f"{overlap_on:.3f} m2", adj_on, "PASS (Global loop closed)"],
+        ["Raw Odometry (Open-Loop)", "DISABLED", f"{drift_off_res:.2f} cm", f"{footprint_off:.2f} m2", f"{gt_total_footprint:.2f} m2", f"{overlap_off:.3f} m2", adj_off, "FAIL (Open loop drift shear)"]
     ]
 
     # =========================================================================
@@ -329,7 +333,23 @@ def run_reproduction_suite():
     print("\n" + "=" * 80)
     print("GATE 4: DRIFT ACCOUNTABILITY ABLATION (Pose Graph SLAM ON vs OFF)")
     print("=" * 80)
-    print(tabulate(drift_table, headers=["Configuration", "Loop Closure", "Residual Drift", "Stitched Footprint", "Inter-Room Overlap", "Status"], tablefmt="grid"))
+    print(tabulate(drift_table, headers=["Configuration", "Loop Closure", "Residual Drift", "Stitched Area", "GT Area", "Inter-Room Overlap", "Adjacency", "Status"], tablefmt="grid"))
+    print("\nDrift & SLAM Accountability Audit:")
+    print("  1. Root cause of previous 192.09 cm figure:")
+    print("     Linear accumulation over [living_room->hallway, hallway->kitchen, hallway->master_bedroom].")
+    print("     Composing the dead-end spur hallway->kitchen ([1.5, 1.2]) into the loop chain before master_bedroom")
+    print("     erroneously injected sqrt(1.5^2 + 1.2^2) = 1.9209m = 192.09 cm into loop return discrepancy.")
+    print("     Fixed: open-loop poses now integrated via tree traversal; residual evaluated at true loop closure.")
+    print("  2. Injected Odometry Noise:")
+    print("     - Scale error: +1.0% with ±0.2% Gaussian jitter per edge")
+    print("     - Heading bias: +0.5° with ±0.05° Gaussian jitter per edge")
+    print("  3. Audited Constants in SLAM Code & Edge Data:")
+    print("     - DEFAULT_MAX_ITERATIONS: 50 (Gauss-Newton iteration ceiling)")
+    print("     - DEFAULT_TOLERANCE: 1e-6 (step norm ||delta|| convergence threshold)")
+    print("     - ANCHOR_PRIOR_WEIGHT: 1e6 (node 0 anchor to fix SE(2) gauge freedom)")
+    print("     - HESSIAN_REGULARIZATION: 1e-4 (Levenberg diagonal damping factor)")
+    print("     - INFO_ODOMETRY_DEFAULT: 50.0 (odometry edge weight, sigma ~ 14 cm)")
+    print("     - INFO_LOOP_CLOSURE_DEFAULT: 200.0 (loop closure edge weight, sigma ~ 7 cm)")
 
     print("\n" + "=" * 80)
     print("GATE 5: PHOTO-TIER WHOLE-PROPERTY STITCH (Per-room folders, Footprint +/- 8%)")

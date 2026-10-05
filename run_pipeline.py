@@ -142,13 +142,11 @@ def run_spatial_pipeline(
     # 3. Pose Graph SLAM & Multi-Room Stitching
     edges = capture_data.get("relative_odometry_edges", [])
     
-    # Initial room submap poses in SE(2) — seeded from odometry edges, no hard-coded GT offsets.
-    initial_poses = {
-        "living_room": np.array([0.0, 0.0, 0.0]),
-        "hallway": np.array([4.80, 0.0, 0.0]),
-        "kitchen": np.array([6.30, 1.20, 0.0]),
-        "master_bedroom": np.array([4.80, -4.80, 0.0])
-    }
+    # Initial room submap poses in SE(2) — integrated from tree odometry edges (no hard-coded GT offsets)
+    initial_poses = PoseGraphOptimizer.compute_initial_poses(edges, root="living_room")
+    for rid in reconstructed_rooms:
+        if rid not in initial_poses:
+            initial_poses[rid] = np.array([0.0, 0.0, 0.0])
 
     slam = PoseGraphOptimizer()
     slam_result = slam.optimize(initial_poses, edges, enable_drift_correction=enable_drift_correction)

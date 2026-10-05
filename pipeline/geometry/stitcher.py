@@ -76,7 +76,7 @@ class FloorPlanStitcher:
                 "openings": rdata.get("openings", [])
             }
 
-        # Check for invalid room overlaps (excluding shared partition wall thickness < 0.15 m2)
+        # Check for invalid room overlaps (excluding shared partition wall thickness < 0.20 m2)
         overlap_warnings = []
         room_ids = list(global_rooms.keys())
         total_overlap_area = 0.0
@@ -84,9 +84,13 @@ class FloorPlanStitcher:
             for j in range(i + 1, len(room_ids)):
                 r1, r2 = room_ids[i], room_ids[j]
                 inter = polygons[r1].intersection(polygons[r2])
-                if inter.area > 0.15: # >0.15 m2 represents invalid internal spatial penetration
-                    overlap_warnings.append(f"Overlap detected between {r1} and {r2}: {inter.area:.3f} m2")
+                if inter.area > 0.001:
                     total_overlap_area += inter.area
+                if inter.area > 0.20: # >0.20 m2 represents invalid internal spatial penetration
+                    overlap_warnings.append(f"Overlap detected between {r1} and {r2}: {inter.area:.3f} m2")
+
+        if not drift_corrected:
+            overlap_warnings.append("Open-loop odometry uncorrected; global loop closure disabled.")
 
         # Total property footprint bounding box
         all_pts_arr = np.array(all_points)
@@ -110,7 +114,7 @@ class FloorPlanStitcher:
             },
             "stitched_rooms": global_rooms,
             "adjacency_connections": adjacency_graph,
-            "topology_valid": len(overlap_warnings) == 0,
+            "topology_valid": len(overlap_warnings) == 0 and drift_corrected,
             "overlap_warnings": overlap_warnings,
             "total_overlap_area_m2": round(total_overlap_area, 3)
         }

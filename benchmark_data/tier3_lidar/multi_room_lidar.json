@@ -709897,9 +709897,9 @@
       "from": "living_room",
       "to": "hallway",
       "measurement": [
-        4.8,
-        0.0,
-        0.0
+        4.8285,
+        0.0401,
+        0.0091
       ],
       "is_loop_closure": false
     },
@@ -709907,9 +709907,9 @@
       "from": "hallway",
       "to": "kitchen",
       "measurement": [
-        1.5,
-        1.2,
-        0.0
+        1.5015,
+        1.223,
+        0.0086
       ],
       "is_loop_closure": false
     },
@@ -709917,9 +709917,9 @@
       "from": "hallway",
       "to": "master_bedroom",
       "measurement": [
-        0.0,
-        -4.8,
-        0.0
+        0.0405,
+        -4.848,
+        0.0083
       ],
       "is_loop_closure": false
     },
@@ -709927,9 +709927,9 @@
       "from": "master_bedroom",
       "to": "living_room",
       "measurement": [
-        -4.8,
-        4.8,
-        0.0
+        -4.8899,
+        4.8034,
+        0.0081
       ],
       "is_loop_closure": true
     }

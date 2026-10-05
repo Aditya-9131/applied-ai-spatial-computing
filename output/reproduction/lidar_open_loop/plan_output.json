@@ -6,7 +6,7 @@
     "device_model": "iPhone 15 Pro Max",
     "capture_timestamp": "2026-08-20T14:30:00Z",
     "timing": {
-      "processing_time_seconds": 0.113
+      "processing_time_seconds": 0.111
     },
     "drift_correction_enabled": false,
     "opening_detector": "DEPTH_DISCONTINUITY_GRADIENT_PEAK"
@@ -714,11 +714,11 @@
   "stitched_plan": {
     "property_envelope": {
       "min_x": 0.0,
-      "min_y": -4.8,
-      "max_x": 9.9228,
-      "max_y": 5.4224,
-      "total_span_x_m": 9.9228,
-      "total_span_y_m": 10.2224,
+      "min_y": -4.8073,
+      "max_x": 9.941,
+      "max_y": 5.5625,
+      "total_span_x_m": 9.941,
+      "total_span_y_m": 10.3698,
       "total_floor_area_m2": 70.058
     },
     "stitched_rooms": {
@@ -849,66 +849,66 @@
         "room_id": "hallway",
         "name": "Connector Hallway",
         "global_pose": [
-          4.8,
-          0.0,
-          0.0
+          4.8285,
+          0.0401,
+          0.0091
         ],
         "walls": [
           {
             "wall_id": "hallway_wall_north",
             "local_wall_id": "wall_north",
             "start_point": [
-              4.8,
-              5.4165
+              4.7792,
+              5.4564
             ],
             "end_point": [
-              6.3225,
-              5.4165
+              6.3016,
+              5.4702
             ],
             "length_m": 1.5225,
-            "orientation_deg": 0.0
+            "orientation_deg": 0.52
           },
           {
             "wall_id": "hallway_wall_east",
             "local_wall_id": "wall_east",
             "start_point": [
-              6.3225,
-              5.4165
+              6.3016,
+              5.4702
             ],
             "end_point": [
-              6.3225,
-              0.0
+              6.3509,
+              0.054
             ],
             "length_m": 5.4165,
-            "orientation_deg": 90.0
+            "orientation_deg": 90.52
           },
           {
             "wall_id": "hallway_wall_south",
             "local_wall_id": "wall_south",
             "start_point": [
-              6.3225,
-              0.0
+              6.3509,
+              0.054
             ],
             "end_point": [
-              4.8,
-              0.0
+              4.8285,
+              0.0401
             ],
             "length_m": 1.5225,
-            "orientation_deg": 180.0
+            "orientation_deg": 180.52
           },
           {
             "wall_id": "hallway_wall_west",
             "local_wall_id": "wall_west",
             "start_point": [
-              4.8,
-              0.0
+              4.8285,
+              0.0401
             ],
             "end_point": [
-              4.8,
-              5.4165
+              4.7792,
+              5.4564
             ],
             "length_m": 5.4165,
-            "orientation_deg": 270.0
+            "orientation_deg": 270.52
           }
         ],
         "ceiling_height_m": 2.7077,
@@ -998,66 +998,66 @@
         "room_id": "kitchen",
         "name": "Kitchen",
         "global_pose": [
-          6.3,
-          1.2,
-          0.0
+          6.3188,
+          1.2767,
+          0.0177
         ],
         "walls": [
           {
             "wall_id": "kitchen_wall_north",
             "local_wall_id": "wall_north",
             "start_point": [
-              6.3,
-              5.4224
+              6.2441,
+              5.4984
             ],
             "end_point": [
-              9.9228,
-              5.4224
+              9.8663,
+              5.5625
             ],
             "length_m": 3.6228,
-            "orientation_deg": 0.0
+            "orientation_deg": 1.01
           },
           {
             "wall_id": "kitchen_wall_east",
             "local_wall_id": "wall_east",
             "start_point": [
-              9.9228,
-              5.4224
+              9.8663,
+              5.5625
             ],
             "end_point": [
-              9.9228,
-              1.2
+              9.941,
+              1.3408
             ],
             "length_m": 4.2224,
-            "orientation_deg": 90.0
+            "orientation_deg": 91.01
           },
           {
             "wall_id": "kitchen_wall_south",
             "local_wall_id": "wall_south",
             "start_point": [
-              9.9228,
-              1.2
+              9.941,
+              1.3408
             ],
             "end_point": [
-              6.3,
-              1.2
+              6.3188,
+              1.2767
             ],
             "length_m": 3.6228,
-            "orientation_deg": 180.0
+            "orientation_deg": 181.01
           },
           {
             "wall_id": "kitchen_wall_west",
             "local_wall_id": "wall_west",
             "start_point": [
-              6.3,
-              1.2
+              6.3188,
+              1.2767
             ],
             "end_point": [
-              6.3,
-              5.4224
+              6.2441,
+              5.4984
             ],
             "length_m": 4.2224,
-            "orientation_deg": 270.0
+            "orientation_deg": 271.01
           }
         ],
         "ceiling_height_m": 2.7086,
@@ -1121,66 +1121,66 @@
         "room_id": "master_bedroom",
         "name": "Master Bedroom",
         "global_pose": [
-          4.8,
-          -4.8,
-          0.0
+          4.9131,
+          -4.8073,
+          0.0174
         ],
         "walls": [
           {
             "wall_id": "master_bedroom_wall_north",
             "local_wall_id": "wall_north",
             "start_point": [
-              4.8,
-              0.0231
+              4.8292,
+              0.0151
             ],
             "end_point": [
-              9.021,
-              0.0231
+              9.0495,
+              0.0885
             ],
             "length_m": 4.221,
-            "orientation_deg": 0.0
+            "orientation_deg": 1.0
           },
           {
             "wall_id": "master_bedroom_wall_east",
             "local_wall_id": "wall_east",
             "start_point": [
-              9.021,
-              0.0231
+              9.0495,
+              0.0885
             ],
             "end_point": [
-              9.021,
-              -4.8
+              9.1335,
+              -4.7339
             ],
             "length_m": 4.8231,
-            "orientation_deg": 90.0
+            "orientation_deg": 91.0
           },
           {
             "wall_id": "master_bedroom_wall_south",
             "local_wall_id": "wall_south",
             "start_point": [
-              9.021,
-              -4.8
+              9.1335,
+              -4.7339
             ],
             "end_point": [
-              4.8,
-              -4.8
+              4.9131,
+              -4.8073
             ],
             "length_m": 4.221,
-            "orientation_deg": 180.0
+            "orientation_deg": 181.0
           },
           {
             "wall_id": "master_bedroom_wall_west",
             "local_wall_id": "wall_west",
             "start_point": [
-              4.8,
-              -4.8
+              4.9131,
+              -4.8073
             ],
             "end_point": [
-              4.8,
-              0.0231
+              4.8292,
+              0.0151
             ],
             "length_m": 4.8231,
-            "orientation_deg": 270.0
+            "orientation_deg": 271.0
           }
         ],
         "ceiling_height_m": 2.709,
@@ -1246,9 +1246,9 @@
         "from": "living_room",
         "to": "hallway",
         "measurement": [
-          4.8,
-          0.0,
-          0.0
+          4.8285,
+          0.0401,
+          0.0091
         ],
         "is_loop_closure": false
       },
@@ -1256,9 +1256,9 @@
         "from": "hallway",
         "to": "kitchen",
         "measurement": [
-          1.5,
-          1.2,
-          0.0
+          1.5015,
+          1.223,
+          0.0086
         ],
         "is_loop_closure": false
       },
@@ -1266,9 +1266,9 @@
         "from": "hallway",
         "to": "master_bedroom",
         "measurement": [
-          0.0,
-          -4.8,
-          0.0
+          0.0405,
+          -4.848,
+          0.0083
         ],
         "is_loop_closure": false
       },
@@ -1276,16 +1276,18 @@
         "from": "master_bedroom",
         "to": "living_room",
         "measurement": [
-          -4.8,
-          4.8,
-          0.0
+          -4.8899,
+          4.8034,
+          0.0081
         ],
         "is_loop_closure": true
       }
     ],
-    "topology_valid": true,
-    "overlap_warnings": [],
-    "total_overlap_area_m2": 0.0,
+    "topology_valid": false,
+    "overlap_warnings": [
+      "Open-loop odometry uncorrected; global loop closure disabled."
+    ],
+    "total_overlap_area_m2": 0.275,
     "drift_analysis": {
       "optimized_poses": {
         "living_room": [
@@ -1294,27 +1296,27 @@
           0.0
         ],
         "hallway": [
-          4.8,
-          0.0,
-          0.0
+          4.8285,
+          0.0401,
+          0.0091
         ],
         "kitchen": [
-          6.3,
-          1.2,
-          0.0
+          6.3188,
+          1.2767,
+          0.0177
         ],
         "master_bedroom": [
-          4.8,
-          -4.8,
-          0.0
+          4.9131,
+          -4.8073,
+          0.0174
         ]
       },
       "drift_corrected": false,
       "iterations": 0,
-      "initial_residual": 1.9209,
-      "final_residual": 1.9209,
-      "residual_error_cm": 192.09,
-      "max_drift_offset_cm": 192.09,
+      "initial_residual": 0.0554,
+      "final_residual": 0.1077,
+      "residual_error_cm": 10.77,
+      "max_drift_offset_cm": 10.77,
       "status": "OPEN_LOOP_RAW_DRIFT"
     }
   },

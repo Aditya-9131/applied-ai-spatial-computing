@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-10-06T01:38:33Z",
+  "timestamp": "2026-10-06T01:47:47Z",
   "gates": {
     "opening_widths": {
       "pass_rate_pct": 100.0,
@@ -17,8 +17,8 @@
       "status": "PASS"
     },
     "drift_accountability": {
-      "drift_on_residual_cm": 0.0,
-      "drift_off_residual_cm": 192.09,
+      "drift_on_residual_cm": 0.81,
+      "drift_off_residual_cm": 10.77,
       "status": "PASS"
     },
     "photo_tier_stitch": {
@@ -39,8 +39,8 @@
     "status": "PASS"
   },
   "timings_s": {
-    "lidar": 0.14,
-    "video": 0.004,
-    "photos": 0.008
+    "lidar": 0.142,
+    "video": 0.002,
+    "photos": 0.005
   }
 }

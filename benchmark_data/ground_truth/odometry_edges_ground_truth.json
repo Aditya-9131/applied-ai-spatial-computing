@@ -1,0 +1,46 @@
+{
+  "description": "Ground-truth inter-room odometry edges. MUST NOT be read by pipeline/ code. Only scripts/ scoring code may use this.",
+  "global_seed": 42,
+  "edges": [
+    {
+      "from": "living_room",
+      "to": "hallway",
+      "measurement": [
+        4.8,
+        0.0,
+        0.0
+      ],
+      "is_loop_closure": false
+    },
+    {
+      "from": "hallway",
+      "to": "kitchen",
+      "measurement": [
+        1.5,
+        1.2,
+        0.0
+      ],
+      "is_loop_closure": false
+    },
+    {
+      "from": "hallway",
+      "to": "master_bedroom",
+      "measurement": [
+        0.0,
+        -4.8,
+        0.0
+      ],
+      "is_loop_closure": false
+    },
+    {
+      "from": "master_bedroom",
+      "to": "living_room",
+      "measurement": [
+        -4.8,
+        4.8,
+        0.0
+      ],
+      "is_loop_closure": true
+    }
+  ]
+}

@@ -6,7 +6,7 @@
     "device_model": "iPhone 15 Pro Max",
     "capture_timestamp": "2026-08-20T14:30:00Z",
     "timing": {
-      "processing_time_seconds": 0.034
+      "processing_time_seconds": 0.03
     },
     "drift_correction_enabled": true,
     "opening_detector": "DEPTH_DISCONTINUITY_GRADIENT_PEAK"
@@ -326,29 +326,15 @@
           0.0,
           0.0,
           0.0
-        ],
-        "hallway": [
-          4.8,
-          0.0,
-          0.0
-        ],
-        "kitchen": [
-          6.3,
-          1.2,
-          0.0
-        ],
-        "master_bedroom": [
-          4.8,
-          -4.8,
-          0.0
         ]
       },
       "drift_corrected": true,
-      "iterations": 1,
-      "initial_residual": 0.385,
+      "iterations": 0,
+      "initial_residual": 0.0,
       "final_residual": 0.0,
       "residual_error_cm": 0.0,
-      "status": "CONVERGED_OPTIMAL"
+      "max_drift_offset_cm": 0.0,
+      "status": "CONVERGED_NO_EDGES"
     }
   },
   "damage_assessment": {

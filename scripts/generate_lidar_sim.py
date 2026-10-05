@@ -43,6 +43,45 @@ REP_B_FILE     = os.path.join(BASE_DIR, "benchmark_data", "repeatability", "livi
 GT_DIR         = os.path.join(BASE_DIR, "benchmark_data", "ground_truth")
 GT_DEPTH_FILE  = os.path.join(GT_DIR, "depth_profile_ground_truth.json")
 GT_ROOM_FILE   = os.path.join(GT_DIR, "room_geometry_ground_truth.json")
+GT_EDGES_FILE  = os.path.join(GT_DIR, "odometry_edges_ground_truth.json")
+
+# Ground truth inter-room odometry edges before noise injection
+GT_ODOMETRY_EDGES = [
+    {"from": "living_room", "to": "hallway", "measurement": [4.80, 0.0, 0.0], "is_loop_closure": False},
+    {"from": "hallway", "to": "kitchen", "measurement": [1.50, 1.20, 0.0], "is_loop_closure": False},
+    {"from": "hallway", "to": "master_bedroom", "measurement": [0.0, -4.80, 0.0], "is_loop_closure": False},
+    {"from": "master_bedroom", "to": "living_room", "measurement": [-4.80, 4.80, 0.0], "is_loop_closure": True},
+]
+
+def make_noisy_odometry_edges(rng: np.random.RandomState, scale_err: float = 0.01, heading_bias_deg: float = 0.5) -> list:
+    """Inject realistic odometry noise (1% scale error + 0.5 deg heading bias per edge).
+    Different capture RNG seeds yield different noise realizations.
+    """
+    noisy_edges = []
+    for edge in GT_ODOMETRY_EDGES:
+        dx, dy, dth = edge["measurement"]
+        dist = float(np.hypot(dx, dy))
+        angle = float(np.arctan2(dy, dx))
+        
+        # Scale noise: ~1% scale error with 0.2% random variation
+        s = 1.0 + scale_err + float(rng.normal(0, 0.002))
+        # Heading noise: ~0.5 deg bias with 0.05 deg random variation
+        h_bias = np.radians(heading_bias_deg) + float(rng.normal(0, np.radians(0.05)))
+        th_bias = np.radians(heading_bias_deg) + float(rng.normal(0, np.radians(0.05)))
+        
+        noisy_dist = dist * s
+        noisy_angle = angle + h_bias
+        n_dx = noisy_dist * np.cos(noisy_angle)
+        n_dy = noisy_dist * np.sin(noisy_angle)
+        n_dth = (dth + th_bias + np.pi) % (2 * np.pi) - np.pi
+        
+        noisy_edges.append({
+            "from": edge["from"],
+            "to": edge["to"],
+            "measurement": [round(float(n_dx), 4), round(float(n_dy), 4), round(float(n_dth), 4)],
+            "is_loop_closure": edge["is_loop_closure"]
+        })
+    return noisy_edges
 
 
 # ──────────────────────────────────────────────────────────────────────────────
@@ -386,6 +425,11 @@ def run():
 
     gt_depth, gt_room = generate_all(data, rng_master)
 
+    # ── Realistic odometry edges with scale and heading noise ───────────────
+    noisy_edges = make_noisy_odometry_edges(rng_master)
+    data["relative_odometry_edges"] = noisy_edges
+    print(f"Generated {len(noisy_edges)} noisy odometry edges (scale + heading noise)")
+
     with open(LIDAR_FILE, "w", encoding="utf-8") as f:
         json.dump(data, f, indent=2)
     print(f"\nUpdated {LIDAR_FILE}")
@@ -444,7 +488,16 @@ def run():
             "noise_wall_sigma_m": PC_NOISE_WALL_M,
             "rooms": gt_room,
         }, f, indent=2)
-    print(f"Ground-truth room geometry   -> {GT_ROOM_FILE}")
+    with open(GT_EDGES_FILE, "w", encoding="utf-8") as f:
+        json.dump({
+            "description": (
+                "Ground-truth inter-room odometry edges. "
+                "MUST NOT be read by pipeline/ code. Only scripts/ scoring code may use this."
+            ),
+            "global_seed": GLOBAL_SEED,
+            "edges": GT_ODOMETRY_EDGES,
+        }, f, indent=2)
+    print(f"Ground-truth odometry edges  -> {GT_EDGES_FILE}")
 
     print("\nNOTE: SIMULATED from parametric dToF beam-footprint model, not a real device.")
     print(f"Model: d_wall={D_WALL}m d_void={D_VOID}m noise_wall={NOISE_WALL}m "
