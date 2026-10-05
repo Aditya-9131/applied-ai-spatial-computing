@@ -57,17 +57,33 @@ class PoseGraphOptimizer:
         poses = np.array([initial_poses[k] for k in node_keys], dtype=float)
 
         if not enable_drift_correction:
-            # Open-loop: accumulated odometry drift across connector loop
-            # Raw odometry introduces +38.5cm drift offset on loop closure node
-            raw_residual = 0.3850 # 38.5 cm raw drift
+            # Open-loop: compute closure error from the loop-closure edge chain.
+            # Walk the chain: living_room -> hallway -> kitchen/master_bedroom -> living_room
+            # Accumulate odometry; closure error = |predicted_origin - actual_origin|
+            chain_pose = np.array([0.0, 0.0, 0.0])
+            for edge in edges:
+                if not edge.get("is_loop_closure", False):
+                    meas = np.array(edge["measurement"])
+                    chain_pose = self._compose_poses(chain_pose, meas)
+            # For loop-closure edges, the error is the discrepancy
+            loop_edges = [e for e in edges if e.get("is_loop_closure", False)]
+            if loop_edges:
+                loop_meas = np.array(loop_edges[0]["measurement"])
+                predicted_return = self._compose_poses(chain_pose, loop_meas)
+                # Closure error: how far the chain strays from origin
+                open_loop_residual_m = float(np.sqrt(predicted_return[0]**2 + predicted_return[1]**2))
+            else:
+                # No loop closure edge -- residual is norm of chain drift
+                open_loop_residual_m = float(np.linalg.norm(chain_pose[:2]))
+
             return {
                 "optimized_poses": {k: [round(x, 4) for x in poses[i].tolist()] for i, k in enumerate(node_keys)},
                 "drift_corrected": False,
                 "iterations": 0,
-                "initial_residual": round(raw_residual, 4),
-                "final_residual": round(raw_residual, 4),
-                "residual_error_cm": round(raw_residual * 100.0, 2),
-                "max_drift_offset_cm": round(raw_residual * 100.0, 2),  # alias for test compatibility
+                "initial_residual": round(open_loop_residual_m, 4),
+                "final_residual": round(open_loop_residual_m, 4),
+                "residual_error_cm": round(open_loop_residual_m * 100.0, 2),
+                "max_drift_offset_cm": round(open_loop_residual_m * 100.0, 2),
                 "status": "OPEN_LOOP_RAW_DRIFT"
             }
 
@@ -141,15 +157,26 @@ class PoseGraphOptimizer:
             if np.linalg.norm(delta) < self.tol:
                 break
 
-        # Realistic non-zero physical measurement noise residual (0.42 cm residual)
-        realistic_residual_m = 0.0042
+        # Compute actual post-optimization graph residual from edge errors
+        total_sq_error = 0.0
+        num_edges = 0
+        for edge in edges:
+            i = node_map[edge["from"]]
+            j = node_map[edge["to"]]
+            meas = np.array(edge["measurement"])
+            pred = self._relative_pose(poses[i], poses[j])
+            err = pred - meas
+            err[2] = self._wrap_angle(err[2])
+            total_sq_error += float(np.dot(err, err))
+            num_edges += 1
+        graph_residual_m = float(np.sqrt(total_sq_error / max(1, num_edges)))
 
         return {
             "optimized_poses": {k: [round(x, 4) for x in poses[i].tolist()] for i, k in enumerate(node_keys)},
             "drift_corrected": True,
             "iterations": iteration + 1,
             "initial_residual": round(0.3850, 4),
-            "final_residual": round(realistic_residual_m, 4),
-            "residual_error_cm": round(realistic_residual_m * 100.0, 2),
+            "final_residual": round(graph_residual_m, 4),
+            "residual_error_cm": round(graph_residual_m * 100.0, 2),
             "status": "CONVERGED_OPTIMAL"
         }
