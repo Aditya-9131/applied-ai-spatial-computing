@@ -1,0 +1,44 @@
+================================================================================
+OPENING-WIDTH ERROR DIAGNOSIS — depth-gradient detector
+================================================================================
+Opening                GT(m)  Est(m)  Err(m)   Err(px)  m/px   RndLeft(px)  RndRight(px)  Match?  
+----------------------------------------------------------------------------------------------------
+door_hallway            0.900  0.9360  +0.0360    +1.50 0.0240       -0.000        +0.500 YES     
+window_north            1.600  1.6080  +0.0080    +0.33 0.0240       +0.333        -0.333 NO      
+door_living             0.900  0.9075  +0.0075    +1.00 0.0075       +0.000        +0.000 YES     
+door_kitchen            0.900  0.9180  +0.0180    +0.67 0.0270       +0.222        -0.111 NO      
+door_master             0.900  0.9075  +0.0075    +1.00 0.0075       +0.000        +0.000 YES     
+door_hallway_k          0.900  0.9240  +0.0240    +1.14 0.0210       -0.429        -0.286 YES     
+window_kitchen          1.400  1.4220  +0.0220    +1.22 0.0180       -0.111        +0.111 YES     
+door_hallway_m          0.900  0.9030  +0.0030    +0.14 0.0210       +0.429        -0.429 NO      
+window_bedroom          1.800  1.8240  +0.0240    +1.00 0.0240       +0.500        +0.500 YES     
+
+── Correlation Analysis ─────────────────────────────────────────────
+Pearson corr(error_m, m_per_px)         = +0.4715
+Pearson corr(error_px, rnd_right-rnd_left) = +1.0000
+Sign of error matches rounding direction: 6/9
+
+── Root-Cause Summary ───────────────────────────────────────────────
+The gradient peak at the LEFT jamb sits at diff-index (left_integer_px - 1).
+The gradient peak at the RIGHT jamb sits at diff-index right_integer_px.
+The current code measures width_px = right_idx - left_idx, which equals
+  (right_integer_px) - (left_integer_px - 1) = true_px_span + 1 pixel
+when both boundaries happen to land exactly on integers.
+For boundaries that do NOT land on integers the int(round()) quantisation
+adds an additional rounding residual of (rnd_right - rnd_left) pixels.
+Total bias per opening = (1 + rnd_right - rnd_left) * m_per_px
+  which ranges from +0.75 cm to +3.60 cm across the 9 openings.
+
+FIX: replace integer-pixel peak indexing with sub-pixel edge localisation:
+  - For each gradient peak find the exact sample where the depth profile
+    crosses the midpoint between wall depth and void depth (threshold = 1.0 m).
+  - Use linear interpolation on consecutive samples: t = (thresh-d[i])/(d[i+1]-d[i])
+  - left_edge_continuous  = i + t  (at the rising wall→void transition)
+  - right_edge_continuous = i + t  (at the falling void→wall transition)
+  - width_m = (right_edge_continuous - left_edge_continuous) * m_per_px
+  This eliminates both the +1 pixel offset AND the rounding residual,
+  leaving only dToF sensor noise (~4 mm std, expected error < 1 cm).
+
+Predicted post-fix pass rate: 9/9 = 100%
+  (sensor noise std = 4 mm; 1.96*4mm = 7.8 mm < 2.0 cm gate)
+  Conservative bound: at least 8/9 (89%) even if one opening is unlucky.

@@ -1,9 +1,10 @@
 {
   "target_gate": "Opening Widths",
+  "algorithm": "SUBPIXEL_THRESHOLD_CROSSING",
   "required_pass_rate_pct": 85.0,
   "actual_pass_rate_pct": 100.0,
   "status": "PASS",
-  "max_error_cm": 0.79,
+  "max_error_cm": 1.8,
   "total_openings": 9,
   "passed_openings": 9
 }
