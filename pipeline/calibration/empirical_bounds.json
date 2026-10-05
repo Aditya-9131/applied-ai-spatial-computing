@@ -10,17 +10,17 @@
   "model": "beam_footprint_blend + synthetic_point_cloud",
   "calibration_stats": {
     "opening_width_abs_ci_m": 0.01283,
-    "ceiling_height_abs_ci_m": 0.01462,
-    "wall_length_abs_ci_m": 0.01528,
-    "wall_length_pct_ci": 0.9546,
+    "ceiling_height_abs_ci_m": 0.0027,
+    "wall_length_abs_ci_m": 0.00928,
+    "wall_length_pct_ci": 0.6103,
     "opening_width_mean_abs_error_m": 0.00519,
-    "ceiling_mean_abs_error_m": 0.01535,
-    "wall_mean_abs_error_m": 0.01992
+    "ceiling_mean_abs_error_m": 0.00251,
+    "wall_mean_abs_error_m": 0.01218
   },
   "held_out_empirical_coverage_pct": {
     "opening_width": 92.2,
     "ceiling_height": 95.6,
-    "wall_length": 96.6
+    "wall_length": 97.2
   },
   "note": "SIMULATED: bounds derived from synthetic beam-footprint + point-cloud model, not from real device measurements. Use as an ordered lower bound only."
 }
