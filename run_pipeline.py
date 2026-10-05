@@ -101,7 +101,13 @@ def run_spatial_pipeline(
 
     for r in rooms_list:
         rid = r.get("room_id", "unnamed_room")
-        geom = plane_det.reconstruct_room_geometry(np.zeros((10, 3)), r, tier=tier)
+        # Extract 3D point cloud if embedded (LiDAR tier); fall back to empty array
+        raw_pc = r.get("point_cloud_xyz")
+        if raw_pc and len(raw_pc) >= 10:
+            raw_points = np.array(raw_pc, dtype=np.float64)
+        else:
+            raw_points = np.zeros((0, 3), dtype=np.float64)
+        geom = plane_det.reconstruct_room_geometry(raw_points, r, tier=tier)
         openings = open_det.detect_openings(
             geom["walls"],
             {"openings": r.get("openings", [])},

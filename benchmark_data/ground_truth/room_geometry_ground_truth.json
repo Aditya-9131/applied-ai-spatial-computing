@@ -1,0 +1,37 @@
+{
+  "description": "Ground-truth room geometry (true dimensions). MUST NOT be read by pipeline/ code. Only scripts/ scoring code may use this.",
+  "global_seed": 42,
+  "model": "synthetic_lidar_point_cloud",
+  "pc_density_per_m2": 500,
+  "noise_wall_sigma_m": 0.003,
+  "rooms": {
+    "living_room": {
+      "gt_width_m": 4.8,
+      "gt_length_m": 5.4,
+      "gt_height_m": 2.7,
+      "n_points": 47483,
+      "pc_seed": 1914837113
+    },
+    "hallway": {
+      "gt_width_m": 1.5,
+      "gt_length_m": 5.4,
+      "gt_height_m": 2.7,
+      "n_points": 22672,
+      "pc_seed": 669991378
+    },
+    "kitchen": {
+      "gt_width_m": 3.6,
+      "gt_length_m": 4.2,
+      "gt_height_m": 2.7,
+      "n_points": 32203,
+      "pc_seed": 429389014
+    },
+    "master_bedroom": {
+      "gt_width_m": 4.2,
+      "gt_length_m": 4.8,
+      "gt_height_m": 2.7,
+      "n_points": 39195,
+      "pc_seed": 249467210
+    }
+  }
+}
