@@ -24,11 +24,9 @@ No ground-truth values are used. See fix_declaration.md for root cause analysis.
 import numpy as np
 from typing import Dict, List, Any, Optional
 
-# Depth value above which a sample is considered a void (opening) return.
-# Set to midpoint between d_wall=0.05 m and d_void=3.80 m -> 1.925 m.
-# Using this midpoint ensures the crossing is at the physical boundary
-# regardless of exact wall/void depth values (robust to ±10% variation).
-VOID_DEPTH_THRESHOLD_M = 1.925
+# Wall and void depths are estimated dynamically from each 1D depth profile
+# via 10th and 90th percentile clusters (or Otsu bimodal separation).
+# No hard-coded depth constants (0.05 m or 3.80 m) are used.
 
 
 class OpeningDetector:
@@ -123,7 +121,16 @@ class OpeningDetector:
         profile = np.asarray(profile_raw, dtype=np.float64)
         n = len(profile)
         m_per_px = wall_length_m / n
-        thresh = VOID_DEPTH_THRESHOLD_M
+
+        # Estimate wall and void return depth clusters directly from the profile
+        d_wall_est = float(np.percentile(profile, 10))
+        d_void_est = float(np.percentile(profile, 90))
+
+        # Check contrast: if void is not significantly deeper than wall, no opening
+        if d_void_est - d_wall_est < 0.20:
+            return self.min_width, "NO_DEPTH_CONTRAST"
+
+        thresh = (d_wall_est + d_void_est) / 2.0
 
         left_continuous  = None
         right_continuous = None

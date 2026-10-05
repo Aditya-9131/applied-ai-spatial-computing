@@ -6,7 +6,7 @@
     "device_model": "iPhone 15 Pro Max",
     "capture_timestamp": "2026-08-20T14:30:00Z",
     "timing": {
-      "processing_time_seconds": 0.011
+      "processing_time_seconds": 0.01
     },
     "drift_correction_enabled": true,
     "opening_detector": "DEPTH_DISCONTINUITY_GRADIENT_PEAK"
@@ -132,10 +132,10 @@
           "wall_id": "wall_south",
           "position_along_wall_m": 1.8,
           "width_m": {
-            "value": 0.9056,
+            "value": 0.9058,
             "ci_95": [
-              0.8856,
-              0.9256
+              0.8858,
+              0.9258
             ],
             "std_err": 0.0102,
             "detection_status": "SUBPIXEL_THRESHOLD_CROSSING"
@@ -158,10 +158,10 @@
           "wall_id": "wall_north",
           "position_along_wall_m": 1.6,
           "width_m": {
-            "value": 1.6073,
+            "value": 1.6071,
             "ci_95": [
-              1.5873,
-              1.6273
+              1.5871,
+              1.6271
             ],
             "std_err": 0.0102,
             "detection_status": "SUBPIXEL_THRESHOLD_CROSSING"
@@ -300,10 +300,10 @@
           "wall_id": "wall_north",
           "position_along_wall_m": 0.3,
           "width_m": {
-            "value": 0.9003,
+            "value": 0.9002,
             "ci_95": [
-              0.8803,
-              0.9203
+              0.8802,
+              0.9202
             ],
             "std_err": 0.0102,
             "detection_status": "SUBPIXEL_THRESHOLD_CROSSING"
@@ -326,10 +326,10 @@
           "wall_id": "wall_east",
           "position_along_wall_m": 2.1,
           "width_m": {
-            "value": 0.9131,
+            "value": 0.9133,
             "ci_95": [
-              0.8931,
-              0.9331
+              0.8933,
+              0.9333
             ],
             "std_err": 0.0102,
             "detection_status": "SUBPIXEL_THRESHOLD_CROSSING"
@@ -352,10 +352,10 @@
           "wall_id": "wall_south",
           "position_along_wall_m": 0.3,
           "width_m": {
-            "value": 0.8948,
+            "value": 0.8947,
             "ci_95": [
-              0.8748,
-              0.9148
+              0.8747,
+              0.9147
             ],
             "std_err": 0.0102,
             "detection_status": "SUBPIXEL_THRESHOLD_CROSSING"
@@ -520,10 +520,10 @@
           "wall_id": "wall_north",
           "position_along_wall_m": 1.1,
           "width_m": {
-            "value": 1.4033,
+            "value": 1.4032,
             "ci_95": [
-              1.3833,
-              1.4233
+              1.3832,
+              1.4232
             ],
             "std_err": 0.0102,
             "detection_status": "SUBPIXEL_THRESHOLD_CROSSING"
@@ -662,10 +662,10 @@
           "wall_id": "wall_north",
           "position_along_wall_m": 1.65,
           "width_m": {
-            "value": 0.9024,
+            "value": 0.9023,
             "ci_95": [
-              0.8824,
-              0.9224
+              0.8823,
+              0.9223
             ],
             "std_err": 0.0102,
             "detection_status": "SUBPIXEL_THRESHOLD_CROSSING"
@@ -688,10 +688,10 @@
           "wall_id": "wall_east",
           "position_along_wall_m": 1.5,
           "width_m": {
-            "value": 1.8056,
+            "value": 1.8054,
             "ci_95": [
-              1.7856,
-              1.8256
+              1.7854,
+              1.8254
             ],
             "std_err": 0.0102,
             "detection_status": "SUBPIXEL_THRESHOLD_CROSSING"
@@ -797,10 +797,10 @@
             "wall_id": "wall_south",
             "position_along_wall_m": 1.8,
             "width_m": {
-              "value": 0.9056,
+              "value": 0.9058,
               "ci_95": [
-                0.8856,
-                0.9256
+                0.8858,
+                0.9258
               ],
               "std_err": 0.0102,
               "detection_status": "SUBPIXEL_THRESHOLD_CROSSING"
@@ -823,10 +823,10 @@
             "wall_id": "wall_north",
             "position_along_wall_m": 1.6,
             "width_m": {
-              "value": 1.6073,
+              "value": 1.6071,
               "ci_95": [
-                1.5873,
-                1.6273
+                1.5871,
+                1.6271
               ],
               "std_err": 0.0102,
               "detection_status": "SUBPIXEL_THRESHOLD_CROSSING"
@@ -920,10 +920,10 @@
             "wall_id": "wall_north",
             "position_along_wall_m": 0.3,
             "width_m": {
-              "value": 0.9003,
+              "value": 0.9002,
               "ci_95": [
-                0.8803,
-                0.9203
+                0.8802,
+                0.9202
               ],
               "std_err": 0.0102,
               "detection_status": "SUBPIXEL_THRESHOLD_CROSSING"
@@ -946,10 +946,10 @@
             "wall_id": "wall_east",
             "position_along_wall_m": 2.1,
             "width_m": {
-              "value": 0.9131,
+              "value": 0.9133,
               "ci_95": [
-                0.8931,
-                0.9331
+                0.8933,
+                0.9333
               ],
               "std_err": 0.0102,
               "detection_status": "SUBPIXEL_THRESHOLD_CROSSING"
@@ -972,10 +972,10 @@
             "wall_id": "wall_south",
             "position_along_wall_m": 0.3,
             "width_m": {
-              "value": 0.8948,
+              "value": 0.8947,
               "ci_95": [
-                0.8748,
-                0.9148
+                0.8747,
+                0.9147
               ],
               "std_err": 0.0102,
               "detection_status": "SUBPIXEL_THRESHOLD_CROSSING"
@@ -1095,10 +1095,10 @@
             "wall_id": "wall_north",
             "position_along_wall_m": 1.1,
             "width_m": {
-              "value": 1.4033,
+              "value": 1.4032,
               "ci_95": [
-                1.3833,
-                1.4233
+                1.3832,
+                1.4232
               ],
               "std_err": 0.0102,
               "detection_status": "SUBPIXEL_THRESHOLD_CROSSING"
@@ -1192,10 +1192,10 @@
             "wall_id": "wall_north",
             "position_along_wall_m": 1.65,
             "width_m": {
-              "value": 0.9024,
+              "value": 0.9023,
               "ci_95": [
-                0.8824,
-                0.9224
+                0.8823,
+                0.9223
               ],
               "std_err": 0.0102,
               "detection_status": "SUBPIXEL_THRESHOLD_CROSSING"
@@ -1218,10 +1218,10 @@
             "wall_id": "wall_east",
             "position_along_wall_m": 1.5,
             "width_m": {
-              "value": 1.8056,
+              "value": 1.8054,
               "ci_95": [
-                1.7856,
-                1.8256
+                1.7854,
+                1.8254
               ],
               "std_err": 0.0102,
               "detection_status": "SUBPIXEL_THRESHOLD_CROSSING"
