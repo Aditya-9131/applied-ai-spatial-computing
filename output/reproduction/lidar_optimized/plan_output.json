@@ -6,7 +6,7 @@
     "device_model": "iPhone 15 Pro Max",
     "capture_timestamp": "2026-08-20T14:30:00Z",
     "timing": {
-      "processing_time_seconds": 6.117
+      "processing_time_seconds": 6.325
     },
     "drift_correction_enabled": true,
     "opening_detector": "DEPTH_DISCONTINUITY_GRADIENT_PEAK"
@@ -18,10 +18,10 @@
       "ceiling_height": {
         "value": 2.7045,
         "ci_95": [
-          2.6899,
-          2.7191
+          2.7018,
+          2.7072
         ],
-        "std_error": 0.0075,
+        "std_error": 0.0014,
         "unit": "m",
         "tier_calibrated": "lidar"
       },
@@ -41,10 +41,10 @@
           "length": {
             "value": 4.8123,
             "ci_95": [
-              4.797,
-              4.8276
+              4.803,
+              4.8216
             ],
-            "std_error": 0.0078,
+            "std_error": 0.0047,
             "unit": "m",
             "tier_calibrated": "lidar"
           },
@@ -63,10 +63,10 @@
           "length": {
             "value": 5.4086,
             "ci_95": [
-              5.3933,
-              5.4239
+              5.3993,
+              5.4179
             ],
-            "std_error": 0.0078,
+            "std_error": 0.0047,
             "unit": "m",
             "tier_calibrated": "lidar"
           },
@@ -85,10 +85,10 @@
           "length": {
             "value": 4.8123,
             "ci_95": [
-              4.797,
-              4.8276
+              4.803,
+              4.8216
             ],
-            "std_error": 0.0078,
+            "std_error": 0.0047,
             "unit": "m",
             "tier_calibrated": "lidar"
           },
@@ -107,10 +107,10 @@
           "length": {
             "value": 5.4086,
             "ci_95": [
-              5.3933,
-              5.4239
+              5.3993,
+              5.4179
             ],
-            "std_error": 0.0078,
+            "std_error": 0.0047,
             "unit": "m",
             "tier_calibrated": "lidar"
           },
@@ -186,10 +186,10 @@
       "ceiling_height": {
         "value": 2.743,
         "ci_95": [
-          2.7284,
-          2.7576
+          2.7403,
+          2.7457
         ],
-        "std_error": 0.0075,
+        "std_error": 0.0014,
         "unit": "m",
         "tier_calibrated": "lidar"
       },
@@ -209,10 +209,10 @@
           "length": {
             "value": 1.5435,
             "ci_95": [
-              1.5282,
-              1.5588
+              1.5342,
+              1.5528
             ],
-            "std_error": 0.0078,
+            "std_error": 0.0047,
             "unit": "m",
             "tier_calibrated": "lidar"
           },
@@ -231,10 +231,10 @@
           "length": {
             "value": 5.4292,
             "ci_95": [
-              5.4139,
-              5.4444
+              5.4199,
+              5.4384
             ],
-            "std_error": 0.0078,
+            "std_error": 0.0047,
             "unit": "m",
             "tier_calibrated": "lidar"
           },
@@ -253,10 +253,10 @@
           "length": {
             "value": 1.5435,
             "ci_95": [
-              1.5282,
-              1.5588
+              1.5342,
+              1.5528
             ],
-            "std_error": 0.0078,
+            "std_error": 0.0047,
             "unit": "m",
             "tier_calibrated": "lidar"
           },
@@ -275,10 +275,10 @@
           "length": {
             "value": 5.4292,
             "ci_95": [
-              5.4139,
-              5.4444
+              5.4199,
+              5.4384
             ],
-            "std_error": 0.0078,
+            "std_error": 0.0047,
             "unit": "m",
             "tier_calibrated": "lidar"
           },
@@ -380,10 +380,10 @@
       "ceiling_height": {
         "value": 2.7036,
         "ci_95": [
-          2.689,
-          2.7182
+          2.7009,
+          2.7063
         ],
-        "std_error": 0.0075,
+        "std_error": 0.0014,
         "unit": "m",
         "tier_calibrated": "lidar"
       },
@@ -403,10 +403,10 @@
           "length": {
             "value": 3.6109,
             "ci_95": [
-              3.5956,
-              3.6262
+              3.6016,
+              3.6202
             ],
-            "std_error": 0.0078,
+            "std_error": 0.0047,
             "unit": "m",
             "tier_calibrated": "lidar"
           },
@@ -425,10 +425,10 @@
           "length": {
             "value": 4.2075,
             "ci_95": [
-              4.1922,
-              4.2227
+              4.1982,
+              4.2167
             ],
-            "std_error": 0.0078,
+            "std_error": 0.0047,
             "unit": "m",
             "tier_calibrated": "lidar"
           },
@@ -447,10 +447,10 @@
           "length": {
             "value": 3.6109,
             "ci_95": [
-              3.5956,
-              3.6262
+              3.6016,
+              3.6202
             ],
-            "std_error": 0.0078,
+            "std_error": 0.0047,
             "unit": "m",
             "tier_calibrated": "lidar"
           },
@@ -469,10 +469,10 @@
           "length": {
             "value": 4.2075,
             "ci_95": [
-              4.1922,
-              4.2227
+              4.1982,
+              4.2167
             ],
-            "std_error": 0.0078,
+            "std_error": 0.0047,
             "unit": "m",
             "tier_calibrated": "lidar"
           },
@@ -548,10 +548,10 @@
       "ceiling_height": {
         "value": 2.7042,
         "ci_95": [
-          2.6896,
-          2.7189
+          2.7015,
+          2.7069
         ],
-        "std_error": 0.0075,
+        "std_error": 0.0014,
         "unit": "m",
         "tier_calibrated": "lidar"
       },
@@ -571,10 +571,10 @@
           "length": {
             "value": 4.209,
             "ci_95": [
-              4.1937,
-              4.2243
+              4.1997,
+              4.2183
             ],
-            "std_error": 0.0078,
+            "std_error": 0.0047,
             "unit": "m",
             "tier_calibrated": "lidar"
           },
@@ -593,10 +593,10 @@
           "length": {
             "value": 4.8059,
             "ci_95": [
-              4.7907,
-              4.8212
+              4.7967,
+              4.8152
             ],
-            "std_error": 0.0078,
+            "std_error": 0.0047,
             "unit": "m",
             "tier_calibrated": "lidar"
           },
@@ -615,10 +615,10 @@
           "length": {
             "value": 4.209,
             "ci_95": [
-              4.1937,
-              4.2243
+              4.1997,
+              4.2183
             ],
-            "std_error": 0.0078,
+            "std_error": 0.0047,
             "unit": "m",
             "tier_calibrated": "lidar"
           },
@@ -637,10 +637,10 @@
           "length": {
             "value": 4.8059,
             "ci_95": [
-              4.7907,
-              4.8212
+              4.7967,
+              4.8152
             ],
-            "std_error": 0.0078,
+            "std_error": 0.0047,
             "unit": "m",
             "tier_calibrated": "lidar"
           },
@@ -1323,103 +1323,78 @@
   "damage_assessment": {
     "damage_regions": [
       {
-        "damage_id": "DMG_property_aggregate_1",
+        "damage_id": "property_aggregate_wall_north_unknown",
         "room_id": "property_aggregate",
-        "surface_id": "property_aggregate_wall_north",
-        "surface_type": "drywall_wall",
-        "damage_class": "water_damage",
-        "severity_score": 0.85,
+        "damage_class": "unknown",
+        "surface_id": "wall_north",
+        "severity": 0.85,
         "metric_extent": {
           "area_m2": null,
-          "area_ci_95": null,
-          "linear_length_m": null
+          "linear_m": null,
+          "source": "NOT_IMPLEMENTED:NO_MASK_OR_MEASUREMENT"
         },
-        "estimation_source": "NOT_IMPLEMENTED_NO_SEGMENTATION_MODEL",
-        "bounding_box_uv": null,
-        "detection_confidence": null,
-        "moisture_reading_wme_pct": 34.2
+        "confidence": 0.92,
+        "notes": "",
+        "detection_method": "MANUAL_ANNOTATION",
+        "concealed_flags": []
       },
       {
-        "damage_id": "DMG_property_aggregate_2",
+        "damage_id": "property_aggregate_wall_east_unknown",
         "room_id": "property_aggregate",
-        "surface_id": "property_aggregate_wall_east",
-        "surface_type": "plaster_wall",
-        "damage_class": "wall_crack",
-        "severity_score": 0.7,
+        "damage_class": "unknown",
+        "surface_id": "wall_east",
+        "severity": 0.7,
         "metric_extent": {
           "area_m2": null,
-          "area_ci_95": null,
-          "linear_length_m": 1.65
+          "linear_m": null,
+          "source": "NOT_IMPLEMENTED:NO_MASK_OR_MEASUREMENT"
         },
-        "estimation_source": "NOT_IMPLEMENTED_NO_SEGMENTATION_MODEL",
-        "bounding_box_uv": null,
-        "detection_confidence": null,
-        "moisture_reading_wme_pct": null
+        "confidence": 0.92,
+        "notes": "",
+        "detection_method": "MANUAL_ANNOTATION",
+        "concealed_flags": []
       },
       {
-        "damage_id": "DMG_property_aggregate_3",
+        "damage_id": "property_aggregate_ceiling_unknown",
         "room_id": "property_aggregate",
-        "surface_id": "property_aggregate_ceiling",
-        "surface_type": "drywall_ceiling",
-        "damage_class": "water_damage",
-        "severity_score": 0.9,
+        "damage_class": "unknown",
+        "surface_id": "ceiling",
+        "severity": 0.9,
         "metric_extent": {
           "area_m2": null,
-          "area_ci_95": null,
-          "linear_length_m": null
+          "linear_m": null,
+          "source": "NOT_IMPLEMENTED:NO_MASK_OR_MEASUREMENT"
         },
-        "estimation_source": "NOT_IMPLEMENTED_NO_SEGMENTATION_MODEL",
-        "bounding_box_uv": null,
-        "detection_confidence": null,
-        "moisture_reading_wme_pct": 41.5
+        "confidence": 0.92,
+        "notes": "",
+        "detection_method": "MANUAL_ANNOTATION",
+        "concealed_flags": []
       },
       {
-        "damage_id": "DMG_property_aggregate_4",
+        "damage_id": "property_aggregate_wall_east_unknown",
         "room_id": "property_aggregate",
-        "surface_id": "property_aggregate_wall_east",
-        "surface_type": "drywall_wall",
-        "damage_class": "mold_growth",
-        "severity_score": 0.8,
+        "damage_class": "unknown",
+        "surface_id": "wall_east",
+        "severity": 0.8,
         "metric_extent": {
           "area_m2": null,
-          "area_ci_95": null,
-          "linear_length_m": null
+          "linear_m": null,
+          "source": "NOT_IMPLEMENTED:NO_MASK_OR_MEASUREMENT"
         },
-        "estimation_source": "NOT_IMPLEMENTED_NO_SEGMENTATION_MODEL",
-        "bounding_box_uv": null,
-        "detection_confidence": null,
-        "moisture_reading_wme_pct": null
+        "confidence": 0.92,
+        "notes": "",
+        "detection_method": "MANUAL_ANNOTATION",
+        "concealed_flags": []
       }
     ],
     "total_damaged_area_m2": null
   },
-  "concealed_damage_flags": [
-    {
-      "flag_id": "FLAG_DMG_property_aggregate_2_RULE_STRUCTURAL_SHEAR_CRACK",
-      "damage_id": "DMG_property_aggregate_2",
-      "surface_id": "property_aggregate_wall_east",
-      "rule_fired": "RULE_STRUCTURAL_SHEAR_CRACK",
-      "rule_title": "Diagonal Shear Crack Stud Deflection",
-      "justification": "Continuous diagonal shear crack >1.2m across load-bearing wall indicates foundation settlement and concealed timber/stud framing distortion.",
-      "recommended_investigation": "Non-destructive thermal/moisture probe + selective inspection cut",
-      "risk_level": "HIGH"
-    },
-    {
-      "flag_id": "FLAG_DMG_property_aggregate_3_RULE_CEILING_PLUMBING_LEAK",
-      "damage_id": "DMG_property_aggregate_3",
-      "surface_id": "property_aggregate_ceiling",
-      "rule_fired": "RULE_CEILING_PLUMBING_LEAK",
-      "rule_title": "Overhead Wet Plumb Concealed Joist Damage",
-      "justification": "Ceiling water staining under second-story plumbing fixture indicates saturated subfloor insulation and potential concealed joist rot.",
-      "recommended_investigation": "Non-destructive thermal/moisture probe + selective inspection cut",
-      "risk_level": "MEDIUM"
-    }
-  ],
+  "concealed_damage_flags": [],
   "scope_of_work": [
     {
       "item_id": "SCOPE_001",
-      "damage_id": "DMG_property_aggregate_1",
-      "surface_id": "property_aggregate_wall_north",
+      "damage_id": "property_aggregate_wall_north_unknown",
+      "surface_id": "wall_north",
       "code": "WTR-EXTRACT",
       "description": "Water extraction & moisture mitigation",
       "quantity": null,
@@ -1429,8 +1404,8 @@
     },
     {
       "item_id": "SCOPE_002",
-      "damage_id": "DMG_property_aggregate_1",
-      "surface_id": "property_aggregate_wall_north",
+      "damage_id": "property_aggregate_wall_north_unknown",
+      "surface_id": "wall_north",
       "code": "DRY-TEAROUT",
       "description": "Tear out wet drywall up to 2ft flood cut",
       "quantity": null,
@@ -1440,8 +1415,8 @@
     },
     {
       "item_id": "SCOPE_003",
-      "damage_id": "DMG_property_aggregate_1",
-      "surface_id": "property_aggregate_wall_north",
+      "damage_id": "property_aggregate_wall_north_unknown",
+      "surface_id": "wall_north",
       "code": "DRY-REPLACE",
       "description": "Hang, tape & mud 1/2in drywall replacement",
       "quantity": null,
@@ -1451,8 +1426,8 @@
     },
     {
       "item_id": "SCOPE_004",
-      "damage_id": "DMG_property_aggregate_1",
-      "surface_id": "property_aggregate_wall_north",
+      "damage_id": "property_aggregate_wall_north_unknown",
+      "surface_id": "wall_north",
       "code": "PNT-PRIME2C",
       "description": "Apply stain-blocking primer and 2 finish coats",
       "quantity": null,
@@ -1462,41 +1437,8 @@
     },
     {
       "item_id": "SCOPE_005",
-      "damage_id": "DMG_property_aggregate_2",
-      "surface_id": "property_aggregate_wall_east",
-      "code": "CRK-VGROOVE",
-      "description": "V-groove crack preparation & structural epoxy inject",
-      "quantity": 1.65,
-      "unit": "linear_m",
-      "unit_cost_usd": 65.0,
-      "total_cost_usd": 107.25
-    },
-    {
-      "item_id": "SCOPE_006",
-      "damage_id": "DMG_property_aggregate_2",
-      "surface_id": "property_aggregate_wall_east",
-      "code": "DRY-TAPEFIN",
-      "description": "Mesh tape reinforcement & Level 4 mud finish",
-      "quantity": 1.65,
-      "unit": "linear_m",
-      "unit_cost_usd": 28.0,
-      "total_cost_usd": 46.2
-    },
-    {
-      "item_id": "SCOPE_007",
-      "damage_id": "DMG_property_aggregate_2",
-      "surface_id": "property_aggregate_wall_east",
-      "code": "PNT-TOUCHUP",
-      "description": "Blend and feather paint to nearest corner",
-      "quantity": null,
-      "unit": "m2",
-      "unit_cost_usd": 22.0,
-      "total_cost_usd": null
-    },
-    {
-      "item_id": "SCOPE_008",
-      "damage_id": "DMG_property_aggregate_3",
-      "surface_id": "property_aggregate_ceiling",
+      "damage_id": "property_aggregate_wall_east_unknown",
+      "surface_id": "wall_east",
       "code": "WTR-EXTRACT",
       "description": "Water extraction & moisture mitigation",
       "quantity": null,
@@ -1505,9 +1447,9 @@
       "total_cost_usd": null
     },
     {
-      "item_id": "SCOPE_009",
-      "damage_id": "DMG_property_aggregate_3",
-      "surface_id": "property_aggregate_ceiling",
+      "item_id": "SCOPE_006",
+      "damage_id": "property_aggregate_wall_east_unknown",
+      "surface_id": "wall_east",
       "code": "DRY-TEAROUT",
       "description": "Tear out wet drywall up to 2ft flood cut",
       "quantity": null,
@@ -1516,9 +1458,9 @@
       "total_cost_usd": null
     },
     {
-      "item_id": "SCOPE_010",
-      "damage_id": "DMG_property_aggregate_3",
-      "surface_id": "property_aggregate_ceiling",
+      "item_id": "SCOPE_007",
+      "damage_id": "property_aggregate_wall_east_unknown",
+      "surface_id": "wall_east",
       "code": "DRY-REPLACE",
       "description": "Hang, tape & mud 1/2in drywall replacement",
       "quantity": null,
@@ -1527,9 +1469,9 @@
       "total_cost_usd": null
     },
     {
-      "item_id": "SCOPE_011",
-      "damage_id": "DMG_property_aggregate_3",
-      "surface_id": "property_aggregate_ceiling",
+      "item_id": "SCOPE_008",
+      "damage_id": "property_aggregate_wall_east_unknown",
+      "surface_id": "wall_east",
       "code": "PNT-PRIME2C",
       "description": "Apply stain-blocking primer and 2 finish coats",
       "quantity": null,
@@ -1538,50 +1480,105 @@
       "total_cost_usd": null
     },
     {
+      "item_id": "SCOPE_009",
+      "damage_id": "property_aggregate_ceiling_unknown",
+      "surface_id": "ceiling",
+      "code": "WTR-EXTRACT",
+      "description": "Water extraction & moisture mitigation",
+      "quantity": null,
+      "unit": "m2",
+      "unit_cost_usd": 18.5,
+      "total_cost_usd": null
+    },
+    {
+      "item_id": "SCOPE_010",
+      "damage_id": "property_aggregate_ceiling_unknown",
+      "surface_id": "ceiling",
+      "code": "DRY-TEAROUT",
+      "description": "Tear out wet drywall up to 2ft flood cut",
+      "quantity": null,
+      "unit": "m2",
+      "unit_cost_usd": 32.0,
+      "total_cost_usd": null
+    },
+    {
+      "item_id": "SCOPE_011",
+      "damage_id": "property_aggregate_ceiling_unknown",
+      "surface_id": "ceiling",
+      "code": "DRY-REPLACE",
+      "description": "Hang, tape & mud 1/2in drywall replacement",
+      "quantity": null,
+      "unit": "m2",
+      "unit_cost_usd": 48.0,
+      "total_cost_usd": null
+    },
+    {
       "item_id": "SCOPE_012",
-      "damage_id": "DMG_property_aggregate_4",
-      "surface_id": "property_aggregate_wall_east",
-      "code": "MLD-CONTAIN",
-      "description": "HEPA negative air pressure containment chamber",
-      "quantity": 1.0,
-      "unit": "ea",
-      "unit_cost_usd": 350.0,
-      "total_cost_usd": 350.0
+      "damage_id": "property_aggregate_ceiling_unknown",
+      "surface_id": "ceiling",
+      "code": "PNT-PRIME2C",
+      "description": "Apply stain-blocking primer and 2 finish coats",
+      "quantity": null,
+      "unit": "m2",
+      "unit_cost_usd": 24.5,
+      "total_cost_usd": null
     },
     {
       "item_id": "SCOPE_013",
-      "damage_id": "DMG_property_aggregate_4",
-      "surface_id": "property_aggregate_wall_east",
-      "code": "MLD-REMED",
-      "description": "Antimicrobial surface wash & HEPA vacuuming",
+      "damage_id": "property_aggregate_wall_east_unknown",
+      "surface_id": "wall_east",
+      "code": "WTR-EXTRACT",
+      "description": "Water extraction & moisture mitigation",
       "quantity": null,
       "unit": "m2",
-      "unit_cost_usd": 45.0,
+      "unit_cost_usd": 18.5,
       "total_cost_usd": null
     },
     {
       "item_id": "SCOPE_014",
-      "damage_id": "DMG_property_aggregate_4",
-      "surface_id": "property_aggregate_wall_east",
-      "code": "MLD-SEALANT",
-      "description": "Apply fungicidal protective sealant barrier",
+      "damage_id": "property_aggregate_wall_east_unknown",
+      "surface_id": "wall_east",
+      "code": "DRY-TEAROUT",
+      "description": "Tear out wet drywall up to 2ft flood cut",
       "quantity": null,
       "unit": "m2",
-      "unit_cost_usd": 29.0,
+      "unit_cost_usd": 32.0,
+      "total_cost_usd": null
+    },
+    {
+      "item_id": "SCOPE_015",
+      "damage_id": "property_aggregate_wall_east_unknown",
+      "surface_id": "wall_east",
+      "code": "DRY-REPLACE",
+      "description": "Hang, tape & mud 1/2in drywall replacement",
+      "quantity": null,
+      "unit": "m2",
+      "unit_cost_usd": 48.0,
+      "total_cost_usd": null
+    },
+    {
+      "item_id": "SCOPE_016",
+      "damage_id": "property_aggregate_wall_east_unknown",
+      "surface_id": "wall_east",
+      "code": "PNT-PRIME2C",
+      "description": "Apply stain-blocking primer and 2 finish coats",
+      "quantity": null,
+      "unit": "m2",
+      "unit_cost_usd": 24.5,
       "total_cost_usd": null
     }
   ],
   "calibration_and_confidence": {
     "tier": "lidar",
     "calibration_score": 0.98,
-    "wall_length_error_bound_m": 0.01528,
-    "wall_length_error_bound_pct": 0.9546,
-    "ceiling_height_error_bound_m": 0.01462,
+    "wall_length_error_bound_m": 0.00928,
+    "wall_length_error_bound_pct": 0.6103,
+    "ceiling_height_error_bound_m": 0.0027,
     "opening_width_error_bound_m": 0.01283,
     "held_out_empirical_coverage_pct": {
       "opening_width": 92.2,
       "ceiling_height": 95.6,
-      "wall_length": 96.6
+      "wall_length": 97.2
     },
     "derivation": "empirical_95th_percentile_of_absolute_error",
     "is_simulated": false,

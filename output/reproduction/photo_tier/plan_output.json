@@ -1,17 +1,478 @@
 {
   "schema_version": "2026.08.1",
-  "property_id": "BENCHMARK_MULTI_ROOM_PHOTOS",
+  "property_id": "PHOTO_CAPTURE_tier1_photos",
   "capture_metadata": {
     "input_tier": "photos",
-    "device_model": "iPhone 15",
+    "device_model": "iPhone Camera",
     "capture_timestamp": "2026-08-20T14:30:00Z",
     "timing": {
-      "processing_time_seconds": 0.002
+      "processing_time_seconds": 0.272
     },
     "drift_correction_enabled": true,
     "opening_detector": "DEPTH_DISCONTINUITY_GRADIENT_PEAK"
   },
-  "rooms": [],
+  "rooms": [
+    {
+      "room_id": "hallway",
+      "name": "Hallway",
+      "ceiling_height": {
+        "value": 0.0,
+        "ci_95": [
+          -0.14,
+          0.14
+        ],
+        "std_error": 0.0714,
+        "unit": "m",
+        "tier_calibrated": "photos"
+      },
+      "floor_area": {
+        "value": 0.0,
+        "ci_95": [
+          0.0,
+          0.0
+        ],
+        "std_error": 0.0,
+        "unit": "m2",
+        "tier_calibrated": "photos"
+      },
+      "walls": [
+        {
+          "wall_id": "wall_north",
+          "length": {
+            "value": 0.0,
+            "ci_95": [
+              0.0,
+              0.0
+            ],
+            "std_error": 0.0,
+            "unit": "m",
+            "tier_calibrated": "photos"
+          },
+          "start_point": [
+            0.0,
+            0.0
+          ],
+          "end_point": [
+            0.0,
+            0.0
+          ],
+          "orientation_deg": 0.0
+        },
+        {
+          "wall_id": "wall_east",
+          "length": {
+            "value": 0.0,
+            "ci_95": [
+              0.0,
+              0.0
+            ],
+            "std_error": 0.0,
+            "unit": "m",
+            "tier_calibrated": "photos"
+          },
+          "start_point": [
+            0.0,
+            0.0
+          ],
+          "end_point": [
+            0.0,
+            0.0
+          ],
+          "orientation_deg": 90.0
+        },
+        {
+          "wall_id": "wall_south",
+          "length": {
+            "value": 0.0,
+            "ci_95": [
+              0.0,
+              0.0
+            ],
+            "std_error": 0.0,
+            "unit": "m",
+            "tier_calibrated": "photos"
+          },
+          "start_point": [
+            0.0,
+            0.0
+          ],
+          "end_point": [
+            0.0,
+            0.0
+          ],
+          "orientation_deg": 180.0
+        },
+        {
+          "wall_id": "wall_west",
+          "length": {
+            "value": 0.0,
+            "ci_95": [
+              0.0,
+              0.0
+            ],
+            "std_error": 0.0,
+            "unit": "m",
+            "tier_calibrated": "photos"
+          },
+          "start_point": [
+            0.0,
+            0.0
+          ],
+          "end_point": [
+            0.0,
+            0.0
+          ],
+          "orientation_deg": 270.0
+        }
+      ],
+      "openings": []
+    },
+    {
+      "room_id": "kitchen",
+      "name": "Kitchen",
+      "ceiling_height": {
+        "value": 0.0,
+        "ci_95": [
+          -0.14,
+          0.14
+        ],
+        "std_error": 0.0714,
+        "unit": "m",
+        "tier_calibrated": "photos"
+      },
+      "floor_area": {
+        "value": 0.0,
+        "ci_95": [
+          0.0,
+          0.0
+        ],
+        "std_error": 0.0,
+        "unit": "m2",
+        "tier_calibrated": "photos"
+      },
+      "walls": [
+        {
+          "wall_id": "wall_north",
+          "length": {
+            "value": 0.0,
+            "ci_95": [
+              0.0,
+              0.0
+            ],
+            "std_error": 0.0,
+            "unit": "m",
+            "tier_calibrated": "photos"
+          },
+          "start_point": [
+            0.0,
+            0.0
+          ],
+          "end_point": [
+            0.0,
+            0.0
+          ],
+          "orientation_deg": 0.0
+        },
+        {
+          "wall_id": "wall_east",
+          "length": {
+            "value": 0.0,
+            "ci_95": [
+              0.0,
+              0.0
+            ],
+            "std_error": 0.0,
+            "unit": "m",
+            "tier_calibrated": "photos"
+          },
+          "start_point": [
+            0.0,
+            0.0
+          ],
+          "end_point": [
+            0.0,
+            0.0
+          ],
+          "orientation_deg": 90.0
+        },
+        {
+          "wall_id": "wall_south",
+          "length": {
+            "value": 0.0,
+            "ci_95": [
+              0.0,
+              0.0
+            ],
+            "std_error": 0.0,
+            "unit": "m",
+            "tier_calibrated": "photos"
+          },
+          "start_point": [
+            0.0,
+            0.0
+          ],
+          "end_point": [
+            0.0,
+            0.0
+          ],
+          "orientation_deg": 180.0
+        },
+        {
+          "wall_id": "wall_west",
+          "length": {
+            "value": 0.0,
+            "ci_95": [
+              0.0,
+              0.0
+            ],
+            "std_error": 0.0,
+            "unit": "m",
+            "tier_calibrated": "photos"
+          },
+          "start_point": [
+            0.0,
+            0.0
+          ],
+          "end_point": [
+            0.0,
+            0.0
+          ],
+          "orientation_deg": 270.0
+        }
+      ],
+      "openings": []
+    },
+    {
+      "room_id": "living_room",
+      "name": "Living Room",
+      "ceiling_height": {
+        "value": 0.0,
+        "ci_95": [
+          -0.14,
+          0.14
+        ],
+        "std_error": 0.0714,
+        "unit": "m",
+        "tier_calibrated": "photos"
+      },
+      "floor_area": {
+        "value": 0.0,
+        "ci_95": [
+          0.0,
+          0.0
+        ],
+        "std_error": 0.0,
+        "unit": "m2",
+        "tier_calibrated": "photos"
+      },
+      "walls": [
+        {
+          "wall_id": "wall_north",
+          "length": {
+            "value": 0.0,
+            "ci_95": [
+              0.0,
+              0.0
+            ],
+            "std_error": 0.0,
+            "unit": "m",
+            "tier_calibrated": "photos"
+          },
+          "start_point": [
+            0.0,
+            0.0
+          ],
+          "end_point": [
+            0.0,
+            0.0
+          ],
+          "orientation_deg": 0.0
+        },
+        {
+          "wall_id": "wall_east",
+          "length": {
+            "value": 0.0,
+            "ci_95": [
+              0.0,
+              0.0
+            ],
+            "std_error": 0.0,
+            "unit": "m",
+            "tier_calibrated": "photos"
+          },
+          "start_point": [
+            0.0,
+            0.0
+          ],
+          "end_point": [
+            0.0,
+            0.0
+          ],
+          "orientation_deg": 90.0
+        },
+        {
+          "wall_id": "wall_south",
+          "length": {
+            "value": 0.0,
+            "ci_95": [
+              0.0,
+              0.0
+            ],
+            "std_error": 0.0,
+            "unit": "m",
+            "tier_calibrated": "photos"
+          },
+          "start_point": [
+            0.0,
+            0.0
+          ],
+          "end_point": [
+            0.0,
+            0.0
+          ],
+          "orientation_deg": 180.0
+        },
+        {
+          "wall_id": "wall_west",
+          "length": {
+            "value": 0.0,
+            "ci_95": [
+              0.0,
+              0.0
+            ],
+            "std_error": 0.0,
+            "unit": "m",
+            "tier_calibrated": "photos"
+          },
+          "start_point": [
+            0.0,
+            0.0
+          ],
+          "end_point": [
+            0.0,
+            0.0
+          ],
+          "orientation_deg": 270.0
+        }
+      ],
+      "openings": []
+    },
+    {
+      "room_id": "master_bedroom",
+      "name": "Master Bedroom",
+      "ceiling_height": {
+        "value": 0.0,
+        "ci_95": [
+          -0.14,
+          0.14
+        ],
+        "std_error": 0.0714,
+        "unit": "m",
+        "tier_calibrated": "photos"
+      },
+      "floor_area": {
+        "value": 0.0,
+        "ci_95": [
+          0.0,
+          0.0
+        ],
+        "std_error": 0.0,
+        "unit": "m2",
+        "tier_calibrated": "photos"
+      },
+      "walls": [
+        {
+          "wall_id": "wall_north",
+          "length": {
+            "value": 0.0,
+            "ci_95": [
+              0.0,
+              0.0
+            ],
+            "std_error": 0.0,
+            "unit": "m",
+            "tier_calibrated": "photos"
+          },
+          "start_point": [
+            0.0,
+            0.0
+          ],
+          "end_point": [
+            0.0,
+            0.0
+          ],
+          "orientation_deg": 0.0
+        },
+        {
+          "wall_id": "wall_east",
+          "length": {
+            "value": 0.0,
+            "ci_95": [
+              0.0,
+              0.0
+            ],
+            "std_error": 0.0,
+            "unit": "m",
+            "tier_calibrated": "photos"
+          },
+          "start_point": [
+            0.0,
+            0.0
+          ],
+          "end_point": [
+            0.0,
+            0.0
+          ],
+          "orientation_deg": 90.0
+        },
+        {
+          "wall_id": "wall_south",
+          "length": {
+            "value": 0.0,
+            "ci_95": [
+              0.0,
+              0.0
+            ],
+            "std_error": 0.0,
+            "unit": "m",
+            "tier_calibrated": "photos"
+          },
+          "start_point": [
+            0.0,
+            0.0
+          ],
+          "end_point": [
+            0.0,
+            0.0
+          ],
+          "orientation_deg": 180.0
+        },
+        {
+          "wall_id": "wall_west",
+          "length": {
+            "value": 0.0,
+            "ci_95": [
+              0.0,
+              0.0
+            ],
+            "std_error": 0.0,
+            "unit": "m",
+            "tier_calibrated": "photos"
+          },
+          "start_point": [
+            0.0,
+            0.0
+          ],
+          "end_point": [
+            0.0,
+            0.0
+          ],
+          "orientation_deg": 270.0
+        }
+      ],
+      "openings": []
+    }
+  ],
   "stitched_plan": {
     "property_envelope": {
       "min_x": 0.0,
@@ -20,24 +481,325 @@
       "max_y": 0.0,
       "total_span_x_m": 0.0,
       "total_span_y_m": 0.0,
-      "total_floor_area_m2": 0.0
+      "total_floor_area_m2": 0.0,
+      "envelope_area_m2": 0.0
     },
-    "stitched_rooms": {},
+    "stitched_rooms": {
+      "hallway": {
+        "room_id": "hallway",
+        "name": "Hallway",
+        "global_pose": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "walls": [
+          {
+            "wall_id": "hallway_wall_north",
+            "local_wall_id": "wall_north",
+            "start_point": [
+              0.0,
+              0.0
+            ],
+            "end_point": [
+              0.0,
+              0.0
+            ],
+            "length_m": 0.0,
+            "orientation_deg": 0.0
+          },
+          {
+            "wall_id": "hallway_wall_east",
+            "local_wall_id": "wall_east",
+            "start_point": [
+              0.0,
+              0.0
+            ],
+            "end_point": [
+              0.0,
+              0.0
+            ],
+            "length_m": 0.0,
+            "orientation_deg": 90.0
+          },
+          {
+            "wall_id": "hallway_wall_south",
+            "local_wall_id": "wall_south",
+            "start_point": [
+              0.0,
+              0.0
+            ],
+            "end_point": [
+              0.0,
+              0.0
+            ],
+            "length_m": 0.0,
+            "orientation_deg": 180.0
+          },
+          {
+            "wall_id": "hallway_wall_west",
+            "local_wall_id": "wall_west",
+            "start_point": [
+              0.0,
+              0.0
+            ],
+            "end_point": [
+              0.0,
+              0.0
+            ],
+            "length_m": 0.0,
+            "orientation_deg": 270.0
+          }
+        ],
+        "ceiling_height_m": 0.0,
+        "floor_area_m2": 0.0,
+        "openings": []
+      },
+      "kitchen": {
+        "room_id": "kitchen",
+        "name": "Kitchen",
+        "global_pose": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "walls": [
+          {
+            "wall_id": "kitchen_wall_north",
+            "local_wall_id": "wall_north",
+            "start_point": [
+              0.0,
+              0.0
+            ],
+            "end_point": [
+              0.0,
+              0.0
+            ],
+            "length_m": 0.0,
+            "orientation_deg": 0.0
+          },
+          {
+            "wall_id": "kitchen_wall_east",
+            "local_wall_id": "wall_east",
+            "start_point": [
+              0.0,
+              0.0
+            ],
+            "end_point": [
+              0.0,
+              0.0
+            ],
+            "length_m": 0.0,
+            "orientation_deg": 90.0
+          },
+          {
+            "wall_id": "kitchen_wall_south",
+            "local_wall_id": "wall_south",
+            "start_point": [
+              0.0,
+              0.0
+            ],
+            "end_point": [
+              0.0,
+              0.0
+            ],
+            "length_m": 0.0,
+            "orientation_deg": 180.0
+          },
+          {
+            "wall_id": "kitchen_wall_west",
+            "local_wall_id": "wall_west",
+            "start_point": [
+              0.0,
+              0.0
+            ],
+            "end_point": [
+              0.0,
+              0.0
+            ],
+            "length_m": 0.0,
+            "orientation_deg": 270.0
+          }
+        ],
+        "ceiling_height_m": 0.0,
+        "floor_area_m2": 0.0,
+        "openings": []
+      },
+      "living_room": {
+        "room_id": "living_room",
+        "name": "Living Room",
+        "global_pose": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "walls": [
+          {
+            "wall_id": "living_room_wall_north",
+            "local_wall_id": "wall_north",
+            "start_point": [
+              0.0,
+              0.0
+            ],
+            "end_point": [
+              0.0,
+              0.0
+            ],
+            "length_m": 0.0,
+            "orientation_deg": 0.0
+          },
+          {
+            "wall_id": "living_room_wall_east",
+            "local_wall_id": "wall_east",
+            "start_point": [
+              0.0,
+              0.0
+            ],
+            "end_point": [
+              0.0,
+              0.0
+            ],
+            "length_m": 0.0,
+            "orientation_deg": 90.0
+          },
+          {
+            "wall_id": "living_room_wall_south",
+            "local_wall_id": "wall_south",
+            "start_point": [
+              0.0,
+              0.0
+            ],
+            "end_point": [
+              0.0,
+              0.0
+            ],
+            "length_m": 0.0,
+            "orientation_deg": 180.0
+          },
+          {
+            "wall_id": "living_room_wall_west",
+            "local_wall_id": "wall_west",
+            "start_point": [
+              0.0,
+              0.0
+            ],
+            "end_point": [
+              0.0,
+              0.0
+            ],
+            "length_m": 0.0,
+            "orientation_deg": 270.0
+          }
+        ],
+        "ceiling_height_m": 0.0,
+        "floor_area_m2": 0.0,
+        "openings": []
+      },
+      "master_bedroom": {
+        "room_id": "master_bedroom",
+        "name": "Master Bedroom",
+        "global_pose": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "walls": [
+          {
+            "wall_id": "master_bedroom_wall_north",
+            "local_wall_id": "wall_north",
+            "start_point": [
+              0.0,
+              0.0
+            ],
+            "end_point": [
+              0.0,
+              0.0
+            ],
+            "length_m": 0.0,
+            "orientation_deg": 0.0
+          },
+          {
+            "wall_id": "master_bedroom_wall_east",
+            "local_wall_id": "wall_east",
+            "start_point": [
+              0.0,
+              0.0
+            ],
+            "end_point": [
+              0.0,
+              0.0
+            ],
+            "length_m": 0.0,
+            "orientation_deg": 90.0
+          },
+          {
+            "wall_id": "master_bedroom_wall_south",
+            "local_wall_id": "wall_south",
+            "start_point": [
+              0.0,
+              0.0
+            ],
+            "end_point": [
+              0.0,
+              0.0
+            ],
+            "length_m": 0.0,
+            "orientation_deg": 180.0
+          },
+          {
+            "wall_id": "master_bedroom_wall_west",
+            "local_wall_id": "wall_west",
+            "start_point": [
+              0.0,
+              0.0
+            ],
+            "end_point": [
+              0.0,
+              0.0
+            ],
+            "length_m": 0.0,
+            "orientation_deg": 270.0
+          }
+        ],
+        "ceiling_height_m": 0.0,
+        "floor_area_m2": 0.0,
+        "openings": []
+      }
+    },
     "adjacency_connections": [],
-    "topology_valid": false,
-    "overlap_warnings": [
-      "No room geometries to stitch"
-    ],
+    "topology_valid": true,
+    "overlap_warnings": [],
     "total_overlap_area_m2": 0.0,
     "drift_analysis": {
-      "optimized_poses": {},
+      "optimized_poses": {
+        "hallway": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "kitchen": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "living_room": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "master_bedroom": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
       "drift_corrected": true,
       "iterations": 0,
       "initial_residual": 0.0,
       "final_residual": 0.0,
       "residual_error_cm": 0.0,
       "max_drift_offset_cm": 0.0,
-      "status": "EMPTY_GRAPH"
+      "status": "CONVERGED_NO_EDGES"
     }
   },
   "damage_assessment": {

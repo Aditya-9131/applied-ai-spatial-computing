@@ -57,7 +57,7 @@
         <div class="header">
             <div>
                 <h1>Property As-Built &amp; Damage Scope Report</h1>
-                <p style="color: var(--text-secondary); font-size: 14px; margin-top: 4px;">Capture ID: <strong>LIVING_ROOM_RUN_A</strong> | Input Tier: <strong>LIDAR</strong> | Processed in 2.71s</p>
+                <p style="color: var(--text-secondary); font-size: 14px; margin-top: 4px;">Capture ID: <strong>LIVING_ROOM_RUN_A</strong> | Input Tier: <strong>LIDAR</strong> | Processed in 2.899s</p>
             </div>
             <div>
                 <span class="badge">SCHEMA COMPLIANT v2026.08.1</span>
@@ -100,24 +100,18 @@
 <rect x="179.7624691937566" y="714.1659723037201" width="48" height="18" rx="4" fill="#0f172a" stroke="#475569" stroke-width="1"/>
 <text x="203.7624691937566" y="727.1659723037201" fill="#f8fafc" font-size="10" font-weight="600" text-anchor="middle">5.41m</text>
 <rect x="40" y="1271" width="1020" height="32" rx="6" fill="#1e293b" stroke="#334155"/>
-<text x="60" y="1291" fill="#cbd5e1" font-size="11"><tspan fill="#38bdf8">■</tspan> Reconstructed Boundary  <tspan fill="#ef4444" dx="15">●</tspan> Water Damage  <tspan fill="#f59e0b" dx="15">●</tspan> Crack  <tspan fill="#a855f7" dx="15">●</tspan> Mold  <tspan dx="25" fill="#facc15">⚠ Concealed Flags Active: 1</tspan></text>
+<text x="60" y="1291" fill="#cbd5e1" font-size="11"><tspan fill="#38bdf8">■</tspan> Reconstructed Boundary  <tspan fill="#ef4444" dx="15">●</tspan> Water Damage  <tspan fill="#f59e0b" dx="15">●</tspan> Crack  <tspan fill="#a855f7" dx="15">●</tspan> Mold  <tspan dx="25" fill="#facc15">⚠ Concealed Flags Active: 0</tspan></text>
 </svg>
                 </div>
             </div>
 
             <div class="card">
-                <h2>Concealed Damage Risk Flags (1)</h2>
-                
-                <div class="flag-card">
-                    <div class="flag-title">⚠️ RULE_STRUCTURAL_SHEAR_CRACK: Diagonal Shear Crack Stud Deflection</div>
-                    <div class="flag-desc">Continuous diagonal shear crack >1.2m across load-bearing wall indicates foundation settlement and concealed timber/stud framing distortion.</div>
-                    <div style="font-size: 11px; color: #94a3b8; margin-top: 6px;"><strong>Action:</strong> Non-destructive thermal/moisture probe + selective inspection cut</div>
-                </div>
+                <h2>Concealed Damage Risk Flags (0)</h2>
                 
 
                 <h2 style="margin-top: 24px;">Repair Scope Estimate</h2>
                 <p style="font-size: 13px; color: var(--text-secondary);">Xactimate / IICRC Line Items:</p>
-                <div class="cost-total">$153.45 USD</div>
+                <div class="cost-total">$0.00 USD</div>
             </div>
         </div>
 
@@ -139,7 +133,7 @@
                     
                     <tr>
                         <td><code>SCOPE_001</code></td>
-                        <td><code>property_aggregate_wall_north</code></td>
+                        <td><code>wall_north</code></td>
                         <td><strong>WTR-EXTRACT</strong></td>
                         <td>N/A</td>
                         <td>$18.50</td>
@@ -148,7 +142,7 @@
                     
                     <tr>
                         <td><code>SCOPE_002</code></td>
-                        <td><code>property_aggregate_wall_north</code></td>
+                        <td><code>wall_north</code></td>
                         <td><strong>DRY-TEAROUT</strong></td>
                         <td>N/A</td>
                         <td>$32.00</td>
@@ -157,7 +151,7 @@
                     
                     <tr>
                         <td><code>SCOPE_003</code></td>
-                        <td><code>property_aggregate_wall_north</code></td>
+                        <td><code>wall_north</code></td>
                         <td><strong>DRY-REPLACE</strong></td>
                         <td>N/A</td>
                         <td>$48.00</td>
@@ -166,7 +160,7 @@
                     
                     <tr>
                         <td><code>SCOPE_004</code></td>
-                        <td><code>property_aggregate_wall_north</code></td>
+                        <td><code>wall_north</code></td>
                         <td><strong>PNT-PRIME2C</strong></td>
                         <td>N/A</td>
                         <td>$24.50</td>
@@ -175,28 +169,37 @@
                     
                     <tr>
                         <td><code>SCOPE_005</code></td>
-                        <td><code>property_aggregate_wall_east</code></td>
-                        <td><strong>CRK-VGROOVE</strong></td>
-                        <td>1.65 linear_m</td>
-                        <td>$65.00</td>
-                        <td><strong>$107.25</strong></td>
+                        <td><code>wall_east</code></td>
+                        <td><strong>WTR-EXTRACT</strong></td>
+                        <td>N/A</td>
+                        <td>$18.50</td>
+                        <td><strong>N/A</strong></td>
                     </tr>
                     
                     <tr>
                         <td><code>SCOPE_006</code></td>
-                        <td><code>property_aggregate_wall_east</code></td>
-                        <td><strong>DRY-TAPEFIN</strong></td>
-                        <td>1.65 linear_m</td>
-                        <td>$28.00</td>
-                        <td><strong>$46.20</strong></td>
+                        <td><code>wall_east</code></td>
+                        <td><strong>DRY-TEAROUT</strong></td>
+                        <td>N/A</td>
+                        <td>$32.00</td>
+                        <td><strong>N/A</strong></td>
                     </tr>
                     
                     <tr>
                         <td><code>SCOPE_007</code></td>
-                        <td><code>property_aggregate_wall_east</code></td>
-                        <td><strong>PNT-TOUCHUP</strong></td>
+                        <td><code>wall_east</code></td>
+                        <td><strong>DRY-REPLACE</strong></td>
                         <td>N/A</td>
-                        <td>$22.00</td>
+                        <td>$48.00</td>
+                        <td><strong>N/A</strong></td>
+                    </tr>
+                    
+                    <tr>
+                        <td><code>SCOPE_008</code></td>
+                        <td><code>wall_east</code></td>
+                        <td><strong>PNT-PRIME2C</strong></td>
+                        <td>N/A</td>
+                        <td>$24.50</td>
                         <td><strong>N/A</strong></td>
                     </tr>
                     

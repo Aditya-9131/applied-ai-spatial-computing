@@ -6,7 +6,7 @@
     "device_model": "iPhone 15 Pro Max",
     "capture_timestamp": "2026-08-20T14:30:00Z",
     "timing": {
-      "processing_time_seconds": 2.71
+      "processing_time_seconds": 2.899
     },
     "drift_correction_enabled": true,
     "opening_detector": "DEPTH_DISCONTINUITY_GRADIENT_PEAK"
@@ -18,10 +18,10 @@
       "ceiling_height": {
         "value": 2.7046,
         "ci_95": [
-          2.69,
-          2.7192
+          2.7019,
+          2.7073
         ],
-        "std_error": 0.0075,
+        "std_error": 0.0014,
         "unit": "m",
         "tier_calibrated": "lidar"
       },
@@ -41,10 +41,10 @@
           "length": {
             "value": 4.8168,
             "ci_95": [
-              4.8015,
-              4.8321
+              4.8075,
+              4.8261
             ],
-            "std_error": 0.0078,
+            "std_error": 0.0047,
             "unit": "m",
             "tier_calibrated": "lidar"
           },
@@ -63,10 +63,10 @@
           "length": {
             "value": 5.4127,
             "ci_95": [
-              5.3974,
-              5.428
+              5.4034,
+              5.422
             ],
-            "std_error": 0.0078,
+            "std_error": 0.0047,
             "unit": "m",
             "tier_calibrated": "lidar"
           },
@@ -85,10 +85,10 @@
           "length": {
             "value": 4.8168,
             "ci_95": [
-              4.8015,
-              4.8321
+              4.8075,
+              4.8261
             ],
-            "std_error": 0.0078,
+            "std_error": 0.0047,
             "unit": "m",
             "tier_calibrated": "lidar"
           },
@@ -107,10 +107,10 @@
           "length": {
             "value": 5.4127,
             "ci_95": [
-              5.3974,
-              5.428
+              5.4034,
+              5.422
             ],
-            "std_error": 0.0078,
+            "std_error": 0.0047,
             "unit": "m",
             "tier_calibrated": "lidar"
           },
@@ -341,59 +341,46 @@
   "damage_assessment": {
     "damage_regions": [
       {
-        "damage_id": "DMG_property_aggregate_1",
+        "damage_id": "property_aggregate_wall_north_unknown",
         "room_id": "property_aggregate",
-        "surface_id": "property_aggregate_wall_north",
-        "surface_type": "drywall_wall",
-        "damage_class": "water_damage",
-        "severity_score": 0.85,
+        "damage_class": "unknown",
+        "surface_id": "wall_north",
+        "severity": 0.85,
         "metric_extent": {
           "area_m2": null,
-          "area_ci_95": null,
-          "linear_length_m": null
+          "linear_m": null,
+          "source": "NOT_IMPLEMENTED:NO_MASK_OR_MEASUREMENT"
         },
-        "estimation_source": "NOT_IMPLEMENTED_NO_SEGMENTATION_MODEL",
-        "bounding_box_uv": null,
-        "detection_confidence": null,
-        "moisture_reading_wme_pct": 34.2
+        "confidence": 0.92,
+        "notes": "",
+        "detection_method": "MANUAL_ANNOTATION",
+        "concealed_flags": []
       },
       {
-        "damage_id": "DMG_property_aggregate_2",
+        "damage_id": "property_aggregate_wall_east_unknown",
         "room_id": "property_aggregate",
-        "surface_id": "property_aggregate_wall_east",
-        "surface_type": "plaster_wall",
-        "damage_class": "wall_crack",
-        "severity_score": 0.7,
+        "damage_class": "unknown",
+        "surface_id": "wall_east",
+        "severity": 0.7,
         "metric_extent": {
           "area_m2": null,
-          "area_ci_95": null,
-          "linear_length_m": 1.65
+          "linear_m": null,
+          "source": "NOT_IMPLEMENTED:NO_MASK_OR_MEASUREMENT"
         },
-        "estimation_source": "NOT_IMPLEMENTED_NO_SEGMENTATION_MODEL",
-        "bounding_box_uv": null,
-        "detection_confidence": null,
-        "moisture_reading_wme_pct": null
+        "confidence": 0.92,
+        "notes": "",
+        "detection_method": "MANUAL_ANNOTATION",
+        "concealed_flags": []
       }
     ],
     "total_damaged_area_m2": null
   },
-  "concealed_damage_flags": [
-    {
-      "flag_id": "FLAG_DMG_property_aggregate_2_RULE_STRUCTURAL_SHEAR_CRACK",
-      "damage_id": "DMG_property_aggregate_2",
-      "surface_id": "property_aggregate_wall_east",
-      "rule_fired": "RULE_STRUCTURAL_SHEAR_CRACK",
-      "rule_title": "Diagonal Shear Crack Stud Deflection",
-      "justification": "Continuous diagonal shear crack >1.2m across load-bearing wall indicates foundation settlement and concealed timber/stud framing distortion.",
-      "recommended_investigation": "Non-destructive thermal/moisture probe + selective inspection cut",
-      "risk_level": "HIGH"
-    }
-  ],
+  "concealed_damage_flags": [],
   "scope_of_work": [
     {
       "item_id": "SCOPE_001",
-      "damage_id": "DMG_property_aggregate_1",
-      "surface_id": "property_aggregate_wall_north",
+      "damage_id": "property_aggregate_wall_north_unknown",
+      "surface_id": "wall_north",
       "code": "WTR-EXTRACT",
       "description": "Water extraction & moisture mitigation",
       "quantity": null,
@@ -403,8 +390,8 @@
     },
     {
       "item_id": "SCOPE_002",
-      "damage_id": "DMG_property_aggregate_1",
-      "surface_id": "property_aggregate_wall_north",
+      "damage_id": "property_aggregate_wall_north_unknown",
+      "surface_id": "wall_north",
       "code": "DRY-TEAROUT",
       "description": "Tear out wet drywall up to 2ft flood cut",
       "quantity": null,
@@ -414,8 +401,8 @@
     },
     {
       "item_id": "SCOPE_003",
-      "damage_id": "DMG_property_aggregate_1",
-      "surface_id": "property_aggregate_wall_north",
+      "damage_id": "property_aggregate_wall_north_unknown",
+      "surface_id": "wall_north",
       "code": "DRY-REPLACE",
       "description": "Hang, tape & mud 1/2in drywall replacement",
       "quantity": null,
@@ -425,8 +412,8 @@
     },
     {
       "item_id": "SCOPE_004",
-      "damage_id": "DMG_property_aggregate_1",
-      "surface_id": "property_aggregate_wall_north",
+      "damage_id": "property_aggregate_wall_north_unknown",
+      "surface_id": "wall_north",
       "code": "PNT-PRIME2C",
       "description": "Apply stain-blocking primer and 2 finish coats",
       "quantity": null,
@@ -436,49 +423,60 @@
     },
     {
       "item_id": "SCOPE_005",
-      "damage_id": "DMG_property_aggregate_2",
-      "surface_id": "property_aggregate_wall_east",
-      "code": "CRK-VGROOVE",
-      "description": "V-groove crack preparation & structural epoxy inject",
-      "quantity": 1.65,
-      "unit": "linear_m",
-      "unit_cost_usd": 65.0,
-      "total_cost_usd": 107.25
+      "damage_id": "property_aggregate_wall_east_unknown",
+      "surface_id": "wall_east",
+      "code": "WTR-EXTRACT",
+      "description": "Water extraction & moisture mitigation",
+      "quantity": null,
+      "unit": "m2",
+      "unit_cost_usd": 18.5,
+      "total_cost_usd": null
     },
     {
       "item_id": "SCOPE_006",
-      "damage_id": "DMG_property_aggregate_2",
-      "surface_id": "property_aggregate_wall_east",
-      "code": "DRY-TAPEFIN",
-      "description": "Mesh tape reinforcement & Level 4 mud finish",
-      "quantity": 1.65,
-      "unit": "linear_m",
-      "unit_cost_usd": 28.0,
-      "total_cost_usd": 46.2
+      "damage_id": "property_aggregate_wall_east_unknown",
+      "surface_id": "wall_east",
+      "code": "DRY-TEAROUT",
+      "description": "Tear out wet drywall up to 2ft flood cut",
+      "quantity": null,
+      "unit": "m2",
+      "unit_cost_usd": 32.0,
+      "total_cost_usd": null
     },
     {
       "item_id": "SCOPE_007",
-      "damage_id": "DMG_property_aggregate_2",
-      "surface_id": "property_aggregate_wall_east",
-      "code": "PNT-TOUCHUP",
-      "description": "Blend and feather paint to nearest corner",
+      "damage_id": "property_aggregate_wall_east_unknown",
+      "surface_id": "wall_east",
+      "code": "DRY-REPLACE",
+      "description": "Hang, tape & mud 1/2in drywall replacement",
       "quantity": null,
       "unit": "m2",
-      "unit_cost_usd": 22.0,
+      "unit_cost_usd": 48.0,
+      "total_cost_usd": null
+    },
+    {
+      "item_id": "SCOPE_008",
+      "damage_id": "property_aggregate_wall_east_unknown",
+      "surface_id": "wall_east",
+      "code": "PNT-PRIME2C",
+      "description": "Apply stain-blocking primer and 2 finish coats",
+      "quantity": null,
+      "unit": "m2",
+      "unit_cost_usd": 24.5,
       "total_cost_usd": null
     }
   ],
   "calibration_and_confidence": {
     "tier": "lidar",
     "calibration_score": 0.98,
-    "wall_length_error_bound_m": 0.01528,
-    "wall_length_error_bound_pct": 0.9546,
-    "ceiling_height_error_bound_m": 0.01462,
+    "wall_length_error_bound_m": 0.00928,
+    "wall_length_error_bound_pct": 0.6103,
+    "ceiling_height_error_bound_m": 0.0027,
     "opening_width_error_bound_m": 0.01283,
     "held_out_empirical_coverage_pct": {
       "opening_width": 92.2,
       "ceiling_height": 95.6,
-      "wall_length": 96.6
+      "wall_length": 97.2
     },
     "derivation": "empirical_95th_percentile_of_absolute_error",
     "is_simulated": false,
