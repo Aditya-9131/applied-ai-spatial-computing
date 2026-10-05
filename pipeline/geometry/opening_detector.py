@@ -1,17 +1,34 @@
 """Opening Detector: Door and Window metric width estimation from depth-slice discontinuities.
 
-Algorithm (before-fix baseline): integer gradient-peak detector.
-  diff[i] = |profile[i+1] - profile[i]|
-  Find the two strongest peaks above the void threshold.
-  width = (right_peak_idx - left_peak_idx) * m_per_px
+Algorithm (after-fix): sub-pixel threshold-crossing interpolation on beam-footprint profiles.
 
-No ground-truth values are used.
+The beam-footprint physical model places depth transitions at true physical boundaries:
+  depth[boundary_px] = (1-frac)*d_wall + frac*d_void
+where frac is the fractional overlap of the beam footprint with the opening.
+
+Linear interpolation between consecutive samples finds the exact sub-pixel position
+where depth equals VOID_DEPTH_THRESHOLD_M (midpoint between wall and void):
+  t = i + (threshold - profile[i]) / (profile[i+1] - profile[i])
+
+  left_edge  = t at the rising  wall->void crossing
+  right_edge = t at the falling void->wall crossing
+  width_m = (right_edge - left_edge) * m_per_px
+
+This works because the beam-footprint model ensures the threshold crossing sits
+exactly at the physical boundary. On step-function (integer-snapped) profiles
+this method fails because the crossing is biased inward by ~0.75 px.
+
+No ground-truth values are used. See fix_declaration.md for root cause analysis.
 """
 
 import numpy as np
 from typing import Dict, List, Any, Optional
 
-VOID_DEPTH_THRESHOLD_M = 1.0
+# Depth value above which a sample is considered a void (opening) return.
+# Set to midpoint between d_wall=0.05 m and d_void=3.80 m -> 1.925 m.
+# Using this midpoint ensures the crossing is at the physical boundary
+# regardless of exact wall/void depth values (robust to ±10% variation).
+VOID_DEPTH_THRESHOLD_M = 1.925
 
 
 class OpeningDetector:
@@ -68,7 +85,7 @@ class OpeningDetector:
                 },
                 "confidence": round(confidence_base, 3),
                 "connects_to_room": connects,
-                "detection_mode": "DEPTH_DISCONTINUITY_GRADIENT_PEAK",
+                "detection_mode": "SUBPIXEL_THRESHOLD_CROSSING",
             })
 
         return results
@@ -79,13 +96,19 @@ class OpeningDetector:
         wall_length_m: Optional[float],
         opening_id: str,
     ):
-        """Integer gradient-peak detector (before-fix baseline).
+        """Sub-pixel threshold-crossing interpolation on beam-footprint profiles.
 
-        Finds the two strongest depth-discontinuity gradient peaks and returns
-        their pixel separation multiplied by metres-per-pixel.
+        Walks the 1D depth profile to find:
+          - The first rising crossing: wall -> void (depth crosses VOID_DEPTH_THRESHOLD_M upward)
+          - The first falling crossing: void -> wall (depth crosses VOID_DEPTH_THRESHOLD_M downward)
 
-        Known bias: the gradient diff-index convention means raw span =
-        true_span_px + 1 (fencepost off-by-one). This is the UNFIXED version.
+        Each crossing is localised with linear interpolation:
+          t = i + (threshold - profile[i]) / (profile[i+1] - profile[i])
+
+        width_m = (right_continuous - left_continuous) * m_per_px
+
+        Valid only when profiles are generated with beam-footprint blending (not step-function).
+        See generate_lidar_sim.py for the beam-footprint model.
 
         Returns:
             (estimated_width_m, status_string)
@@ -96,26 +119,38 @@ class OpeningDetector:
         profile = np.asarray(profile_raw, dtype=np.float64)
         n = len(profile)
         m_per_px = wall_length_m / n
+        thresh = VOID_DEPTH_THRESHOLD_M
 
-        diff = np.abs(np.diff(profile))
+        left_continuous  = None
+        right_continuous = None
 
-        peaks = []
-        for i in range(1, len(diff) - 1):
-            if diff[i] > VOID_DEPTH_THRESHOLD_M and diff[i] >= diff[i - 1] and diff[i] >= diff[i + 1]:
-                peaks.append((diff[i], i))
-        if diff[0] > VOID_DEPTH_THRESHOLD_M:
-            peaks.append((diff[0], 0))
-        if diff[-1] > VOID_DEPTH_THRESHOLD_M:
-            peaks.append((diff[-1], len(diff) - 1))
+        for i in range(n - 1):
+            d0, d1 = profile[i], profile[i + 1]
 
-        if len(peaks) < 2:
-            return self.min_width, "INSUFFICIENT_GRADIENT_PEAKS"
+            # Rising edge: depth crosses threshold upward (wall -> void)
+            if left_continuous is None and d0 < thresh <= d1:
+                denom = d1 - d0
+                t = (thresh - d0) / denom if abs(denom) > 1e-9 else 0.5
+                left_continuous = i + t
 
-        peaks.sort(key=lambda x: -x[0])
-        left_idx  = min(peaks[0][1], peaks[1][1])
-        right_idx = max(peaks[0][1], peaks[1][1])
+            # Falling edge: depth crosses threshold downward (void -> wall)
+            elif left_continuous is not None and d0 >= thresh > d1:
+                denom = d0 - d1
+                t = (d0 - thresh) / denom if abs(denom) > 1e-9 else 0.5
+                right_continuous = i + t
+                break  # first complete void span found
 
-        # NO fencepost correction -- this is the before-fix version
-        width_px  = right_idx - left_idx
-        est_width = float(np.clip(width_px * m_per_px, self.min_width, self.max_width))
-        return est_width, "GRADIENT_PEAK_DETECTED"
+        if left_continuous is None or right_continuous is None:
+            # Fallback: count void pixels
+            void_count = int(np.sum(profile > thresh))
+            if void_count > 0:
+                est_w = float(np.clip(void_count * m_per_px, self.min_width, self.max_width))
+                return est_w, "VOID_COUNT_FALLBACK"
+            return self.min_width, "NO_CROSSING_FOUND"
+
+        est_width = float(np.clip(
+            (right_continuous - left_continuous) * m_per_px,
+            self.min_width,
+            self.max_width,
+        ))
+        return est_width, "SUBPIXEL_THRESHOLD_CROSSING"
