@@ -59,9 +59,17 @@ class OpeningDetector:
             if matched_wall and wall_length_m is None:
                 wall_length_m = matched_wall.get("length_m")
 
-            est_width, detection_status = self._estimate_width_from_points(
-                raw_points, matched_wall, offset_m, op.get("width_m", self.min_width)
-            )
+            if raw_points is not None and len(raw_points) >= 10 and matched_wall is not None:
+                est_width, detection_status = self._estimate_width_from_points(
+                    raw_points, matched_wall, offset_m, op.get("width_m", self.min_width)
+                )
+            elif "depth_profile_m" in op and wall_length_m is not None:
+                est_width, detection_status = self._estimate_width_from_profile(
+                    op["depth_profile_m"], wall_length_m, opening_id
+                )
+            else:
+                est_width = op.get("width_m", self.min_width)
+                detection_status = "DEFAULT_FALLBACK"
 
             est_height = op.get("canonical_height_m", 2.05 if op_type == "door" else 1.20)
 
