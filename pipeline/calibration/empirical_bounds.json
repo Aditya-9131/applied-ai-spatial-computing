@@ -1,0 +1,26 @@
+{
+  "tier": "lidar",
+  "derivation": "empirical_95th_percentile_of_absolute_error",
+  "calibration_n_per_opening": 80,
+  "calibration_n_per_room": 80,
+  "held_out_n_per_opening": 40,
+  "held_out_n_per_room": 40,
+  "calibration_seed_offset": 1000,
+  "held_out_seed_offset": 5000,
+  "model": "beam_footprint_blend + synthetic_point_cloud",
+  "calibration_stats": {
+    "opening_width_abs_ci_m": 0.01283,
+    "ceiling_height_abs_ci_m": 0.0074,
+    "wall_length_abs_ci_m": 0.02361,
+    "wall_length_pct_ci": 1.46,
+    "opening_width_mean_abs_error_m": 0.00519,
+    "ceiling_mean_abs_error_m": 0.00678,
+    "wall_mean_abs_error_m": 0.02099
+  },
+  "held_out_empirical_coverage_pct": {
+    "opening_width": 92.2,
+    "ceiling_height": 97.5,
+    "wall_length": 93.4
+  },
+  "note": "SIMULATED: bounds derived from synthetic beam-footprint + point-cloud model, not from real device measurements. Use as an ordered lower bound only."
+}

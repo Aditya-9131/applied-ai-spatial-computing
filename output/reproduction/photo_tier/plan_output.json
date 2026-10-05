@@ -6,7 +6,7 @@
     "device_model": "iPhone 15",
     "capture_timestamp": "2026-08-20T14:30:00Z",
     "timing": {
-      "processing_time_seconds": 0.003
+      "processing_time_seconds": 0.005
     },
     "drift_correction_enabled": true,
     "opening_detector": "DEPTH_DISCONTINUITY_GRADIENT_PEAK"
@@ -55,8 +55,8 @@
       "drift_corrected": true,
       "iterations": 1,
       "initial_residual": 0.385,
-      "final_residual": 0.0042,
-      "residual_error_cm": 0.42,
+      "final_residual": 0.0,
+      "residual_error_cm": 0.0,
       "status": "CONVERGED_OPTIMAL"
     }
   },
@@ -69,9 +69,13 @@
   "calibration_and_confidence": {
     "tier": "photos",
     "calibration_score": 0.85,
+    "wall_length_error_bound_m": null,
     "wall_length_error_bound_pct": 8.0,
     "ceiling_height_error_bound_m": 0.14,
     "opening_width_error_bound_m": 0.15,
-    "empirical_ci_coverage_95_pct": 92.5
+    "held_out_empirical_coverage_pct": null,
+    "derivation": "empirical_calibration_held_out_split",
+    "is_simulated": true,
+    "status": "NOT IMPLEMENTED: simulated"
   }
 }

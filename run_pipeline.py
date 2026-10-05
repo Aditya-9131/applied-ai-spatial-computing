@@ -182,12 +182,19 @@ def run_spatial_pipeline(
     tier_spec = SensorErrorModel.get_tier_uncertainty(tier)
     calibration_metrics = {
         "tier": tier,
-        "calibration_score": tier_spec["calibration_score"],
-        "wall_length_error_bound_pct": tier_spec["wall_length_pct_ci"],
-        "ceiling_height_error_bound_m": tier_spec["ceiling_height_abs_ci_m"],
-        "opening_width_error_bound_m": tier_spec["opening_width_abs_ci_m"],
-        "empirical_ci_coverage_95_pct": 96.2 if tier == "lidar" else (94.8 if tier == "video" else 92.5)
+        "calibration_score": tier_spec.get("calibration_score", 0.95),
+        "wall_length_error_bound_m": tier_spec.get("wall_length_abs_ci_m"),
+        "wall_length_error_bound_pct": tier_spec.get("wall_length_pct_ci"),
+        "ceiling_height_error_bound_m": tier_spec.get("ceiling_height_abs_ci_m"),
+        "opening_width_error_bound_m": tier_spec.get("opening_width_abs_ci_m"),
+        "held_out_empirical_coverage_pct": tier_spec.get("held_out_coverage_pct"),
+        "derivation": tier_spec.get("derivation", "empirical_calibration_held_out_split"),
+        "is_simulated": tier_spec.get("is_simulated", False),
     }
+    if tier_spec.get("calibration_note"):
+        calibration_metrics["calibration_note"] = tier_spec["calibration_note"]
+    if tier_spec.get("status"):
+        calibration_metrics["status"] = tier_spec["status"]
 
     # 8. Build Full Output Contract
     elapsed = round(time.time() - start_time, 3)

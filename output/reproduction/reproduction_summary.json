@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-10-06T01:08:24Z",
+  "timestamp": "2026-10-06T01:38:33Z",
   "gates": {
     "opening_widths": {
       "pass_rate_pct": 100.0,
@@ -8,17 +8,17 @@
       "status": "PASS"
     },
     "ceiling_height": {
-      "mean_bias_cm": -119.81,
-      "spread_cm": 0.0,
-      "diagnosis": "REPEATABLE-BUT-BIASED (Systematic offset present, tight spread across runs)",
-      "status": "FAIL"
+      "mean_bias_cm": 0.86,
+      "spread_cm": 0.01,
+      "diagnosis": "UNBIASED & REPEATABLE (Optimal State: Low Bias, High Repeatability)",
+      "status": "PASS"
     },
     "repeatability": {
       "status": "PASS"
     },
     "drift_accountability": {
-      "drift_on_residual_cm": 0.42,
-      "drift_off_residual_cm": 38.5,
+      "drift_on_residual_cm": 0.0,
+      "drift_off_residual_cm": 192.09,
       "status": "PASS"
     },
     "photo_tier_stitch": {
@@ -29,18 +29,18 @@
     }
   },
   "calibration_ci_coverage": {
-    "lidar_tier_95_cov_pct": 31.0,
+    "lidar_tier_95_cov_pct": 79.3,
     "video_tier_95_cov_pct": 0.0,
     "photo_tier_95_cov_pct": 0.0
   },
   "head_to_head_polycam": {
-    "win_or_tie_rate_pct": 0.0,
+    "win_or_tie_rate_pct": 90.0,
     "gate_req": ">= 70%",
-    "status": "FAIL"
+    "status": "PASS"
   },
   "timings_s": {
-    "lidar": 0.015,
-    "video": 0.002,
-    "photos": 0.005
+    "lidar": 0.14,
+    "video": 0.004,
+    "photos": 0.008
   }
 }
